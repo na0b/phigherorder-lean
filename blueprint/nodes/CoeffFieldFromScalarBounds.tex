@@ -1,0 +1,90 @@
+\begin{lemma}[Composition estimate for H\"older classes, from bounds on a scalar function]
+Let $W$ be a normed real vector space, let $j\in\mathbb{N}$, let $\kappa$ satisfy
+$0<\kappa\le1$, and let $C,D,d>0$.  Then there is $M>0$, depending only on
+$j,\kappa,C,D,d$, with the following property.
+
+Let $U,V\subseteq\mathrm{Plane}$ be open and convex, suppose $\lvert x-y\rvert\le d$ for all
+$x,y\in U$, let $\Phi\colon\mathrm{Plane}\to W$ and $v\colon\mathrm{Plane}\to\mathbb{R}$, write
+$Dv\colon\mathrm{Plane}\to\mathrm{Plane}$ for the classical gradient field of $v$, and assume
+\begin{enumerate}
+\item[(H1)] $Dv(x)\in V$ for every $x\in U$;
+\item[(H2)] $\Phi$ is of class $C^{\infty}$ on $V$ and
+  $\bigl\lVert D^{i}\Phi(\xi)\bigr\rVert\le C$ for every $i\le j+1$ and every $\xi\in V$;
+\item[(H3)] $v$ is of class $C^{\infty}$ on $U$ and
+  $\bigl\lVert D^{i}v(x)\bigr\rVert\le D$ for every $i\le j+1$ and every $x\in U$;
+\item[(H4)] $\bigl\lVert D^{\,j+1}v(x)-D^{\,j+1}v(y)\bigr\rVert\le D\,\lvert x-y\rvert^{\kappa}$
+  for all $x,y\in U$.
+\end{enumerate}
+Then
+\[
+  \bigl\lVert D^{i}(\Phi\circ Dv)(x)\bigr\rVert\le M
+  \quad(i\le j,\ x\in U),
+  \qquad
+  \bigl\lVert D^{j}(\Phi\circ Dv)(x)-D^{j}(\Phi\circ Dv)(y)\bigr\rVert
+    \le M\,\lvert x-y\rvert^{\kappa}
+  \quad(x,y\in U).
+\]
+
+In words: the coefficient field $\Phi\circ Dv$ inherits the class $C^{j,\kappa}$ from the
+$C^{\,j+1,\kappa}$ data of the SCALAR function $v$, with no loss of order and no loss of
+constant.  The hypotheses (H3), (H4) are bounds on the iterated derivatives of $v$ itself, one
+order higher than the conclusion, which is the form in which a Schauder bootstrap carries its
+inductive hypothesis.  The constant $M$ is produced before $U,V,\Phi,v$, so the estimate is
+uniform over all data satisfying the stated bounds.
+\end{lemma}
+\begin{proof}
+\noindent\emph{Step 1: the gradient field, and the bridge to $v$.}
+Write $D^{1}v\colon\mathrm{Plane}\to\mathrm{Plane}^{*}$ for the first Fr\'echet derivative of
+$v$, a map into the dual of the plane, and keep $Dv\colon\mathrm{Plane}\to\mathrm{Plane}$ for
+the classical gradient field.  Apply \noderef{GradientFieldOrderShift} with the open set $U$
+and the function $v$; its hypotheses are exactly that $U$ is open, which is assumed here, and
+that $v$ is of class $C^{\infty}$ on $U$, which is part of (H3).  Its clause (2) gives
+\begin{equation}\label{eq:cfss-greg}
+  Dv\ \text{is of class }C^{\infty}\text{ on }U,
+\end{equation}
+and its clauses (3) and (4) give the \emph{bridge}
+\begin{equation}\label{eq:cfss-bridge}
+  \bigl\lVert D^{n}(Dv)(x)\bigr\rVert=\bigl\lVert D^{\,n+1}v(x)\bigr\rVert,
+  \qquad
+  \bigl\lVert D^{n}(Dv)(x)-D^{n}(Dv)(y)\bigr\rVert
+    =\bigl\lVert D^{\,n+1}v(x)-D^{\,n+1}v(y)\bigr\rVert
+\end{equation}
+for every $n\in\mathbb{N}$ and all $x,y\in U$ --- the first clause of the display at every
+point of the plane, in fact, though only its restriction to $U$ is used below.  Both are
+equalities: no factor is lost in the passage between the scalar function and its gradient
+field, which is why the conversion performed by this node costs no constant.  That the Riesz
+map has to be inserted at all to obtain them is the whole content of the conversion: the
+order-shift proposition differentiates $D^{1}v$, which takes values in $\mathrm{Plane}^{*}$,
+whereas $Dv$ takes values in $\mathrm{Plane}$, and this development keeps the two apart.
+
+\medskip\noindent\emph{Step 2: the composition estimate.}
+Apply \noderef{CoeffFieldBounds} with the same normed space $W$ and the same parameters
+$j,\kappa,C,D,d$ --- legitimate since $0<\kappa\le1$ and $C,D,d>0$ --- and with the same $U,V$
+and $\Phi$, and with $H:=Dv$.  Let $M>0$ be the constant it furnishes; it depends only on
+$j,\kappa,C,D,d$, so it is produced before $U,V,\Phi,v$, as required.  Its hypotheses hold:
+\begin{itemize}
+\item $U$ and $V$ are open and convex and $\lvert x-y\rvert\le d$ on $U$, by hypothesis;
+\item (H1) of \noderef{CoeffFieldBounds}, that $H(x)=Dv(x)\in V$ for every $x\in U$, is (H1)
+  here;
+\item (H2) of \noderef{CoeffFieldBounds} is (H2) here, unchanged;
+\item (H3) of \noderef{CoeffFieldBounds} asks that $H=Dv$ be of class $C^{\infty}$ on $U$, which
+  is \eqref{eq:cfss-greg}, and that $\lVert D^{i}(Dv)(x)\rVert\le D$ for every $i\le j$ and $x\in U$: by the
+  first equality of \eqref{eq:cfss-bridge} with $n:=i$ this equals
+  $\lVert D^{\,i+1}v(x)\rVert$, which is at most $D$ by (H3) here, since $i+1\le j+1$;
+\item (H4) of \noderef{CoeffFieldBounds} asks that
+  $\lVert D^{j}(Dv)(x)-D^{j}(Dv)(y)\rVert\le D\lvert x-y\rvert^{\kappa}$ for $x,y\in U$: by the
+  second equality of \eqref{eq:cfss-bridge} with $n:=j$ this equals
+  $\lVert D^{\,j+1}v(x)-D^{\,j+1}v(y)\rVert$, which is at most $D\lvert x-y\rvert^{\kappa}$ by
+  (H4) here.
+\end{itemize}
+Its conclusion is
+\[
+  \bigl\lVert D^{i}(\Phi\circ Dv)(x)\bigr\rVert\le M
+  \quad(i\le j,\ x\in U),
+  \qquad
+  \bigl\lVert D^{j}(\Phi\circ Dv)(x)-D^{j}(\Phi\circ Dv)(y)\bigr\rVert
+    \le M\,\lvert x-y\rvert^{\kappa}
+  \quad(x,y\in U),
+\]
+which is the assertion.
+\end{proof}

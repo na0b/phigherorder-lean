@@ -1,0 +1,147 @@
+\begin{lemma}[Decay at one of finitely many scales]
+Let $1<p<2$, suppose $p$ satisfies Lewis rigidity and Iwaniec--Manfredi regularity, and let
+$(\kappa,C_0)$ be a first-order estimate datum for $p$.  Let $k\in\mathbb{N}$ with $k\ge2$ and
+let $\beta$ satisfy $0<\beta<1$ and $k+\beta<s(p)$.  Then there are $\delta>0$ and a finite
+nonempty set $R$ of real numbers, each lying in $(0,\tfrac14)$, such that for every
+$v\colon\mathrm{Plane}\to\mathbb{R}$ and every $g\colon\mathrm{Plane}\to\mathrm{Plane}$ with
+\begin{enumerate}
+\item $v$ is $p$-harmonic in $B_1$ with weak gradient $g$,
+\item $\lvert v(y)\rvert\le1$ for every $y\in B_1$,
+\item $v(0)=0$, and
+\item $\lvert Dv(0)\rvert\le\delta$, where $Dv$ is the classical gradient of $v$,
+\end{enumerate}
+there is $\rho\in R$ with
+\[
+  \lvert v(y)\rvert<\rho^{\,k+\beta}\qquad\text{for every }y\text{ with }\lvert y\rvert<\rho .
+\]
+The threshold $\delta$ and the set $R$ depend only on $p$, $k$ and $\beta$ (through the data
+named in the hypotheses), and in particular are chosen before $v$.
+\end{lemma}
+\begin{proof}
+Write $\mathcal{J}:=X_{1/2}\to^{b}(\mathbb{R}\times\mathrm{Plane})$ for the jet space, and let
+$x_\ast\in X_{1/2}$ be the point $0$ of the plane, legitimate since $\lvert0\rvert\le\tfrac12$.
+Put $\mathcal{K}:=\mathcal{K}_p$, the family of \noderef{CompactJetFamily}, and
+\[
+  \mathcal{K}_c:=\bigl\{z\in\mathcal{K}:\bigl(z(x_\ast)\bigr)_2=0\bigr\} .
+\]
+
+\medskip\noindent\emph{Step 1: $\mathcal{K}$ and $\mathcal{K}_c$ are compact.}
+$\mathcal{K}$ is compact by \noderef{CompactJetFamilyCompact}.  By clause (8) of the background
+proposition on bounded continuous functions the map $\Psi\colon\mathcal{J}\to\mathrm{Plane}$,
+$\Psi(z):=\bigl(z(x_\ast)\bigr)_2$, is continuous.  By clause (10) of the same proposition the
+singleton $\{0\}\subseteq\mathrm{Plane}$ is closed, hence $\Psi^{-1}(\{0\})$ is closed, and the
+intersection of the compact $\mathcal{K}$ with that closed set is compact.  Since
+$\mathcal{K}_c=\mathcal{K}\cap\Psi^{-1}(\{0\})$,
+\begin{equation}\label{eq:sc-Kc}
+  \mathcal{K}_c\ \text{is compact.}
+\end{equation}
+
+\medskip\noindent\emph{Step 2: a radius for each critical member.}
+Let $z\in\mathcal{K}_c$.  Then $z\in\mathcal{K}$, and for every $x\in X_{1/2}$ with $x=0$ as a
+point of the plane we have $x=x_\ast$ and hence $\bigl(z(x)\bigr)_2=0$.  So
+\noderef{CriticalMemberDecay} applies to $z$ and yields $\rho_z$ with $0<\rho_z<\tfrac14$ and
+\begin{equation}\label{eq:sc-half}
+  \bigl\lvert\bigl(z(x)\bigr)_1\bigr\rvert<\tfrac12\,\rho_z^{\,k+\beta}
+  \qquad\text{for every }x\in X_{1/2}\text{ with }\lvert x\rvert\le\rho_z .
+\end{equation}
+Note $\rho_z^{\,k+\beta}>0$, since $\rho_z>0$.
+
+\medskip\noindent\emph{Step 3: the halved bound makes a neighbourhood.}
+For $z\in\mathcal{K}_c$ set
+\[
+  V_z:=\Bigl\{w\in\mathcal{J}:\ d(w,z)<\tfrac12\,\rho_z^{\,k+\beta}\Bigr\} ,
+\]
+an open metric ball in $\mathcal{J}$, hence open by clause (11) of the
+bounded-continuous-functions proposition.  We claim
+\begin{equation}\label{eq:sc-nbhd}
+  w\in V_z\ \text{and}\ x\in X_{1/2}\ \text{with}\ \lvert x\rvert\le\rho_z
+  \ \Longrightarrow\ \bigl\lvert\bigl(w(x)\bigr)_1\bigr\rvert<\rho_z^{\,k+\beta} .
+\end{equation}
+Indeed, by the triangle inequality in $\mathbb{R}$, then clause (2) of the
+bounded-continuous-functions proposition (the distance between first components is at most the
+distance between the pairs), then clause (1) of that proposition
+($d(w(x),z(x))\le d(w,z)$), and finally \eqref{eq:sc-half} and $w\in V_z$,
+\[
+  \bigl\lvert\bigl(w(x)\bigr)_1\bigr\rvert
+  \le\bigl\lvert\bigl(z(x)\bigr)_1\bigr\rvert
+     +\bigl\lvert\bigl(w(x)\bigr)_1-\bigl(z(x)\bigr)_1\bigr\rvert
+  \le\bigl\lvert\bigl(z(x)\bigr)_1\bigr\rvert+d\bigl(w(x),z(x)\bigr)
+  \le\bigl\lvert\bigl(z(x)\bigr)_1\bigr\rvert+d(w,z)
+  <\tfrac12\rho_z^{\,k+\beta}+\tfrac12\rho_z^{\,k+\beta}
+  =\rho_z^{\,k+\beta}.
+\]
+Also $z\in V_z$, because $d(z,z)=0<\tfrac12\rho_z^{\,k+\beta}$.
+
+\medskip\noindent\emph{Step 4: a finite subcover, and the set of radii.}
+By the last remark of Step 3 the family $(V_z)_{z\in\mathcal{K}_c}$ is a family of open sets
+covering $\mathcal{K}_c$.  By \eqref{eq:sc-Kc} and clause (11) of the
+bounded-continuous-functions proposition there are finitely many $z_1,\ldots,z_N\in\mathcal{K}_c$
+with
+\begin{equation}\label{eq:sc-cover}
+  \mathcal{K}_c\subseteq U:=\bigcup_{i=1}^{N}V_{z_i} ,
+\end{equation}
+and $U$ is open, being a union of open sets.  Put
+\[
+  R:=\bigl\{\tfrac18\bigr\}\cup\bigl\{\rho_{z_1},\ldots,\rho_{z_N}\bigr\} ,
+\]
+a finite set.  It is nonempty, since $\tfrac18\in R$; and every element lies in $(0,\tfrac14)$,
+since $0<\tfrac18<\tfrac14$ and $0<\rho_{z_i}<\tfrac14$ by Step 2.  The extra element $\tfrac18$
+is included only to make $R$ nonempty without having to exhibit a critical member --- the
+conclusion of the lemma asserts the existence of a suitable $\rho$ \emph{in} $R$, so enlarging
+$R$ by a radius in $(0,\tfrac14)$ neither strengthens nor weakens it.
+
+\medskip\noindent\emph{Step 5: the threshold $\delta$.}
+Define $F\colon\mathcal{J}\to\mathbb{R}$ by $F(z):=\bigl\lvert\bigl(z(x_\ast)\bigr)_2\bigr\rvert$.
+By clause (8) of the bounded-continuous-functions proposition $F$ is continuous on
+$\mathcal{J}$, hence continuous on $\mathcal{K}$, and $F\ge0$ everywhere.  Moreover
+\[
+  \{z\in\mathcal{K}:F(z)=0\}
+  =\bigl\{z\in\mathcal{K}:\bigl(z(x_\ast)\bigr)_2=0\bigr\}=\mathcal{K}_c\subseteq U
+\]
+by \eqref{eq:sc-cover}, the first equality because a vector has zero norm exactly when it is
+zero.  So \noderef{UniformDelta}, applied with the topological space $\mathcal{J}$, the compact
+set $\mathcal{K}$, this $F$ and the open set $U$, yields $\delta>0$ with
+\begin{equation}\label{eq:sc-delta}
+  \{z\in\mathcal{K}:F(z)\le\delta\}\subseteq U .
+\end{equation}
+Both $\delta$ and $R$ have now been fixed, using only $p$, $k$, $\beta$ and the data named in
+the hypotheses; no $v$ has been mentioned.
+
+\medskip\noindent\emph{Step 6: the conclusion for a normalized solution.}
+Let $v$ and $g$ satisfy hypotheses (1)--(4).
+
+\emph{(a) The jet of $v$ lies in $\mathcal{K}$.}  Apply
+\noderef{PHarmJetEquicontinuity} with $x_0:=0$, $R:=\tfrac12$ and $M:=1$; its hypotheses hold
+because $1<p<2$, $\tfrac12>0$, $1>0$, $v$ is $p$-harmonic in $B_{2\cdot(1/2)}(0)=B_1$ with weak
+gradient $g$ by (1), and $\lvert v\rvert\le1$ on $B_1$ by (2).  Since $3\cdot\tfrac12/2=\tfrac34$
+its conclusion gives that $v$ is of class $C^{1}$ on $B_{3/4}$.  Every $x\in X_{1/2}$ satisfies
+$\lvert x\rvert\le\tfrac12<\tfrac34$, so $X_{1/2}\subseteq B_{3/4}$, and clause (2) of the
+background proposition on locality of $C^{1}$ regularity makes $v$ and $Dv$ continuous on
+$B_{3/4}$, hence on $X_{1/2}$.  Therefore $x\mapsto\bigl(v(x),Dv(x)\bigr)$ is continuous on
+$X_{1/2}$, and by clause (9) of the bounded-continuous-functions proposition --- a continuous map
+on a compact base is bounded and determines an element of $\mathcal{J}$ with the same values ---
+there is $z_v\in\mathcal{J}$ with
+\begin{equation}\label{eq:sc-jet}
+  z_v(x)=\bigl(v(x),Dv(x)\bigr)\qquad\text{for every }x\in X_{1/2}.
+\end{equation}
+The four membership conditions of the generating set of \noderef{CompactJetFamily} now hold for
+$z_v$ with the witnesses $v$ and $g$: condition (1) is hypothesis (1), condition (2) is
+hypothesis (2), condition (3) is hypothesis (3), and condition (4) is \eqref{eq:sc-jet}.  So
+$z_v$ lies in the generating set, hence in its closure $\mathcal{K}$.
+
+\emph{(b) The jet passes the threshold.}  By \eqref{eq:sc-jet} at $x=x_\ast$ and hypothesis (4),
+\[
+  F(z_v)=\bigl\lvert\bigl(z_v(x_\ast)\bigr)_2\bigr\rvert=\lvert Dv(0)\rvert\le\delta .
+\]
+With (a) this places $z_v$ in the set on the left of \eqref{eq:sc-delta}, so $z_v\in U$, and by
+the definition of $U$ in \eqref{eq:sc-cover} there is $i\in\{1,\ldots,N\}$ with
+$z_v\in V_{z_i}$.
+
+\emph{(c) Reading off the decay.}  Put $\rho:=\rho_{z_i}$, which lies in $R$ by Step 4.  Let
+$y\in\mathrm{Plane}$ with $\lvert y\rvert<\rho$.  Then $\lvert y\rvert<\rho<\tfrac14<\tfrac12$,
+so $y$ is a point of $X_{1/2}$, and $\lvert y\rvert\le\rho$.  Hence \eqref{eq:sc-nbhd}, applied
+with $w:=z_v$, $z:=z_i$ and $x:=y$, gives
+$\bigl\lvert\bigl(z_v(y)\bigr)_1\bigr\rvert<\rho^{\,k+\beta}$, and by \eqref{eq:sc-jet} the left
+side is $\lvert v(y)\rvert$.  Thus $\lvert v(y)\rvert<\rho^{\,k+\beta}$ for every $y$ with
+$\lvert y\rvert<\rho$, with $\rho\in R$, which is the assertion.
+\end{proof}

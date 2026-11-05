@@ -1,0 +1,181 @@
+\begin{lemma}[The gradient field is the Riesz transport of the Fr\'echet derivative, and the order shift it induces]
+Let $U\subseteq\mathrm{Plane}$ be open and let $v\colon\mathrm{Plane}\to\mathbb{R}$ be of class
+$C^{\infty}$ on $U$.  Write $D^{1}v\colon\mathrm{Plane}\to\mathrm{Plane}^{*}$ for the Fr\'echet
+derivative of $v$, a map into the dual of the plane, and
+$Dv\colon\mathrm{Plane}\to\mathrm{Plane}$ for the classical gradient field of $v$, a map into the
+plane itself; let $J\colon\mathrm{Plane}\to\mathrm{Plane}^{*}$ be the Riesz map
+$J(\xi)=\langle\xi,\cdot\rangle$ of the background proposition on the Riesz identification of the
+gradient with the Fr\'echet derivative, and $J^{-1}$ its inverse.  Then:
+\begin{enumerate}
+\item[(1)] \textbf{Factorization.}  $Dv=J^{-1}\circ D^{1}v$, as an identity of maps
+$\mathrm{Plane}\to\mathrm{Plane}$ --- that is, at every point of $\mathrm{Plane}$, not merely on
+$U$.
+\item[(2)] \textbf{Regularity.}  $Dv$ is of class $C^{\infty}$ on $U$.
+\item[(3)] \textbf{One-point order shift.}  For every $n\in\mathbb{N}$ and every
+$x\in\mathrm{Plane}$,
+\[
+  \bigl\lVert D^{n}(Dv)(x)\bigr\rVert=\bigl\lVert D^{\,n+1}v(x)\bigr\rVert .
+\]
+This clause carries no restriction on $x$: it is asserted at every point of the plane, not only
+at points of $U$.
+\item[(4)] \textbf{Two-point order shift.}  For every $n\in\mathbb{N}$ and all $x,y\in U$,
+\[
+  \bigl\lVert D^{n}(Dv)(x)-D^{n}(Dv)(y)\bigr\rVert
+    =\bigl\lVert D^{\,n+1}v(x)-D^{\,n+1}v(y)\bigr\rVert .
+\]
+\end{enumerate}
+
+Clauses (3) and (4) are EQUALITIES, so no constant whatever is lost in passing between a scalar
+function and its gradient field, in either direction, at either a single point or a pair of
+points.  Clause (4) is not a consequence of clause (3): a H\"older seminorm is a two-point
+difference, and a statement about the norm of a jet at each of two points says nothing about the
+norm of the difference of those jets.  Clause (1) is what makes the passage possible at all: the
+order-shift proposition differentiates $D^{1}v$, which takes values in $\mathrm{Plane}^{*}$,
+whereas $Dv$ takes values in $\mathrm{Plane}$, and the two are kept apart throughout this
+development.
+\end{lemma}
+\begin{proof}
+Throughout, $\mathcal{L}_n(Z)$ denotes the normed space of continuous $n$-linear maps
+$\mathrm{Plane}^{n}\to Z$, with the operator norm of the background proposition on the operator
+norm of a continuous multilinear map.  By clause (1) of the Riesz proposition, $J$ is a linear
+isometry of $\mathrm{Plane}$ onto $\mathrm{Plane}^{*}$, so $J^{-1}$ is one of
+$\mathrm{Plane}^{*}$ onto $\mathrm{Plane}$; both are in particular linear and continuous.
+
+\medskip\noindent\emph{A convention, recorded because clauses (1) and (3) are asserted off $U$.}
+\begin{itemize}
+\item[(C)] In this development the Fr\'echet derivative is a TOTAL operation: $D^{1}f(x)$ is the
+Fr\'echet derivative of $f$ at $x$ when $f$ is differentiable at $x$, and is the zero map
+otherwise, and the iterated derivatives are then defined for every $x$ by the recursion
+$D^{0}f(x)=f(x)$ together with clause (2) of the background proposition on the recursion for the
+iterated Fr\'echet derivative.  That this is the convention in force is visible in the
+proposition itself: its clause (2) is asserted ``for every $x$'' with no differentiability
+hypothesis, which is meaningful only if both sides are defined everywhere.  The same convention
+makes the classical gradient field total, with $Df(x)=0$ where $f$ is not differentiable.
+\end{itemize}
+
+\medskip\noindent\emph{A remark on post-composition with a linear isometric equivalence.}
+This is the one tool the proof uses, and the point of stating it for an \emph{equivalence} rather
+than for a merely injective isometry is that it then holds with no differentiability hypothesis
+at all, which is what lets clauses (1) and (3) be asserted off $U$.
+\begin{itemize}
+\item[(E)] Let $Z,Z'$ be normed real vector spaces and let $L\colon Z\to Z'$ be a linear
+isometry of $Z$ ONTO $Z'$, with inverse $L^{-1}$, again a linear isometry.  For
+$n\in\mathbb{N}$ let
+\[
+  \Lambda_n\colon\mathcal{L}_n(Z)\to\mathcal{L}_n(Z'),
+  \qquad
+  \Lambda_n(Q):=L\circ Q,
+  \quad\text{i.e.}\quad
+  \Lambda_n(Q)[u_1,\ldots,u_n]:=L\bigl(Q[u_1,\ldots,u_n]\bigr).
+\]
+Then $\Lambda_n$ is a linear isometry of $\mathcal{L}_n(Z)$ onto $\mathcal{L}_n(Z')$, and for
+every $G\colon\mathrm{Plane}\to Z$, every $n\in\mathbb{N}$ and EVERY $x\in\mathrm{Plane}$,
+\begin{equation}\label{eq:gfos-E}
+  D^{n}(L\circ G)(x)=\Lambda_n\bigl(D^{n}G(x)\bigr).
+\end{equation}
+
+\emph{Proof of (E).}  First, $\Lambda_n$ is clearly linear, it is bijective with inverse
+$Q'\mapsto L^{-1}\circ Q'$, and it is isometric: by the operator-norm proposition,
+\[
+  \lVert\Lambda_n(Q)\rVert
+  =\sup\bigl\{\lVert L(Q[u_1,\ldots,u_n])\rVert:\lvert u_1\rvert\le1,\ldots,\lvert
+    u_n\rvert\le1\bigr\}
+  =\sup\bigl\{\lVert Q[u_1,\ldots,u_n]\rVert:\lvert u_1\rvert\le1,\ldots,\lvert
+    u_n\rvert\le1\bigr\}
+  =\lVert Q\rVert ,
+\]
+the middle equality because $L$ preserves norms.
+
+Next we record the order-$1$ case for an arbitrary linear isometric equivalence
+$T\colon Y\to Y'$ and an arbitrary $H\colon\mathrm{Plane}\to Y$:
+\begin{equation}\label{eq:gfos-T1}
+  D^{1}(T\circ H)(x)=T\circ D^{1}H(x)\qquad\text{for every }x\in\mathrm{Plane}.
+\end{equation}
+Indeed, $T$ is differentiable at every $\zeta\in Y$ with $DT(\zeta)=T$: linearity gives
+$T(\zeta+\eta)-T(\zeta)-T(\eta)=0$ for every $\eta$, so the remainder in the definition of the
+Fr\'echet derivative vanishes identically.  Hence if $H$ is differentiable at $x$, clause (1) of
+the background proposition on the chain rule for compositions gives that $T\circ H$ is
+differentiable at $x$ with $D^{1}(T\circ H)(x)=T\circ D^{1}H(x)$, which is
+\eqref{eq:gfos-T1}.  If instead $H$ is not differentiable at $x$, then neither is $T\circ H$:
+were it differentiable at $x$, then, $T^{-1}$ being linear and continuous, the same chain-rule
+argument applied to $T^{-1}$ and $T\circ H$ would make $H=T^{-1}\circ(T\circ H)$ differentiable
+at $x$, a contradiction.  So by (C) both sides of \eqref{eq:gfos-T1} are the zero map, and
+\eqref{eq:gfos-T1} holds again.
+
+Now prove \eqref{eq:gfos-E} by induction on $n$.  For $n=0$, clause (1) of the recursion
+proposition makes both sides the constant $0$-linear form with value $L(G(x))$.  Assume
+\eqref{eq:gfos-E} at $n$, for every $x$; that is, the identity of maps
+$D^{n}(L\circ G)=\Lambda_n\circ D^{n}G$ from $\mathrm{Plane}$ to $\mathcal{L}_n(Z')$.  Apply
+\eqref{eq:gfos-T1} with $T:=\Lambda_n$ --- legitimate, since $\Lambda_n$ is a linear isometric
+equivalence by the first paragraph --- and $H:=D^{n}G$, which gives, for every
+$x,w\in\mathrm{Plane}$,
+\[
+  D\bigl(D^{n}(L\circ G)\bigr)(x)[w]
+  =\Lambda_n\Bigl(D\bigl(D^{n}G\bigr)(x)[w]\Bigr).
+\]
+Evaluating both sides at $(u_1,\ldots,u_n)$, unfolding $\Lambda_n$, and using clause (2) of the
+recursion proposition on each side --- which, by (C), applies at every $x$ --- we get
+\[
+  D^{n+1}(L\circ G)(x)[w,u_1,\ldots,u_n]
+  =L\bigl(D^{n+1}G(x)[w,u_1,\ldots,u_n]\bigr)
+  =\Lambda_{n+1}\bigl(D^{n+1}G(x)\bigr)[w,u_1,\ldots,u_n],
+\]
+and since $w,u_1,\ldots,u_n$ were arbitrary this is \eqref{eq:gfos-E} at $n+1$.  This proves (E).
+\end{itemize}
+
+\medskip\noindent\emph{Clause (1): the factorization.}
+Fix $z\in\mathrm{Plane}$.  If $v$ is differentiable at $z$, then by clause (6) of the recursion
+proposition $D^{1}v(z)[w]=\langle Dv(z),w\rangle=J\bigl(Dv(z)\bigr)[w]$ for every
+$w\in\mathrm{Plane}$, i.e.\ $D^{1}v(z)=J\bigl(Dv(z)\bigr)$, and applying $J^{-1}$ gives
+$Dv(z)=J^{-1}\bigl(D^{1}v(z)\bigr)$.  If $v$ is not differentiable at $z$, then by (C) both
+$D^{1}v(z)$ and $Dv(z)$ are zero, and $J^{-1}(0)=0$ by linearity, so the identity holds there
+too.  (Equivalently: in this development the classical gradient field is \emph{defined} as the
+Riesz transport $J^{-1}\circ D^{1}v$ of the Fr\'echet derivative, and clause (2) of the Riesz
+proposition is the assertion that this agrees with the classical notion wherever the latter
+exists.)  As $z$ was arbitrary, $Dv=J^{-1}\circ D^{1}v$ everywhere, which is clause (1).
+
+\medskip\noindent\emph{Clause (2): regularity.}
+$v$ is of class $C^{\infty}$ on the open set $U$ by hypothesis, so clause (1) of the background
+proposition on regularity of the gradient field and of directional derivatives, applied with
+$n=\infty$ (for which ``of class $C^{n+1}$'' means ``of class $C^{\infty}$''), gives that $Dv$ is
+of class $C^{\infty}$ on $U$.  This is clause (2).
+
+\medskip\noindent\emph{Clauses (3) and (4): the order shift.}
+Fix $n\in\mathbb{N}$.  Apply (E) with $Z:=\mathrm{Plane}^{*}$, $Z':=\mathrm{Plane}$,
+$L:=J^{-1}$ --- a linear isometry ONTO $\mathrm{Plane}$, as recorded at the start --- and
+$G:=D^{1}v$; by clause (1) the composite $L\circ G$ is exactly $Dv$.  So \eqref{eq:gfos-E} reads
+\begin{equation}\label{eq:gfos-Lam}
+  D^{n}(Dv)(x)=\Lambda_n\bigl(D^{n}(D^{1}v)(x)\bigr)
+  \qquad\text{for every }x\in\mathrm{Plane},
+\end{equation}
+with $\Lambda_n$ the linear isometry of (E) for $L=J^{-1}$.  Being an isometry, $\Lambda_n$ turns
+\eqref{eq:gfos-Lam} into
+\begin{equation}\label{eq:gfos-sup1}
+  \bigl\lVert D^{n}(Dv)(x)\bigr\rVert=\bigl\lVert D^{n}(D^{1}v)(x)\bigr\rVert
+  \qquad(x\in\mathrm{Plane}),
+\end{equation}
+and, being in addition linear, so that
+$\Lambda_n(P)-\Lambda_n(Q)=\Lambda_n(P-Q)$, it turns \eqref{eq:gfos-Lam} applied at two points
+into
+\begin{equation}\label{eq:gfos-hol1}
+  \bigl\lVert D^{n}(Dv)(x)-D^{n}(Dv)(y)\bigr\rVert
+  =\bigl\lVert D^{n}(D^{1}v)(x)-D^{n}(D^{1}v)(y)\bigr\rVert
+  \qquad(x,y\in\mathrm{Plane}).
+\end{equation}
+Now $D^{1}v$ is precisely the Fr\'echet derivative of $v$, so clause (1) of the background
+proposition on the order shift and derivatives of a continuous bilinear pairing, applied with
+$W_1=\mathbb{R}$ and $f:=v$, gives in its two displayed consequences --- both asserted for all
+$x,y$, with no differentiability hypothesis ---
+\begin{equation}\label{eq:gfos-shift}
+  \bigl\lVert D^{\,n+1}v(x)\bigr\rVert=\bigl\lVert D^{n}(D^{1}v)(x)\bigr\rVert,
+  \qquad
+  \bigl\lVert D^{\,n+1}v(x)-D^{\,n+1}v(y)\bigr\rVert
+    =\bigl\lVert D^{n}(D^{1}v)(x)-D^{n}(D^{1}v)(y)\bigr\rVert .
+\end{equation}
+Combining \eqref{eq:gfos-sup1} with the first identity of \eqref{eq:gfos-shift} gives
+$\lVert D^{n}(Dv)(x)\rVert=\lVert D^{\,n+1}v(x)\rVert$ for every $x\in\mathrm{Plane}$, which is
+clause (3); combining \eqref{eq:gfos-hol1} with the second gives
+$\lVert D^{n}(Dv)(x)-D^{n}(Dv)(y)\rVert=\lVert D^{\,n+1}v(x)-D^{\,n+1}v(y)\rVert$ for all
+$x,y\in\mathrm{Plane}$, hence in particular for all $x,y\in U$, which is clause (4).  As $n$ was
+arbitrary, both clauses hold for every $n\in\mathbb{N}$.
+\end{proof}

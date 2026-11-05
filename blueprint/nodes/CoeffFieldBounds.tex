@@ -1,0 +1,176 @@
+\begin{lemma}[Composition estimate for H\"older classes]
+Let $W$ be a normed real vector space, let $j\in\mathbb{N}$, let $\kappa$ satisfy
+$0<\kappa\le1$, and let $C,D,d>0$.  Then there is $M>0$, depending only on
+$j,\kappa,C,D,d$, with the following property.
+
+Let $U,V\subseteq\mathrm{Plane}$ be open and convex, suppose
+$\lvert x-y\rvert\le d$ for all $x,y\in U$, let $\Phi\colon\mathrm{Plane}\to W$ and
+$H\colon\mathrm{Plane}\to\mathrm{Plane}$, and assume
+\begin{enumerate}
+\item[(H1)] $H(x)\in V$ for every $x\in U$;
+\item[(H2)] $\Phi$ is of class $C^{\infty}$ on $V$ and
+  $\bigl\lVert D^{i}\Phi(\xi)\bigr\rVert\le C$ for every $i\le j+1$ and every $\xi\in V$;
+\item[(H3)] $H$ is of class $C^{\infty}$ on $U$ and
+  $\bigl\lVert D^{i}H(x)\bigr\rVert\le D$ for every $i\le j$ and every $x\in U$;
+\item[(H4)] $\bigl\lVert D^{j}H(x)-D^{j}H(y)\bigr\rVert\le D\,\lvert x-y\rvert^{\kappa}$ for all
+  $x,y\in U$.
+\end{enumerate}
+Then
+\[
+  \bigl\lVert D^{i}(\Phi\circ H)(x)\bigr\rVert\le M
+  \quad(i\le j,\ x\in U),
+  \qquad
+  \bigl\lVert D^{j}(\Phi\circ H)(x)-D^{j}(\Phi\circ H)(y)\bigr\rVert
+    \le M\,\lvert x-y\rvert^{\kappa}
+  \quad(x,y\in U).
+\]
+
+In words: a composition $\Phi\circ H$ inherits the class $C^{j,\kappa}$ from $H$, with no loss
+of order, provided $\Phi$ is smooth with derivatives of order up to $j+1$ bounded near the range
+of $H$.  The constant $M$ is produced before $U,V,\Phi,H$, so the estimate is uniform over all
+data satisfying the stated bounds.
+\end{lemma}
+\begin{proof}
+Throughout, $U$ is open and convex of diameter at most $d$, and all iterated derivatives of a
+map defined on $U$ are the ambient ones, which agree on the open set $U$ with those computed
+within it because derivatives are local.
+
+\medskip\noindent\emph{Terminology.}  For a normed real vector space $Z$, an integer $m\ge0$ and
+a real $K\ge0$, say that $F\colon\mathrm{Plane}\to Z$ is \emph{$(m,K)$-good on $U$} when $F$ is
+of class $C^{\infty}$ on $U$ and
+\[
+  \bigl\lVert D^{i}F(x)\bigr\rVert\le K\ \ (i\le m,\ x\in U),
+  \qquad
+  \bigl\lVert D^{m}F(x)-D^{m}F(y)\bigr\rVert\le K\,\lvert x-y\rvert^{\kappa}\ \ (x,y\in U).
+\]
+Put
+\[
+  D':=\max\{D,1\}\ \ (\ge1).
+\]
+The assertion to be proved is that $\Phi\circ H$ satisfies the two displayed bounds with a
+single constant $M$; equivalently, since $\Phi\circ H$ is of class $C^{\infty}$ on $U$ by
+clause (3) of the background proposition on the chain rule for compositions, that $\Phi\circ H$
+is $(j,M)$-good on $U$.
+
+\medskip\noindent\emph{Step 0: goodness descends one order.}
+
+\emph{(0b)}  Apply \noderef{JetHolderDescent} with the exponent $\kappa$ and the diameter
+bound $d$ --- admissible since $0<\kappa$ and $\kappa\le1$ --- and let $\theta$ be the factor
+it furnishes, so that $\theta\ge1$ and $\theta$ depends only on $\kappa$ and $d$; in
+particular it is fixed before $U$, $V$, $\Phi$ and $H$.  Since $U$ is open, convex and of
+diameter at most $d$, that node says: for every normed real vector space $Z$, every
+$m\in\mathbb{N}$, every $K\ge0$ and every $F\colon\mathrm{Plane}\to Z$ of class $C^{\infty}$
+on $U$ with $\lVert D^{i}F(x)\rVert\le K$ for all $i\le m+1$ and $x\in U$, both
+$\lVert D^{i}F(x)\rVert\le K\theta$ for $i\le m$ and $x\in U$ and
+$\lVert D^{m}F(x)-D^{m}F(y)\rVert\le K\theta\lvert x-y\rvert^{\kappa}$ for $x,y\in U$.  In the
+terminology above: if $F$ is $(m+1,K)$-good on $U$ --- which in particular supplies the sup
+bounds up to order $m+1$ --- then $F$ is $(m,K\theta)$-good on $U$.  One order is spent and
+the cost in the constant is the single factor $\theta$, which is what makes the induction of
+Step 2 below terminate with a constant depending only on $j,\kappa,C,D,d$.
+
+\medskip\noindent\emph{Step 1: a continuous bilinear pairing preserves goodness.}
+This is \noderef{BilinearPairingBounds}.  Read with the exponent $\kappa$, the diameter bound
+$d$, an order $n$ and a constant $L>0$, its statement says: there is $q>0$ depending only on
+$n,L,\kappa,d$ such that for all normed real vector spaces $Z_1,Z_2,Z_3$, every continuous
+bilinear $B\colon Z_1\times Z_2\to Z_3$ with
+$\lVert B(a,b)\rVert\le\lVert a\rVert\lVert b\rVert$, every open convex
+$U\subseteq\mathrm{Plane}$ of diameter at most $d$, and all $F,G$ that are respectively
+$(n,L)$-good and $(n,L)$-good on $U$, the map $y\mapsto B\bigl(F(y),G(y)\bigr)$ is $(n,q)$-good
+on $U$.  Write $q_n(L)$ for that constant, which is produced before the spaces, the pairing and
+the data.
+
+Two features of that statement matter for how it is used below.  Its hypothesis on $B$ is the
+\emph{pointwise} bound $\lVert B(a,b)\rVert\le\lVert a\rVert\lVert b\rVert$ rather than a bound
+on the operator norm of $B$; the pairing we apply it to satisfies the pointwise bound, so this
+costs nothing.  And it takes a \emph{single} constant $L$ bounding both arguments; since
+$(n,L)$-goodness is monotone in $L$ --- both displayed bounds only weaken when $L$ grows --- a
+map that is $(n,L_1)$-good is also $(n,\max\{L_1,L_2\})$-good, and that is how a pair with two
+different bounding constants is supplied to it.
+
+\medskip\noindent\emph{Step 2: the composition estimate, by induction on the order.}
+\emph{Claim.}  For every $m\in\mathbb{N}$ there is $M_m=M_m(\kappa,C,D,d)>0$ such that,
+simultaneously for every normed real vector space $W$ and all $U,V,\Phi,H$ satisfying
+(H1)--(H4) with $j$ replaced by $m$, the map $\Phi\circ H$ is $(m,M_m)$-good on $U$.
+
+Again the quantification over all $W$ is essential: the inductive step applies the claim to
+$D\Phi$, whose values are continuous linear maps $\mathrm{Plane}\to W$.
+
+\emph{Base case $m=0$.}  Here (H2) gives $\lVert\Phi(\xi)\rVert\le C$ and
+$\lVert D\Phi(\xi)\rVert\le C$ on $V$, and (H3)--(H4) give
+$\lVert H(x)-H(y)\rVert\le D\lvert x-y\rvert^{\kappa}$ on $U$.  The composite is of class
+$C^{\infty}$ on $U$ by clause (3) of the chain-rule proposition.  For $x\in U$ we have
+$H(x)\in V$ by (H1), so $\lVert\Phi(H(x))\rVert\le C$.  For $x,y\in U$, both $H(x)$ and $H(y)$
+lie in the convex set $V$, on which $\Phi$ is differentiable with
+$\lVert D\Phi\rVert\le C$; the vector-valued mean value inequality on $V$ therefore gives
+\[
+  \bigl\lVert\Phi(H(x))-\Phi(H(y))\bigr\rVert\le C\,\lVert H(x)-H(y)\rVert
+  \le C D\,\lvert x-y\rvert^{\kappa}.
+\]
+So $M_0:=C+CD+1$ works.
+
+\emph{Inductive step.}  Assume the claim at $m$ and let $U,V,\Phi,H$ satisfy (H1)--(H4) with
+$j=m+1$; thus $\lVert D^{i}\Phi\rVert\le C$ on $V$ for $i\le m+2$,
+$\lVert D^{i}H\rVert\le D$ on $U$ for $i\le m+1$, and
+$\lVert D^{m+1}H(x)-D^{m+1}H(y)\rVert\le D\lvert x-y\rvert^{\kappa}$.
+
+\emph{The sup bounds.}  Let $i\le m+1$ and $x\in U$.  Since $D'\ge1$ we have
+$\lVert D^{l}H(x)\rVert\le D\le D'\le (D')^{l}$ for $1\le l\le i$, and
+$\lVert D^{l}\Phi(H(x))\rVert\le C$ for $l\le i$ by (H2) and (H1).  Clause (4) of the chain-rule
+proposition, applied on the open sets $U$ and $V$ with $H(U)\subseteq V$, therefore gives
+\[
+  \bigl\lVert D^{i}(\Phi\circ H)(x)\bigr\rVert\le i!\,C\,(D')^{i}
+  \le (m+1)!\,C\,(D')^{m+1}.
+\]
+
+\emph{The H\"older bound at order $m+1$.}  By clause (1) of the order-shift proposition it
+suffices to bound the two-point differences of $D^{m}E$ where
+$E:=D(\Phi\circ H)$.  By the chain rule, clause (1) of the chain-rule proposition, for
+$x\in U$,
+\[
+  E(x)=D\Phi\bigl(H(x)\bigr)\circ DH(x)=B_{\mathrm{comp}}\bigl(D\Phi(H(x)),\,DH(x)\bigr),
+\]
+with $B_{\mathrm{comp}}$ the composition pairing of clause (4) of the order-shift proposition,
+which is continuous bilinear with $\lVert B_{\mathrm{comp}}\rVert\le1$ and therefore satisfies
+the pointwise bound
+$\lVert B_{\mathrm{comp}}(S,T)\rVert\le\lVert S\rVert\lVert T\rVert$ required by
+\noderef{BilinearPairingBounds}.  We check that each argument is $(m,\cdot)$-good on $U$.
+
+For the first argument, apply the inductive hypothesis with the normed space
+$W':=\mathcal{L}(\mathrm{Plane},W)$, the map $\Phi':=D\Phi$ and the same $U,V,H$.  Its
+hypotheses hold: (H1) is unchanged; $D\Phi$ is of class $C^{\infty}$ on the open set $V$
+because $\Phi$ is, and by clause (1) of the order-shift proposition
+$\lVert D^{i}(D\Phi)(\xi)\rVert=\lVert D^{i+1}\Phi(\xi)\rVert\le C$ for every $i\le m+1$ and
+$\xi\in V$, which is (H2) at order $m$; and $H$ is $(m,D\theta)$-good on $U$ by (0b) applied to
+the $(m+1,D)$-goodness of $H$, which supplies (H3) and (H4) at order $m$ with the constant
+$D\theta$ in place of $D$.  Since $M_m$ was produced before the data and depends only on
+$\kappa$, the two bounding constants and $d$, the conclusion is that
+$D\Phi\circ H$ is $(m,M_m')$-good on $U$, where $M_m'=M_m(\kappa,C,D\theta,d)$.
+
+For the second argument, $DH$ is $(m,D)$-good on $U$: it is of class $C^{\infty}$ on $U$, and by
+clause (1) of the order-shift proposition $\lVert D^{i}(DH)(x)\rVert=\lVert D^{i+1}H(x)\rVert\le
+D$ for $i\le m$, while
+$\lVert D^{m}(DH)(x)-D^{m}(DH)(y)\rVert=\lVert D^{m+1}H(x)-D^{m+1}H(y)\rVert
+ \le D\lvert x-y\rvert^{\kappa}$.
+
+\noderef{BilinearPairingBounds}, applied with the order $m$, the constant
+$L:=\max\{M_m',D\}$, the pairing $B:=B_{\mathrm{comp}}$ and the two arguments
+$F:=D\Phi\circ H$ and $G:=DH$ --- each $(m,L)$-good by the previous two paragraphs together with
+monotonicity of goodness in the constant --- now gives that $E=B_{\mathrm{comp}}(F,G)$ is
+$(m,q)$-good on $U$ with $q:=q_m\bigl(\max\{M_m',D\}\bigr)$.  In particular, for $x,y\in U$,
+\[
+  \bigl\lVert D^{m+1}(\Phi\circ H)(x)-D^{m+1}(\Phi\circ H)(y)\bigr\rVert
+  =\bigl\lVert D^{m}E(x)-D^{m}E(y)\bigr\rVert\le q\,\lvert x-y\rvert^{\kappa}.
+\]
+
+Combining the two displays, $\Phi\circ H$ is $(m+1,M_{m+1})$-good on $U$ with
+\[
+  M_{m+1}:=(m+1)!\,C\,(D')^{m+1}
+    +q_m\bigl(\max\{M_m(\kappa,C,D\theta,d),\,D\}\bigr)+1,
+\]
+which depends only on $m,\kappa,C,D,d$ and was fixed before $U,V,\Phi,H$.  This completes the
+induction.
+
+\medskip\noindent\emph{Conclusion.}  Taking $m:=j$ in Step 2 and $M:=M_j(\kappa,C,D,d)>0$
+gives exactly the two asserted bounds for $\Phi\circ H$ on $U$, with $M$ depending only on
+$j,\kappa,C,D,d$.
+\end{proof}

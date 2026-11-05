@@ -1,0 +1,40 @@
+\begin{definition}[Iwaniec--Manfredi qualitative regularity, as a hypothesis on $p$]
+Let $p\in\mathbb{R}$.  We say that \emph{$p$ satisfies Iwaniec--Manfredi regularity} when the
+following holds.  Let $\Omega\subseteq\mathrm{Plane}$ and let $u$ be $p$-harmonic in
+$\Omega$ with weak gradient $g$ (which in particular makes $\Omega$ open).  Let
+$k\in\mathbb{N}$ and $0<\beta<1$ satisfy
+$k+\beta<s(p)$, and let $x_0\in\Omega$.  Then there exist a radius $r>0$ and a constant
+$C>0$ such that $B_r(x_0)\subseteq\Omega$, the function $u$ is of class $C^{k}$ on
+$B_r(x_0)$, and
+\[
+  \bigl\lVert D^ku(x)-D^ku(y)\bigr\rVert\le C\,\lvert x-y\rvert^{\beta}
+  \qquad\text{for all }x,y\in B_r(x_0),
+\]
+where $D^ku(x)$ denotes the $k$-th Fr\'echet derivative of $u$ at $x$, a continuous
+$k$-linear form on $\mathrm{Plane}$, and $\lVert\cdot\rVert$ its operator norm.  In other
+words $u\in C^{k,\beta}(B_r(x_0))$.
+
+Two features of the quantifier order are essential.
+\begin{enumerate}
+\item The radius $r$ and the constant $C$ are chosen \emph{after} $u$ and $g$, so they are
+permitted to depend on the solution.  This is what makes the statement \emph{qualitative}:
+as the paper emphasises, ``the qualitative theorem does not itself provide uniform bounds for
+the corresponding norms'', and controlling these constants by the size of the solution is
+precisely the difficulty that the paper's compactness argument overcomes.  A version of this
+hypothesis with $r$ and $C$ independent of $u$ would make the paper's main theorem trivial.
+\item The order is expressed through a H\"older exponent below the threshold: local
+$C^{k,\beta}$ regularity is asserted for every pair $(k,\beta)$ with $0<\beta<1$ and
+$k+\beta<s(p)$.
+\end{enumerate}
+
+This is the regularity theorem of Iwaniec and Manfredi (\emph{Regularity of $p$-harmonic
+functions on the plane}, Rev. Mat. Iberoamericana \textbf{5} (1989), 1--19), which the paper
+cites rather than reproves.  Their theorem gives local $C^{m,\alpha}$ regularity with
+$m\in\mathbb{N}$, $0<\alpha\le1$ and $m+\alpha=s(p)$, and the form stated here is its
+standard consequence: if $k+\beta<s(p)=m+\alpha$ with $0<\beta<1$, then either $k<m$, in
+which case local $C^{m,\alpha}$ regularity gives local $C^{k,1}\subseteq C^{k,\beta}$
+regularity, or $k=m$ and then $\beta<\alpha$, so local $C^{m,\alpha}$ regularity gives local
+$C^{k,\beta}$ regularity directly; the case $k>m$ cannot occur, since then
+$k+\beta>k\ge m+1>m+\alpha=s(p)$.  Thus the hypothesis stated here is strictly weaker than
+the cited theorem.
+\end{definition}

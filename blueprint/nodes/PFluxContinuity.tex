@@ -1,0 +1,67 @@
+\begin{lemma}[Norm and continuity of the $p$-flux]
+Let $1<p<2$.  Then
+\[
+  \lvert A_p(\xi)\rvert=\lvert\xi\rvert^{\,p-1}\qquad\text{for every }\xi\in\mathrm{Plane},
+\]
+the origin $\xi=0$ included, and the map $A_p\colon\mathrm{Plane}\to\mathrm{Plane}$ is
+continuous on all of $\mathrm{Plane}$.
+\end{lemma}
+\begin{proof}
+Since $1<p<2$ we have $p-2\neq0$ and $p-1>0$; both side conditions are used below, the first
+to evaluate $0^{\,p-2}$ and the second to evaluate $0^{\,p-1}$.
+
+\medskip\noindent\emph{Step 1: the norm identity.}
+Let $\xi\in\mathrm{Plane}$.
+
+If $\xi=0$, then by the definition of the $p$-flux \noderef{PFlux} we have
+$A_p(0)=\lvert0\rvert^{\,p-2}\cdot0=0$, so the left-hand side is $\lvert A_p(0)\rvert=0$.  The
+right-hand side is $\lvert0\rvert^{\,p-1}=0^{\,p-1}=0$ by clause (1) of the background
+proposition on elementary properties of real powers, applicable because $p-1>0$.  So both sides
+vanish and the identity holds.  (Note the identity is not obtained by cancelling a factor: the
+scalar $\lvert0\rvert^{\,p-2}=0^{\,p-2}=0$, and $0^{\,p-2}$ is $0$ rather than $+\infty$ only
+because of the convention fixed in \noderef{PFlux}.)
+
+If $\xi\neq0$, then $t:=\lvert\xi\rvert>0$.  By \noderef{PFlux} and the homogeneity of the norm,
+\[
+  \lvert A_p(\xi)\rvert
+  =\bigl\lvert\,\lvert\xi\rvert^{\,p-2}\,\xi\,\bigr\rvert
+  =\bigl\lvert\,t^{\,p-2}\,\bigr\rvert\cdot\lvert\xi\rvert
+  =t^{\,p-2}\cdot t
+  =t^{\,p-2}\,t^{\,1}
+  =t^{\,(p-2)+1}
+  =t^{\,p-1},
+\]
+where $t^{\,p-2}\ge0$ lets us drop the absolute value, and the addition rule
+$t^{a}t^{b}=t^{a+b}$ for $t>0$ is clause (2) of the elementary-powers background proposition.
+This is the asserted identity.
+
+\medskip\noindent\emph{Step 2: continuity away from the origin.}
+Fix $\xi_0\neq0$, so $\lvert\xi_0\rvert\neq0$.  The norm $\xi\mapsto\lvert\xi\rvert$ is
+continuous, and by clause (7) of the elementary-powers background proposition the real power
+$t\mapsto t^{\,p-2}$ is continuous at every $t\neq0$ (this is where $\lvert\xi_0\rvert\neq0$ is
+needed: the same clause records that for the negative exponent $p-2$ the function
+$t\mapsto t^{\,p-2}$ is \emph{not} continuous at $t=0$, since it tends to $+\infty$).  Hence
+$\xi\mapsto\lvert\xi\rvert^{\,p-2}$ is continuous at $\xi_0$.  Scalar multiplication
+$(\lambda,\eta)\mapsto\lambda\,\eta$ is continuous, and the identity $\xi\mapsto\xi$ is
+continuous, so the product $\xi\mapsto\lvert\xi\rvert^{\,p-2}\,\xi=A_p(\xi)$ is continuous at
+$\xi_0$.
+
+\medskip\noindent\emph{Step 3: continuity at the origin.}
+Here the scalar factor is unbounded, so continuity must come from Step 1 rather than from a
+product of continuous factors.  By \noderef{PFlux} and Step 1, $A_p(0)=0$, so continuity of
+$A_p$ at $0$ amounts to
+\[
+  \lvert A_p(\xi)-A_p(0)\rvert=\lvert A_p(\xi)\rvert\longrightarrow0
+  \qquad\text{as }\xi\to0 .
+\]
+By Step 1, $\lvert A_p(\xi)\rvert=\lvert\xi\rvert^{\,p-1}$.  Since $p-1>0$, clause (7) of the
+elementary-powers background proposition gives that $t\mapsto t^{\,p-1}$ is continuous on
+$[0,\infty)$ with value $0^{\,p-1}=0$ at $t=0$, and
+$\xi\mapsto\lvert\xi\rvert$ is continuous with $\lvert0\rvert=0$.  Composing, the function
+$\xi\mapsto\lvert\xi\rvert^{\,p-1}$ is continuous at $0$ with value $0$, so
+$\lvert\xi\rvert^{\,p-1}\to0$ as $\xi\to0$.  Hence
+$\lvert A_p(\xi)-A_p(0)\rvert\to0$, which is continuity of $A_p$ at $0$.
+
+\medskip\noindent Steps 2 and 3 give continuity of $A_p$ at every point of $\mathrm{Plane}$,
+that is, continuity of $A_p$ on $\mathrm{Plane}$.
+\end{proof}

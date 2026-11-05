@@ -1,0 +1,22 @@
+\begin{definition}[The closed half-ball as a space]
+Let
+\[
+  \overline{B_{1/2}}:=\overline{B_{1/2}(0)}
+   =\bigl\{y\in\mathrm{Plane}:\lvert y\rvert\le\tfrac12\bigr\}
+\]
+be the closed ball of radius $\tfrac12$ about the origin of the plane, and let
+$X_{1/2}$ denote this set regarded as a topological space in its own right: its points are the
+points $y$ of $\mathrm{Plane}$ with $\lvert y\rvert\le\tfrac12$, and its topology is the one
+induced from $\mathrm{Plane}$.  We write $y$ both for a point of $X_{1/2}$ and for the
+corresponding point of $\mathrm{Plane}$.
+
+The space $X_{1/2}$ is compact, being a closed bounded subset of $\mathrm{Plane}$.
+
+This is the base of the paper's compact family: the paper forms the closure, in
+$C^1(\overline{B_{1/2}})$, of a set of restrictions $v|_{\overline{B_{1/2}}}$ of functions that
+are $p$-harmonic on the larger ball $B_1$.  Mathlib at the pinned revision has no
+$C^1(K)$ function space, and none is needed: on a compact base the $C^1$ topology coincides
+with the $C^0$ topology on the \emph{jet} $y\mapsto(v(y),Dv(y))$, so the family is realized as a
+set of bounded continuous maps from $X_{1/2}$ to $\mathbb{R}\times\mathrm{Plane}$.  Fixing
+$X_{1/2}$ as a space is what lets that function type be written down.
+\end{definition}

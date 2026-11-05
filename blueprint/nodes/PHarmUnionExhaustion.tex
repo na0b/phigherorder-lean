@@ -1,0 +1,120 @@
+\begin{lemma}[$p$-harmonicity transfers to the union of an increasing exhaustion]
+Let $1<p<2$, let $(\Omega_n)_{n\in\mathbb{N}}$ be an increasing family of subsets of
+$\mathrm{Plane}$, that is $\Omega_n\subseteq\Omega_m$ whenever $n\le m$, let
+$u\colon\mathrm{Plane}\to\mathbb{R}$ and $g\colon\mathrm{Plane}\to\mathrm{Plane}$, and assume
+that for every $n$ the function $u$ is $p$-harmonic in $\Omega_n$ with weak gradient $g$ --- the
+same $g$ for every $n$.  Then $u$ is $p$-harmonic in $\Omega_\infty:=\bigcup_{n}\Omega_n$ with
+weak gradient $g$.
+\end{lemma}
+\begin{proof}
+We refer to the six conditions in the definition of a $p$-harmonic function with weak gradient,
+\noderef{IsPHarm}, by their numbers (1)--(6), and write $A_p$ for the $p$-flux \noderef{PFlux}.
+By condition (1) applied to the datum for index $n$, each $\Omega_n$ is open.
+
+\medskip\noindent\emph{Step 1: a compact subset of $\Omega_\infty$ lies in a single
+$\Omega_N$.}
+Let $K\subseteq\Omega_\infty$ be compact.  The sets $\Omega_n$ are open and cover $K$, so by
+compactness there are finitely many indices $n_1,\ldots,n_j$ with
+$K\subseteq\Omega_{n_1}\cup\cdots\cup\Omega_{n_j}$.  If $j=0$ then $K=\emptyset\subseteq\Omega_0$
+and we may take $N:=0$.  Otherwise put $N:=\max\{n_1,\ldots,n_j\}$.  For each $i$ we have
+$n_i\le N$, so $\Omega_{n_i}\subseteq\Omega_N$ by the increasing hypothesis; hence
+\begin{equation}\label{eq:pue-one}
+  K\subseteq\Omega_{n_1}\cup\cdots\cup\Omega_{n_j}\subseteq\Omega_N .
+\end{equation}
+
+\medskip\noindent\emph{Step 2: conditions (1)--(4) for $\Omega_\infty$.}
+
+(1) Each $\Omega_n$ is open, and a union of open sets is open, so $\Omega_\infty$ is open.  In
+particular $\Omega_\infty$ is Lebesgue measurable, by clause (2) of the background proposition
+on integrability of continuous and compactly supported functions.
+
+(2) Let $x\in\Omega_\infty$, say $x\in\Omega_n$.  By condition (2) for index $n$, the function
+$u$ is continuous on $\Omega_n$, and $\Omega_n$ is open, hence a neighbourhood of $x$; so $u$ is
+continuous at $x$, by the last clause of the background proposition on uniform limits of
+continuous functions.  Thus $u$ is continuous at every point of $\Omega_\infty$, hence
+continuous on $\Omega_\infty$.
+
+(3) The index set $\mathbb{N}$ is countable, and by condition (3) for each index $n$ the
+function $g$ is almost everywhere strongly measurable with respect to Lebesgue measure
+restricted to $\Omega_n$.  Clause (4) of the background proposition on restriction and
+congruence --- the countable-union criterion --- therefore gives that $g$ is almost everywhere
+strongly measurable with respect to Lebesgue measure restricted to
+$\Omega_\infty=\bigcup_n\Omega_n$.
+
+(4) Let $K\subseteq\Omega_\infty$ be compact.  By Step 1 there is $N$ with
+$K\subseteq\Omega_N$, and condition (4) for index $N$ gives that
+$x\mapsto\lvert g(x)\rvert^{p}$ is integrable on $K$.
+
+\medskip\noindent\emph{Step 3: a localization estimate.}
+Let $W\subseteq\mathrm{Plane}$ be open and suppose $u$ is continuous on $W$, $g$ is almost
+everywhere strongly measurable for Lebesgue measure restricted to $W$, and
+$x\mapsto\lvert g(x)\rvert^{p}$ is integrable on every compact subset of $W$.  Let $\varphi$ be
+of class $C^\infty$ with compact support and $\operatorname{supp}\varphi\subseteq W$, and put
+$K_0:=\operatorname{supp}\varphi$, a compact subset of $W$, together with
+$B:=\sup_y\lvert D\varphi(y)\rvert<\infty$ and $B':=\sup_y\lvert\varphi(y)\rvert<\infty$, finite
+because $\varphi$ and $D\varphi$ are continuous and vanish off $K_0$ (on the open set
+$\mathrm{Plane}\setminus K_0$ the function $\varphi$ vanishes identically, so all its
+derivatives do too).  Then each of
+\[
+  u\,D\varphi,\qquad \varphi\,g,\qquad \bigl\langle A_p(g),D\varphi\bigr\rangle
+\]
+vanishes off $K_0$, is integrable on $W$, and has the same integral over $W$ as over $K_0$.
+
+For the first: $W$ is measurable, $u$ is continuous on $W$ and $D\varphi$ on all of
+$\mathrm{Plane}$, so $u\,D\varphi$ is continuous on $W$, hence bounded and integrable on the
+compact $K_0\subseteq W$ by clause (3) of the integrability proposition; vanishing off $K_0$,
+clause (4) of that proposition gives integrability on $W$ and equality of the two integrals.
+For the second: taking $a=1$ in clause (4) of the background proposition on elementary
+properties of real powers (legitimate as $1\le p$) gives
+$\lvert\eta\rvert\le1+\lvert\eta\rvert^{p}$ for every vector $\eta$, hence
+$\lvert\varphi\,g\rvert\le B'(1+\lvert g\rvert^{p})$, whose right side is integrable on $K_0$
+since $\lvert g\rvert^{p}$ is and $\lvert K_0\rvert<\infty$; $\varphi\,g$ is almost everywhere
+strongly measurable on $W$, so clauses (3) and (4) of the integrability proposition finish it.
+For the third: by \noderef{PFluxContinuity} the flux $A_p$ is continuous on $\mathrm{Plane}$ with
+$\lvert A_p(\eta)\rvert=\lvert\eta\rvert^{\,p-1}$ for every $\eta$, so $A_p\circ g$ is almost
+everywhere strongly measurable on $W$ (composition with a continuous map preserves that, by the
+background proposition on pointwise limits), and by Cauchy--Schwarz together with clause (4) of
+the elementary-powers proposition with $a=p-1\in[0,p]$,
+\[
+  \bigl\lvert\bigl\langle A_p(g(y)),D\varphi(y)\bigr\rangle\bigr\rvert
+  \le B\,\lvert g(y)\rvert^{\,p-1}\le B\bigl(1+\lvert g(y)\rvert^{p}\bigr),
+\]
+integrable on $K_0$ as before; clauses (3) and (4) again finish it.
+
+\medskip\noindent\emph{Step 4: conditions (5) and (6) for $\Omega_\infty$.}
+Let $\varphi$ be of class $C^\infty$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega_\infty$, and put $K_0:=\operatorname{supp}\varphi$,
+which is compact.  By Step 1 applied to $K_0$ there is $N$ with $K_0\subseteq\Omega_N$.  Thus
+$\varphi$ is an admissible test function for $\Omega_N$, and conditions (5) and (6) for index
+$N$ give
+\begin{equation}\label{eq:pue-N}
+  \int_{\Omega_N}u\,D\varphi\,dx=-\int_{\Omega_N}\varphi\,g\,dx,
+  \qquad
+  \int_{\Omega_N}\bigl\langle A_p(g),D\varphi\bigr\rangle\,dx=0 .
+\end{equation}
+Step 3 applies with $W=\Omega_N$, whose three hypotheses are conditions (2), (3), (4) for index
+$N$, and also with $W=\Omega_\infty$, whose three hypotheses are the conditions (2), (3), (4)
+established in Step 2.  In both cases $\operatorname{supp}\varphi=K_0$ is contained in $W$.
+Hence all six integrals appearing in \eqref{eq:pue-N} and in the corresponding statements over
+$\Omega_\infty$ reduce to integrals over $K_0$:
+\[
+  \int_{\Omega_\infty}u\,D\varphi=\int_{K_0}u\,D\varphi=\int_{\Omega_N}u\,D\varphi,
+  \qquad
+  \int_{\Omega_\infty}\varphi\,g=\int_{K_0}\varphi\,g=\int_{\Omega_N}\varphi\,g,
+\]
+\[
+  \int_{\Omega_\infty}\bigl\langle A_p(g),D\varphi\bigr\rangle
+  =\int_{K_0}\bigl\langle A_p(g),D\varphi\bigr\rangle
+  =\int_{\Omega_N}\bigl\langle A_p(g),D\varphi\bigr\rangle .
+\]
+Substituting into \eqref{eq:pue-N},
+\[
+  \int_{\Omega_\infty}u\,D\varphi\,dx=-\int_{\Omega_\infty}\varphi\,g\,dx,
+  \qquad
+  \int_{\Omega_\infty}\bigl\langle A_p(g),D\varphi\bigr\rangle\,dx=0 ,
+\]
+which are conditions (5) and (6) for $u$, $g$ on $\Omega_\infty$.
+
+\medskip\noindent All six conditions hold, so $u$ is $p$-harmonic in $\Omega_\infty$ with weak
+gradient $g$.
+\end{proof}

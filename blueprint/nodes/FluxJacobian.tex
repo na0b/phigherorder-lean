@@ -1,0 +1,32 @@
+\begin{definition}[Jacobian of the $p$-flux]
+Let $p\in\mathbb{R}$ and let $\xi\in\mathrm{Plane}$.  The \emph{flux Jacobian}
+$D_{\xi}A_p(\xi)=:\mathrm{FluxJacobian}(p,\xi)$ is the continuous linear map
+$\mathrm{Plane}\to\mathrm{Plane}$
+\[
+  \mathrm{FluxJacobian}(p,\xi)
+  :=\lvert\xi\rvert^{\,p-2}\Bigl(\mathrm{Id}
+      +(p-2)\,\frac{\xi\otimes\xi}{\lvert\xi\rvert^{2}}\Bigr),
+\]
+that is, the map acting by
+\[
+  w\longmapsto\lvert\xi\rvert^{\,p-2}
+    \Bigl(w+(p-2)\,\frac{\langle\xi,w\rangle}{\lvert\xi\rvert^{2}}\,\xi\Bigr),
+\]
+where $\lvert\xi\rvert^{\,p-2}$ is the real power of the nonnegative real number
+$\lvert\xi\rvert$, $\mathrm{Id}$ is the identity of $\mathrm{Plane}$, and
+$\xi\otimes\xi$ denotes the rank-one linear map $w\mapsto\langle\xi,w\rangle\,\xi$.  This is
+the matrix displayed at paper line 171 for the flux $A_p(\xi)=\lvert\xi\rvert^{p-2}\xi$ of
+\noderef{PFlux}.
+
+For $\xi=0$ the formula is degenerate; with the conventions $0^{a}=0$ for $a\ne0$, $0^{0}=1$ and
+$c/0=0$, the definition returns the zero map when $p\ne2$ and the identity when $p=2$.  (At
+$p=2$ the scalar $\lvert\xi\rvert^{\,p-2}$ is $0^{0}=1$ rather than $0$, while the factor
+$(p-2)/\lvert\xi\rvert^{2}$ is $0/0=0$ and kills the rank-one term, so the bracket collapses to
+$\mathrm{Id}$.  That value is the correct one: $A_2(\xi)=\lvert\xi\rvert^{0}\xi=\xi$, so
+$D_{\xi}A_2=\mathrm{Id}$.)  This value is never used: the flux Jacobian
+appears only on an annulus $0<a\le\lvert\xi\rvert\le b$ bounded away from the origin, which is
+where the paper uses it and where it genuinely is the Fr\'echet derivative of $A_p$.  The paper
+also fixes $1<p<2$ throughout (paper line 102), so the case $p=2$ never arises in use; the case
+split above is recorded because the definition quantifies over every $p\in\mathbb{R}$ with no
+hypothesis.
+\end{definition}

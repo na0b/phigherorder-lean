@@ -1,0 +1,127 @@
+\begin{lemma}[Uniform gradient bound and H\"older equicontinuity on an arbitrary ball]
+Let $1<p<2$ and let $(\kappa,C_0)$ be a first-order estimate datum for $p$, so that
+$0<\kappa<1$, $C_0>0$, and the estimate recorded in \noderef{FirstOrderEstimateInput} holds.
+Let $x_0\in\mathrm{Plane}$, let $R>0$ and $M>0$, let $v\colon\mathrm{Plane}\to\mathbb{R}$ and
+$g\colon\mathrm{Plane}\to\mathrm{Plane}$, and assume
+\begin{enumerate}
+\item $v$ is $p$-harmonic in $B_{2R}(x_0)$ with weak gradient $g$;
+\item $\lvert v(z)\rvert\le M$ for every $z\in B_{2R}(x_0)$.
+\end{enumerate}
+Then $v$ is of class $C^{1}$ on $B_{3R/2}(x_0)$, and its classical gradient $Dv$ satisfies
+\[
+  \lvert Dv(z)\rvert\le\frac{C_0\,M}{2R}\qquad\text{for all }z\in B_{3R/2}(x_0),
+\]
+\[
+  \lvert Dv(z)-Dv(z')\rvert\le\frac{C_0\,M}{2R}\left(\frac{\lvert z-z'\rvert}{2R}\right)^{\kappa}
+  \qquad\text{for all }z,z'\in B_{3R/2}(x_0).
+\]
+Both bounds depend only on $p$ (through $\kappa$ and $C_0$), on $R$ and on $M$, and not
+otherwise on $v$.
+\end{lemma}
+\begin{proof}
+Put
+\[
+  \lambda:=2R>0,\qquad T(x):=x_0+\lambda\,x,\qquad S(z):=\lambda^{-1}(z-x_0),
+\]
+so $T$ and $S$ are mutually inverse affine homeomorphisms of $\mathrm{Plane}$.  The second
+displayed bound of the statement is the one the paper writes as a $C^{0,\kappa}$ seminorm bound;
+note it can equivalently be written $C_0M(2R)^{-1-\kappa}\lvert z-z'\rvert^{\kappa}$.
+
+\medskip\noindent\emph{Step 1: normalize to the unit ball.}
+Define
+\[
+  w(x):=\frac{v(T(x))-0}{M},\qquad G_w(x):=\frac{\lambda}{M}\,g(T(x)).
+\]
+Apply \noderef{PHarmNormalize} with the domain $\Omega:=B_{2R}(x_0)=B_\lambda(x_0)$, the
+functions $v$ and $g$, the centre $x_0$, the dilation factor $r:=\lambda$, the normalizing
+factor $M$ and the additive constant $c:=0$.  Its hypotheses hold: $1<p<2$ by assumption,
+$\lambda>0$ and $M>0$, and $v$ is $p$-harmonic in $\Omega$ with weak gradient $g$ by hypothesis
+(1).  Its conclusion is that $w$ is $p$-harmonic in
+$\Omega':=\{x\in\mathrm{Plane}:T(x)\in\Omega\}$ with weak gradient $G_w$.
+
+We identify $\Omega'$.  For $x\in\mathrm{Plane}$,
+\[
+  T(x)\in B_\lambda(x_0)
+  \iff \lvert T(x)-x_0\rvert<\lambda
+  \iff \lvert\lambda\,x\rvert<\lambda
+  \iff \lambda\lvert x\rvert<\lambda
+  \iff \lvert x\rvert<1,
+\]
+the last step using $\lambda>0$.  Hence $\Omega'=B_1(0)$, and $w$ is $p$-harmonic in $B_1(0)$
+with weak gradient $G_w$.
+
+\medskip\noindent\emph{Step 2: the normalized function is bounded by $1$.}
+Let $x\in B_1(0)$.  By Step 1, $T(x)\in B_{2R}(x_0)$, so hypothesis (2) gives
+$\lvert v(T(x))\rvert\le M$, and therefore, as $M>0$,
+\[
+  \lvert w(x)\rvert=\frac{\lvert v(T(x))\rvert}{M}\le\frac{M}{M}=1 .
+\]
+
+\medskip\noindent\emph{Step 3: apply the first-order estimate datum.}
+By Steps 1 and 2, the function $w$ and the field $G_w$ satisfy exactly the two hypotheses of the
+estimate in \noderef{FirstOrderEstimateInput}: $w$ is $p$-harmonic in $B_1$ with weak gradient
+$G_w$, and $\lvert w\rvert\le1$ on $B_1$.  That estimate therefore gives
+\begin{equation}\label{eq:pje-w}
+  w\text{ is of class }C^{1}\text{ on }B_{3/4}(0),\qquad
+  \lvert Dw(x)\rvert\le C_0\ \ (x\in B_{3/4}(0)),
+\end{equation}
+\begin{equation}\label{eq:pje-whol}
+  \lvert Dw(x)-Dw(y)\rvert\le C_0\,\lvert x-y\rvert^{\kappa}\qquad(x,y\in B_{3/4}(0)).
+\end{equation}
+
+\medskip\noindent\emph{Step 4: transport back to $v$.}
+First, $v=M\,(w\circ S)$ as functions on $\mathrm{Plane}$: for every $z$,
+\[
+  M\,w(S(z))=M\cdot\frac{v(T(S(z)))}{M}=v(T(S(z)))=v(z),
+\]
+using $M>0$ and $T\circ S=\mathrm{id}$.
+
+Next, $S$ maps $B_{3R/2}(x_0)$ onto $B_{3/4}(0)$: by clause (4) of the background proposition on
+the gradient under an affine substitution, $S$ maps $B_{\lambda t}(x_0)$ onto $B_t(0)$ for every
+$t>0$, and $\lambda\cdot\tfrac34=2R\cdot\tfrac34=\tfrac{3R}{2}$, so the case $t=3/4$ is exactly
+the claim.  In particular
+\begin{equation}\label{eq:pje-image}
+  z\in B_{3R/2}(x_0)\iff S(z)\in B_{3/4}(0).
+\end{equation}
+
+By \eqref{eq:pje-w}, $w$ is of class $C^{1}$ on the open set $B_{3/4}(0)$, so clause (2) of the
+affine-substitution proposition makes $w\circ S$ of class $C^{1}$ on
+$\{z:S(z)\in B_{3/4}(0)\}$, which by \eqref{eq:pje-image} is $B_{3R/2}(x_0)$; and clause (3) of
+the same proposition makes $M\,(w\circ S)=v$ of class $C^{1}$ there.  This is the first assertion
+of the lemma.
+
+Moreover, for $z\in B_{3R/2}(x_0)$ the function $w$ is differentiable at $S(z)\in B_{3/4}(0)$, so
+clauses (1) and (3) of the affine-substitution proposition give
+\begin{equation}\label{eq:pje-chain}
+  Dv(z)=M\,D(w\circ S)(z)=M\,\lambda^{-1}\,Dw\bigl(S(z)\bigr)=\frac{M}{2R}\,Dw\bigl(S(z)\bigr).
+\end{equation}
+
+\medskip\noindent\emph{Step 5: the gradient bound.}
+Let $z\in B_{3R/2}(x_0)$.  By \eqref{eq:pje-image}, $S(z)\in B_{3/4}(0)$, so \eqref{eq:pje-chain}
+and the bound in \eqref{eq:pje-w} give, using $M/(2R)>0$,
+\[
+  \lvert Dv(z)\rvert=\frac{M}{2R}\,\bigl\lvert Dw(S(z))\bigr\rvert\le\frac{M}{2R}\,C_0
+  =\frac{C_0\,M}{2R}.
+\]
+
+\medskip\noindent\emph{Step 6: the H\"older bound.}
+Let $z,z'\in B_{3R/2}(x_0)$, so $S(z),S(z')\in B_{3/4}(0)$ by \eqref{eq:pje-image}.  By
+\eqref{eq:pje-chain} and \eqref{eq:pje-whol},
+\[
+  \lvert Dv(z)-Dv(z')\rvert
+  =\frac{M}{2R}\,\bigl\lvert Dw(S(z))-Dw(S(z'))\bigr\rvert
+  \le\frac{M}{2R}\,C_0\,\bigl\lvert S(z)-S(z')\bigr\rvert^{\kappa}.
+\]
+By clause (4) of the affine-substitution proposition,
+$\lvert S(z)-S(z')\rvert=\lambda^{-1}\lvert z-z'\rvert=\lvert z-z'\rvert/(2R)$.  Substituting,
+\[
+  \lvert Dv(z)-Dv(z')\rvert
+  \le\frac{C_0\,M}{2R}\left(\frac{\lvert z-z'\rvert}{2R}\right)^{\kappa},
+\]
+which is the second asserted bound.
+
+\medskip\noindent Finally, $\kappa$ and $C_0$ were fixed with the datum, before $v$ was chosen,
+and the only other quantities entering the two bounds are $R$ and $M$; so both bounds are
+uniform over the family of all $v$ satisfying hypotheses (1) and (2) with the same $x_0$, $R$
+and $M$.
+\end{proof}

@@ -1,0 +1,99 @@
+\begin{lemma}[Iterated derivatives along a ray]
+Let $U\subseteq\mathrm{Plane}$ be open, let $u\colon\mathrm{Plane}\to\mathbb{R}$, let
+$j\in\mathbb{N}$, and suppose $u$ is of class $C^{j}$ on $U$.  Let $x_0,e\in\mathrm{Plane}$ and
+$t\in\mathbb{R}$ with $x_0+t\,e\in U$.  Write $\gamma(s)=x_0+s\,e$ and
+$h=u\circ\gamma\colon\mathbb{R}\to\mathbb{R}$, so $h(s)=u(x_0+s\,e)$.  Then
+\[
+  h^{(j)}(t)=D^{j}u(x_0+t\,e)\,[e,\ldots,e],
+\]
+where $h^{(j)}$ is the $j$-th derivative of the one-variable function $h$ and the right-hand
+side is the $j$-th Fr\'echet derivative of $u$ at $x_0+t\,e$, a continuous $j$-linear form on
+$\mathrm{Plane}$, evaluated on $j$ copies of $e$.
+\end{lemma}
+\begin{proof}
+We argue by induction on $j$, proving for each $j$ the statement in the form: for every open
+$U$, every $u$ of class $C^{j}$ on $U$, every $x_0,e\in\mathrm{Plane}$ and every $t$ with
+$\gamma(t)=x_0+t\,e\in U$, one has $h^{(j)}(t)=D^{j}u(\gamma(t))[e,\ldots,e]$.  Note that the
+quantification over $t$ inside the induction statement is what makes the inductive step work.
+
+Throughout put
+\[
+  I:=\{s\in\mathbb{R}:\gamma(s)\in U\}=\gamma^{-1}(U).
+\]
+Since $\gamma$ is continuous and $U$ is open, $I$ is open; and $t\in I$ by hypothesis.
+
+\medskip\noindent\emph{Base case $j=0$.}
+By clause (4) of the background proposition on the recursion for the iterated Fr\'echet
+derivative, the $0$-th derivative of a one-variable function is the function itself, so
+$h^{(0)}(t)=h(t)=u(\gamma(t))$.  By clause (1) of the same proposition, the $0$-th Fr\'echet
+derivative $D^{0}u(x)$ is the constant $0$-linear form with value $u(x)$, so its evaluation on
+the empty family of vectors is $u(x)$.  Hence $D^{0}u(\gamma(t))[\;]=u(\gamma(t))=h^{(0)}(t)$, as
+required.
+
+\medskip\noindent\emph{Inductive step.}
+Let $j\in\mathbb{N}$ and assume the statement holds for $j$.  Let $U$ be open, let $u$ be of
+class $C^{j+1}$ on $U$, let $x_0,e\in\mathrm{Plane}$ and let $t\in I$.
+
+\emph{Step 1: the diagonal evaluation of $D^{j}u$ is a composition with a continuous linear
+map.}  Let $V_j$ be the normed vector space of continuous $j$-linear forms on
+$\mathrm{Plane}$, and let
+\[
+  L_j\colon V_j\to\mathbb{R},\qquad L_j(Q):=Q[e,\ldots,e]\quad(j\text{ copies of }e).
+\]
+The map $L_j$ is linear in $Q$, because evaluation of a multilinear form at a fixed family of
+vectors is linear in the form, and it is bounded, since
+$\lvert L_j(Q)\rvert=\lvert Q[e,\ldots,e]\rvert\le\lVert Q\rVert\,\lvert e\rvert^{j}$ by the
+operator-norm background proposition.  So $L_j$ is a continuous linear functional on $V_j$.
+Define
+\[
+  F\colon\mathrm{Plane}\to\mathbb{R},\qquad F(x):=D^{j}u(x)[e,\ldots,e]=L_j\bigl(D^{j}u(x)\bigr).
+\]
+
+\emph{Step 2: $F$ is differentiable at $\gamma(t)$, with $DF(\gamma(t))[e]
+=D^{j+1}u(\gamma(t))[e,\ldots,e]$ ($j+1$ copies).}
+Since $u$ is of class $C^{j+1}$ on the open set $U$, the map $x\mapsto D^{j}u(x)$ is of class
+$C^{1}$ on $U$, and its Fr\'echet derivative at a point $x\in U$ is the map
+$w\mapsto D^{j+1}u(x)[w,\cdot,\ldots,\cdot]$; that is, for all $w\in\mathrm{Plane}$ and all
+$v_1,\ldots,v_j\in\mathrm{Plane}$,
+\begin{equation}\label{eq:idar-succ}
+  \bigl(D(D^{j}u)(x)[w]\bigr)[v_1,\ldots,v_j]=D^{j+1}u(x)[w,v_1,\ldots,v_j].
+\end{equation}
+This is clause (2) of the background proposition on the recursion for the iterated Fr\'echet
+derivative.  By clause (3) of the same proposition, $x\mapsto D^{j}u(x)$ is of class $C^{1}$
+on $U$, hence differentiable at $\gamma(t)\in U$.
+Composing with the continuous linear functional $L_j$ of Step 1 and using the chain rule, $F$
+is differentiable at $\gamma(t)$ with
+\[
+  DF(\gamma(t))[w]=L_j\bigl(D(D^{j}u)(\gamma(t))[w]\bigr)
+  =\bigl(D(D^{j}u)(\gamma(t))[w]\bigr)[e,\ldots,e]
+  \overset{\eqref{eq:idar-succ}}{=}D^{j+1}u(\gamma(t))[w,e,\ldots,e].
+\]
+Taking $w=e$ gives
+\begin{equation}\label{eq:idar-dF}
+  DF(\gamma(t))[e]=D^{j+1}u(\gamma(t))[e,e,\ldots,e]\qquad(j+1\text{ copies of }e).
+\end{equation}
+
+\emph{Step 3: $h^{(j)}$ agrees with $F\circ\gamma$ near $t$.}
+Since $u$ is of class $C^{j+1}$ on $U$, it is in particular of class $C^{j}$ on $U$.  So the
+inductive hypothesis applies to $u$, $x_0$, $e$ and \emph{every} parameter $s\in I$, giving
+\[
+  h^{(j)}(s)=D^{j}u(\gamma(s))[e,\ldots,e]=F(\gamma(s))\qquad\text{for every }s\in I.
+\]
+Because $I$ is open and $t\in I$, the functions $h^{(j)}$ and $F\circ\gamma$ agree on a
+neighbourhood of $t$.
+
+\emph{Step 4: conclusion.}
+By clause (4) of the recursion background proposition,
+$h^{(j+1)}=\bigl(h^{(j)}\bigr)'$, so
+$h^{(j+1)}(t)=\bigl(h^{(j)}\bigr)'(t)$.  Derivatives are local, so by Step 3
+\[
+  \bigl(h^{(j)}\bigr)'(t)=\bigl(F\circ\gamma\bigr)'(t).
+\]
+The path $\gamma$ is affine with $\gamma'(s)=e$, and $F$ is differentiable at $\gamma(t)$ by
+Step 2, so the chain rule for an affine path gives
+$\bigl(F\circ\gamma\bigr)'(t)=DF(\gamma(t))[e]$.  Combining this with \eqref{eq:idar-dF},
+\[
+  h^{(j+1)}(t)=DF(\gamma(t))[e]=D^{j+1}u(\gamma(t))[e,\ldots,e]\qquad(j+1\text{ copies}),
+\]
+which is the statement for $j+1$.  This completes the induction and the proof.
+\end{proof}

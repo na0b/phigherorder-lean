@@ -1,0 +1,100 @@
+\begin{lemma}[The flux Jacobian is the derivative of the $p$-flux away from the origin]
+Let $p\in\mathbb{R}$.  Then for every $\xi\in\mathrm{Plane}$ with $\xi\ne0$, the $p$-flux $A_p$ of
+\noderef{PFlux} is Fr\'echet differentiable at $\xi$ and its derivative is the flux Jacobian of
+\noderef{FluxJacobian}:
+\[
+  DA_p(\xi)=D_\xi A_p(\xi)
+  =\lvert\xi\rvert^{\,p-2}\Bigl(I+\frac{p-2}{\lvert\xi\rvert^{2}}\,\xi\otimes\xi\Bigr).
+\]
+
+This is the definitional link between two definition nodes that are declared independently.
+$A_p(\zeta)=\lvert\zeta\rvert^{\,p-2}\zeta$ is a map $\mathrm{Plane}\to\mathrm{Plane}$;
+$D_\xi A_p(\xi)$ is a formula for a continuous linear map, written down directly rather than
+derived from the first.  That the second is the derivative of the first is therefore a theorem,
+and everything downstream rests on it: the coefficient field of the differentiated equation IS
+$D_\xi A_p$ composed with the gradient of the solution, and reading it that way is legitimate
+only once this identification is proved.
+
+NO RESTRICTION ON $p$ is needed, and none is assumed.  The statement holds for every real $p$.
+The hypothesis $1<p<2$ that the surrounding development carries concerns ellipticity constants
+and the sign of the exponent $p-2$, and plays no part here; this is the one clause of the flux
+package that mentions neither $p$'s range nor any annulus.
+
+The restriction $\xi\ne0$ is necessary, not a convenience: for $p<2$ the scalar factor
+$\lvert\zeta\rvert^{\,p-2}$ blows up as $\zeta\to0$, so $A_p$ is not even continuous at the
+origin, let alone differentiable there.
+\end{lemma}
+\begin{proof}
+Fix $\xi\ne0$, so $\lvert\xi\rvert>0$ and hence $\lvert\xi\rvert^{2}>0$ and
+$\lvert\xi\rvert^{2}\ne0$.
+
+\medskip\noindent\emph{Step 1: the squared norm, not the norm.}
+We route the computation through $\zeta\mapsto\lvert\zeta\rvert^{2}$ rather than
+$\zeta\mapsto\lvert\zeta\rvert$.  The reason is that the norm is not differentiable at the origin
+and its derivative elsewhere involves the norm again, whereas the squared norm is a polynomial in
+the coordinates: it is smooth on all of $\mathrm{Plane}$, and its Fr\'echet derivative at $\xi$ is
+the linear functional
+\begin{equation}\label{eq:fjid-sq}
+  D\bigl(\lvert\cdot\rvert^{2}\bigr)(\xi)=2\,\langle\xi,\cdot\rangle .
+\end{equation}
+Accordingly we record the square-root-free form of the scalar factor: for every
+$\zeta\in\mathrm{Plane}$,
+\begin{equation}\label{eq:fjid-sqrpow}
+  \bigl(\lvert\zeta\rvert^{2}\bigr)^{(p-2)/2}=\lvert\zeta\rvert^{\,p-2},
+\end{equation}
+by the power rule for real exponents applied to the nonnegative base $\lvert\zeta\rvert$, since
+$2\cdot\frac{p-2}{2}=p-2$.  Note that \eqref{eq:fjid-sqrpow} holds at EVERY $\zeta$, the origin
+included, both sides being $0$ there when $p<2$ under the convention for real powers of $0$.
+Consequently
+\begin{equation}\label{eq:fjid-PF}
+  A_p(\zeta)=\bigl(\lvert\zeta\rvert^{2}\bigr)^{(p-2)/2}\,\zeta
+  \qquad\text{for every }\zeta ,
+\end{equation}
+which is the form we differentiate.
+
+\medskip\noindent\emph{Step 2: the chain and product rules.}
+The one-variable map $t\mapsto t^{(p-2)/2}$ is differentiable at every $t\ne0$, with derivative
+$\frac{p-2}{2}\,t^{(p-2)/2-1}$.  Applying this at $t=\lvert\xi\rvert^{2}\ne0$ and composing with
+\eqref{eq:fjid-sq} --- the chain rule, clause (1) of the background proposition on the chain rule
+for compositions --- the scalar function
+$\zeta\mapsto\bigl(\lvert\zeta\rvert^{2}\bigr)^{(p-2)/2}$ is differentiable at $\xi$ with
+derivative the functional
+\[
+  w\longmapsto\frac{p-2}{2}\bigl(\lvert\xi\rvert^{2}\bigr)^{(p-2)/2-1}\cdot2\langle\xi,w\rangle .
+\]
+By \eqref{eq:fjid-PF}, $A_p$ is the product of that scalar function with the identity map
+$\zeta\mapsto\zeta$, whose derivative is $I$.  The product rule for a scalar times a
+vector-valued map --- clause (1) of the background proposition on the product rule and linearity
+for the classical gradient, in its bilinear-pairing form with the pairing
+$(\mu,\zeta)\mapsto\mu\zeta$ --- therefore gives that $A_p$ is differentiable at $\xi$ with
+\begin{equation}\label{eq:fjid-der}
+  DA_p(\xi)\,w
+  =\bigl(\lvert\xi\rvert^{2}\bigr)^{(p-2)/2}w
+    +\Bigl(\frac{p-2}{2}\bigl(\lvert\xi\rvert^{2}\bigr)^{(p-2)/2-1}\cdot
+      2\langle\xi,w\rangle\Bigr)\xi
+\end{equation}
+for every $w\in\mathrm{Plane}$.
+
+\medskip\noindent\emph{Step 3: identifying the right-hand side.}
+It remains to see that \eqref{eq:fjid-der} is the formula defining $D_\xi A_p(\xi)$.  Split off
+one factor of the base from the exponent: since $\lvert\xi\rvert^{2}>0$,
+\[
+  \bigl(\lvert\xi\rvert^{2}\bigr)^{(p-2)/2-1}
+  =\frac{\bigl(\lvert\xi\rvert^{2}\bigr)^{(p-2)/2}}{\lvert\xi\rvert^{2}} ,
+\]
+by the subtraction rule for real exponents.  Substituting this and
+\eqref{eq:fjid-sqrpow} into \eqref{eq:fjid-der}, the second summand becomes
+\[
+  \frac{p-2}{2}\cdot\frac{\lvert\xi\rvert^{\,p-2}}{\lvert\xi\rvert^{2}}\cdot
+    2\langle\xi,w\rangle\,\xi
+  =\lvert\xi\rvert^{\,p-2}\cdot
+    \frac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle\,\xi ,
+\]
+the two factors of $2$ cancelling, while the first becomes $\lvert\xi\rvert^{\,p-2}w$.  Hence
+\[
+  DA_p(\xi)\,w
+  =\lvert\xi\rvert^{\,p-2}\Bigl(w+\frac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle\,\xi\Bigr),
+\]
+which is exactly $D_\xi A_p(\xi)w$.  As $w$ was arbitrary the two continuous linear maps agree,
+and as $\xi\ne0$ was arbitrary the lemma is proved.
+\end{proof}

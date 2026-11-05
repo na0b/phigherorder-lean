@@ -1,0 +1,77 @@
+\begin{lemma}[The gradient of a test function has vanishing mean]
+Let $\varphi\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^1$ with compact support.  Then
+\[
+  \int_{\mathrm{Plane}}D\varphi(x)\,dx = 0 ,
+\]
+an identity between vectors of $\mathrm{Plane}$, where $D\varphi$ is the classical gradient of
+$\varphi$.
+\end{lemma}
+\begin{proof}
+Write $e_1,e_2$ for the standard orthonormal basis of $\mathrm{Plane}$ and
+$\partial_i\varphi(x)=\langle D\varphi(x),e_i\rangle$ for the corresponding partial
+derivatives.
+
+\emph{Step 1: the integral is well defined.}  Since $\varphi$ is $C^1$, the map $D\varphi$ is
+continuous.  Moreover $D\varphi$ vanishes on the open set
+$\mathrm{Plane}\setminus\operatorname{supp}\varphi$, on which $\varphi$ is identically $0$;
+hence $\operatorname{supp}(D\varphi)\subseteq\operatorname{supp}\varphi$ and $D\varphi$ has
+compact support.  A continuous function with compact support is integrable, so
+$\int_{\mathrm{Plane}}D\varphi\,dx$ exists, and the same applies to each scalar function
+$\partial_i\varphi$.
+
+\emph{Step 2: reduction to the two components.}  For each $i\in\{1,2\}$ the map
+$y\mapsto\langle y,e_i\rangle$ is a continuous linear functional on $\mathrm{Plane}$, so it
+commutes with the Bochner integral:
+\[
+  \Bigl\langle\int_{\mathrm{Plane}}D\varphi(x)\,dx,\;e_i\Bigr\rangle
+  =\int_{\mathrm{Plane}}\langle D\varphi(x),e_i\rangle\,dx
+  =\int_{\mathrm{Plane}}\partial_i\varphi(x)\,dx .
+\]
+Since $e_1,e_2$ is an orthonormal basis, a vector of $\mathrm{Plane}$ is $0$ as soon as both
+of these inner products vanish.  It therefore suffices to prove
+$\int_{\mathrm{Plane}}\partial_i\varphi\,dx=0$ for $i=1$ and $i=2$.
+
+\emph{Step 3: the case $i=1$.}  Because $\operatorname{supp}\varphi$ is compact, there is
+$R>0$ with $\operatorname{supp}\varphi\subseteq B_R$; by Step 1 also
+$\operatorname{supp}(D\varphi)\subseteq B_R$.  Hence
+\begin{equation}\label{eq:tfgi-vanish}
+  \varphi(x)=0\quad\text{and}\quad D\varphi(x)=0\qquad\text{whenever }\lvert x\rvert\ge R .
+\end{equation}
+Identify $\mathrm{Plane}$ with $\mathbb{R}\times\mathbb{R}$ by $x\mapsto(x_1,x_2)$, where
+$x=x_1e_1+x_2e_2$; this identification is measure preserving.  Since $\partial_1\varphi$ is
+integrable by Step 1, Fubini's theorem gives
+\[
+  \int_{\mathrm{Plane}}\partial_1\varphi(x)\,dx
+  =\int_{\mathbb{R}}\left(\int_{\mathbb{R}}\partial_1\varphi(t\,e_1+s\,e_2)\,dt\right)ds .
+\]
+Fix $s\in\mathbb{R}$ and set $h(t):=\varphi(t\,e_1+s\,e_2)$ for $t\in\mathbb{R}$.  The map
+$t\mapsto t\,e_1+s\,e_2$ is affine, hence $C^\infty$, with derivative the constant map
+$e_1$; by the chain rule $h$ is $C^1$ on $\mathbb{R}$ with
+\[
+  h'(t)=\langle D\varphi(t\,e_1+s\,e_2),e_1\rangle=\partial_1\varphi(t\,e_1+s\,e_2).
+\]
+If $\lvert t\rvert\ge R+\lvert s\rvert$ then $\lvert t\,e_1+s\,e_2\rvert\ge\lvert t\rvert\ge R$,
+so \eqref{eq:tfgi-vanish} gives $h(t)=0$ and $h'(t)=0$.  Put $R_s:=R+\lvert s\rvert$.  Then
+$h'$ vanishes outside $[-R_s,R_s]$, so
+\[
+  \int_{\mathbb{R}}\partial_1\varphi(t\,e_1+s\,e_2)\,dt
+  =\int_{\mathbb{R}}h'(t)\,dt=\int_{-R_s}^{R_s}h'(t)\,dt .
+\]
+By the fundamental theorem of calculus applied to the $C^1$ function $h$ on
+$[-R_s,R_s]$,
+\[
+  \int_{-R_s}^{R_s}h'(t)\,dt=h(R_s)-h(-R_s)=0-0=0 ,
+\]
+the two values vanishing because $\lvert\pm R_s\rvert\ge R_s\ge R$.  Thus the inner integral
+is $0$ for every $s\in\mathbb{R}$, and therefore
+$\int_{\mathrm{Plane}}\partial_1\varphi(x)\,dx=\int_{\mathbb{R}}0\,ds=0$.
+
+\emph{Step 4: the case $i=2$.}  The argument of Step 3 applies verbatim after exchanging the
+roles of the two basis vectors: fix $t\in\mathbb{R}$, set $h(s):=\varphi(t\,e_1+s\,e_2)$, note
+$h'(s)=\partial_2\varphi(t\,e_1+s\,e_2)$, and integrate first in $s$ and then in $t$, using the
+form of Fubini's theorem in the other order.  This gives
+$\int_{\mathrm{Plane}}\partial_2\varphi(x)\,dx=0$.
+
+By Step 2 both components of $\int_{\mathrm{Plane}}D\varphi(x)\,dx$ vanish, so the integral is
+$0$.
+\end{proof}

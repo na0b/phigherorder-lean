@@ -1,0 +1,48 @@
+\begin{lemma}[A function and its classical gradient vanish off the topological support]
+For $f\colon\mathrm{Plane}\to\mathbb{R}$ write $\operatorname{supp}f$ for the \emph{topological
+support} of $f$, that is, the closure in $\mathrm{Plane}$ of the set
+$\{x\in\mathrm{Plane}:f(x)\neq0\}$.  Then both of the following hold.
+\begin{enumerate}
+\item[(1)] For every $f\colon\mathrm{Plane}\to\mathbb{R}$ and every $x\in\mathrm{Plane}$, if
+$x\notin\operatorname{supp}f$ then $f(x)=0$.
+\item[(2)] For every $f\colon\mathrm{Plane}\to\mathbb{R}$ and every $x\in\mathrm{Plane}$, if
+$x\notin\operatorname{supp}f$ then $Df(x)=0$, where $Df$ denotes the classical gradient field of
+$f$.
+\end{enumerate}
+
+Each clause carries its own quantifiers over $f$ and over $x$, inside the conjunction, so the
+statement has no hypotheses and no parameters of its own: a consumer obtains the pair once and
+then applies each clause to whichever of its own test functions it needs.
+
+Clause (2) is the one with content, and it is the reason the \emph{topological} support is the
+right notion here.  Clause (1) says only that $f$ vanishes at a single point, which by itself
+says nothing about derivatives; what clause (2) uses is that $\operatorname{supp}f$ is CLOSED,
+so that its complement is open and $f$ vanishes on a whole neighbourhood of $x$.  Were
+$\operatorname{supp}f$ replaced by the un-closed set $\{f\neq0\}$, the hypothesis
+$x\notin\{f\neq0\}$ would again give $f(x)=0$, so clause (1) would survive, but clause (2) would
+fail: $\{f=0\}$ need not be open, and a function can vanish at a point with nonzero gradient
+there.
+\end{lemma}
+\begin{proof}
+\emph{Clause (1).}  Let $f\colon\mathrm{Plane}\to\mathbb{R}$ and $x\in\mathrm{Plane}$ with
+$x\notin\operatorname{supp}f$.  A set is contained in its own closure, so
+$\{y:f(y)\neq0\}\subseteq\operatorname{supp}f$; contrapositively, since
+$x\notin\operatorname{supp}f$ we get $x\notin\{y:f(y)\neq0\}$, that is, $f(x)=0$.
+
+\medskip\noindent\emph{Clause (2).}  Let $f$ and $x$ be as given, with
+$x\notin\operatorname{supp}f$, and put
+\[
+  V:=\mathrm{Plane}\setminus\operatorname{supp}f .
+\]
+The set $\operatorname{supp}f$ is a closure, hence closed, so $V$ is open; and $x\in V$ by
+hypothesis.
+
+Next, $f\equiv0$ on $V$: every $y\in V$ satisfies $y\notin\operatorname{supp}f$, so $f(y)=0$ by
+clause (1), which has just been proved and whose statement is quantified over all points.
+
+So $V$ is an open set on which $f$ vanishes identically.  Clause (3) of the background
+proposition on the product rule and linearity for the classical gradient --- vanishing on an
+open set --- therefore applies with this $V$ and gives that $f$ is differentiable at every point
+of $V$ with $Df\equiv0$ on $V$.  Since $x\in V$, this yields $Df(x)=0$, which is clause (2).  As
+$f$ and $x$ were arbitrary in each clause, both clauses hold as stated.
+\end{proof}

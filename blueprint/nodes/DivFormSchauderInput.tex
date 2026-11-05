@@ -1,0 +1,55 @@
+\begin{definition}[Interior divergence-form Schauder estimates, as a hypothesis]
+We say that \emph{interior divergence-form Schauder estimates hold} when the following is
+true.  Let $j\in\mathbb{N}$, let $\kappa,\lambda,\Lambda,M,r,r'$ be real numbers with
+\[
+  0<\kappa<1,\qquad 0<\lambda\le\Lambda,\qquad M>0,\qquad 0<r'<r .
+\]
+Then there is a constant $C>0$, depending only on $j,\kappa,\lambda,\Lambda,M,r,r'$, such
+that the following holds for every coefficient field
+$A\colon\mathrm{Plane}\to\mathcal{L}(\mathrm{Plane},\mathrm{Plane})$, every
+$w\colon\mathrm{Plane}\to\mathbb{R}$ and every $G\colon\mathrm{Plane}\to\mathrm{Plane}$.
+Assume
+\begin{enumerate}
+\item \textbf{Uniform ellipticity.} For every $x\in B_r$ and every $\xi\in\mathrm{Plane}$,
+\[
+  \lambda\lvert\xi\rvert^2\le\bigl\langle A(x)\xi,\xi\bigr\rangle,
+  \qquad \lvert A(x)\xi\rvert\le\Lambda\lvert\xi\rvert .
+\]
+\item \textbf{$C^{j,\kappa}$ bounds on the coefficients.} $A$ is of class $C^{j}$ on $B_r$,
+\[
+  \lVert D^iA(x)\rVert\le M\quad\text{for all }0\le i\le j\text{ and }x\in B_r,
+\]
+and
+\[
+  \lVert D^jA(x)-D^jA(y)\rVert\le M\,\lvert x-y\rvert^{\kappa}\quad\text{for all }x,y\in B_r .
+\]
+\item \textbf{Normalized weak solution.} $w$ is a weak solution of
+$\operatorname{div}(A\,Dw)=0$ in $B_r$ with weak gradient $G$, and
+$\lvert w(x)\rvert\le1$ for every $x\in B_r$.
+\end{enumerate}
+Then $w$ is of class $C^{j+1}$ on $B_{r'}$ and
+\[
+  \lVert D^iw(x)\rVert\le C\quad\text{for all }0\le i\le j+1\text{ and }x\in B_{r'},
+\]
+\[
+  \lVert D^{j+1}w(x)-D^{j+1}w(y)\rVert\le C\,\lvert x-y\rvert^{\kappa}
+  \quad\text{for all }x,y\in B_{r'} ;
+\]
+that is, $\lVert w\rVert_{C^{j+1,\kappa}(B_{r'})}\le C$.
+
+Here $D^i$ denotes the $i$-th Fr\'echet derivative (of the scalar function $w$, respectively
+of the operator-valued map $A$) and $\lVert\cdot\rVert$ the corresponding operator norm; the
+$L^\infty$ and H\"older norms over balls are recorded as pointwise and two-point bounds,
+which is the same statement for the continuous representatives involved.
+
+The constant $C$ is quantified \emph{before} $A$, $w$ and $G$, so it depends only on the
+listed parameters and not on the particular coefficient field or solution.  This uniformity
+is what the paper uses: it applies the estimate along a finite chain of nested balls between
+$B_{2\tau}$ and $B_\tau$ with a fixed number of steps determined by $k$, and needs the
+resulting bound to depend only on $p,k,\delta$.
+
+These are the classical interior Schauder estimates for uniformly elliptic equations in
+divergence form with H\"older coefficients, cited in the paper as Gilbarg--Trudinger,
+\emph{Elliptic partial differential equations of second order}, Springer, 2001.  They are
+assumed rather than proved: they are one of the results the paper cites from the literature.
+\end{definition}

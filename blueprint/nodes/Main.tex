@@ -1,0 +1,155 @@
+\begin{theorem}[Uniform interior $C^{k,\beta}$ estimates for planar $p$-harmonic functions]
+Let $1<p<2$, let the Lewis rigidity datum of \noderef{LewisRigidityInput}, the Lewis--Tolksdorf
+datum $F$ of \noderef{FirstOrderEstimateInput}, the Iwaniec--Manfredi datum of
+\noderef{IMRegularityInput}, the smoothness-away-from-critical-points hypothesis of
+\noderef{SmoothAwayFromCriticalInput}, the interior divergence-form Schauder estimates of
+\noderef{DivFormSchauderInput} and the local boundedness datum of
+\noderef{LocalBoundednessInput} be given for $p$.  Let $k\in\mathbb{N}$ with $k\ge2$ and let
+$0<\beta<1$ satisfy $k+\beta<s(p)$, with $s(p)$ as in \noderef{SOpt}.
+
+Then there is $C>0$, depending only on $p$, $k$, $\beta$ and the data, with the following
+property.  Let $u\colon\mathrm{Plane}\to\mathbb{R}$ be $p$-harmonic on $B_1$ with weak gradient
+$g$ in the sense of \noderef{IsPHarm} and suppose $u\in L^{p}(B_1)$, i.e.\ $u$ is
+$p$-integrable with respect to Lebesgue measure restricted to $B_1$; write
+$N:=\lVert u\rVert_{L^{p}(B_1)}=\bigl(\int_{B_1}\lvert u\rvert^{p}\,dx\bigr)^{1/p}$.  Then:
+\begin{enumerate}
+\item for every $j$ with $0\le j\le k$, every $x\in B_{1/2}$ and every $w\in\mathrm{Plane}$,
+\[
+  \bigl\lvert D^{j}u(x)[w,\ldots,w]\bigr\rvert\le C\,N\,\lvert w\rvert^{j};
+\]
+\item for all $x,y\in B_{1/2}$ and every $w\in\mathrm{Plane}$,
+\[
+  \bigl\lvert D^{k}u(x)[w,\ldots,w]-D^{k}u(y)[w,\ldots,w]\bigr\rvert
+  \le C\,N\,\lvert x-y\rvert^{\beta}\,\lvert w\rvert^{k}.
+\]
+\end{enumerate}
+Here $D^{j}u(x)$ is the $j$-th iterated Fr\'echet derivative of $u$ at $x$, a continuous
+$j$-linear form on $\mathrm{Plane}$, evaluated on $j$ copies of $w$; at $j=0$ it is the
+constant $0$-linear form with value $u(x)$, so clause (1) at $j=0$ reads
+$\lvert u(x)\rvert\le C\,N$.  That $C$ is produced before $u$ is the whole content of the
+theorem: it is the uniformity the paper's abstract asserts and that the qualitative higher
+regularity of Iwaniec--Manfredi does not supply.
+
+\medskip\noindent\emph{How this statement renders the paper's (1.3), and why no deviation is
+claimed.}  The paper's (1.3) (line 111) reads
+\[
+  \sum_{j=0}^{k}\bigl\lVert D^{j}u\bigr\rVert_{L^{\infty}(B_{1/2})}
+    +\bigl[D^{k}u\bigr]_{C^{0,\beta}(B_{1/2})}\le C\lVert u\rVert_{L^{p}(B_1)} .
+\]
+Two things separate that from the two clauses above, and both are reconciled by a factor
+depending only on $k$.
+
+\emph{(a) Diagonal evaluations versus full norms.}  (1.3) is written with the operator norms
+$\lVert D^{j}u(x)\rVert$ and with the seminorm of the full form $D^{k}u$, whereas clauses (1)
+and (2) carry \emph{diagonal} evaluations $D^{j}u(x)[w,\ldots,w]$, homogeneous of degree $j$ in
+$w$.  The two directions are not symmetric in difficulty.  One direction is the background
+proposition on the operator norm of a continuous multilinear map, which gives
+$\lvert Q[v_1,\ldots,v_m]\rvert\le\lVert Q\rVert\lvert v_1\rvert\cdots\lvert v_m\rvert$ and
+hence, on the diagonal with $\lvert w\rvert\le1$, that a full-norm bound implies the diagonal
+one.  The other direction is the one (1.3) needs: for a \emph{symmetric} $m$-linear form $T$
+one has $\lVert T\rVert\le(m^{m}/m!)\sup_{\lvert w\rvert\le1}\lvert T[w,\ldots,w]\rvert$, so
+taking the supremum over $\lvert w\rvert\le1$ in clauses (1) and (2) recovers
+$\lVert D^{j}u\rVert_{L^{\infty}(B_{1/2})}$ and $[D^{k}u]_{C^{0,\beta}(B_{1/2})}$, bounded by
+$C\,N$ times a factor $m^{m}/m!$ depending only on $m\le k$.  The symmetry hypothesis is not a
+gap in the mathematics: for $u$ of class $C^{j}$ the form $D^{j}u(x)$ \emph{is} symmetric, by
+the classical higher-order Schwarz--Clairaut theorem, and a symmetric form is determined by its
+diagonal.  What is unavailable is Mathlib's general-order symmetry of the iterated derivative
+for finitely smooth functions, which at the pinned revision exists only at order two --- the
+general-order permutation invariance is available there only under analyticity, which none of the
+data above supplies --- and the
+counterexample recorded against the diagonal-to-full direction, the trilinear
+$A[x,y,z]=x_1y_1z_2-x_1y_2z_1$ with $A[v,v,v]=0$ for every $v$ but $A[e_1,e_1,e_2]=1$, is
+\emph{not} symmetric, so it shows only that the recovery genuinely needs symmetry, not that it
+fails for the forms at hand.  The diagonal rendering is therefore a reachability choice, not a
+weakening.
+
+\emph{(b) Two families versus one sum.}  (1.3) is a single inequality on a sum of $k+2$
+terms --- the $k+1$ supremum norms indexed by $j=0,\ldots,k$ inclusive, plus the one H\"older
+seminorm --- whereas clauses (1) and (2) are two quantified families of bounds, one bound per
+term.  Each direction is immediate.  Forwards: if each of the $k+2$ terms is at most $C\,N$,
+then their sum is at most $(k+2)\,C\,N$, so (1.3) holds with the constant $(k+2)\,C$.
+Backwards: every term of the sum is non-negative, so the sum dominates each term individually,
+and (1.3) with constant $C$ gives each clause with the same $C$.  The family rendering is
+thus neither weaker nor stronger than the paper's sum, up to the factor $k+2$.
+
+Both reconciling factors, $m^{m}/m!$ for $m\le k$ in (a) and $k+2$ in (b), depend only on $k$,
+and the paper's own constant is quantified as $C=C(p,k,\beta)$ --- line 313 states outright that
+all constants depend only on $p,k,\beta$ --- so both are absorbed by it and the uniformity that
+is the content of (1.3) is untouched.  That is why these two renderings are recorded here as
+part of the statement rather than claimed as a deviation: the paper's statement is
+mathematically correct, and the difference is a repackaging together with one
+Mathlib-reachability artefact.
+\end{theorem}
+\begin{proof}
+\medskip\noindent\textbf{Step 1: the constant, fixed before $u$.}
+Apply \noderef{JetBounds} with $p$, $1<p<2$, the six data, $k$, $k\ge2$, $\beta$, $0<\beta<1$
+and $k+\beta<s(p)$: it produces $C_1>0$ such that every $p$-harmonic $u$ on $B_1$ with weak
+gradient $g$ and $u\in L^{p}(B_1)$ satisfies, for every $x\in B_{1/2}$,
+\begin{equation}\label{eq:main-jb}
+  \bigl\lvert D^{j}u(x)[w,\ldots,w]\bigr\rvert\le C_1N\lvert w\rvert^{j}
+  \qquad(1\le j\le k,\ w\in\mathrm{Plane}),
+\end{equation}
+together with an error bound we do not use here.  Apply \noderef{HolderFromJets} with the same
+arguments: it produces $C_2>0$ such that every such $u$ satisfies
+\begin{equation}\label{eq:main-hfj}
+  \bigl\lvert D^{k}u(x)[w,\ldots,w]-D^{k}u(y)[w,\ldots,w]\bigr\rvert
+  \le C_2N\lvert x-y\rvert^{\beta}\lvert w\rvert^{k}
+  \qquad(x,y\in B_{1/2},\ w\in\mathrm{Plane}).
+\end{equation}
+Let $C_b>0$ be the constant carried by the local boundedness datum of
+\noderef{LocalBoundednessInput}.  Put
+\[
+  C:=\max\bigl\{C_1,\ \max\{C_2,\ C_b\}\bigr\}.
+\]
+Then $C>0$, since $C_1>0$ and $C_1\le C$; and $C_1\le C$, $C_2\le C$ and $C_b\le C$.  All three
+of $C_1,C_2,C_b$ were produced from $p,k,\beta$ and the data alone, before any $u$, so $C$ was
+too.
+
+Now fix $u$ and $g$ as in the statement and put $N:=\lVert u\rVert_{L^{p}(B_1)}$.  Note
+$N\ge0$, being an $L^{p}$ norm.  Note also $B_{1/2}\subseteq B_{3/4}$, since
+$\lvert x\rvert<1/2$ implies $\lvert x\rvert<3/4$.
+
+\medskip\noindent\textbf{Step 2: clause (1) at $j=0$, which is local boundedness.}
+Let $x\in B_{1/2}$ and $w\in\mathrm{Plane}$.  By clause (1) of the background proposition on
+the recursion for the iterated Fr\'echet derivative, $D^{0}u(x)$ is the constant $0$-linear
+form with value $u(x)$, so its evaluation on the empty family of vectors is $u(x)$ and
+\[
+  \bigl\lvert D^{0}u(x)[\,]\bigr\rvert=\lvert u(x)\rvert .
+\]
+Moreover $\lvert w\rvert^{0}=1$, this being the empty product.  So the assertion of clause (1)
+at $j=0$ is exactly $\lvert u(x)\rvert\le C\,N$.
+
+Since $x\in B_{1/2}\subseteq B_{3/4}$, the clause \texttt{bound} of
+\noderef{LocalBoundednessInput}, applied to $u$, $g$, the $p$-harmonicity hypothesis and
+$u\in L^{p}(B_1)$, gives $\lvert u(x)\rvert\le C_b\,N$.  As $C_b\le C$ and $N\ge0$,
+multiplying the inequality $C_b\le C$ by $N$ preserves it, so $C_b\,N\le C\,N$ and therefore
+$\lvert u(x)\rvert\le C\,N$.  This is clause (1) at $j=0$.
+
+\medskip\noindent\textbf{Step 3: clause (1) for $1\le j\le k$, and clause (2).}
+Let $1\le j\le k$, let $x\in B_{1/2}$ and let $w\in\mathrm{Plane}$.  By \eqref{eq:main-jb},
+\[
+  \bigl\lvert D^{j}u(x)[w,\ldots,w]\bigr\rvert\le C_1N\lvert w\rvert^{j}.
+\]
+Now $C_1\le C$ and $N\ge0$ give $C_1N\le C\,N$, and $\lvert w\rvert^{j}\ge0$, being a power of a
+non-negative real, so multiplying through gives $C_1N\lvert w\rvert^{j}\le C\,N\lvert
+w\rvert^{j}$.  Hence $\lvert D^{j}u(x)[w,\ldots,w]\rvert\le C\,N\lvert w\rvert^{j}$.  Together
+with Step 2, which covers $j=0$, clause (1) holds for every $j\le k$.
+
+For clause (2), let $x,y\in B_{1/2}$ and $w\in\mathrm{Plane}$.  By \eqref{eq:main-hfj},
+\[
+  \bigl\lvert D^{k}u(x)[w,\ldots,w]-D^{k}u(y)[w,\ldots,w]\bigr\rvert
+  \le C_2N\lvert x-y\rvert^{\beta}\lvert w\rvert^{k}.
+\]
+Here $\lvert x-y\rvert^{\beta}\ge0$: the base is non-negative, and by clause (3) of the
+background proposition on elementary properties of real powers the map $t\mapsto t^{\beta}$ is
+nondecreasing on $[0,\infty)$, while clause (1) of that proposition gives $0^{\beta}=0$ because
+$\beta\ne0$; so $\lvert x-y\rvert^{\beta}\ge0^{\beta}=0$.  Likewise
+$\lvert w\rvert^{k}\ge0$.  From $C_2\le C$ and $N\ge0$ we get $C_2N\le C\,N$, and multiplying
+successively by the non-negative factors $\lvert x-y\rvert^{\beta}$ and $\lvert w\rvert^{k}$
+preserves the inequality, so
+$C_2N\lvert x-y\rvert^{\beta}\lvert w\rvert^{k}\le C\,N\lvert x-y\rvert^{\beta}\lvert
+w\rvert^{k}$.  Hence clause (2) holds.
+
+\medskip\noindent As $u$ and $g$ were arbitrary subject to the stated hypotheses, and $C$ was
+fixed in Step 1 before them, the proof is complete.
+\end{proof}

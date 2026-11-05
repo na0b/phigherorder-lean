@@ -1,0 +1,202 @@
+\begin{lemma}[Limit passage in the weak $p$-Laplace equation]
+Let $1<p<2$, let $\Omega\subseteq\mathrm{Plane}$, let $u_n\colon\mathrm{Plane}\to\mathbb{R}$ and
+$g_n\colon\mathrm{Plane}\to\mathrm{Plane}$ for $n\in\mathbb{N}$, and let
+$U\colon\mathrm{Plane}\to\mathbb{R}$ and $G\colon\mathrm{Plane}\to\mathrm{Plane}$.  Assume:
+\begin{enumerate}
+\item for every $n\in\mathbb{N}$, the function $u_n$ is $p$-harmonic in $\Omega$ with weak
+gradient $g_n$;
+\item for every compact $K\subseteq\Omega$, $u_n\to U$ uniformly on $K$;
+\item for every compact $K\subseteq\Omega$, $g_n\to G$ uniformly on $K$.
+\end{enumerate}
+Then $U$ is $p$-harmonic in $\Omega$ with weak gradient $G$.
+\end{lemma}
+\begin{proof}
+We verify the six conditions in the definition of a $p$-harmonic function with weak gradient,
+\noderef{IsPHarm}.  Throughout, "uniformly on $K$" has its usual meaning: for every
+$\varepsilon>0$ there is $N$ such that for all $n\ge N$ and all $y\in K$ the relevant distance
+is at most $\varepsilon$.
+
+\medskip\noindent\emph{(1) $\Omega$ is open.}
+Hypothesis (1) with $n=0$ gives that $u_0$ is $p$-harmonic in $\Omega$, and condition (1) of
+\noderef{IsPHarm} for that datum says $\Omega$ is open.  In particular $\Omega$ is Lebesgue
+measurable, and so is every compact subset of $\mathrm{Plane}$, by clause (2) of the background
+proposition on integrability of continuous and compactly supported functions; this is used
+repeatedly below, since continuity on a set yields almost everywhere strong measurability with
+respect to the restricted measure only when the set is measurable.
+
+\medskip\noindent\emph{(2) $U$ is continuous on $\Omega$.}
+Let $x\in\Omega$.  Since $\Omega$ is open by step (1), there is $\delta>0$ with
+$\overline{B_\delta(x)}\subseteq\Omega$.  Put $K:=\overline{B_\delta(x)}$, a compact subset of
+$\Omega$.  By condition (2) of \noderef{IsPHarm}, each $u_n$ is continuous on $\Omega$, hence
+on $K$.  By hypothesis (2) applied to $K$, $u_n\to U$ uniformly on $K$.  By the background
+proposition on uniform limits of continuous functions, $U$ is continuous on $K$.  Since
+$B_\delta(x)\subseteq K$ is a neighbourhood of $x$, the same proposition gives that $U$ is
+continuous at $x$.  As $x\in\Omega$ was arbitrary, $U$ is continuous at every point of
+$\Omega$, hence continuous on $\Omega$.
+
+\medskip\noindent\emph{(3) $G$ is almost everywhere strongly measurable on $\Omega$.}
+Let $y\in\Omega$.  The singleton $\{y\}$ is a compact subset of $\Omega$, so hypothesis (3)
+applied to $K=\{y\}$ gives $g_n(y)\to G(y)$ (uniform convergence on a set implies pointwise
+convergence at each of its points).  Thus $g_n\to G$ pointwise at every point of $\Omega$, and
+therefore almost everywhere with respect to Lebesgue measure restricted to $\Omega$, which is
+carried by $\Omega$.  By condition (3) of \noderef{IsPHarm} every $g_n$ is almost everywhere
+strongly measurable with respect to that measure.  The background proposition on pointwise
+limits and almost everywhere strong measurability now gives the same for $G$.
+
+\medskip\noindent\emph{(4) For every compact $K\subseteq\Omega$, $\lvert G\rvert^{p}$ is
+integrable on $K$.}
+Fix such a $K$.  By hypothesis (3) applied to $K$ with $\varepsilon=1$ there is $N$ with
+$\lvert g_n(y)-G(y)\rvert\le1$ for all $n\ge N$ and all $y\in K$; take $n=N$, so that by the
+triangle inequality
+\[
+  \lvert G(y)\rvert\le\lvert g_N(y)\rvert+1\qquad\text{for every }y\in K .
+\]
+Since $p\ge1>0$, clause (3) of the background proposition on elementary properties of real
+powers (monotonicity of $t\mapsto t^{p}$ on $[0,\infty)$) and then its clause (5) give
+\[
+  \lvert G(y)\rvert^{p}\le\bigl(\lvert g_N(y)\rvert+1\bigr)^{p}
+  \le2^{p}\bigl(\lvert g_N(y)\rvert^{p}+1\bigr)\qquad(y\in K).
+\]
+By condition (4) of \noderef{IsPHarm} for the datum $n=N$, the function
+$y\mapsto\lvert g_N(y)\rvert^{p}$ is integrable on $K$; the constant $1$ is integrable on $K$
+because $K$ is compact and hence of finite measure.  So the right-hand side is integrable on
+$K$.  The function $y\mapsto\lvert G(y)\rvert^{p}$ is measurable on $K$: $G$ is almost
+everywhere strongly measurable by step (3), and composing with the continuous maps
+$\eta\mapsto\lvert\eta\rvert$ and $t\mapsto t^{p}$ preserves that, by the composition clause of
+the background proposition on pointwise limits.  A measurable function dominated by an
+integrable function is integrable, by clause (3) of the integrability background proposition.
+Hence $\lvert G\rvert^{p}$ is integrable on $K$.
+
+\medskip\noindent\emph{Preparations for (5) and (6).}
+Let $\varphi\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^\infty$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega$.  Put $K_0:=\operatorname{supp}\varphi$, a compact
+subset of $\Omega$, and
+\[
+  B:=\sup_{y\in\mathrm{Plane}}\lvert D\varphi(y)\rvert<\infty,\qquad
+  B':=\sup_{y\in\mathrm{Plane}}\lvert\varphi(y)\rvert<\infty,
+\]
+both finite because $\varphi$ and $D\varphi$ are continuous and vanish off the compact set
+$K_0$ (on the open set $\mathrm{Plane}\setminus K_0$ the function $\varphi$ is identically $0$,
+so all its derivatives vanish there).  Also $\lvert K_0\rvert<\infty$.
+
+We record that the following six functions are integrable on $\Omega$ and vanish off $K_0$, so
+that each of their integrals over $\Omega$ equals the corresponding integral over $K_0$ by
+clause (4) of the integrability background proposition:
+\[
+  u_n\,D\varphi,\quad U\,D\varphi,\quad \varphi\,g_n,\quad \varphi\,G,\quad
+  \bigl\langle A_p(g_n),D\varphi\bigr\rangle,\quad \bigl\langle A_p(G),D\varphi\bigr\rangle .
+\]
+Indeed:
+\begin{itemize}
+\item $u_n$ and $U$ are continuous on the measurable set $\Omega$ (condition (2) of
+\noderef{IsPHarm} and step (2)) and $D\varphi$ is continuous on $\mathrm{Plane}$, so
+$u_n\,D\varphi$ and $U\,D\varphi$ are continuous on $\Omega$, hence bounded and integrable on
+the compact subset $K_0\subseteq\Omega$ by clause (3) of the integrability proposition; and they
+vanish off $K_0$.
+\item $g_n$ and $G$ are almost everywhere strongly measurable on $\Omega$ (condition (3) of
+\noderef{IsPHarm} and step (3)), so $\varphi\,g_n$ and $\varphi\,G$ are too.  Taking $a=1$ in
+clause (4) of the elementary-powers proposition, $\lvert\eta\rvert\le1+\lvert\eta\rvert^{p}$
+for every vector $\eta$ (legitimate since $1\le p$), hence
+\[
+  \lvert\varphi(y)\,g_n(y)\rvert\le B'\bigl(1+\lvert g_n(y)\rvert^{p}\bigr),\qquad
+  \lvert\varphi(y)\,G(y)\rvert\le B'\bigl(1+\lvert G(y)\rvert^{p}\bigr),
+\]
+and the right-hand sides are integrable on $K_0$ by condition (4) of \noderef{IsPHarm},
+respectively step (4), together with $\lvert K_0\rvert<\infty$.  Clause (3) of the integrability
+proposition then gives integrability on $K_0$, and both functions vanish off $K_0$.
+\item By \noderef{PFluxContinuity} the flux $A_p$ is continuous on $\mathrm{Plane}$, so
+$A_p\circ g_n$ and $A_p\circ G$ are almost everywhere strongly measurable on $\Omega$ by the
+composition clause of the pointwise-limits proposition, and so are their inner products with the
+continuous $D\varphi$.  By the norm identity of \noderef{PFluxContinuity} and Cauchy--Schwarz,
+\[
+  \bigl\lvert\bigl\langle A_p(g_n(y)),D\varphi(y)\bigr\rangle\bigr\rvert
+  \le B\,\lvert A_p(g_n(y))\rvert=B\,\lvert g_n(y)\rvert^{\,p-1}
+  \le B\bigl(1+\lvert g_n(y)\rvert^{p}\bigr),
+\]
+using clause (4) of the elementary-powers proposition with $a=p-1\in[0,p]$, and likewise with
+$G$ in place of $g_n$.  Integrability on $K_0$ and vanishing off $K_0$ follow as before.
+\end{itemize}
+
+\medskip\noindent\emph{(5) $G$ is the distributional gradient of $U$ on $\Omega$.}
+Let $\varphi$ be as above.  For every $n$, condition (5) of \noderef{IsPHarm} gives
+\begin{equation}\label{eq:phl-n}
+  \int_\Omega u_n\,D\varphi\,dy=-\int_\Omega \varphi\,g_n\,dy .
+\end{equation}
+Let $\varepsilon>0$.  By hypothesis (2) applied to $K_0$ there is $N_1$ with
+$\lvert u_n(y)-U(y)\rvert\le\varepsilon$ for all $n\ge N_1$, $y\in K_0$; hence, for $n\ge N_1$,
+\[
+  \left\lvert\int_\Omega u_n\,D\varphi\,dy-\int_\Omega U\,D\varphi\,dy\right\rvert
+  =\left\lvert\int_{K_0}(u_n-U)\,D\varphi\,dy\right\rvert
+  \le\varepsilon\,B\,\lvert K_0\rvert .
+\]
+By hypothesis (3) applied to $K_0$ there is $N_2$ with
+$\lvert g_n(y)-G(y)\rvert\le\varepsilon$ for all $n\ge N_2$, $y\in K_0$; hence, for $n\ge N_2$,
+\[
+  \left\lvert\int_\Omega \varphi\,g_n\,dy-\int_\Omega \varphi\,G\,dy\right\rvert
+  =\left\lvert\int_{K_0}\varphi\,(g_n-G)\,dy\right\rvert
+  \le\varepsilon\,B'\,\lvert K_0\rvert .
+\]
+As $\varepsilon>0$ was arbitrary and $B,B',\lvert K_0\rvert$ are finite, this says
+\[
+  \int_\Omega u_n\,D\varphi\,dy\longrightarrow\int_\Omega U\,D\varphi\,dy,
+  \qquad
+  \int_\Omega \varphi\,g_n\,dy\longrightarrow\int_\Omega \varphi\,G\,dy .
+\]
+Passing to the limit in \eqref{eq:phl-n}, and using that limits of convergent sequences are
+unique and that negation is continuous,
+\[
+  \int_\Omega U\,D\varphi\,dy=-\int_\Omega \varphi\,G\,dy ,
+\]
+which is condition (5) for $U$ and $G$ on $\Omega$.
+
+\medskip\noindent\emph{(6) $U$ solves the weak $p$-Laplace equation on $\Omega$.}
+Let $\varphi$ be as above, and set
+\[
+  F_n(y):=\bigl\langle A_p(g_n(y)),D\varphi(y)\bigr\rangle,\qquad
+  F(y):=\bigl\langle A_p(G(y)),D\varphi(y)\bigr\rangle .
+\]
+For every $n$, condition (6) of \noderef{IsPHarm} gives $\int_\Omega F_n\,dy=0$.
+
+\emph{Pointwise convergence.}  Let $y\in\Omega$.  By step (3), $g_n(y)\to G(y)$.  By
+\noderef{PFluxContinuity} the map $A_p$ is continuous on $\mathrm{Plane}$ --- and this is the
+point at which the argument would fail if continuity at the origin were unavailable, since the
+convergence may well take place at a critical point, where $G(y)=0$.  Hence
+$A_p(g_n(y))\to A_p(G(y))$, and since the inner product is continuous in its first argument,
+$F_n(y)\to F(y)$.  So $F_n\to F$ pointwise on $\Omega$, in particular almost everywhere with
+respect to Lebesgue measure restricted to $\Omega$.
+
+\emph{Domination.}  By hypothesis (3) applied to $K_0$ with $\varepsilon=1$ there is $N$ with
+$\lvert g_n(y)-G(y)\rvert\le1$, hence $\lvert g_n(y)\rvert\le\lvert G(y)\rvert+1$, for all
+$n\ge N$ and $y\in K_0$.  For such $n$ and $y$, the norm identity of \noderef{PFluxContinuity},
+Cauchy--Schwarz, and clauses (3), (4) and (5) of the elementary-powers proposition give
+\[
+  \lvert F_n(y)\rvert
+  \le B\,\lvert g_n(y)\rvert^{\,p-1}
+  \le B\bigl(\lvert G(y)\rvert+1\bigr)^{\,p-1}
+  \le B\Bigl(1+\bigl(\lvert G(y)\rvert+1\bigr)^{p}\Bigr)
+  \le B\Bigl(1+2^{p}\bigl(\lvert G(y)\rvert^{p}+1\bigr)\Bigr)=:H(y),
+\]
+where monotonicity of $t\mapsto t^{\,p-1}$ (clause (3), applicable because $p-1>0$) was used in
+the second step, clause (4) with $a=p-1\in[0,p]$ in the third, and clause (5) with $q=p\ge1$ in
+the fourth.  Moreover $F_n$ vanishes off $K_0$, and so does $H$ once we replace $H$ by its
+product with the indicator of $K_0$; with that convention $\lvert F_n\rvert\le H$ on all of
+$\Omega$ for $n\ge N$.  The function $H$ is integrable on $\Omega$: it vanishes off $K_0$, and
+on $K_0$ it is a finite linear combination of the constant $1$ and of
+$\lvert G\rvert^{p}$, both integrable on $K_0$ by $\lvert K_0\rvert<\infty$ and step (4).
+
+\emph{Conclusion.}  Each $F_n$ is almost everywhere strongly measurable with respect to
+Lebesgue measure restricted to $\Omega$, as recorded in the preparations.  Discarding the
+finitely many indices $n<N$ changes no limit, so the dominated convergence background
+proposition applies to $(F_n)_{n\ge N}$ with dominating function $H$ and gives
+\[
+  \int_\Omega F_n\,dy\longrightarrow\int_\Omega F\,dy .
+\]
+Since $\int_\Omega F_n\,dy=0$ for every $n$, the limit is $0$, that is
+\[
+  \int_\Omega\bigl\langle A_p(G(y)),D\varphi(y)\bigr\rangle\,dy=0 ,
+\]
+which is condition (6) for $U$ and $G$ on $\Omega$.
+
+\medskip\noindent All six conditions hold, so $U$ is $p$-harmonic in $\Omega$ with weak
+gradient $G$.
+\end{proof}

@@ -1,0 +1,195 @@
+\begin{lemma}[H\"older continuity of the order-$k$ jets on the half ball]
+Let $1<p<2$, let the Lewis rigidity datum of \noderef{LewisRigidityInput}, the Lewis--Tolksdorf
+datum $F$ of \noderef{FirstOrderEstimateInput}, the Iwaniec--Manfredi datum of
+\noderef{IMRegularityInput}, the smoothness-away-from-critical-points hypothesis of
+\noderef{SmoothAwayFromCriticalInput}, the interior divergence-form Schauder estimates of
+\noderef{DivFormSchauderInput} and the local boundedness datum of
+\noderef{LocalBoundednessInput} be given for $p$, let $k\in\mathbb{N}$ with $k\ge2$, and let
+$0<\beta<1$ with $k+\beta<s(p)$ as in \noderef{SOpt}.
+
+Then there is $C>0$, depending only on $p,k,\beta$ and the data, with the following property.
+Let $u\colon\mathrm{Plane}\to\mathbb{R}$ be $p$-harmonic on $B_1$ with weak gradient $g$ in the
+sense of \noderef{IsPHarm} and suppose $u\in L^{p}(B_1)$, i.e.\ $u$ is $p$-integrable with
+respect to Lebesgue measure restricted to $B_1$; write
+$N:=\lVert u\rVert_{L^{p}(B_1)}=\bigl(\int_{B_1}\lvert u\rvert^{p}\,dx\bigr)^{1/p}$.  Then for all $x,y\in B_{1/2}$ and every
+$w\in\mathrm{Plane}$,
+\[
+  \bigl\lvert D^{k}u(x)[w,\ldots,w]-D^{k}u(y)[w,\ldots,w]\bigr\rvert
+  \le C\,N\,\lvert x-y\rvert^{\beta}\,\lvert w\rvert^{k}.
+\]
+
+This is the H\"older seminorm term of the paper's (1.3), in the two-point diagonal form the
+rest of this development uses: taking the supremum over $x\ne y$ in $B_{1/2}$ and over
+$\lvert w\rvert\le1$ recovers a bound on $[D^{k}u]_{C^{0,\beta}(B_{1/2})}$ by $C\,N$ up to a
+factor depending only on $k$.  The full operator norm of $D^{k}u$ is deliberately not used.
+\end{lemma}
+\begin{proof}
+Write $\sigma:=k+\beta$, so $\sigma>2>1$, $\sigma-k=\beta>0$ and $\sigma>0$.
+\medskip\noindent\emph{A remark on real powers, recorded once and used throughout.}  Three
+facts about real powers are used below which are \emph{not} among the listed clauses of the
+background proposition on elementary properties of real powers, so we derive them here from
+those clauses.  Throughout, $t^{0}=1$ for $t>0$: that is the value of the real power at
+exponent $0$.
+\begin{itemize}
+\item[(P1)] \emph{Positivity.}  For $t>0$ and every $a\in\mathbb{R}$, $t^{a}>0$.  If $a=0$ this
+is $t^{0}=1>0$.  If $a>0$, clause (3) makes $s\mapsto s^{a}$ nondecreasing on $[0,\infty)$ and
+clause (1) gives $0^{a}=0$, so $t^{a}\ge0^{a}=0$; and clause (2), applicable because $t>0$,
+gives $t^{a}t^{-a}=t^{0}=1$, so $t^{a}\ne0$; hence $t^{a}>0$.  If $a<0$ then $-a>0$, so
+$t^{-a}>0$ by the case just done, and $t^{a}t^{-a}=1$ gives $t^{a}=1/t^{-a}>0$.
+\item[(P2)] \emph{The base $1$.}  For every $a\in\mathbb{R}$, $1^{a}=1$.  Clause (2) gives
+$1^{a}=(1\cdot1)^{a}=1^{a}\cdot1^{a}$, and $1^{a}>0$ by (P1), so dividing by $1^{a}$ gives
+$1^{a}=1$.
+\item[(P3)] \emph{Inverting the base.}  For $t>0$ and every $a\in\mathbb{R}$,
+$\bigl(t^{-1}\bigr)^{a}=t^{-a}$.  Clause (2) gives
+$t^{a}\bigl(t^{-1}\bigr)^{a}=\bigl(t\,t^{-1}\bigr)^{a}=1^{a}=1$ by (P2), and
+$t^{a}t^{-a}=t^{0}=1$; since $t^{a}>0$ by (P1), both $\bigl(t^{-1}\bigr)^{a}$ and $t^{-a}$
+equal $1/t^{a}$, hence they are equal.
+\item[(P4)] \emph{Natural exponents.}  For $t>0$ and $n\in\mathbb{N}$ the real power $t^{a}$ at
+$a:=n$ agrees with the $n$-fold product $t^{n}$; this is part of what it means for $t^{a}$ to be
+the real power, which extends the integer power, and we use the two notations
+interchangeably for positive $t$.
+\end{itemize}
+
+
+\medskip\noindent\textbf{Step 0: the constants, fixed before $u$.}
+Apply \noderef{JetBounds} with $p$, $1<p<2$, the six data, $k$, $k\ge2$, $\beta$, $0<\beta<1$
+and $k+\beta<s(p)$: it produces $C_J>0$ such that every $p$-harmonic $u$ on $B_1$ with weak
+gradient $g$ and $u\in L^{p}(B_1)$ satisfies, for every $x\in B_{1/2}$,
+\begin{equation}\label{eq:hfj-jb}
+  \bigl\lvert D^{j}u(x)[w,\ldots,w]\bigr\rvert\le C_JN\lvert w\rvert^{j}\ \ (1\le j\le k),
+  \qquad
+  \bigl\lvert u(z)-\mathrm{TaylorPoly}(k,u,x)(z)\bigr\rvert\le C_JN\lvert z-x\rvert^{\sigma}
+    \ \ (z\in B_{1/4}(x)),
+\end{equation}
+where $N=\lVert u\rVert_{L^{p}(B_1)}$.  Apply \noderef{PolyInverseEstimate} with the order $k$:
+it produces $C_k>0$ such that every $S\colon\mathrm{Plane}\to\mathbb{R}$ of class $C^{\infty}$
+with $D^{k+1}S(\zeta)=0$ for every $\zeta$ satisfies
+\begin{equation}\label{eq:hfj-pie}
+  \bigl\lVert D^{k}S(\zeta_0)\bigr\rVert\le C_k\,\frac{A}{d^{\,k}}
+\end{equation}
+whenever $\zeta_0\in\mathrm{Plane}$, $d>0$, $A\ge0$ and $\lvert S\rvert\le A$ on
+$B_d(\zeta_0)$.  Put
+\[
+  C:=\max\bigl\{\,2\cdot16^{\beta}\,C_J,\ \ C_k\,(1+2^{\sigma})\,C_J\,\bigr\}.
+\]
+Both entries are positive, since $C_J>0$, $C_k>0$, and $16^{\beta}>0$, $2^{\sigma}>0$ by (P1),
+the bases $16$ and $2$ being positive.  So $C>0$, and $C$
+depends only on $p,k,\beta$ and the data.
+
+Now fix $u,g$ as in the statement, put $N:=\lVert u\rVert_{L^{p}(B_1)}\ge0$, fix
+$x,y\in B_{1/2}$ and $w\in\mathrm{Plane}$, and put
+\[
+  d:=\lvert x-y\rvert,\qquad P:=\mathrm{TaylorPoly}(k,u,x),\qquad
+  Q:=\mathrm{TaylorPoly}(k,u,y).
+\]
+
+\medskip\noindent\textbf{Step 1: the case $d=0$.}
+Then $x=y$, so the left-hand side is $0$; and $d^{\beta}=0^{\beta}=0$ because $\beta\ne0$
+(clause (1) of the real-powers proposition), so the right-hand side is $0$ as well.
+
+\medskip\noindent\textbf{Step 2: the case $d\ge1/16$.}
+Since $k\ge2\ge1$, the first bound of \eqref{eq:hfj-jb} applies at $x$ and at $y$ with $j:=k$:
+\[
+  \bigl\lvert D^{k}u(x)[w,\ldots,w]\bigr\rvert\le C_JN\lvert w\rvert^{k},
+  \qquad
+  \bigl\lvert D^{k}u(y)[w,\ldots,w]\bigr\rvert\le C_JN\lvert w\rvert^{k},
+\]
+so by the triangle inequality the left-hand side of the assertion is at most
+$2C_JN\lvert w\rvert^{k}$.  Now $1/16\le d$ and $\beta>0$, so by monotonicity of
+$t\mapsto t^{\beta}$ on $[0,\infty)$ (clause (3) of the real-powers proposition)
+$(1/16)^{\beta}\le d^{\beta}$.  Moreover $(1/16)^{\beta}=\bigl(16^{-1}\bigr)^{\beta}
+=16^{-\beta}=\bigl(16^{\beta}\bigr)^{-1}$: the first equality is $1/16=16^{-1}$, the second is
+(P3) with $t:=16>0$ and $a:=\beta$, and the third is clause (2), which gives
+$16^{\beta}16^{-\beta}=16^{0}=1$ with $16^{\beta}>0$ by (P1).  Therefore, $16^{\beta}>0$ and
+$2C_JN\lvert w\rvert^{k}\ge0$ giving
+\[
+  2C_JN\lvert w\rvert^{k}
+  =\bigl(2\cdot16^{\beta}C_J\bigr)N\bigl(16^{\beta}\bigr)^{-1}\lvert w\rvert^{k}
+  \le\bigl(2\cdot16^{\beta}C_J\bigr)N\,d^{\beta}\lvert w\rvert^{k}
+  \le C\,N\,d^{\beta}\lvert w\rvert^{k},
+\]
+which is the assertion.
+
+\medskip\noindent\textbf{Step 3: the case $0<d<1/16$.}
+
+\emph{(3a) Two inclusions.}  First $B_d(x)\subseteq B_{1/4}(x)$, because $d<1/16<1/4$.  Second
+$B_d(x)\subseteq B_{1/4}(y)$: for $z\in B_d(x)$,
+\[
+  \lvert z-y\rvert\le\lvert z-x\rvert+\lvert x-y\rvert<d+d=2d<\tfrac18<\tfrac14 .
+\]
+
+\emph{(3b) The two polynomials are close on $B_d(x)$.}  Let $z\in B_d(x)$.  By (3a) and the
+second bound of \eqref{eq:hfj-jb} at the point $x$,
+\[
+  \lvert u(z)-P(z)\rvert\le C_JN\lvert z-x\rvert^{\sigma}\le C_JN\,d^{\sigma},
+\]
+using $\lvert z-x\rvert<d$, $\sigma>0$ and monotonicity (clause (3)).  By (3a) and the same
+bound at the point $y$, which lies in $B_{1/2}$,
+\[
+  \lvert u(z)-Q(z)\rvert\le C_JN\lvert z-y\rvert^{\sigma}\le C_JN\,(2d)^{\sigma}
+  =2^{\sigma}C_JN\,d^{\sigma},
+\]
+using $\lvert z-y\rvert<2d$, monotonicity, and clause (2) for $(2d)^{\sigma}$.  By the triangle
+inequality, with
+\[
+  A:=\bigl(1+2^{\sigma}\bigr)C_JN\,d^{\sigma}\ \ (\ge0),
+\]
+we get $\lvert P(z)-Q(z)\rvert\le A$ for every $z\in B_d(x)$.
+
+\emph{(3c) The inverse estimate applied to the difference.}  Put $S:=P-Q$.  By clause (1) of
+\noderef{TaylorPolyDeriv}, applied once with centre $x$ and once with centre $y$, both $P$ and
+$Q$ are of class $C^{\infty}$ on $\mathrm{Plane}$, hence so is $S$.  By clause (2) of the same
+node, $D^{k+1}P(\zeta)=0$ and $D^{k+1}Q(\zeta)=0$ for every $\zeta$; since the iterated
+Fr\'echet derivative is linear in the function --- clause (2) of the background proposition on
+the recursion for the iterated Fr\'echet derivative together with the linearity of the
+Fr\'echet derivative --- we get
+\[
+  D^{k+1}S(\zeta)=D^{k+1}P(\zeta)-D^{k+1}Q(\zeta)=0\qquad(\zeta\in\mathrm{Plane}).
+\]
+So $S$ satisfies both hypotheses of \eqref{eq:hfj-pie}, and with the centre $\zeta_0:=x$, the
+radius $d>0$ and the bound $A\ge0$ from (3b),
+\[
+  \bigl\lVert D^{k}S(x)\bigr\rVert\le C_k\,\frac{A}{d^{\,k}} .
+\]
+
+\emph{(3d) Passing to the diagonal and identifying the two jets.}  By the background
+proposition on the operator norm of a continuous multilinear map, applied to the $k$-linear form
+$D^{k}S(x)$ on the diagonal family $(w,\ldots,w)$,
+\[
+  \bigl\lvert D^{k}S(x)[w,\ldots,w]\bigr\rvert\le\bigl\lVert D^{k}S(x)\bigr\rVert
+  \lvert w\rvert^{k}\le C_k\,\frac{A}{d^{\,k}}\,\lvert w\rvert^{k}.
+\]
+By linearity of $D^{k}$ in the function again,
+$D^{k}S(x)[w,\ldots,w]=D^{k}P(x)[w,\ldots,w]-D^{k}Q(x)[w,\ldots,w]$.  Now clause (3) of
+\noderef{TaylorPolyDeriv} states that the order-$k$ diagonal evaluation of
+$\mathrm{TaylorPoly}(k,u,x_0)$ agrees with that of $u$ at $x_0$ at \emph{every} point, not only
+at the centre $x_0$.  Applying it with $x_0:=x$ at the point $x$ gives
+$D^{k}P(x)[w,\ldots,w]=D^{k}u(x)[w,\ldots,w]$, and applying it with $x_0:=y$ at the same point
+$x$ gives $D^{k}Q(x)[w,\ldots,w]=D^{k}u(y)[w,\ldots,w]$ --- this is precisely what lets the two
+polynomials be differentiated at the common point $x$.  Hence
+\begin{equation}\label{eq:hfj-mid}
+  \bigl\lvert D^{k}u(x)[w,\ldots,w]-D^{k}u(y)[w,\ldots,w]\bigr\rvert
+  \le C_k\,\frac{A}{d^{\,k}}\,\lvert w\rvert^{k}.
+\end{equation}
+
+\emph{(3e) The exponent.}  Since $d>0$, the natural power $d^{\,k}$ is the real power of $d$ at
+the exponent $k$ read as a real number, by (P4), and clause (2) of the real-powers proposition
+gives $d^{\sigma}d^{-k}=d^{\,\sigma-k}=d^{\beta}$, while $d^{-k}=1/d^{\,k}$ because
+$d^{\,k}d^{-k}=d^{0}=1$ with $d^{\,k}>0$ by (P1); hence
+$d^{\sigma}/d^{\,k}=d^{\beta}$.  Therefore
+\[
+  C_k\,\frac{A}{d^{\,k}}
+  =C_k\bigl(1+2^{\sigma}\bigr)C_JN\,\frac{d^{\sigma}}{d^{\,k}}
+  =C_k\bigl(1+2^{\sigma}\bigr)C_J\,N\,d^{\beta},
+\]
+and substituting into \eqref{eq:hfj-mid},
+\[
+  \bigl\lvert D^{k}u(x)[w,\ldots,w]-D^{k}u(y)[w,\ldots,w]\bigr\rvert
+  \le C_k\bigl(1+2^{\sigma}\bigr)C_J\,N\,d^{\beta}\lvert w\rvert^{k}
+  \le C\,N\,d^{\beta}\lvert w\rvert^{k}
+\]
+by the definition of $C$ and the nonnegativity of $N\,d^{\beta}\lvert w\rvert^{k}$.
+
+\medskip\noindent Steps 1, 2 and 3 cover all values of $d=\lvert x-y\rvert$, and $C$ was fixed
+in Step 0 before $u$, so the proof is complete.
+\end{proof}

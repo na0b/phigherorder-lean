@@ -1,0 +1,130 @@
+\begin{lemma}[High-order decay from diagonal vanishing and a H\"older top derivative]
+Let $u\colon\mathrm{Plane}\to\mathbb{R}$, let $x_0\in\mathrm{Plane}$, let $\rho>0$, let
+$k\in\mathbb{N}$ with $k\ge1$, let $\beta>0$ and let $C\ge0$.  Assume:
+\begin{enumerate}
+\item $u$ is of class $C^{k}$ on $B_\rho(x_0)$;
+\item $D^{j}u(x_0)[w,\ldots,w]=0$ for every $j$ with $0\le j\le k$ and every
+$w\in\mathrm{Plane}$, where $D^{j}u(x_0)$ is the $j$-th Fr\'echet derivative of $u$ at $x_0$
+evaluated on $j$ copies of $w$;
+\item $\bigl\lVert D^{k}u(x)-D^{k}u(y)\bigr\rVert\le C\,\lvert x-y\rvert^{\beta}$ for all
+$x,y\in B_\rho(x_0)$, where $\lVert\cdot\rVert$ is the operator norm on continuous $k$-linear
+forms on $\mathrm{Plane}$.
+\end{enumerate}
+Then
+\[
+  \lvert u(x)\rvert\le\frac{C}{k!}\,\lvert x-x_0\rvert^{\,k+\beta}
+  \qquad\text{for every }x\in B_\rho(x_0),
+\]
+the exponent $k+\beta$ being a real power of the nonnegative real number $\lvert x-x_0\rvert$.
+\end{lemma}
+\begin{proof}
+Fix $x\in B_\rho(x_0)$ and put
+\[
+  e:=x-x_0,\qquad \gamma(s):=x_0+s\,e,\qquad h(s):=u(\gamma(s))\quad(s\in\mathbb{R}),
+\]
+so $\gamma(0)=x_0$, $\gamma(1)=x$ and $h(1)=u(x)$.  Since $x\in B_\rho(x_0)$ we have
+$\lvert e\rvert<\rho$.  Note $k+\beta>0$, because $k\ge1$ and $\beta>0$.
+
+\medskip\noindent\emph{Case 1: $x=x_0$.}
+Then $e=0$.  Hypothesis (2) with $j=0$ and $w=0$ reads $D^{0}u(x_0)[\;]=0$; the $0$-th
+Fr\'echet derivative of $u$ at $x_0$ is, by clause (1) of the background proposition on the
+recursion for the iterated Fr\'echet derivative, the constant $0$-linear form with value
+$u(x_0)$, so this says $u(x_0)=0$.  Hence the left-hand side is $\lvert u(x)\rvert=0$.  The right-hand side
+is $\tfrac{C}{k!}\lvert 0\rvert^{\,k+\beta}=\tfrac{C}{k!}\cdot0^{\,k+\beta}=0$, because
+$k+\beta>0$ and $0^{a}=0$ for $a>0$.  So the inequality holds, both sides being $0$.
+
+\medskip\noindent\emph{Case 2: $x\neq x_0$, so $0<\lvert e\rvert<\rho$.}
+Set
+\[
+  I:=\{s\in\mathbb{R}:\gamma(s)\in B_\rho(x_0)\}
+   =\{s\in\mathbb{R}:\lvert s\rvert\,\lvert e\rvert<\rho\}
+   =\left(-\frac{\rho}{\lvert e\rvert},\;\frac{\rho}{\lvert e\rvert}\right),
+\]
+using $\lvert\gamma(s)-x_0\rvert=\lvert s\,e\rvert=\lvert s\rvert\lvert e\rvert$.  Since
+$0<\lvert e\rvert<\rho$ we have $\rho/\lvert e\rvert>1$, so $I$ is an open interval containing
+the closed interval $[0,1]$.
+
+\emph{Step 1: $h$ is $C^{k}$ on $I$.}  The ball $B_\rho(x_0)$ is open and $u$ is of class
+$C^{k}$ on it by hypothesis (1); the path $\gamma$ is affine, hence $C^\infty$, with
+$\gamma'(s)=e$.  By the chain-rule background proposition, $h=u\circ\gamma$ is of class $C^{k}$
+on the open set $I=\gamma^{-1}(B_\rho(x_0))$.
+
+\emph{Step 2: the one-variable derivatives of $h$ at $0$ all vanish up to order $k$.}
+Let $0\le j\le k$.  Since $u$ is of class $C^{k}$ on $B_\rho(x_0)$ it is of class $C^{j}$
+there, and $\gamma(0)=x_0\in B_\rho(x_0)$.  So \noderef{IteratedDerivAlongRay}, applied with
+the open set $U=B_\rho(x_0)$, the function $u$, the order $j$, the vectors $x_0$ and $e$ and
+the parameter $t=0$, gives
+\begin{equation}\label{eq:tvd-at0}
+  h^{(j)}(0)=D^{j}u(x_0)[e,\ldots,e]\qquad(0\le j\le k).
+\end{equation}
+By hypothesis (2) with $w=e$, the right-hand side of \eqref{eq:tvd-at0} is $0$.  Hence
+\begin{equation}\label{eq:tvd-vanish}
+  h^{(j)}(0)=0\qquad\text{for every }0\le j\le k .
+\end{equation}
+
+\emph{Step 3: Taylor's theorem of order $k-1$ along the ray.}
+Apply the Taylor--Lagrange background proposition with $n:=k-1$ (legitimate since $k\ge1$, so
+$n\in\mathbb{N}$ and $n+1=k$), with $a:=0$, $b:=1$ (these are distinct) and with the function
+$h$, which by Step 1 is of class $C^{n+1}=C^{k}$ on the open interval $I\supseteq[0,1]$.  It
+produces $\xi\in(0,1)$ with
+\[
+  h(1)=\sum_{j=0}^{k-1}\frac{h^{(j)}(0)}{j!}\,(1-0)^{j}
+       +\frac{h^{(k)}(\xi)}{k!}\,(1-0)^{k}
+      =\sum_{j=0}^{k-1}\frac{h^{(j)}(0)}{j!}+\frac{h^{(k)}(\xi)}{k!} .
+\]
+By \eqref{eq:tvd-vanish} every term of the sum vanishes, so
+\begin{equation}\label{eq:tvd-rem}
+  u(x)=h(1)=\frac{h^{(k)}(\xi)}{k!} .
+\end{equation}
+
+\emph{Step 4: estimating the remainder.}
+Since $\xi\in(0,1)\subseteq I$, the point $\gamma(\xi)=x_0+\xi\,e$ lies in $B_\rho(x_0)$.
+Applying \noderef{IteratedDerivAlongRay} once more, now with order $k$ and parameter
+$t=\xi$ (again $u$ is of class $C^{k}$ on the open set $B_\rho(x_0)$ and
+$\gamma(\xi)\in B_\rho(x_0)$), we get
+\[
+  h^{(k)}(\xi)=D^{k}u(\gamma(\xi))[e,\ldots,e].
+\]
+Combining this with the case $j=k$ of \eqref{eq:tvd-at0} and \eqref{eq:tvd-vanish}, which give
+$D^{k}u(x_0)[e,\ldots,e]=h^{(k)}(0)=0$, and using that evaluation at the fixed family
+$(e,\ldots,e)$ is linear in the multilinear form,
+\[
+  h^{(k)}(\xi)=D^{k}u(\gamma(\xi))[e,\ldots,e]-D^{k}u(x_0)[e,\ldots,e]
+             =\bigl(D^{k}u(\gamma(\xi))-D^{k}u(x_0)\bigr)[e,\ldots,e].
+\]
+The operator-norm background proposition therefore yields
+\[
+  \bigl\lvert h^{(k)}(\xi)\bigr\rvert
+  \le\bigl\lVert D^{k}u(\gamma(\xi))-D^{k}u(x_0)\bigr\rVert\;\lvert e\rvert^{k}.
+\]
+Both $\gamma(\xi)$ and $x_0$ lie in $B_\rho(x_0)$, so hypothesis (3) applies to the pair
+$(\gamma(\xi),x_0)$ and gives
+\[
+  \bigl\lVert D^{k}u(\gamma(\xi))-D^{k}u(x_0)\bigr\rVert
+  \le C\,\lvert\gamma(\xi)-x_0\rvert^{\beta}
+  = C\,\bigl(\xi\,\lvert e\rvert\bigr)^{\beta}
+  = C\,\xi^{\beta}\lvert e\rvert^{\beta}
+  \le C\,\lvert e\rvert^{\beta},
+\]
+where we used $\lvert\gamma(\xi)-x_0\rvert=\lvert\xi\,e\rvert=\xi\lvert e\rvert$ (valid since
+$\xi>0$), the multiplicativity $(ab)^{\beta}=a^{\beta}b^{\beta}$ of real powers of nonnegative
+reals, and finally $\xi^{\beta}\le1$, which holds because $0<\xi<1$ and $\beta>0$, together
+with $C\ge0$ and $\lvert e\rvert^{\beta}\ge0$.  Hence
+\[
+  \bigl\lvert h^{(k)}(\xi)\bigr\rvert
+  \le C\,\lvert e\rvert^{\beta}\,\lvert e\rvert^{k}
+  = C\,\lvert e\rvert^{\,k+\beta},
+\]
+the last equality being the addition rule for real exponents, $t^{a}t^{b}=t^{a+b}$, applied to
+$t=\lvert e\rvert>0$.
+
+\emph{Step 5: conclusion.}  Taking absolute values in \eqref{eq:tvd-rem} and inserting the
+bound of Step 4,
+\[
+  \lvert u(x)\rvert=\frac{\bigl\lvert h^{(k)}(\xi)\bigr\rvert}{k!}
+  \le\frac{C}{k!}\,\lvert e\rvert^{\,k+\beta}
+  =\frac{C}{k!}\,\lvert x-x_0\rvert^{\,k+\beta},
+\]
+since $k!>0$.  This is the asserted bound, and the two cases together cover every
+$x\in B_\rho(x_0)$.
+\end{proof}

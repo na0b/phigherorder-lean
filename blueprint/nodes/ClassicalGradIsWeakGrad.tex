@@ -1,0 +1,97 @@
+\begin{lemma}[The classical gradient is the distributional gradient]
+Let $U\subseteq\mathrm{Plane}$ be open and let $w\colon\mathrm{Plane}\to\mathbb{R}$ be of class
+$C^{1}$ on $U$.  Then for every $\varphi\colon\mathrm{Plane}\to\mathbb{R}$ of class $C^{\infty}$
+with compact support and $\operatorname{tsupp}\varphi\subseteq U$,
+\[
+  \int_U w\,D\varphi\,dx=-\int_U\varphi\,Dw\,dx ,
+\]
+where $Dw$ is the classical gradient of $w$ and both integrals are over $U$ with respect to
+Lebesgue measure.
+\end{lemma}
+\begin{proof}
+Fix such a $\varphi$ and write $K:=\operatorname{tsupp}\varphi$, a compact subset of $U$.  Put
+$G:=Dw$ and
+\[
+  h\colon\mathrm{Plane}\to\mathbb{R},\qquad h(x):=\varphi(x)\,w(x).
+\]
+Since $w$ is of class $C^{1}$ on the open set $U$, clause (2) of the background proposition on
+locality of $C^{1}$ regularity makes $w$ and $G$ continuous on $U$; and $\varphi$ is of class
+$C^{\infty}$, hence of class $C^{1}$, on all of $\mathrm{Plane}$.
+
+\medskip\noindent\emph{Step 1: $h$ is of class $C^{1}$ on all of $\mathrm{Plane}$, with compact
+support contained in $K$, and $Dh$ vanishes off $K$.}
+The set $K$ is compact, hence closed, so $\mathrm{Plane}\setminus K$ is open; and
+$\mathrm{Plane}=U\cup(\mathrm{Plane}\setminus K)$ because $K\subseteq U$.  Every point of
+$\mathrm{Plane}$ therefore has an open neighbourhood on which $h$ is of class $C^{1}$: the set
+$U$ for a point of $U$, where $h=\varphi w$ is a product of two functions of class $C^{1}$ on
+$U$ and so is of class $C^{1}$ there by clause (4) of the background proposition on the product
+rule and linearity for the classical gradient; and the set $\mathrm{Plane}\setminus K$
+otherwise, on which $\varphi\equiv0$ --- a point outside $K$ has a neighbourhood on which
+$\varphi$ vanishes --- so that $h\equiv0$ there, which is of class $C^{1}$ by clause (4) of the
+same proposition.  By clause (1) of the locality proposition, applied with
+$\Omega=\mathrm{Plane}$, $h$ is of class $C^{1}$ on $\mathrm{Plane}$.  Its support is contained
+in $K$, since $h$ vanishes off $K$, and is closed, hence compact.  Finally $Dh\equiv0$ on the
+open set $\mathrm{Plane}\setminus K$, on which $h\equiv0$, by clause (3) of the product-rule
+proposition.
+
+\medskip\noindent\emph{Step 2: the integral of $Dh$ over the plane vanishes.}
+By Step 1 the function $h$ is of class $C^{1}$ on $\mathrm{Plane}$ with compact support, so
+\noderef{TestFunctionGradientIntegral} applied to $h$ gives
+\begin{equation}\label{eq:cgwg-zero}
+  \int_{\mathrm{Plane}}Dh\,dx=0 .
+\end{equation}
+
+\medskip\noindent\emph{Step 3: the product rule on $U$.}
+By clause (1) of the product-rule proposition, for every $x\in U$,
+\begin{equation}\label{eq:cgwg-prod}
+  Dh(x)=w(x)\,D\varphi(x)+\varphi(x)\,Dw(x)=w(x)\,D\varphi(x)+\varphi(x)\,G(x).
+\end{equation}
+
+\medskip\noindent\emph{Step 4: both summands are integrable on $U$.}
+The set $U$ is open, hence Lebesgue measurable, by clause (2) of the background proposition on
+integrability of continuous and of compactly supported functions.  Both summands in
+\eqref{eq:cgwg-prod} are continuous on $U$: the first because $w$ is continuous on $U$ and
+$D\varphi$ is continuous on $\mathrm{Plane}$ by clause (2) of the locality proposition, the
+second because $\varphi$ is continuous and $G$ is continuous on $U$.  Hence each is almost
+everywhere strongly measurable for Lebesgue measure restricted to $U$, by clause (3) of the
+integrability proposition.
+
+For the domination, let $c_1$ be a bound for $\lvert w\rvert$ and $c_2$ a bound for
+$\lvert G\rvert$ on the compact set $K\subseteq U$; both exist by clause (3) of the
+integrability proposition, $w$ and $G$ being continuous on $U$ and hence on $K$.  On
+$U\setminus K$ we have $\varphi=0$ and, by clause (3) of the product-rule proposition,
+$D\varphi=0$, so both summands vanish there.  Therefore on all of $U$
+\[
+  \lvert w\,D\varphi\rvert\le c_1\lvert D\varphi\rvert,
+  \qquad
+  \lvert\varphi\,G\rvert\le c_2\lvert\varphi\rvert .
+\]
+Now $\varphi$ is continuous with compact support, and $D\varphi$ is continuous on
+$\mathrm{Plane}$ with support contained in the compact set $K$, hence also continuous with
+compact support.  So $c_1\lvert D\varphi\rvert$ and $c_2\lvert\varphi\rvert$ are continuous
+with compact support, hence integrable on $\mathrm{Plane}$ and on the measurable subset $U$ by
+clause (1) of the integrability proposition; and the last sentence of clause (3) then gives
+that each summand is integrable on $U$.  By linearity of the integral,
+\begin{equation}\label{eq:cgwg-split}
+  \int_UDh\,dx=\int_Uw\,D\varphi\,dx+\int_U\varphi\,G\,dx .
+\end{equation}
+
+\medskip\noindent\emph{Step 5: localization.}
+By Step 1, $Dh$ is continuous on $\mathrm{Plane}$ with compact support contained in $K$, hence
+integrable on $\mathrm{Plane}$ by clause (1) of the integrability proposition, and its
+restriction to the measurable set $U$ is integrable by the same clause.  Since $Dh$ vanishes
+off $K$ and $K\subseteq U\subseteq\mathrm{Plane}$, clause (4) of the integrability proposition,
+applied once with the ambient set $\mathrm{Plane}$ and once with the set $U$, gives
+\[
+  \int_{\mathrm{Plane}}Dh\,dx=\int_KDh\,dx=\int_UDh\,dx .
+\]
+
+\medskip\noindent\emph{Conclusion.}
+Combining this chain with \eqref{eq:cgwg-zero} and \eqref{eq:cgwg-split},
+\[
+  0=\int_{\mathrm{Plane}}Dh\,dx=\int_UDh\,dx
+   =\int_Uw\,D\varphi\,dx+\int_U\varphi\,G\,dx ,
+\]
+and subtracting the second summand gives
+$\int_Uw\,D\varphi\,dx=-\int_U\varphi\,Dw\,dx$, which is the assertion.
+\end{proof}

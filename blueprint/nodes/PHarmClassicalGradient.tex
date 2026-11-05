@@ -1,0 +1,66 @@
+\begin{lemma}[The gradient of a limit is the limit of the gradients]
+Let $\Omega\subseteq\mathrm{Plane}$ be open, let $u_n,U\colon\mathrm{Plane}\to\mathbb{R}$ for
+$n\in\mathbb{N}$, and let $g_n,G\colon\mathrm{Plane}\to\mathrm{Plane}$.  Assume:
+\begin{enumerate}
+\item for every $n$ and every $x\in\Omega$, the function $u_n$ is differentiable at $x$ with
+classical gradient $g_n(x)$;
+\item for every compact $K\subseteq\Omega$, $g_n\to G$ uniformly on $K$;
+\item for every $x\in\Omega$, $u_n(x)\to U(x)$.
+\end{enumerate}
+Then for every $x\in\Omega$ the function $U$ is differentiable at $x$ with classical gradient
+$G(x)$, and consequently $DU(x)=G(x)$, where $DU$ denotes the gradient map of $U$.
+\end{lemma}
+\begin{proof}
+Write $\mathrm{Plane}^{*}$ for the space of continuous linear functionals on $\mathrm{Plane}$
+and $J\colon\mathrm{Plane}\to\mathrm{Plane}^{*}$, $J(\xi)=\langle\xi,\cdot\rangle$, for the
+Riesz map.  By clause (1) of the background proposition on the Riesz identification, $J$ is a
+linear isometry of $\mathrm{Plane}$ onto $\mathrm{Plane}^{*}$.
+
+\medskip\noindent\emph{Step 1: restate the hypotheses at the level of Fr\'echet derivatives.}
+Put
+\[
+  f_n:=u_n,\qquad f:=U,\qquad f'_n(x):=J\bigl(g_n(x)\bigr),\qquad f'(x):=J\bigl(G(x)\bigr),
+\]
+so $f'_n,f'\colon\mathrm{Plane}\to\mathrm{Plane}^{*}$.  Let $n\in\mathbb{N}$ and $x\in\Omega$.
+By hypothesis (1), $u_n$ has classical gradient $g_n(x)$ at $x$; by clause (2) of the Riesz
+proposition this is equivalent to $u_n$ having Fr\'echet derivative $J(g_n(x))=f'_n(x)$ at $x$.
+So
+\begin{equation}\label{eq:pcg-deriv}
+  \text{for every }n\text{ and every }x\in\Omega,\quad
+  f_n\text{ has Fr\'echet derivative }f'_n(x)\text{ at }x .
+\end{equation}
+
+\medskip\noindent\emph{Step 2: the convergence transports to the derivatives.}
+Let $K\subseteq\Omega$ be compact and let $x\in K$.  Since $J$ is linear and isometric,
+\[
+  \bigl\lVert f'_n(x)-f'(x)\bigr\rVert
+  =\bigl\lVert J(g_n(x))-J(G(x))\bigr\rVert
+  =\bigl\lVert J\bigl(g_n(x)-G(x)\bigr)\bigr\rVert
+  =\bigl\lvert g_n(x)-G(x)\bigr\rvert .
+\]
+The right-hand side is exactly the quantity controlled by hypothesis (2): given
+$\varepsilon>0$ there is $N$ with $\lvert g_n(x)-G(x)\rvert\le\varepsilon$ for all $n\ge N$ and
+all $x\in K$, and by the displayed identity the same $N$ gives
+$\lVert f'_n(x)-f'(x)\rVert\le\varepsilon$ for all $n\ge N$ and all $x\in K$.  Hence
+$f'_n\to f'$ uniformly on every compact subset of $\Omega$.  Since $\Omega$ is open and
+$\mathrm{Plane}$ is locally compact, the last clause of the background proposition on the
+derivative of a locally uniform limit says this is equivalent to
+\begin{equation}\label{eq:pcg-locunif}
+  f'_n\to f'\quad\text{locally uniformly on }\Omega .
+\end{equation}
+
+\medskip\noindent\emph{Step 3: apply the limit theorem.}
+By hypothesis (3), $f_n(x)=u_n(x)\to U(x)=f(x)$ for every $x\in\Omega$.  Together with
+$\Omega$ open, \eqref{eq:pcg-locunif} and \eqref{eq:pcg-deriv}, the background proposition on
+the derivative of a locally uniform limit of derivatives applies and yields, for every
+$x\in\Omega$, that $f=U$ has Fr\'echet derivative $f'(x)=J(G(x))$ at $x$.
+
+\medskip\noindent\emph{Step 4: return to gradients.}
+Fix $x\in\Omega$.  By Step 3 the function $U$ has Fr\'echet derivative $J(G(x))$ at $x$, so by
+clause (2) of the Riesz proposition, read in the other direction, $U$ is differentiable at $x$
+with classical gradient $G(x)$.  Finally clause (3) of the Riesz proposition, the uniqueness of
+the gradient, gives $DU(x)=G(x)$.
+
+\medskip\noindent As $x\in\Omega$ was arbitrary, both assertions hold at every point of
+$\Omega$.
+\end{proof}

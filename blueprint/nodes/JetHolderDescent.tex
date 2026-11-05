@@ -1,0 +1,127 @@
+\begin{lemma}[Jet descent on a bounded convex set: bounded jets to order $n+1$ give a H\"older bound at order $n$]
+Let $\kappa,d\in\mathbb{R}$ with $0<\kappa$ and $\kappa\le1$.  Then there exists
+$\theta\in\mathbb{R}$ with
+\[
+  1\le\theta
+\]
+such that the following holds for every normed real vector space $Z$ and every open set
+$U\subseteq\mathrm{Plane}$ that is convex and satisfies $\lvert x-y\rvert\le d$ for all
+$x,y\in U$, and then for every $n\in\mathbb{N}$, every $L\in\mathbb{R}$ with $L\ge0$ and every
+$\Phi\colon\mathrm{Plane}\to Z$ that is of class $C^{\infty}$ on $U$ and satisfies
+\[
+  \bigl\lVert D^{i}\Phi(x)\bigr\rVert\le L
+  \qquad(i\le n+1,\ x\in U):
+\]
+\begin{enumerate}
+\item[(1)] $\bigl\lVert D^{i}\Phi(x)\bigr\rVert\le L\theta$ for every $i\le n$ and every
+$x\in U$;
+\item[(2)] $\bigl\lVert D^{n}\Phi(x)-D^{n}\Phi(y)\bigr\rVert\le L\theta\,\lvert
+x-y\rvert^{\kappa}$ for all $x,y\in U$.
+\end{enumerate}
+
+The quantifier order is the point.  The factor $\theta$ is produced BEFORE the target space $Z$,
+the set $U$, the order $n$, the constant $L$ and the map $\Phi$, so one and the same factor
+serves every instantiation; a consumer that applies the statement at several target spaces, or
+at several orders inside an induction, pays for it once.  The factor is also delivered
+EXISTENTIALLY: what a consumer needs is that some single factor depending only on $\kappa$ and
+$d$ makes the descent work, not a formula for it.  The clause asserted is $1\le\theta$ rather
+than $0<\theta$ because $1\le\theta$ is what lets a consumer compare $L$ with $L\theta$;
+$0<\theta$ follows from it.
+
+Conclusion (2) is the substantive half.  Conclusion (1) is a weakening of the hypothesis, since
+$L\le L\theta$; but a H\"older seminorm is a two-point difference, and no bound on the size of a
+jet at each of two separate points controls the size of the difference of those two jets.  The
+hypothesis is at order $n+1$ and the conclusion at order $n$: one order is spent, which is what
+the word ``descent'' records, and the cost in the constant is exactly the single factor $\theta$.
+
+There is no hypothesis $0<d$: the descent never uses one.
+\end{lemma}
+\begin{proof}
+Put
+\[
+  \theta:=\max\bigl\{1,\ d^{\,1-\kappa}\bigr\} .
+\]
+Then $1\le\theta$, since $\theta$ is a maximum one of whose two entries is $1$; this is the
+asserted clause on $\theta$, and $\theta$ depends only on $\kappa$ and $d$, as required by the
+quantifier order.  Only two properties of $\theta$ are used below, namely $1\le\theta$ and
+$d^{\,1-\kappa}\le\theta$, the latter because $\theta$ is a maximum one of whose entries is
+$d^{\,1-\kappa}$.
+
+Now fix a normed real vector space $Z$, an open convex $U\subseteq\mathrm{Plane}$ with
+$\lvert x-y\rvert\le d$ for all $x,y\in U$, an $n\in\mathbb{N}$, an $L\ge0$ and a
+$\Phi\colon\mathrm{Plane}\to Z$ of class $C^{\infty}$ on $U$ with
+$\lVert D^{i}\Phi(x)\rVert\le L$ for all $i\le n+1$ and $x\in U$.
+
+\medskip\noindent\emph{Step 1: the scalar core.}
+We first record that
+\begin{equation}\label{eq:jhd-pow}
+  0\le t\le d\ \Longrightarrow\ t\le\theta\,t^{\kappa}.
+\end{equation}
+If $t=0$ this reads $0\le\theta\cdot0^{\kappa}=0$, true because $\kappa>0$ gives $0^{\kappa}=0$.
+If $t>0$ then, by the addition rule for real exponents (clause (2) of the background proposition
+on elementary properties of real powers) applied to the positive base $t$,
+$t=t^{1-\kappa}t^{\kappa}$; since $\kappa\le1$ we have $1-\kappa\ge0$, so monotonicity of
+$s\mapsto s^{1-\kappa}$ on $[0,\infty)$ (clause (3) of that proposition) together with $t\le d$
+gives $t^{1-\kappa}\le d^{1-\kappa}\le\theta$, and multiplying this by $t^{\kappa}\ge0$ yields
+\eqref{eq:jhd-pow}.
+
+\medskip\noindent\emph{Step 2: a Lipschitz bound upgrades to a H\"older bound.}
+Let $Z'$ be a normed real vector space, let $L'\ge0$ and suppose
+$\Psi\colon\mathrm{Plane}\to Z'$ satisfies $\lVert\Psi(x)-\Psi(y)\rVert\le L'\lvert x-y\rvert$
+for all $x,y\in U$.  For $x,y\in U$ the diameter hypothesis gives $\lvert x-y\rvert\le d$, so
+\eqref{eq:jhd-pow} applied to $t:=\lvert x-y\rvert\ge0$ gives
+$\lvert x-y\rvert\le\theta\lvert x-y\rvert^{\kappa}$; multiplying by $L'\ge0$ and chaining,
+\begin{equation}\label{eq:jhd-lip}
+  \bigl\lVert\Psi(x)-\Psi(y)\bigr\rVert\le L'\lvert x-y\rvert
+    \le L'\bigl(\theta\lvert x-y\rvert^{\kappa}\bigr)
+    =L'\theta\,\lvert x-y\rvert^{\kappa}
+  \qquad(x,y\in U).
+\end{equation}
+This is where the factor $\theta$ is spent, and it cannot be dispensed with: for $t$ near $1$ the
+quantities $t$ and $t^{\kappa}$ are not comparable in the direction needed without a factor
+$\ge1$.
+
+\medskip\noindent\emph{Step 3: conclusion (1).}
+Let $i\le n$ and $x\in U$.  Then $i\le n+1$, so the hypothesis gives
+$\lVert D^{i}\Phi(x)\rVert\le L$.  Since $1\le\theta$ and $L\ge0$ we have $L\le L\theta$, and
+hence $\lVert D^{i}\Phi(x)\rVert\le L\theta$.  This is conclusion (1).
+
+\medskip\noindent\emph{Step 4: conclusion (2).}
+Write $Z_n$ for the normed space of continuous $n$-linear maps $\mathrm{Plane}^{n}\to Z$, with
+the operator norm of the background proposition on the operator norm of a continuous multilinear
+map, and consider
+\[
+  \Psi:=D^{n}\Phi\colon\mathrm{Plane}\to Z_n .
+\]
+Since $\Phi$ is of class $C^{\infty}$ on the open set $U$, clause (3) of the background
+proposition on the recursion for the iterated Fr\'echet derivative --- applied at the order $n$,
+which is legitimate because being of class $C^{\infty}$ on $U$ is in particular being of class
+$C^{n+1}$ on $U$ --- gives that $\Psi$ is of class $C^{1}$ on $U$, and in particular that $\Psi$
+is differentiable at every point of $U$.  Moreover, by clause (1) of the background proposition
+on the order shift and derivatives of a continuous bilinear pairing, applied with $W_1:=Z$ and
+$f:=D^{n}\Phi$ read through the identification of $D(D^{n}\Phi)(x)$ with $D^{n+1}\Phi(x)$ that
+clause (2) of the recursion proposition supplies,
+\[
+  \bigl\lVert D\Psi(x)\bigr\rVert=\bigl\lVert D^{\,n+1}\Phi(x)\bigr\rVert\le L
+  \qquad(x\in U),
+\]
+the inequality being the hypothesis at the order $n+1$, which is available because $n+1\le n+1$.
+
+The set $U$ is convex, $\Psi$ is differentiable at every point of $U$, and
+$\lVert D\Psi\rVert\le L$ on $U$, so the background proposition on the mean value inequality on a
+convex set, vector valued, gives
+\[
+  \bigl\lVert\Psi(x)-\Psi(y)\bigr\rVert\le L\,\lvert x-y\rvert
+  \qquad(x,y\in U).
+\]
+Now apply Step 2 with $Z':=Z_n$, $L':=L$ and this $\Psi$ --- admissible since $L\ge0$ --- and
+\eqref{eq:jhd-lip} converts the Lipschitz bound into
+\[
+  \bigl\lVert D^{n}\Phi(x)-D^{n}\Phi(y)\bigr\rVert
+  =\bigl\lVert\Psi(x)-\Psi(y)\bigr\rVert
+  \le L\theta\,\lvert x-y\rvert^{\kappa}
+  \qquad(x,y\in U),
+\]
+which is conclusion (2).  As $Z$, $U$, $n$, $L$ and $\Phi$ were arbitrary subject to the stated
+hypotheses, and $\theta$ was fixed before all of them, the lemma is proved.
+\end{proof}

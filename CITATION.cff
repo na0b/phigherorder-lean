@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite the paper and this repository."
+title: "Lean 4 formalization of: Higher-order estimates for p-harmonic functions in the plane"
+type: software
+license: Apache-2.0
+authors:
+  - family-names: Manfredi
+    given-names: Juan J.
+    affiliation: University of Pittsburgh
+  - family-names: Sobral
+    given-names: Aelson
+    affiliation: King Abdullah University of Science and Technology (KAUST)
+  - family-names: Teixeira
+    given-names: Eduardo V.
+    affiliation: Oklahoma State University
+  - family-names: Urbano
+    given-names: José Miguel
+    affiliation: King Abdullah University of Science and Technology (KAUST)
+preferred-citation:
+  type: article
+  title: "Higher-order estimates for p-harmonic functions in the plane"
+  authors:
+    - family-names: Manfredi
+      given-names: Juan J.
+    - family-names: Sobral
+      given-names: Aelson
+    - family-names: Teixeira
+      given-names: Eduardo V.
+    - family-names: Urbano
+      given-names: José Miguel
+  year: 2026

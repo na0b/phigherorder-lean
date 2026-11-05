@@ -1,0 +1,124 @@
+\begin{lemma}[Taylor polynomial under an affine normalization]
+Let $k\in\mathbb{N}$, let $u\colon\mathrm{Plane}\to\mathbb{R}$, let $x_0\in\mathrm{Plane}$ and
+let $\rho>0$, and suppose $u$ is of class $C^{k}$ on $B_{\rho}(x_0)$.  Let $r>0$ and $M>0$, and
+let $w\colon\mathrm{Plane}\to\mathbb{R}$ satisfy
+\[
+  w(y)=\frac{u(x_0+r\,y)-u(x_0)}{M}\qquad\text{for every }y\in\mathrm{Plane}.
+\]
+Then:
+\begin{enumerate}
+\item for every $j$ with $1\le j\le k$ and every $e\in\mathrm{Plane}$,
+\[
+  D^{j}w(0)[e,\ldots,e]=\frac{r^{\,j}}{M}\,D^{j}u(x_0)[e,\ldots,e];
+\]
+\item for every $z\in\mathrm{Plane}$,
+\[
+  \mathrm{TaylorPoly}(k,u,x_0)(z)
+    =u(x_0)+M\,\mathrm{TaylorPoly}\bigl(k,w,0\bigr)\bigl(r^{-1}(z-x_0)\bigr).
+\]
+\end{enumerate}
+Assertion (1) is restricted to $j\ge1$, and this is necessary rather than a weakening: at
+$j=0$ the additive constant does not cancel, and indeed $w(0)=0$ while $u(x_0)$ need not
+vanish.  Assertion (2) carries that degree-zero term explicitly, as the summand $u(x_0)$, and
+is the paper's formula $P_x(z)=u(x)+M_0\,Q_x\bigl(4(z-x)\bigr)$ at lines 283--295, read with
+$x_0=x$, $r=1/4$, $M=M_0$ and $Q_x=\mathrm{TaylorPoly}(k,w,0)$.
+
+Assertion (1) is stated through diagonal evaluations, consistently with the rest of this
+development; the hypothesis on $u$ is local, class $C^{k}$ on a single ball about $x_0$,
+because that is all the consumers have.
+\end{lemma}
+\begin{proof}
+Note $r\ne0$ and $M\ne0$.  The substitution is composed of a dilation, a translation, the
+subtraction of a constant and a division by a constant, and we treat these in turn.
+
+\medskip\noindent\emph{Step 1: the translated function.}
+Put $u_1(y):=u(x_0+y)$.  By the translation identity of the background proposition on iterated
+derivatives under translations and dilations --- which is unconditional, requiring no
+regularity --- for every $j\in\mathbb{N}$ and every $y\in\mathrm{Plane}$
+\begin{equation}\label{eq:tpa-trans}
+  D^{j}u_1(y)=D^{j}u(x_0+y),
+\end{equation}
+an identity of continuous $j$-linear forms.  The map $y\mapsto x_0+y$ is affine, hence of class
+$C^{\infty}$, and carries $B_{\rho}(0)$ into $B_{\rho}(x_0)$, since
+$\lvert (x_0+y)-x_0\rvert=\lvert y\rvert<\rho$ for $\lvert y\rvert<\rho$.  So by clause (3) of
+the background proposition on the chain rule for compositions, $u_1$ is of class $C^{k}$ on
+$B_{\rho}(0)$.
+
+\medskip\noindent\emph{Step 2: the dilation.}
+Put $g(y):=u_1(r\,y)$, so that $g(y)=u(x_0+r\,y)$.  We claim
+\begin{equation}\label{eq:tpa-dil}
+  D^{j}g(0)[e,\ldots,e]=r^{\,j}\,D^{j}u(x_0)[e,\ldots,e]
+  \qquad(0\le j\le k,\ e\in\mathrm{Plane}).
+\end{equation}
+Apply \noderef{TaylorPolyRescale} with $k:=k$, $\sigma:=0$, $v:=u_1$, $\rho:=\rho$, $R:=r$ and
+$v_L:=g$.  Its hypotheses hold: $\rho>0$; $u_1$ is of class $C^{k}$ on $B_{\rho}(0)$ by Step 1;
+$r>0$; and $g(y)=u_1(r\,y)=u_1(r\,y)/r^{0}$ for every $y$, since $r^{0}=1$.  Its conclusion (1)
+gives, for every $j\le k$ and every $e$,
+\[
+  D^{j}u_1(0)[e,\ldots,e]=r^{\,0-j}\,D^{j}g(0)[e,\ldots,e]=r^{-j}\,D^{j}g(0)[e,\ldots,e].
+\]
+Multiplying by $r^{\,j}$ and using $r^{\,j}r^{-j}=1$, valid because $r>0$, yields
+$D^{j}g(0)[e,\ldots,e]=r^{\,j}D^{j}u_1(0)[e,\ldots,e]$, and then \eqref{eq:tpa-trans} at $y=0$
+gives $D^{j}u_1(0)=D^{j}u(x_0)$, which is \eqref{eq:tpa-dil}.
+
+We also record the regularity of $g$ that Step 3 needs.  The map $y\mapsto r\,y$ is linear,
+hence of class $C^{\infty}$, and $B_{\rho/r}(0)$ is an open set containing $0$ which it carries
+into $B_{\rho}(0)$, since $\lvert r\,y\rvert=r\lvert y\rvert<\rho$ for $\lvert y\rvert<\rho/r$.
+So by clause (3) of the background proposition on the chain rule for compositions, $g$ is of
+class $C^{k}$ on $B_{\rho/r}(0)$, and in particular of class $C^{j}$ at $0$ for every $j\le k$.
+
+\medskip\noindent\emph{Step 3: the additive constant and the scalar, giving (1).}
+By hypothesis $w=M^{-1}\,h$ where $h(y):=g(y)-u(x_0)$, since
+$\bigl(u(x_0+r\,y)-u(x_0)\bigr)/M=M^{-1}\bigl(g(y)-u(x_0)\bigr)$.  Fix $j$ with
+$1\le j\le k$.  Because $j\ne0$, the $j$-th iterated derivative of a constant function
+vanishes identically, so by linearity of $D^{j}$ in the function --- available at $0$ since
+$g$ is of class $C^{j}$ at $0$ by Step 2 and a constant is of class $C^{\infty}$ ---
+\[
+  D^{j}h(0)=D^{j}g(0)-D^{j}\bigl(y\mapsto u(x_0)\bigr)(0)=D^{j}g(0).
+\]
+Again by linearity in the function, $D^{j}w(0)=M^{-1}\,D^{j}g(0)$, and scalar multiples of
+continuous multilinear forms evaluate pointwise (clause (7) of the recursion proposition), so
+by \eqref{eq:tpa-dil}
+\[
+  D^{j}w(0)[e,\ldots,e]=M^{-1}\,D^{j}g(0)[e,\ldots,e]
+  =M^{-1}r^{\,j}\,D^{j}u(x_0)[e,\ldots,e]
+  =\frac{r^{\,j}}{M}\,D^{j}u(x_0)[e,\ldots,e],
+\]
+which is assertion (1).
+
+\medskip\noindent\emph{Step 4: assertion (2).}
+First, $w(0)=\bigl(u(x_0+r\cdot0)-u(x_0)\bigr)/M=0$.  Fix $z\in\mathrm{Plane}$ and put
+$\zeta:=r^{-1}(z-x_0)$.  By the definition in \noderef{TaylorPoly}, and splitting off the
+$j=0$ summand in each sum,
+\[
+  \mathrm{TaylorPoly}(k,u,x_0)(z)
+  =u(x_0)+\sum_{j=1}^{k}\frac{1}{j!}\,D^{j}u(x_0)[z-x_0,\ldots,z-x_0],
+\]
+because the $j=0$ term is $D^{0}u(x_0)$ evaluated on the empty family, which is $u(x_0)$ by
+clause (1) of the recursion proposition; and
+\[
+  M\,\mathrm{TaylorPoly}(k,w,0)(\zeta)
+  =M\,\Bigl(w(0)+\sum_{j=1}^{k}\frac{1}{j!}\,D^{j}w(0)[\zeta,\ldots,\zeta]\Bigr)
+  =\sum_{j=1}^{k}\frac{M}{j!}\,D^{j}w(0)[\zeta,\ldots,\zeta],
+\]
+the $j=0$ term vanishing because $w(0)=0$ (the centre of the second polynomial is $0$, so its
+slot is filled with $\zeta-0=\zeta$).
+
+Fix $1\le j\le k$.  By assertion (1) applied with $e:=\zeta$, and then by degree-$j$
+homogeneity of a diagonal evaluation (clause (7) of the recursion proposition) applied to
+$\zeta=r^{-1}(z-x_0)$,
+\[
+  M\,D^{j}w(0)[\zeta,\ldots,\zeta]
+  =r^{\,j}\,D^{j}u(x_0)[\zeta,\ldots,\zeta]
+  =r^{\,j}\,r^{-j}\,D^{j}u(x_0)[z-x_0,\ldots,z-x_0]
+  =D^{j}u(x_0)[z-x_0,\ldots,z-x_0],
+\]
+using $r^{\,j}r^{-j}=1$, valid since $r\ne0$.  Dividing by $j!$ and summing over
+$1\le j\le k$,
+\[
+  M\,\mathrm{TaylorPoly}(k,w,0)(\zeta)
+  =\sum_{j=1}^{k}\frac{1}{j!}\,D^{j}u(x_0)[z-x_0,\ldots,z-x_0]
+  =\mathrm{TaylorPoly}(k,u,x_0)(z)-u(x_0).
+\]
+Adding $u(x_0)$ to both sides gives assertion (2).
+\end{proof}

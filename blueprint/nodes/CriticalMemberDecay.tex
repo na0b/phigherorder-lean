@@ -1,0 +1,138 @@
+\begin{lemma}[Decay at a critical member of the compact family]
+Let $1<p<2$, suppose $p$ satisfies Lewis rigidity and Iwaniec--Manfredi regularity, and let
+$(\kappa,C_0)$ be a first-order estimate datum for $p$.  Let $k\in\mathbb{N}$ with $k\ge2$ and
+let $\beta$ satisfy $0<\beta<1$ and $k+\beta<s(p)$.  Let $z\in\mathcal{K}_p$ and suppose
+$\bigl(z(x)\bigr)_2=0$ for every $x\in X_{1/2}$ with $x=0$ as a point of the plane.  Then there
+is $\rho$ with $0<\rho<\tfrac14$ such that
+\[
+  \bigl\lvert\bigl(z(x)\bigr)_1\bigr\rvert<\tfrac12\,\rho^{\,k+\beta}
+  \qquad\text{for every }x\in X_{1/2}\text{ with }\lvert x\rvert\le\rho .
+\]
+\end{lemma}
+\begin{proof}
+Write $x_\ast$ for the point $0$ of the plane regarded as an element of $X_{1/2}$, which is
+legitimate since $\lvert0\rvert=0\le\tfrac12$.
+
+\medskip\noindent\emph{Step 1: the auxiliary exponent $\beta'$.}
+Put
+\[
+  \mu:=\min\bigl\{1,\ s(p)-k\bigr\},\qquad \beta':=\frac{\beta+\mu}{2}.
+\]
+From $\beta<1$ and, by $k+\beta<s(p)$, from $\beta<s(p)-k$, we get $\beta<\mu$.  Hence
+$\beta'$ is the midpoint of the nondegenerate interval $(\beta,\mu)$, so
+\begin{equation}\label{eq:cmd-beta}
+  \beta<\beta'<\mu .
+\end{equation}
+In particular $0<\beta<\beta'$, and $\beta'<\mu\le1$, and $\beta'<\mu\le s(p)-k$ gives
+\begin{equation}\label{eq:cmd-sp}
+  k+\beta'<s(p).
+\end{equation}
+
+\medskip\noindent\emph{Step 2: the $p$-harmonic representative of $z$.}
+By \noderef{CompactJetFamilyPHarm} applied to $z$ there are $h\colon\mathrm{Plane}\to\mathbb{R}$
+and $G\colon\mathrm{Plane}\to\mathrm{Plane}$ with
+\begin{enumerate}
+\item[(i)] $h$ is $p$-harmonic in $B_{1/2}$ with weak gradient $G$;
+\item[(ii)] $h(x)=\bigl(z(x)\bigr)_1$ and $G(x)=\bigl(z(x)\bigr)_2$ for every $x\in X_{1/2}$;
+\item[(iii)] $G(y)=Dh(y)$ for every $y\in B_{1/2}$;
+\end{enumerate}
+and moreover, by the same node, $\bigl(z(x)\bigr)_1=0$ whenever $x=0$ as a point of the plane.
+Applying the latter at $x_\ast$ and using (ii),
+\begin{equation}\label{eq:cmd-h0}
+  h(0)=\bigl(z(x_\ast)\bigr)_1=0 .
+\end{equation}
+Applying the hypothesis of the present lemma at $x_\ast$ and using (ii) and then (iii) at
+$y=0\in B_{1/2}$,
+\begin{equation}\label{eq:cmd-Dh0}
+  Dh(0)=G(0)=\bigl(z(x_\ast)\bigr)_2=0 .
+\end{equation}
+
+\medskip\noindent\emph{Step 3: $h$ is $p$-harmonic with its own classical gradient.}
+By (iii) we have $G=Dh$ at every point of $B_{1/2}$.  Part (b) of \noderef{PHarmRestrict},
+applied with $\Omega:=B_{1/2}$, with $u:=h$ and $u':=h$ (so that the required agreement of the
+functions is trivial), with $g:=G$ and $g':=Dh$, and with the datum (i), therefore gives
+\begin{equation}\label{eq:cmd-classical}
+  h\ \text{is}\ p\text{-harmonic in}\ B_{1/2}\ \text{with weak gradient}\ Dh .
+\end{equation}
+
+\medskip\noindent\emph{Step 4: qualitative regularity at the origin.}
+Apply the Iwaniec--Manfredi regularity hypothesis \noderef{IMRegularityInput} with the datum
+\eqref{eq:cmd-classical}, that is with $\Omega:=B_{1/2}$, $u:=h$ and $g:=Dh$, with the order $k$
+and the exponent $\beta'$, and at the point $x_0:=0\in B_{1/2}$.  Its hypotheses hold:
+$0<\beta'$ and $\beta'<1$ by Step 1, and $k+\beta'<s(p)$ by \eqref{eq:cmd-sp}.  It produces
+$r>0$ and $C>0$ with
+\begin{equation}\label{eq:cmd-reg}
+  B_r(0)\subseteq B_{1/2},\qquad h\ \text{is of class}\ C^{k}\ \text{on}\ B_r(0),
+\end{equation}
+\begin{equation}\label{eq:cmd-hol}
+  \bigl\lVert D^{k}h(x)-D^{k}h(y)\bigr\rVert\le C\,\lvert x-y\rvert^{\beta'}
+  \qquad(x,y\in B_r(0)).
+\end{equation}
+
+\medskip\noindent\emph{Step 5: diagonal vanishing through order $k$.}
+First, $B_r(0)$ is open and $B_r(0)\subseteq B_{1/2}$ by \eqref{eq:cmd-reg}, so part (a) of
+\noderef{PHarmRestrict} applied to \eqref{eq:cmd-classical} gives that $h$ is $p$-harmonic in
+$B_r(0)$ with weak gradient $Dh$.  Now apply \noderef{Rigidity} with $\Omega:=B_r(0)$, $u:=h$,
+$x_0:=0$, and the free order $m:=k$.  Its hypotheses hold: $1<p<2$; $p$ satisfies Lewis rigidity
+and $(\kappa,C_0)$ is a first-order estimate datum; $0\in B_r(0)$ since $r>0$; $2\le k$; $h$ is
+of class $C^{k}$ on $B_r(0)$ by \eqref{eq:cmd-reg}; $h$ is $p$-harmonic in $B_r(0)$ with weak
+gradient $Dh$, just established; and $Dh(0)=0$ by \eqref{eq:cmd-Dh0}.  Its conclusion is
+\begin{equation}\label{eq:cmd-rig}
+  D^{j}h(0)[w,\ldots,w]=0\qquad\text{for every }j\text{ with }2\le j\le k
+  \text{ and every }w\in\mathrm{Plane}.
+\end{equation}
+
+The two remaining indices are free.  For $j=0$: by clause (1) of the background proposition on
+the recursion for the iterated Fr\'echet derivative, $D^{0}h(0)$ is the constant $0$-linear form
+with value $h(0)$, which is $0$ by \eqref{eq:cmd-h0}.  For $j=1$: $h$ is of class $C^{k}$ on the
+open set $B_r(0)$ with $k\ge2\ge1$, so clause (2) of the background proposition on locality of
+$C^{1}$ regularity makes $h$ differentiable at $0$, and clause (6) of the recursion proposition
+gives $D^{1}h(0)[w]=\langle Dh(0),w\rangle=\langle0,w\rangle=0$ for every $w$, using
+\eqref{eq:cmd-Dh0}.  Combining with \eqref{eq:cmd-rig},
+\begin{equation}\label{eq:cmd-allvan}
+  D^{j}h(0)[w,\ldots,w]=0\qquad\text{for every }j\le k\text{ and every }w\in\mathrm{Plane}.
+\end{equation}
+
+\medskip\noindent\emph{Step 6: the decay estimate.}
+Apply \noderef{TaylorVanishingDecay} with $u:=h$, $x_0:=0$, $\rho:=r$, the order $k$, the
+exponent $\beta'$ and the constant $C$.  Its hypotheses hold: $r>0$; $1\le k$ since $2\le k$;
+$0<\beta'$ by Step 1; $0\le C$ since $C>0$; $h$ is of class $C^{k}$ on $B_r(0)$ by
+\eqref{eq:cmd-reg}; the vanishing hypothesis is \eqref{eq:cmd-allvan}; and the H\"older
+hypothesis is \eqref{eq:cmd-hol}.  Its conclusion, with $x_0=0$ so that $\lvert x-x_0\rvert
+=\lvert x\rvert$, is
+\begin{equation}\label{eq:cmd-decay}
+  \lvert h(x)\rvert\le A\,\lvert x\rvert^{\,k+\beta'}\qquad(x\in B_r(0)),
+  \qquad\text{where }A:=\frac{C}{k!}>0 .
+\end{equation}
+
+\medskip\noindent\emph{Step 7: choosing $\rho$.}
+By \eqref{eq:cmd-beta} we have $\beta'-\beta>0$, so by clause (7) of the background proposition
+on elementary properties of real powers the map $t\mapsto t^{\,\beta'-\beta}$ is continuous on
+$[0,\infty)$ with value $0$ at $t=0$; since $A>0$ there is therefore $s_0>0$ with
+\begin{equation}\label{eq:cmd-s0}
+  A\,s_0^{\,\beta'-\beta}<\tfrac12 .
+\end{equation}
+Put
+\[
+  \rho:=\min\Bigl\{s_0,\ \frac r2,\ \frac18\Bigr\} ,
+\]
+which is positive because $s_0>0$ and $r>0$, and satisfies $\rho\le\tfrac18<\tfrac14$.
+
+Let $x\in X_{1/2}$ with $\lvert x\rvert\le\rho$.  Then $\lvert x\rvert\le\rho\le r/2<r$, so
+$x\in B_r(0)$ and \eqref{eq:cmd-decay} applies.  Using in turn \eqref{eq:cmd-decay}, the
+monotonicity of $t\mapsto t^{\,k+\beta'}$ on $[0,\infty)$ (clause (3) of the elementary-powers
+proposition, applicable since $k+\beta'\ge0$) together with $\lvert x\rvert\le\rho$, the
+addition rule $\rho^{a}\rho^{b}=\rho^{a+b}$ for $\rho>0$ (clause (2) of the same proposition)
+with $a:=\beta'-\beta$ and $b:=k+\beta$, the monotonicity of $t\mapsto t^{\,\beta'-\beta}$
+together with $\rho\le s_0$, and finally \eqref{eq:cmd-s0} with $\rho^{\,k+\beta}>0$:
+\[
+  \lvert h(x)\rvert
+  \le A\,\lvert x\rvert^{\,k+\beta'}
+  \le A\,\rho^{\,k+\beta'}
+  = A\,\rho^{\,\beta'-\beta}\,\rho^{\,k+\beta}
+  \le A\,s_0^{\,\beta'-\beta}\,\rho^{\,k+\beta}
+  <\tfrac12\,\rho^{\,k+\beta} .
+\]
+Since $\lvert h(x)\rvert=\bigl\lvert\bigl(z(x)\bigr)_1\bigr\rvert$ by (ii), this is the asserted
+bound, and $\rho$ was chosen independently of $x$.
+\end{proof}

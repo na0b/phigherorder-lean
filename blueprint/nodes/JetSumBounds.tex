@@ -1,0 +1,82 @@
+\begin{lemma}[Bounds for the order-$i$ jet of a sum of two maps]
+All three clauses below carry their own quantifiers, so the statement has no parameters.
+\begin{enumerate}
+\item[(1)] \textbf{Additivity on an open set.}  Let $Z$ be a normed real vector space, let
+$U\subseteq\mathrm{Plane}$ be OPEN, let $i\in\mathbb{N}$, and let
+$E_1,E_2\colon\mathrm{Plane}\to Z$ each be of class $C^{\infty}$ on $U$.  Then for every
+$x\in U$,
+\[
+  D^{i}\bigl(E_1+E_2\bigr)(x)=D^{i}E_1(x)+D^{i}E_2(x),
+\]
+an identity of continuous $i$-linear maps $\mathrm{Plane}^{i}\to Z$.
+\item[(2)] \textbf{Sup bounds add.}  Let $W$ be a normed real vector space, let $a_1,a_2\in W$
+and let $q,Q\in\mathbb{R}$.  If $\lVert a_1\rVert\le q$, $\lVert a_2\rVert\le q$ and
+$2q\le Q$, then $\lVert a_1+a_2\rVert\le Q$.
+\item[(3)] \textbf{Two-point bounds add.}  Let $W$ be a normed real vector space, let
+$a_1,a_2,b_1,b_2\in W$ and let $q,Q,t\in\mathbb{R}$.  If
+$\lVert a_1-b_1\rVert\le qt$, $\lVert a_2-b_2\rVert\le qt$, $2q\le Q$ and $0\le t$, then
+\[
+  \bigl\lVert(a_1+a_2)-(b_1+b_2)\bigr\rVert\le Qt .
+\]
+\end{enumerate}
+
+Clause (1) is the one with content, and the hypothesis that $U$ is OPEN and that the maps are
+smooth only ON $U$ is the whole reason it is stated separately rather than quoted.  The standard
+form of jet additivity assumes the two maps are smooth on the WHOLE plane; in the intended use
+they are derivative fields of solutions of a partial differential equation, smooth on the domain
+and nowhere claimed to be smooth off it, so a globally-hypothesised statement does not apply.
+Openness of $U$ is what repairs this: on an open set the jet taken within $U$ agrees with the
+ambient one, and $U$ open gives the unique-differentiability condition under which the
+within-jet is additive.  Neither step is available for a general set.
+
+Clauses (2) and (3) are elementary --- the triangle inequality, and for (3) the rearrangement
+$(a_1+a_2)-(b_1+b_2)=(a_1-b_1)+(a_2-b_2)$ before it.  They are bundled with (1) on purpose: a
+consumer that has just applied (1) to the jet of a sum invariably needs one of them as its very
+next step, in a form matching whichever of a sup bound or a H\"older seminorm it is estimating,
+and taking all three from one citation keeps that arithmetic out of the consumer's own context.
+The factor $2$ in $2q\le Q$ rather than an equality $Q=2q$ is deliberate: a consumer typically
+carries a constant that dominates $2q$ with room to spare and should not have to reshape it.
+\end{lemma}
+\begin{proof}
+\emph{Clause (1).}  Since $U$ is open it is uniquely differentiable: every point of $U$ has a
+neighbourhood contained in $U$, so no direction is obstructed.  Fix $x\in U$.  Because $U$ is
+open, the iterated derivative within $U$ agrees at $x$ with the ambient one, for each of the
+three maps at hand; that is,
+\[
+  D^{i}\bigl(E_1+E_2\bigr)(x)=D^{i}_{U}\bigl(E_1+E_2\bigr)(x),
+  \qquad
+  D^{i}E_1(x)=D^{i}_{U}E_1(x),
+  \qquad
+  D^{i}E_2(x)=D^{i}_{U}E_2(x),
+\]
+writing $D^{i}_{U}$ for the jet computed within $U$.  It therefore suffices to prove the identity
+for $D^{i}_{U}$.  Now $E_1$ and $E_2$ are of class $C^{\infty}$ on $U$, hence of class $C^{i}$
+within $U$ at $x$, and $U$ is uniquely differentiable with $x\in U$; under exactly those
+hypotheses the within-jet of a sum is the sum of the within-jets,
+\[
+  D^{i}_{U}\bigl(E_1+E_2\bigr)(x)=D^{i}_{U}E_1(x)+D^{i}_{U}E_2(x),
+\]
+which is proved by induction on $i$ from the linearity of the derivative within a set: at $i=0$
+both sides are $E_1(x)+E_2(x)$, and the step differentiates the identity at $i$ within $U$, the
+unique-differentiability hypothesis being what makes that derivative well defined.  Transporting
+back along the three displayed identities gives clause (1).
+
+\medskip\noindent\emph{Clause (2).}  By the triangle inequality and the two hypotheses,
+\[
+  \lVert a_1+a_2\rVert\le\lVert a_1\rVert+\lVert a_2\rVert\le q+q=2q\le Q .
+\]
+
+\medskip\noindent\emph{Clause (3).}  First rearrange, using only the additive group structure of
+$W$:
+\[
+  (a_1+a_2)-(b_1+b_2)=(a_1-b_1)+(a_2-b_2).
+\]
+Then by the triangle inequality and the two hypotheses,
+\[
+  \bigl\lVert(a_1-b_1)+(a_2-b_2)\bigr\rVert
+  \le\lVert a_1-b_1\rVert+\lVert a_2-b_2\rVert
+  \le qt+qt=(2q)t\le Qt ,
+\]
+the last step by $2q\le Q$ together with $t\ge0$, which is where the hypothesis $0\le t$ is used:
+without it, multiplying the inequality $2q\le Q$ by $t$ would reverse.
+\end{proof}

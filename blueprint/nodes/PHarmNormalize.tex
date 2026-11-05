@@ -1,0 +1,192 @@
+\begin{lemma}[Affine normalization of $p$-harmonic functions]
+Let $1<p<2$, let $\Omega\subseteq\mathrm{Plane}$, let $u\colon\mathrm{Plane}\to\mathbb{R}$ and
+$g\colon\mathrm{Plane}\to\mathrm{Plane}$, let $x_0\in\mathrm{Plane}$ and let $r,M,c$ be real
+numbers with $r>0$ and $M>0$.  Assume that $u$ is $p$-harmonic in $\Omega$ with weak gradient
+$g$.  Put
+\[
+  T(x):=x_0+rx,\qquad
+  \Omega':=\{x\in\mathrm{Plane}:T(x)\in\Omega\},
+\]
+\[
+  v(x):=\frac{u(T(x))-c}{M},\qquad
+  G(x):=\frac rM\,g(T(x)).
+\]
+Then $v$ is $p$-harmonic in $\Omega'$ with weak gradient $G$.
+\end{lemma}
+\begin{proof}
+Throughout, $T(x)=x_0+rx$ is an affine homeomorphism of $\mathrm{Plane}$ with inverse
+$T^{-1}(y)=r^{-1}(y-x_0)$, and $\Omega'=T^{-1}(\Omega)$, so $T(\Omega')=\Omega$ and
+$T^{-1}(\Omega)=\Omega'$.  Note $r/M>0$.  We verify in turn the six conditions in the
+definition of a $p$-harmonic function with weak gradient, \noderef{IsPHarm}.
+
+\medskip\noindent\emph{(1) $\Omega'$ is open.}
+By condition (1) of \noderef{IsPHarm}, $\Omega$ is open.  The map $T(x)=x_0+rx$ is continuous,
+being the sum of the constant map $x\mapsto x_0$ and the scalar multiplication $x\mapsto rx$.
+Hence $\Omega'=T^{-1}(\Omega)$ is the preimage of an open set under a continuous map, so
+$\Omega'$ is open.  In particular $\Omega$ and $\Omega'$ are both Lebesgue measurable, which
+is used below.
+
+\medskip\noindent\emph{(2) $v$ is continuous on $\Omega'$.}
+The affine map $T$ is continuous and maps $\Omega'$ into $\Omega$, and $u$ is continuous on
+$\Omega$ by condition (2) of \noderef{IsPHarm}.  Hence $u\circ T$ is continuous on $\Omega'$,
+and so is $v=(u\circ T-c)/M$, being obtained from $u\circ T$ by subtracting the constant $c$
+and multiplying by the constant $1/M$.
+
+\medskip\noindent\emph{(3) $G$ is almost everywhere strongly measurable on $\Omega'$.}
+By condition (3) of \noderef{IsPHarm} there are a strongly measurable
+$\tilde g\colon\mathrm{Plane}\to\mathrm{Plane}$ and a Lebesgue-null set
+$N\subseteq\mathrm{Plane}$ with $g=\tilde g$ on $\Omega\setminus N$.  The map $T$ is
+continuous, hence Borel measurable, so $\tilde g\circ T$ is strongly measurable.  By the
+affine change-of-variables background proposition, $T^{-1}$ maps null sets to null sets, so
+$T^{-1}(N)$ is null; and $g\circ T=\tilde g\circ T$ on
+$\Omega'\setminus T^{-1}(N)=T^{-1}(\Omega\setminus N)$.  Thus $g\circ T$ agrees almost
+everywhere on $\Omega'$ with the strongly measurable map $\tilde g\circ T$, and the same holds
+for its constant multiple $G=(r/M)(g\circ T)$.
+
+\medskip\noindent\emph{(4) $\lvert G\rvert^{p}$ is integrable on every compact
+$K\subseteq\Omega'$.}
+Fix such a $K$.  Then $T(K)$ is compact, being the image of a compact set under the continuous
+map $T$, and $T(K)\subseteq T(\Omega')=\Omega$.  Since $r/M>0$, for every $x$
+\[
+  \lvert G(x)\rvert^{p}
+  =\Bigl(\tfrac rM\,\lvert g(T(x))\rvert\Bigr)^{p}
+  =\Bigl(\tfrac rM\Bigr)^{p}\lvert g(T(x))\rvert^{p},
+\]
+using that real powers of nonnegative reals are multiplicative,
+$(ab)^{p}=a^{p}b^{p}$ for $a,b\ge0$.  By condition (4) of \noderef{IsPHarm} the function
+$y\mapsto\lvert g(y)\rvert^{p}$ is integrable on the compact set $T(K)\subseteq\Omega$.  Since
+$T$ is injective, $T^{-1}(T(K))=K$, so the affine change-of-variables background proposition,
+applied with $S=T(K)$ and $f(y)=\lvert g(y)\rvert^{p}$, shows that
+$x\mapsto\lvert g(T(x))\rvert^{p}$ is integrable on $K$ with
+\[
+  \int_{K}\lvert g(T(x))\rvert^{p}\,dx=r^{-2}\int_{T(K)}\lvert g(y)\rvert^{p}\,dy<\infty .
+\]
+Multiplying by the finite constant $(r/M)^{p}$ gives the integrability of
+$\lvert G\rvert^{p}$ on $K$.
+
+\medskip\noindent\emph{Setting up the test-function correspondence.}
+Let $\varphi\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^\infty$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega'$.  Define
+\[
+  \psi:=\varphi\circ T^{-1},\qquad\text{that is}\qquad \psi(y)=\varphi\bigl(r^{-1}(y-x_0)\bigr).
+\]
+Then:
+\begin{enumerate}
+\item[(i)--(ii)] $\psi$ is of class $C^\infty$, has compact support, and satisfies
+$\operatorname{supp}\psi\subseteq\Omega$, so it is an admissible test function for $\Omega$.
+These are clauses (1), (2) and (3) of \noderef{AffineTestFunctionPullback}, applied with this
+$x_0$, this $r>0$, the set $\Omega$ and the test function $\varphi$ --- admissible for
+$\Omega'=T^{-1}\Omega$ by hypothesis, which is that node's hypothesis on
+$\operatorname{supp}\varphi$.  That node needs nothing of $\Omega$ beyond its being a set.
+\item[(iii)] $\psi(T(x))=\varphi(x)$ for every $x$, since $T^{-1}(T(x))=x$.
+\item[(iv)] Clause (4) of \noderef{AffineTestFunctionPullback} is the chain rule for this
+substitution, $D\varphi(x)=r\,D\psi(T(x))$; its inner map $T^{-1}$ is affine with derivative
+the scaling by $r^{-1}$, which is why the factor on the right is $r$ and not $r^{-1}$.  So
+\begin{equation}\label{eq:phn-chain}
+  D\varphi(x)=r\,D\psi(T(x))\qquad\text{for every }x\in\mathrm{Plane}.
+\end{equation}
+\item[(v)] $D\psi$ vanishes outside $\operatorname{supp}\psi$: indeed
+$\mathrm{Plane}\setminus\operatorname{supp}\psi$ is open and $\psi\equiv0$ there, so all
+derivatives of $\psi$ vanish on it.  The same remark applies to $\varphi$ and $D\varphi$.
+\end{enumerate}
+Write $K_0:=\operatorname{supp}\psi$, a compact subset of $\Omega$, and let
+$B:=\sup_{y\in\mathrm{Plane}}\lvert D\psi(y)\rvert<\infty$, finite because $D\psi$ is
+continuous and vanishes off the compact set $K_0$.
+
+\medskip\noindent\emph{Integrability of the four integrands over $\Omega$.}
+We record once and for all that the following functions are integrable on $\Omega$, each
+being measurable and vanishing off $K_0$ by (v):
+\[
+  y\mapsto D\psi(y),\qquad
+  y\mapsto u(y)\,D\psi(y),\qquad
+  y\mapsto \psi(y)\,g(y),\qquad
+  y\mapsto \bigl\langle A_p(g(y)),D\psi(y)\bigr\rangle .
+\]
+The set $\Omega$ is measurable, being open by condition (1) of \noderef{IsPHarm}; this is what
+licenses every measurability claim that follows, since continuity on a set yields almost
+everywhere strong measurability with respect to the restricted measure only when that set is
+measurable.
+
+For the first two functions, $D\psi$ is continuous on all of $\mathrm{Plane}$ and $u$ is
+continuous on $\Omega$ by condition (2) of \noderef{IsPHarm}, so both $D\psi$ and
+$u\,D\psi$ are continuous on the measurable set $\Omega$ and hence almost everywhere strongly
+measurable with respect to Lebesgue measure restricted to $\Omega$.  Both vanish off the
+compact set $K_0\subseteq\Omega$ by (v), and a function continuous on $\Omega$ is bounded on
+the compact subset $K_0$, hence integrable there; so each is integrable on $\Omega$ and its
+integral over $\Omega$ reduces to its integral over $K_0$.  For the last two we use the
+pointwise elementary inequality
+\begin{equation}\label{eq:phn-elem}
+  t^{a}\le 1+t^{p}\qquad\text{for all }t\ge0\text{ and }0\le a\le p,
+\end{equation}
+valid because $t^{a}\le1$ when $t\le1$ and $t^{a}\le t^{p}$ when $t\ge1$.  Taking $a=1$ in
+\eqref{eq:phn-elem} gives $\lvert\psi(y)g(y)\rvert\le B'\bigl(1+\lvert g(y)\rvert^{p}\bigr)$
+on $K_0$ with $B':=\sup\lvert\psi\rvert<\infty$, and $1+\lvert g\rvert^{p}$ is integrable on
+$K_0$ by condition (4) of \noderef{IsPHarm} together with $\lvert K_0\rvert<\infty$; combined
+with the measurability of $g$ from condition (3) of \noderef{IsPHarm} this gives the
+integrability of $\psi g$ on $\Omega$.  For the last function, note from the definition of the
+$p$-flux \noderef{PFlux} that $\lvert A_p(\xi)\rvert=\lvert\xi\rvert^{p-2}\lvert\xi\rvert
+=\lvert\xi\rvert^{p-1}$ when $\xi\neq0$, while $A_p(0)=0$ and also $0^{p-1}=0$ because
+$p-1\neq0$; hence $\lvert A_p(\xi)\rvert=\lvert\xi\rvert^{p-1}$ for every $\xi$.  By
+Cauchy--Schwarz and \eqref{eq:phn-elem} with $a=p-1\in[0,p]$,
+\[
+  \bigl\lvert\bigl\langle A_p(g(y)),D\psi(y)\bigr\rangle\bigr\rvert
+  \le B\,\lvert g(y)\rvert^{p-1}\le B\bigl(1+\lvert g(y)\rvert^{p}\bigr),
+\]
+which is integrable on $K_0$ as before.  The same four estimates, composed with $T$ and
+multiplied by constants, give the integrability on $\Omega'$ of the corresponding integrands
+there, via the affine change-of-variables background proposition, whose hypothesis that the
+set be measurable is met because $\Omega$ and $\Omega'$ are open by step (1).
+
+\medskip\noindent\emph{(5) $G$ is the distributional gradient of $v$ on $\Omega'$.}
+This is \noderef{NormalizedWeakGradient}, applied with the same $p$, $\Omega$, $u$, $g$, $x_0$,
+$r$, $M$ and $c$, and with the hypothesis that $u$ is $p$-harmonic on $\Omega$ with weak
+gradient $g$, which is the hypothesis of the present statement.  Its conclusion is condition
+(5) of \noderef{IsPHarm} for $v$ and $G$ on $\Omega'$, verbatim.
+
+That node needs no hypothesis $M>0$: the normalizing factor enters linearly on both sides, so
+the identity holds for every $M$.  It also discharges its own inputs rather than taking them
+from here --- it applies \noderef{AffineTestFunctionPullback} to push a test function for
+$\Omega'$ forward to one for $\Omega$, together with the chain rule \eqref{eq:phn-chain}, and
+\noderef{TestFunctionGradientIntegral} to kill the term carrying the additive constant $c$,
+which is why $c$ does not appear in $G$.  The two Jacobian factors from the affine change of
+variables occur on the two sides of its computation and cancel, so no dimensional constant
+enters.
+
+\medskip\noindent\emph{(6) $v$ solves the weak $p$-Laplace equation on $\Omega'$.}
+First we compute the flux of $G$.  Fix $x\in\mathrm{Plane}$ and write $\xi:=g(T(x))$, so
+$G(x)=(r/M)\xi$.  If $\xi=0$ then $G(x)=0$ and, by \noderef{PFlux}, $A_p(G(x))=0=A_p(\xi)$,
+so the identity
+\begin{equation}\label{eq:phn-flux}
+  A_p(G(x))=\Bigl(\frac rM\Bigr)^{p-1}A_p\bigl(g(T(x))\bigr)
+\end{equation}
+holds trivially.  If $\xi\neq0$ then $\lvert G(x)\rvert=(r/M)\lvert\xi\rvert>0$ and, by
+multiplicativity of real powers on positive reals,
+\[
+  A_p(G(x))
+  =\lvert G(x)\rvert^{p-2}G(x)
+  =\Bigl(\frac rM\Bigr)^{p-2}\lvert\xi\rvert^{p-2}\cdot\frac rM\,\xi
+  =\Bigl(\frac rM\Bigr)^{p-1}\lvert\xi\rvert^{p-2}\xi
+  =\Bigl(\frac rM\Bigr)^{p-1}A_p(\xi),
+\]
+which is \eqref{eq:phn-flux}.  Now, by \eqref{eq:phn-flux}, \eqref{eq:phn-chain} and
+bilinearity of the inner product,
+\[
+  \int_{\Omega'}\bigl\langle A_p(G(x)),D\varphi(x)\bigr\rangle\,dx
+  =\Bigl(\frac rM\Bigr)^{p-1}r\int_{\Omega'}J(T(x))\,dx,
+  \qquad J(y):=\bigl\langle A_p(g(y)),D\psi(y)\bigr\rangle ,
+\]
+and $J$ is integrable on $\Omega$ by the integrability list.  The affine change-of-variables
+background proposition with $S=\Omega$ gives
+\[
+  \int_{\Omega'}J(T(x))\,dx=r^{-2}\int_\Omega J(y)\,dy ,
+\]
+and $\int_\Omega J(y)\,dy=0$ by condition (6) of \noderef{IsPHarm} applied to the admissible
+test function $\psi$.  Hence
+\[
+  \int_{\Omega'}\bigl\langle A_p(G(x)),D\varphi(x)\bigr\rangle\,dx
+  =\Bigl(\frac rM\Bigr)^{p-1}r^{-1}\cdot0=0 ,
+\]
+which is condition (6) for $v$ and $G$ on $\Omega'$.
+
+All six conditions hold, so $v$ is $p$-harmonic in $\Omega'$ with weak gradient $G$.
+\end{proof}

@@ -1,0 +1,42 @@
+\begin{definition}[The compact family of jets]
+Let $p\in\mathbb{R}$.  Write $X_{1/2}\to^{b}(\mathbb{R}\times\mathrm{Plane})$ for the space of
+bounded continuous maps from the closed half-ball $X_{1/2}$ to
+$\mathbb{R}\times\mathrm{Plane}$, equipped with the supremum metric.  Let $\mathcal{G}_p$ be the
+set of those $z\in X_{1/2}\to^{b}(\mathbb{R}\times\mathrm{Plane})$ for which there exist
+functions $v\colon\mathrm{Plane}\to\mathbb{R}$ and $g\colon\mathrm{Plane}\to\mathrm{Plane}$ with
+\begin{enumerate}
+\item $v$ is $p$-harmonic in $B_1$ with weak gradient $g$;
+\item $\lvert v(y)\rvert\le1$ for every $y\in B_1$;
+\item $v(0)=0$;
+\item $z(x)=\bigl(v(x),\,Dv(x)\bigr)$ for every $x\in X_{1/2}$, where $Dv$ is the classical
+gradient of $v$.
+\end{enumerate}
+We define the \emph{compact family of jets} to be the closure of $\mathcal{G}_p$ in the
+supremum metric:
+\[
+  \mathcal{K}_p:=\overline{\mathcal{G}_p}\subseteq X_{1/2}\to^{b}(\mathbb{R}\times\mathrm{Plane}).
+\]
+
+This is the paper's family
+\[
+  \mathcal{K}=\overline{\bigl\{v|_{\overline{B_{1/2}}}:\ \Delta_pv=0\text{ in }B_1,\quad
+    \lVert v\rVert_{L^\infty(B_1)}\le1,\quad v(0)=0\bigr\}}^{\,C^1(\overline{B_{1/2}})} ,
+\]
+transcribed under the identification fixed in \noderef{XHalf}: on the compact base
+$\overline{B_{1/2}}$ the $C^1$ topology on functions is the $C^0$ topology on the jet
+$x\mapsto(v(x),Dv(x))$, so a $C^1$-convergent sequence of restrictions is exactly a
+sup-metric-convergent sequence of jets, and the paper's $C^1$ closure is the closure above.
+Condition (2) is the paper's $\lVert v\rVert_{L^\infty(B_1)}\le1$, written as a pointwise bound,
+which is the same statement for the continuous representative of $v$; conditions (1) and (3) are
+the paper's remaining two membership conditions verbatim.
+
+Two points about the form of condition (1).  First, it requires only that $v$ be $p$-harmonic in
+$B_1$ with \emph{some} weak gradient $g$, which is exactly what the paper's $\Delta_pv=0$ in
+$B_1$ asks; it does not require that $g$ be the classical gradient of $v$.  Condition (4)
+nevertheless builds the jet out of the classical gradient $Dv$, which exists on a neighbourhood
+of $\overline{B_{1/2}}$ by the first-order estimates.  Reconciling the two is work done later,
+not a condition imposed here; imposing it here would make membership harder to verify and would
+weaken every consequence drawn from the family.  Second, membership is characterized by the
+values of $z$ in condition (4), so that no continuity or boundedness requirement on the jet
+appears in this definition: those are properties of the ambient function space.
+\end{definition}

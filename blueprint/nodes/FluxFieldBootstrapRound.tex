@@ -1,0 +1,161 @@
+\begin{lemma}[One Schauder bootstrap round for the $p$-harmonic equation, on nested balls]
+Let $1<p<2$, let $F$ be a first-order estimate input for $p$ in the sense of
+\noderef{FirstOrderEstimateInput}, with exponent $\kappa:=F.\mathtt{kappa}\in(0,1)$ and constant
+$C_0:=F.C_0>0$, and let the interior divergence-form Schauder estimates of
+\noderef{DivFormSchauderInput} hold.  Let $i\in\mathbb{N}$, let $a,b\in\mathbb{R}$ with
+$0<a\le b$, let $r,r'\in\mathbb{R}$ with $0<r'<r$, and let $D>0$.
+
+Then there is $D'$ with $D'>0$ and $D'\ge1$ --- depending only on $p$, $F$, $i$, $a$, $b$, $r$,
+$r'$ and $D$, hence produced BEFORE any solution --- with the following property.  Let
+$v\colon\mathrm{Plane}\to\mathbb{R}$ and let $V\subseteq\mathrm{Plane}$ be open and convex with
+$a\le\lvert\zeta\rvert\le b$ for every $\zeta\in V$, and suppose
+\begin{enumerate}
+\item[(H1)] $Dv(x)\in V$ for every $x\in B_r$;
+\item[(H2)] $v$ is of class $C^{\infty}$ on $B_r$;
+\item[(H3)] $\lvert v(x)\rvert\le1$ for every $x\in B_r$;
+\item[(H4)] $\lvert Dv(x)\rvert\le C_0$ for every $x\in B_r$;
+\item[(H5)] $\bigl\lVert D^{m}v(x)\bigr\rVert\le D$ for every $m\le i+1$ and every $x\in B_r$;
+\item[(H6)] $\bigl\lVert D^{\,i+1}v(x)-D^{\,i+1}v(y)\bigr\rVert\le D\lvert x-y\rvert^{\kappa}$
+  for all $x,y\in B_r$;
+\item[(H7)] for every $e\in\mathrm{Plane}$ the quadruple
+  $\bigl(B_r,\;A,\;\partial_ev,\;D(\partial_ev)\bigr)$ satisfies the five conditions of
+  \noderef{IsLinearDivSol}, where $A(x):=D_\xi A_p\bigl(Dv(x)\bigr)$ is the flux Jacobian
+  composed with the gradient field and $\partial_ev(x):=\langle Dv(x),e\rangle$.
+\end{enumerate}
+Then
+\[
+  \bigl\lVert D^{m}v(x)\bigr\rVert\le D'\ \ (m\le i+2,\ x\in B_{r'}),
+  \qquad
+  \bigl\lVert D^{\,i+2}v(x)-D^{\,i+2}v(y)\bigr\rVert\le D'\lvert x-y\rvert^{\kappa}
+  \ \ (x,y\in B_{r'}).
+\]
+
+So one round converts order-$(i+1)$ control of $v$ on the larger ball into order-$(i+2)$ control
+on the smaller one: ONE ORDER IS GAINED, at the cost of shrinking the radius and enlarging the
+constant.  That is the entire mechanism of the paper's bootstrap, and iterating it $k$ times is
+what the proof of Lemma~2.2 does.
+
+This statement is the COMPOSITE of two existing nodes, and neither of them is it.
+\noderef{CoeffFieldFromScalarBounds} converts $C^{\,i+1,\kappa}$ bounds on the SCALAR $v$ into
+$C^{i,\kappa}$ bounds on the coefficient field $A$; \noderef{BootstrapRound} takes a coefficient
+field AS GIVEN, with its ellipticity constants and its $C^{i,\kappa}$ bounds already in hand, and
+returns the next scalar order.  The present node PRODUCES that field from $v$ --- composing the
+flux Jacobian with $Dv$, reading its ellipticity constants off \noderef{FluxJacobianElliptic} on
+the annulus $\{a\le\lvert\zeta\rvert\le b\}$, and bounding its derivatives there --- and only
+then runs the round.  Its hypotheses are therefore about $v$ alone, which is the form in which a
+bootstrap induction can carry them.
+
+Note also what is NOT here: no radius sequence and no cutoff index.  The round is stated on one
+pair of nested balls, so a caller running an induction supplies its own consecutive radii; the
+constants $\lambda,\Lambda,C_\Phi$ and the diameter bound that the round consumes are built
+inside rather than passed in.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: the flux-Jacobian constants on the annulus.}
+Since $0<a\le b$, apply \noderef{FluxJacobianElliptic} with $p$, the range $1<p<2$, and these
+$a,b$.  Its clauses give: $A_p$ and $\xi\mapsto D_\xi A_p(\xi)$ are of class $C^{\infty}$ on
+$\{\zeta\ne0\}$; the numbers
+\[
+  \lambda:=(p-1)b^{\,p-2},\qquad \Lambda:=a^{\,p-2}
+\]
+satisfy $0<\lambda\le\Lambda$; the uniform ellipticity
+\begin{equation}\label{eq:ffbr-ell}
+  \lambda\lvert w\rvert^{2}\le\bigl\langle D_\xi A_p(\xi)w,w\bigr\rangle,
+  \qquad
+  \bigl\lvert D_\xi A_p(\xi)w\bigr\rvert\le\Lambda\lvert w\rvert
+\end{equation}
+holds for every $\xi$ with $a\le\lvert\xi\rvert\le b$ and every $w$; and for each
+$j\in\mathbb{N}$ there is $M_j^{\Phi}>0$ with
+$\lVert D^{j}(D_\xi A_p)(\xi)\rVert\le M_j^{\Phi}$ for every such $\xi$.  Put
+\[
+  C_\Phi:=1+\sum_{j=0}^{i+1}M_j^{\Phi}>0 ,
+\]
+a sum rather than a maximum, which serves the same purpose: every summand is positive, so
+$M_j^{\Phi}\le\sum_{j'=0}^{i+1}M_{j'}^{\Phi}<C_\Phi$ for each $j\le i+1$, and therefore
+\begin{equation}\label{eq:ffbr-CPhi}
+  \bigl\lVert D^{j}(D_\xi A_p)(\xi)\bigr\rVert\le C_\Phi
+  \qquad\text{for every }j\le i+1\text{ and every }\xi\text{ with }
+  a\le\lvert\xi\rvert\le b .
+\end{equation}
+The range $j\le i+1$ is exactly what the round below consumes, which is why the sum is taken to
+$i+1$ and no ambient cutoff is needed.  Note that $0<r$, since $0<r'<r$.  Put $d:=2r>0$; then
+$B_r$ is open and convex, and for $x,y\in B_r$ we have
+$\lvert x-y\rvert\le\lvert x\rvert+\lvert y\rvert<2r=d$.  All of
+$\lambda,\Lambda,C_\Phi,d$ depend only on $p,i,a,b,r$.
+
+\medskip\noindent\emph{Step 2: the constants $M$ and $P$, before any $v$.}
+Apply \noderef{CoeffFieldFromScalarBounds} with the normed space
+$W:=\mathcal{L}(\mathrm{Plane},\mathrm{Plane})$ and the parameters $j:=i$, $\kappa$,
+$C:=C_\Phi$, $D$, $d$ --- all positive, and $0<\kappa\le1$ since $\kappa\in(0,1)$ --- and let
+$M>0$ be the constant it furnishes.  Then apply \noderef{BootstrapRound} with the parameters
+$j:=i$, $\kappa$, $\lambda$, $\Lambda$, $M$, $b:=C_0$, $r$, $r'$ --- legitimate since
+$0<\kappa<1$, $0<\lambda\le\Lambda$, $0<M$, $0<C_0$ and $0<r'<r$, and since the interior
+divergence-form Schauder estimates of \noderef{DivFormSchauderInput} hold by hypothesis --- and
+let $P>0$ be the constant it furnishes.  Put
+\[
+  D':=1+\max\{1,P\} .
+\]
+Then $D'>0$ and $D'\ge1$, and $D'$ depends only on $p,F,i,a,b,r,r',D$, since $M$ and $P$ do and
+the construction above used nothing else.  In particular $D'$ was fixed before $v$ and $V$, as
+asserted.
+
+\medskip\noindent\emph{Step 3: the coefficient field, for a given $v$.}
+Now let $v$ and $V$ be as in the hypotheses.  First, $V$ avoids the origin: for $\zeta\in V$ we
+have $a\le\lvert\zeta\rvert$ with $a>0$, so $\zeta\ne0$.  Next, $Dv$ is of class $C^{\infty}$ on
+$B_r$: by (H2) and clause (1) of the background proposition on regularity of the gradient field
+and of directional derivatives, applied with $n=\infty$.  Hence, since $Dv$ maps $B_r$ into
+$V\subseteq\{\zeta\ne0\}$ by (H1) and $D_\xi A_p$ is of class $C^{\infty}$ on $\{\zeta\ne0\}$ by
+Step 1, clause (3) of the background proposition on the chain rule for compositions gives that
+$A=D_\xi A_p\circ Dv$ is of class $C^{\infty}$ on $B_r$, in particular of class $C^{i}$ there.
+
+\emph{The field is $C^{i,\kappa}$ on $B_r$.}  Apply the constant $M$ of Step 2 through
+\noderef{CoeffFieldFromScalarBounds}, with $U:=B_r$, this $V$, $\Phi:=D_\xi A_p$ and the scalar
+function $v$, for which $\Phi\circ Dv=A$ by definition.  Its hypotheses hold: $B_r$ is open and
+convex and has diameter at most $d$ by Step 1, and $V$ is open and convex by hypothesis; (H1)
+there is (H1) here; $\Phi$ is of class $C^{\infty}$ on $V$, since $V\subseteq\{\zeta\ne0\}$, and
+$\lVert D^{j}\Phi(\xi)\rVert\le C_\Phi$ for $j\le i+1$ and $\xi\in V$ is \eqref{eq:ffbr-CPhi},
+applicable because every $\zeta\in V$ satisfies $a\le\lvert\zeta\rvert\le b$; and its bounds on
+the scalar function at orders $\le i+1$ and its order-$(i+1)$ H\"older bound are (H2), (H5) and
+(H6).  Its conclusion is
+\begin{equation}\label{eq:ffbr-coeff}
+  \bigl\lVert D^{j}A(x)\bigr\rVert\le M\ \ (j\le i,\ x\in B_r),
+  \qquad
+  \bigl\lVert D^{i}A(x)-D^{i}A(y)\bigr\rVert\le M\lvert x-y\rvert^{\kappa}\ \ (x,y\in B_r).
+\end{equation}
+
+\emph{The field is uniformly elliptic on $B_r$.}  Let $x\in B_r$ and $w\in\mathrm{Plane}$.  By
+(H1), $Dv(x)\in V$, so $a\le\lvert Dv(x)\rvert\le b$, and \eqref{eq:ffbr-ell} applied at
+$\xi:=Dv(x)$ gives
+\begin{equation}\label{eq:ffbr-ellA}
+  \lambda\lvert w\rvert^{2}\le\bigl\langle A(x)w,w\bigr\rangle,
+  \qquad
+  \lvert A(x)w\rvert\le\Lambda\lvert w\rvert .
+\end{equation}
+
+\medskip\noindent\emph{Step 4: one round.}
+Apply the constant $P$ of Step 2 through \noderef{BootstrapRound}, with the function $v$ and the
+coefficient field $A$.  Its six hypotheses hold: $v$ is of class $C^{\infty}$ on $B_r$ by (H2);
+$\lvert Dv(x)\rvert\le C_0$ on $B_r$ is (H4); the uniform ellipticity of $A$ on $B_r$ with the
+constants $\lambda,\Lambda$ is \eqref{eq:ffbr-ellA}; the $C^{i,\kappa}$ bounds on $A$ over $B_r$
+with the constant $M$ are \eqref{eq:ffbr-coeff}, together with $A$ being of class $C^{i}$ on
+$B_r$ from Step 3; and the divergence-form condition for every direction $e$ is (H7).  Its
+conclusion is
+\begin{equation}\label{eq:ffbr-round}
+  \bigl\lVert D^{m}v(x)\bigr\rVert\le P\ \ (1\le m\le i+2,\ x\in B_{r'}),
+  \quad
+  \bigl\lVert D^{\,i+2}v(x)-D^{\,i+2}v(y)\bigr\rVert\le P\lvert x-y\rvert^{\kappa}
+  \ \ (x,y\in B_{r'}).
+\end{equation}
+
+\medskip\noindent\emph{Step 5: reading off the conclusion at $D'$.}
+Note $P\le\max\{1,P\}\le D'$ and $1\le\max\{1,P\}\le D'$.  For the sup bounds, let $m\le i+2$ and
+$x\in B_{r'}$.  If $m\ge1$, the first half of \eqref{eq:ffbr-round} gives
+$\lVert D^{m}v(x)\rVert\le P\le D'$.  If $m=0$, then
+$\lVert D^{0}v(x)\rVert=\lvert v(x)\rvert\le1\le D'$, by clause (1) of the background proposition
+on the recursion for the iterated Fr\'echet derivative and by (H3), which applies because
+$B_{r'}\subseteq B_r$ as $r'<r$.  For the H\"older bound, the second half of
+\eqref{eq:ffbr-round} together with $P\le D'$ and $\lvert x-y\rvert^{\kappa}\ge0$ gives
+$\lVert D^{\,i+2}v(x)-D^{\,i+2}v(y)\rVert\le P\lvert x-y\rvert^{\kappa}\le
+D'\lvert x-y\rvert^{\kappa}$ for $x,y\in B_{r'}$.  These are the two asserted bounds, and as $v$
+and $V$ were arbitrary subject to (H1)--(H7), the lemma is proved with this $D'$.
+\end{proof}

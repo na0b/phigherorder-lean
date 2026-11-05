@@ -1,0 +1,115 @@
+\begin{lemma}[Uniform jet estimates on a compact set, along a tail of the family]
+Let $1<p<2$ and let $(\kappa,C_0)$ be a first-order estimate datum for $p$, so that
+$0<\kappa<1$, $C_0>0$, and the estimate recorded in \noderef{FirstOrderEstimateInput} holds.
+Let $(\Omega_n)_{n\in\mathbb{N}}$ be an increasing family of subsets of $\mathrm{Plane}$, that is
+$\Omega_n\subseteq\Omega_m$ whenever $n\le m$, and put $\Omega_\infty:=\bigcup_n\Omega_n$.  Let
+$v_n\colon\mathrm{Plane}\to\mathbb{R}$ and $g_n\colon\mathrm{Plane}\to\mathrm{Plane}$ for
+$n\in\mathbb{N}$, and assume
+\begin{enumerate}
+\item for every $n$, the function $v_n$ is $p$-harmonic in $\Omega_n$ with weak gradient $g_n$;
+\item for every compact $K'\subseteq\Omega_\infty$ there are $M>0$ and $N'\in\mathbb{N}$ with
+$\lvert v_n(z)\rvert\le M$ for every $n\ge N'$ and every $z\in K'$.
+\end{enumerate}
+Let $K\subseteq\Omega_\infty$ be compact.  Then there are $N\in\mathbb{N}$ and $A,L,R$ with
+$A>0$, $L>0$ and $R>0$ such that for every $n\ge N$:
+\begin{enumerate}
+\item[(i)] $v_n$ and its classical gradient $Dv_n$ are continuous on $K$;
+\item[(ii)] $\lvert v_n(z)\rvert\le A$ and $\lvert Dv_n(z)\rvert\le L$ for every $z\in K$;
+\item[(iii)] $\lvert Dv_n(z)-Dv_n(z')\rvert\le L\bigl(\lvert z-z'\rvert/(2R)\bigr)^{\kappa}$ for
+all $z,z'\in K$ with $\lvert z-z'\rvert<3R/4$;
+\item[(iv)] $\lvert v_n(z)-v_n(z')\rvert\le L\lvert z-z'\rvert$ for all $z,z'\in K$ with
+$\lvert z-z'\rvert<3R/4$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+We refer to the six conditions in the definition of a $p$-harmonic function with weak gradient,
+\noderef{IsPHarm}, by their numbers (1)--(6).  By condition (1) applied to the datum for index
+$n$, every $\Omega_n$ is open; hence $\Omega_\infty$ is open, being a union of open sets.
+
+\medskip\noindent\emph{Step 1: a compact subset of $\Omega_\infty$ lies in a single
+$\Omega_{N_1}$, and in all later ones.}
+Let $K'\subseteq\Omega_\infty$ be compact.  The sets $\Omega_n$ are open and cover $K'$, so by
+compactness there are finitely many indices $n_1,\ldots,n_j$ with
+$K'\subseteq\Omega_{n_1}\cup\cdots\cup\Omega_{n_j}$.  If $j=0$ then $K'=\emptyset$ and we may
+take $N_1:=0$; otherwise put $N_1:=\max\{n_1,\ldots,n_j\}$, so that
+$\Omega_{n_i}\subseteq\Omega_{N_1}$ for each $i$ by the increasing hypothesis, whence
+$K'\subseteq\Omega_{N_1}$.  Since the family is increasing, $K'\subseteq\Omega_n$ for every
+$n\ge N_1$.
+
+\medskip\noindent\emph{Step 2: the one-ball estimate, in the form used below.}
+\emph{Claim.}  Let $n\in\mathbb{N}$, let $z_0\in\mathrm{Plane}$, and let $R_0>0$ and $M>0$
+satisfy $B_{2R_0}(z_0)\subseteq\Omega_n$ and $\lvert v_n(z)\rvert\le M$ for every
+$z\in B_{2R_0}(z_0)$.  Then $v_n$ is of class $C^{1}$ on $B_{3R_0/2}(z_0)$ and, writing
+$L_0:=C_0M/(2R_0)$,
+\begin{equation}\label{eq:pjte-bounds}
+  \lvert Dv_n(z)\rvert\le L_0\quad(z\in B_{3R_0/2}(z_0)),\qquad
+  \lvert Dv_n(z)-Dv_n(z')\rvert\le L_0\left(\frac{\lvert z-z'\rvert}{2R_0}\right)^{\kappa}
+  \quad(z,z'\in B_{3R_0/2}(z_0)).
+\end{equation}
+
+\emph{Proof of the claim.}  The ball $B_{2R_0}(z_0)$ is open and contained in $\Omega_n$, and
+$v_n$ is $p$-harmonic in $\Omega_n$ with weak gradient $g_n$ by hypothesis (1); so part (a) of
+\noderef{PHarmRestrict}, applied with $\Omega:=\Omega_n$ and $\Omega':=B_{2R_0}(z_0)$, gives
+that $v_n$ is $p$-harmonic in $B_{2R_0}(z_0)$ with the same weak gradient $g_n$.  Together with
+the assumed bound $\lvert v_n\rvert\le M$ on $B_{2R_0}(z_0)$, the two hypotheses of
+\noderef{PHarmJetEquicontinuity} hold for the centre $x_0:=z_0$, the radius $R_0$ and the
+bound $M$; its conclusion is exactly that $v_n$ is of class $C^{1}$ on $B_{3R_0/2}(z_0)$
+together with the two bounds \eqref{eq:pjte-bounds}.  This proves the claim.
+
+\medskip\noindent\emph{Step 3: choice of the constants.}
+By clause (1) of the background proposition on thickening and compact exhaustion, applied to the
+compact $K$ inside the open $\Omega_\infty$, there is $\rho>0$ such that
+$K^{\rho}:=\{z:\operatorname{dist}(z,K)\le\rho\}$ satisfies $K^{\rho}\subseteq\Omega_\infty$,
+and $K^{\rho}$ is compact.  By Step 1 applied to $K':=K^{\rho}$ there is $N_1$ with
+$K^{\rho}\subseteq\Omega_n$ for every $n\ge N_1$.  By hypothesis (2) applied to $K':=K^{\rho}$
+there are $A>0$ and $N_2$ with $\lvert v_n(z)\rvert\le A$ for every $n\ge N_2$ and every
+$z\in K^{\rho}$.  Put
+\[
+  N:=\max(N_1,N_2),\qquad R:=\frac{\rho}{4}>0,\qquad L:=\frac{C_0A}{2R}>0 ,
+\]
+the positivity of $L$ following from $C_0>0$, $A>0$ and $R>0$.
+
+Fix $n\ge N$ and let $z_0\in K$.  Since $2R=\rho/2\le\rho$ we have
+$B_{2R}(z_0)\subseteq\overline{B_{\rho}(z_0)}\subseteq K^{\rho}$, the second inclusion by the
+last sentence of clause (1) of the thickening proposition, and $K^{\rho}\subseteq\Omega_n$
+because $n\ge N\ge N_1$.  Also $\lvert v_n\rvert\le A$ on $B_{2R}(z_0)\subseteq K^{\rho}$
+because $n\ge N\ge N_2$.  So Step 2 applies with this $z_0$, this $R$ in the role of $R_0$ and
+this $A$ in the role of $M$; note that the resulting constant is
+$C_0A/(2R)=L$.  We conclude: for every $n\ge N$ and every $z_0\in K$,
+\begin{equation}\label{eq:pjte-local}
+  v_n\text{ is of class }C^{1}\text{ on }B_{3R/2}(z_0),\qquad
+  \lvert Dv_n(z)\rvert\le L,\qquad
+  \lvert Dv_n(z)-Dv_n(z')\rvert\le L\left(\frac{\lvert z-z'\rvert}{2R}\right)^{\kappa}
+\end{equation}
+for all $z,z'\in B_{3R/2}(z_0)$.
+
+\medskip\noindent\emph{Step 4: the four conclusions.}
+Fix $n\ge N$.
+
+(i)  Every $z_0\in K$ has the open neighbourhood $B_{3R/2}(z_0)$, on which $v_n$ is of class
+$C^{1}$ by \eqref{eq:pjte-local}.  Clause (3) of the background proposition on locality of
+$C^{1}$ regularity and continuity of the gradient therefore gives that $v_n$ and $Dv_n$ are
+continuous on $K$.
+
+(ii)  For $z\in K\subseteq K^{\rho}$ the bound $\lvert v_n(z)\rvert\le A$ is the one chosen in
+Step 3.  For the gradient, given $z\in K$ take $z_0:=z$ in \eqref{eq:pjte-local}; since
+$3R/2>0$ we have $z\in B_{3R/2}(z)$, and the second assertion of \eqref{eq:pjte-local} gives
+$\lvert Dv_n(z)\rvert\le L$.
+
+(iii)  Let $z,z'\in K$ with $\lvert z-z'\rvert<3R/4$ and take $z_0:=z$ in
+\eqref{eq:pjte-local}.  Then $z\in B_{3R/2}(z)$, and $\lvert z'-z\rvert<3R/4<3R/2$ gives
+$z'\in B_{3R/2}(z)$.  The third assertion of \eqref{eq:pjte-local} is exactly the asserted
+bound.
+
+(iv)  Let $z,z'\in K$ with $\lvert z-z'\rvert<3R/4$ and again take $z_0:=z$, so that
+$z,z'\in B_{3R/2}(z)$ as in (iii).  The ball $B_{3R/2}(z)$ is convex.  By
+\eqref{eq:pjte-local} the function $v_n$ is of class $C^{1}$ on $B_{3R/2}(z)$, hence
+differentiable at every point of it by clause (2) of the locality proposition, and
+$\lvert Dv_n\rvert\le L$ on $B_{3R/2}(z)$ by the second assertion of \eqref{eq:pjte-local}.
+The background mean value inequality on a convex set, applied with $U:=B_{3R/2}(z)$ and this
+$L\ge0$, therefore gives $\lvert v_n(z)-v_n(z')\rvert\le L\lvert z-z'\rvert$.
+
+\medskip\noindent The constants $N$, $A$, $L$, $R$ were produced from $K$, the datum
+$(\kappa,C_0)$ and the family alone, before $n\ge N$ was chosen, so all four conclusions hold
+with constants independent of the index.
+\end{proof}

@@ -1,0 +1,37 @@
+\begin{definition}[Continuous weak solution of a linear divergence-form equation]
+Let $\Omega\subseteq\mathrm{Plane}$, let
+$A\colon\mathrm{Plane}\to\mathcal{L}(\mathrm{Plane},\mathrm{Plane})$ assign to each point a
+continuous linear map of the plane (a coefficient matrix field), let
+$w\colon\mathrm{Plane}\to\mathbb{R}$ and let $G\colon\mathrm{Plane}\to\mathrm{Plane}$.
+We say that \emph{$w$ is a weak solution of $\operatorname{div}(A\,Dw)=0$ in $\Omega$ with
+weak gradient $G$} when the following five conditions hold.
+\begin{enumerate}
+\item \textbf{Continuity.} $w$ is continuous on $\Omega$.
+\item \textbf{Measurability.} $G$ is almost everywhere strongly measurable with respect to
+Lebesgue measure restricted to $\Omega$.
+\item \textbf{Local $L^2$ integrability of the gradient.} For every compact
+$K\subseteq\Omega$ the function $x\mapsto\lvert G(x)\rvert^{2}$ is integrable on $K$; that
+is, $G\in L^2_{\mathrm{loc}}(\Omega)$.
+\item \textbf{$G$ is the distributional gradient of $w$.} For every
+$\varphi\in C^\infty(\mathrm{Plane})$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega$,
+\[
+  \int_\Omega w\,D\varphi\,dx = -\int_\Omega \varphi\,G\,dx ,
+\]
+an identity between vectors of $\mathrm{Plane}$.
+\item \textbf{Weak equation.} For every $\varphi\in C^\infty(\mathrm{Plane})$ with compact
+support and $\operatorname{supp}\varphi\subseteq\Omega$,
+\[
+  \int_\Omega\bigl\langle A(x)G(x),D\varphi(x)\bigr\rangle\,dx = 0 .
+\]
+\end{enumerate}
+Conditions (2)--(5) say that $w\in W^{1,2}_{\mathrm{loc}}(\Omega)$ with $Dw=G$ and that
+$\operatorname{div}(A\,Dw)=0$ holds in the sense of distributions in $\Omega$; condition (1)
+selects the continuous representative, about which the Schauder estimates make pointwise
+assertions.
+
+This is the class of equations the paper reaches after differentiating the $p$-Laplace
+equation at a noncritical point: with $A(x)=D_\xi A_p(Dv(x))$, each partial derivative
+$w=v_{x_i}$ of a $p$-harmonic function $v$ satisfies
+$\operatorname{div}\bigl(D_\xi A_p(Dv)\,D(v_{x_i})\bigr)=0$.
+\end{definition}

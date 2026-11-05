@@ -1,0 +1,83 @@
+\begin{lemma}[Vanishing on the unit ball kills the diagonal jets at the origin]
+Let $S\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^{\infty}$ and suppose
+\[
+  S(w)=0\qquad\text{for every }w\text{ with }\lvert w\rvert\le1 .
+\]
+Then
+\[
+  D^{j}S(0)[w,\ldots,w]=0\qquad\text{for every }j\in\mathbb{N}
+  \text{ and every }w\in\mathrm{Plane}.
+\]
+
+Only DIAGONAL evaluations are asserted, which is the only form in which this development carries
+higher-order jets, and they are asserted in every direction, not only in the unit ball: the
+restriction is removed inside the proof by homogeneity, and the consumers need the unrestricted
+form.
+\end{lemma}
+\begin{proof}
+One point about the route is worth recording, since the short route is unavailable.  The iterated
+derivative $D^{j}$ is a total operation on functions $\mathrm{Plane}\to\mathbb{R}$, and no
+background item states either that $D^{j}$ is local on $\mathrm{Plane}$ or that a function
+vanishing on an open subset of $\mathrm{Plane}$ has vanishing $D^{j}$ there; so the vanishing of
+$S$ near $0$ cannot be converted directly into the vanishing of $D^{j}S(0)$.  What \emph{is}
+available is locality in \emph{one} variable, in the closing sentence of the background
+proposition on the chain rule and derivatives of affine paths, together with
+\noderef{IteratedDerivAlongRay} to transfer the conclusion back to $\mathrm{Plane}$.  We go that
+way, which reaches only the directions in the closed unit ball, and then remove that restriction.
+
+\medskip\noindent\emph{Step 1: the restriction of $S$ to a ray vanishes near the origin.}
+Fix $w$ with $\lvert w\rvert\le1$, put $\gamma_w(s):=0+s\,w$ and $h_w:=S\circ\gamma_w$, so
+$h_w(s)=S(0+s\,w)$.  The map $\gamma_w$ is affine, hence of class $C^{\infty}$, by the
+affine-paths proposition, and clause (3) of the background proposition on the chain rule for
+compositions, with $U:=\mathbb{R}$, $V:=\mathrm{Plane}$, $H:=\gamma_w$ and $\Phi:=S$, makes
+$h_w$ of class $C^{\infty}$ on $\mathbb{R}$.  For $\lvert s\rvert<1$ we have
+$\lvert 0+s\,w\rvert=\lvert s\rvert\lvert w\rvert\le\lvert s\rvert\cdot1=\lvert s\rvert<1$, so
+$\lvert 0+s\,w\rvert\le1$ and the hypothesis gives $h_w(s)=0$.  Thus
+\begin{equation}\label{eq:vbk-hzero}
+  h_w\equiv0\quad\text{on the open interval }(-1,1).
+\end{equation}
+
+\medskip\noindent\emph{Step 2: every one-variable derivative of $h_w$ vanishes at $0$.}
+We claim $h_w^{(j)}\equiv0$ on $(-1,1)$ for every $j\in\mathbb{N}$, by induction on $j$.  For
+$j=0$ this is \eqref{eq:vbk-hzero}, since $h_w^{(0)}=h_w$ by clause (4) of the background
+proposition on the recursion for the iterated Fr\'echet derivative, which is exactly the
+one-variable recursion $h^{(0)}=h$, $h^{(n+1)}=\bigl(h^{(n)}\bigr)'$.  Assume
+$h_w^{(j)}\equiv0$ on $(-1,1)$ and let $t\in(-1,1)$.  The function $h_w^{(j)}$ and the zero
+function $\mathbb{R}\to\mathbb{R}$ agree on $(-1,1)$, which is a neighbourhood of $t$, so by the
+closing sentence of the affine-paths proposition --- ``derivatives are local: if two functions
+$\mathbb{R}\to W$ agree on a neighbourhood of $t$, their derivatives at $t$ agree'' --- we get
+$\bigl(h_w^{(j)}\bigr)'(t)=0'(t)$.  The zero function is constant, so directly from the
+definition of the derivative its difference quotient has remainder identically zero and
+$0'(t)=0$.  By clause (4) of the recursion proposition again,
+$h_w^{(j+1)}(t)=\bigl(h_w^{(j)}\bigr)'(t)=0$.  As $t\in(-1,1)$ was arbitrary,
+$h_w^{(j+1)}\equiv0$ on $(-1,1)$, completing the induction.  In particular
+\begin{equation}\label{eq:vbk-hj}
+  h_w^{(j)}(0)=0\qquad(j\in\mathbb{N}).
+\end{equation}
+
+\medskip\noindent\emph{Step 3: transfer back along the ray.}
+Apply \noderef{IteratedDerivAlongRay} with the open set $U:=\mathrm{Plane}$, the function $S$ ---
+of class $C^{j}$ on $\mathrm{Plane}$ for every $j$, being of class $C^{\infty}$ --- the base
+point $x_0:=0$, the direction $e:=w$, the order $j$ and the parameter $t:=0$, legitimate since
+$0+0\cdot w=0\in\mathrm{Plane}$.  Its conclusion is $h_w^{(j)}(0)=D^{j}S(0)[w,\ldots,w]$, so by
+\eqref{eq:vbk-hj}
+\begin{equation}\label{eq:vbk-diagsmall}
+  D^{j}S(0)[w,\ldots,w]=0\qquad\text{for every }j\in\mathbb{N}
+  \text{ and every }w\text{ with }\lvert w\rvert\le1 .
+\end{equation}
+
+\medskip\noindent\emph{Step 4: removing the restriction $\lvert w\rvert\le1$.}
+Let $w\in\mathrm{Plane}$ and $j\in\mathbb{N}$ be arbitrary.  If $\lvert w\rvert\le1$, then
+$D^{j}S(0)[w,\ldots,w]=0$ by \eqref{eq:vbk-diagsmall} --- this covers $w=0$ as well, since
+$\lvert0\rvert=0\le1$.  If $\lvert w\rvert>1$, put $\tau:=\lvert w\rvert>0$ and
+$w':=\tau^{-1}w$, so that $\lvert w'\rvert=\tau^{-1}\lvert w\rvert=1\le1$ and $w=\tau\,w'$.  By
+clause (7) of the recursion proposition, a diagonal evaluation of a continuous $j$-linear form
+is positively homogeneous of degree $j$ --- $Q[\tau x,\ldots,\tau x]=\tau^{j}Q[x,\ldots,x]$, by
+multilinearity alone --- applied to $Q:=D^{j}S(0)$ and $x:=w'$,
+\[
+  D^{j}S(0)[w,\ldots,w]=D^{j}S(0)[\tau w',\ldots,\tau w']
+  =\tau^{j}\,D^{j}S(0)[w',\ldots,w']=\tau^{j}\cdot0=0 ,
+\]
+the last step by \eqref{eq:vbk-diagsmall}.  So $D^{j}S(0)[w,\ldots,w]=0$ for every
+$j\in\mathbb{N}$ and every $w\in\mathrm{Plane}$, which is the assertion.
+\end{proof}

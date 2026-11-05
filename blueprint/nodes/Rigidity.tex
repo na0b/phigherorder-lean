@@ -1,0 +1,203 @@
+\begin{lemma}[Vanishing of the higher derivatives at a critical point]
+Let $1<p<2$, suppose $p$ satisfies Lewis rigidity, and let $(\kappa,C_0)$ be a first-order
+estimate datum for $p$.  Let $\Omega\subseteq\mathrm{Plane}$, let
+$u\colon\mathrm{Plane}\to\mathbb{R}$, let $x_0\in\Omega$ and let $m\in\mathbb{N}$ with
+$m\ge2$.  Assume
+\begin{enumerate}
+\item $u$ is of class $C^{m}$ on $\Omega$;
+\item $u$ is $p$-harmonic in $\Omega$ with weak gradient equal to its own classical gradient
+$Du$;
+\item $Du(x_0)=0$.
+\end{enumerate}
+Then
+\[
+  D^{j}u(x_0)[w,\ldots,w]=0\qquad\text{for every }j\text{ with }2\le j\le m
+  \text{ and every }w\in\mathrm{Plane},
+\]
+where $D^{j}u(x_0)$ is the $j$-th Fr\'echet derivative of $u$ at $x_0$ and the brackets denote
+its evaluation on $j$ copies of $w$.
+\end{lemma}
+\begin{proof}
+Hypothesis (2) says that $u$ is $p$-harmonic in $\Omega$ with weak gradient $Du$; this is the
+faithful rendering of the paper's hypothesis, since for a $C^{m}$ function the paper's $Du$ is
+the classical gradient.  By condition (1) of \noderef{IsPHarm}, $\Omega$ is open, so, as
+$x_0\in\Omega$, we may fix once and for all
+\[
+  \rho>0\qquad\text{with}\qquad B_\rho(x_0)\subseteq\Omega .
+\]
+The ball $B_\rho(x_0)$ is open, so part (a) of \noderef{PHarmRestrict} applied to hypothesis (2)
+gives
+\begin{equation}\label{eq:rig-ball}
+  u\ \text{is}\ p\text{-harmonic in}\ B_\rho(x_0)\ \text{with weak gradient}\ Du ,
+\end{equation}
+and hypothesis (1) restricts to: $u$ is of class $C^{m}$ on $B_\rho(x_0)$.
+
+For $1\le q\le m+1$ let $T(q)$ denote the statement
+\[
+  T(q):\qquad D^{j}u(x_0)[w,\ldots,w]=0\quad\text{for every }j\text{ with }1\le j<q
+  \text{ and every }w\in\mathrm{Plane}.
+\]
+The conclusion of the lemma is contained in $T(m+1)$, so it suffices to prove $T(q)$ for every
+$q$ with $1\le q\le m+1$.  We do this by induction on $q$.
+
+\medskip\noindent\emph{Base cases.}
+$T(1)$ is vacuous, there being no $j$ with $1\le j<1$.  For $T(2)$ the only index is $j=1$, and
+by clause (6) of the background proposition on the recursion for the iterated Fr\'echet
+derivative, $D^{1}u(x_0)[w]=\langle Du(x_0),w\rangle$ for every $w$, which vanishes by
+hypothesis (3).  (The function $u$ is differentiable at $x_0$ because it is of class $C^{m}$ on
+the open set $\Omega$ with $m\ge2\ge1$, by clause (2) of the background proposition on locality
+of $C^{1}$ regularity.)
+
+\medskip\noindent\emph{Inductive step.}
+Let $2\le q\le m$ and assume $T(q)$.  Since $T(q+1)$ adds to $T(q)$ exactly the index $j=q$, it
+suffices to prove
+\begin{equation}\label{eq:rig-goal}
+  D^{q}u(x_0)[w,\ldots,w]=0\qquad\text{for every }w\in\mathrm{Plane}.
+\end{equation}
+Define the continuous $q$-linear form and the degree-$q$ homogeneous polynomial
+\[
+  Q:=\frac{1}{q!}\,D^{q}u(x_0),\qquad P(x):=Q[x,\ldots,x]=\frac{1}{q!}\,D^{q}u(x_0)[x,\ldots,x].
+\]
+That $Q$ is a continuous $q$-linear form, and that $P$ is continuous and satisfies
+$P(tx)=t^{q}P(x)$, are clauses (7) and (5) of the recursion background proposition; the
+homogeneity uses multilinearity alone and no symmetry of $Q$.
+
+\emph{Step 1: the blow-ups.}  For $r>0$ put
+\[
+  u_r(x):=\frac{u(x_0+r\,x)-u(x_0)}{r^{q}} .
+\]
+Apply \noderef{PHarmNormalize} to \eqref{eq:rig-ball}, with domain $B_\rho(x_0)$, functions $u$
+and $Du$, centre $x_0$, dilation factor $r$, normalizing factor $M:=r^{q}>0$ and additive
+constant $c:=u(x_0)$.  Its hypotheses hold ($1<p<2$, $r>0$, $r^{q}>0$), and its conclusion is
+that $u_r$ is $p$-harmonic in $\{x:x_0+r\,x\in B_\rho(x_0)\}$ with weak gradient
+$x\mapsto(r/r^{q})\,Du(x_0+r\,x)$.  That domain is a ball: for every $x$,
+\[
+  x_0+r\,x\in B_\rho(x_0)\iff\lvert r\,x\rvert<\rho\iff r\lvert x\rvert<\rho
+  \iff\lvert x\rvert<\rho/r,
+\]
+using $r>0$.  Hence, writing $G_r(x):=(r/r^{q})\,Du(x_0+r\,x)$,
+\begin{equation}\label{eq:rig-ur}
+  u_r\ \text{is}\ p\text{-harmonic in}\ B_{\rho/r}(0)\ \text{with weak gradient}\ G_r .
+\end{equation}
+Moreover $G_r$ is the classical gradient of $u_r$: with $T_r(x):=x_0+r\,x$ we have
+$u_r=r^{-q}\bigl(u\circ T_r-u(x_0)\bigr)$, and $u$ is differentiable at $T_r(x)$ whenever
+$T_r(x)\in B_\rho(x_0)$, so clause (5) of the background proposition on the gradient under an
+affine substitution gives
+\begin{equation}\label{eq:rig-grad}
+  Du_r(x)=r^{-q}\,r\,Du\bigl(T_r(x)\bigr)=G_r(x)\qquad\text{for }x\in B_{\rho/r}(0).
+\end{equation}
+
+\emph{Step 2: the sequence.}  Put
+\[
+  r_n:=\frac{\rho}{n+1}>0,\qquad v_n:=u_{r_n},\qquad g_n:=G_{r_n},\qquad
+  \Omega_n:=B_{n+1}(0)\qquad(n\in\mathbb{N}).
+\]
+Then $\rho/r_n=n+1$, so \eqref{eq:rig-ur} reads: $v_n$ is $p$-harmonic in $\Omega_n$ with weak
+gradient $g_n$.  The family $(\Omega_n)$ is increasing, since $n\le n'$ gives $n+1\le n'+1$ and
+hence $B_{n+1}(0)\subseteq B_{n'+1}(0)$; and $\bigcup_n\Omega_n=\mathrm{Plane}$, because every
+$z$ satisfies $\lvert z\rvert<n+1$ for $n$ large.
+
+\emph{Step 3: the $C^0$ convergence.}  The set $B_\rho(x_0)$ is open, $x_0\in B_\rho(x_0)$, $u$
+is of class $C^{q}$ on $B_\rho(x_0)$ (being of class $C^{m}$ there with $q\le m$), and $q\ge1$;
+and the inductive hypothesis $T(q)$ is exactly the vanishing hypothesis
+$D^{j}u(x_0)[w,\ldots,w]=0$ for $1\le j<q$ and all $w$.  So
+\noderef{BlowupUniformConvergence}, applied at the order $q$, gives: for every $R>0$ and every
+$\varepsilon>0$ there is $\delta>0$ with
+\begin{equation}\label{eq:rig-c0}
+  \lvert u_r(x)-P(x)\rvert<\varepsilon\qquad
+  \text{for all }r\text{ with }0<r<\delta\text{ and all }x\text{ with }\lvert x\rvert\le R,
+\end{equation}
+its $P_q$ being our $P$.  Since $r_n\to0$ and $r_n>0$, for each $R>0$ and $\varepsilon>0$ there
+is $N$ with $\lvert v_n(x)-P(x)\rvert<\varepsilon$ for all $n\ge N$ and all
+$\lvert x\rvert\le R$; that is,
+\begin{equation}\label{eq:rig-c0seq}
+  v_n\to P\ \text{uniformly on}\ \overline{B_R(0)}\ \text{for every }R>0 .
+\end{equation}
+
+\emph{Step 4: eventual local uniform boundedness.}  Let $K\subseteq\bigcup_n\Omega_n=\mathrm{Plane}$
+be compact.  Then $K$ is bounded, so $K\subseteq\overline{B_R(0)}$ for some $R>0$.  By the
+operator-norm background proposition, $\lvert P(x)\rvert\le\lVert Q\rVert\,\lvert x\rvert^{q}$,
+so $\lvert P\rvert\le B:=\lVert Q\rVert R^{q}$ on $\overline{B_R(0)}$.  By
+\eqref{eq:rig-c0seq} with $\varepsilon:=1$ there is $N$ with $\lvert v_n-P\rvert<1$ on
+$\overline{B_R(0)}$ for $n\ge N$, whence $\lvert v_n(z)\rvert\le B+1$ for all $n\ge N$ and
+$z\in K$.  Taking $M:=B+2>0$ gives the hypothesis of eventual local uniform boundedness.
+
+\emph{Step 5: the gradient subsequence.}  Steps 2 and 4 supply exactly the two hypotheses of
+\noderef{PHarmGradientCompactness} for the increasing family $(\Omega_n)$, the functions
+$(v_n)$ and the weak gradients $(g_n)$.  Its part (b) therefore gives a strictly increasing
+$\varphi\colon\mathbb{N}\to\mathbb{N}$ and functions $V\colon\mathrm{Plane}\to\mathbb{R}$ and
+$G\colon\mathrm{Plane}\to\mathrm{Plane}$ such that for every compact
+$K\subseteq\bigcup_n\Omega_n=\mathrm{Plane}$,
+\begin{equation}\label{eq:rig-sub}
+  v_{\varphi(i)}\to V\quad\text{and}\quad Dv_{\varphi(i)}\to G\qquad\text{uniformly on }K .
+\end{equation}
+Note that no claim is made, and none is needed, relating $G$ to the gradient of $V$.
+
+\emph{Step 6: the function limit is $P$.}  Fix $R>0$.  Since $\varphi$ is strictly increasing,
+$\varphi(i)\ge i$, so $r_{\varphi(i)}\to0$; hence \eqref{eq:rig-c0} gives
+$v_{\varphi(i)}\to P$ uniformly on $\overline{B_R(0)}$, exactly as in Step 3.  On the other
+hand \eqref{eq:rig-sub} with $K:=\overline{B_R(0)}$ gives $v_{\varphi(i)}\to V$ uniformly on
+$\overline{B_R(0)}$.  Uniform convergence implies pointwise convergence, and limits in
+$\mathbb{R}$ are unique, so $V=P$ on $\overline{B_R(0)}$.  As $R>0$ was arbitrary and every
+point of $\mathrm{Plane}$ lies in some $\overline{B_R(0)}$,
+\begin{equation}\label{eq:rig-VP}
+  V=P\quad\text{on }\mathrm{Plane}.
+\end{equation}
+
+\emph{Step 7: $P$ is $p$-harmonic on each ball.}  Fix $R>0$ and choose $I\in\mathbb{N}$ with
+$I\ge R$.  For $i\in\mathbb{N}$ put
+\[
+  w_i:=v_{\varphi(i+I)},\qquad h_i:=g_{\varphi(i+I)} .
+\]
+Since $\varphi$ is strictly increasing, $\varphi(i+I)\ge i+I\ge I\ge R$, so
+$\varphi(i+I)+1>R$ and therefore $B_R(0)\subseteq B_{\varphi(i+I)+1}(0)=\Omega_{\varphi(i+I)}$.
+By Step 2, $w_i$ is $p$-harmonic in $\Omega_{\varphi(i+I)}$ with weak gradient $h_i$, and
+$B_R(0)$ is open, so part (a) of \noderef{PHarmRestrict} gives
+\[
+  w_i\ \text{is}\ p\text{-harmonic in}\ B_R(0)\ \text{with weak gradient}\ h_i,
+  \qquad\text{for every }i\in\mathbb{N}.
+\]
+Next, let $K\subseteq B_R(0)$ be compact; such a $K$ is in particular a compact subset of
+$\mathrm{Plane}=\bigcup_n\Omega_n$.  The sequence $(w_i)_i$ is the tail
+$i\mapsto v_{\varphi(i+I)}$ of $(v_{\varphi(i)})_i$.  The sequence $(h_i)_i$ agrees on $K$ with
+the corresponding tail of $(Dv_{\varphi(i)})_i$: indeed
+$K\subseteq B_R(0)\subseteq\Omega_{\varphi(i+I)}=B_{\rho/r_{\varphi(i+I)}}(0)$, which is the set
+on which \eqref{eq:rig-grad} asserts $G_{r_{\varphi(i+I)}}=Du_{r_{\varphi(i+I)}}$, that is
+$h_i=Dv_{\varphi(i+I)}$ on $K$.  A tail of a sequence converging uniformly on a set converges
+uniformly on that set to the same limit, and two sequences agreeing on $K$ have the same uniform
+limit behaviour on $K$, so by \eqref{eq:rig-sub} and \eqref{eq:rig-VP}
+\[
+  w_i\to P\quad\text{and}\quad h_i\to G\qquad\text{uniformly on }K .
+\]
+These are precisely the three hypotheses of \noderef{PHarmLimit} for the domain $B_R(0)$, the
+sequences $(w_i)$, $(h_i)$ and the limits $P$, $G$.  Hence
+\begin{equation}\label{eq:rig-ballharm}
+  P\ \text{is}\ p\text{-harmonic in}\ B_R(0)\ \text{with weak gradient}\ G,
+  \qquad\text{for every }R>0 .
+\end{equation}
+
+\emph{Step 8: $P$ is $p$-harmonic on the whole plane.}  Apply \eqref{eq:rig-ballharm} with
+$R:=n+1$ for each $n\in\mathbb{N}$: $P$ is $p$-harmonic in $\Omega_n=B_{n+1}(0)$ with weak
+gradient $G$, the same $G$ for every $n$.  The family $(\Omega_n)$ is increasing by Step 2, so
+\noderef{PHarmUnionExhaustion} applies and gives that $P$ is $p$-harmonic in
+$\bigcup_n\Omega_n$ with weak gradient $G$.  By Step 2 that union is all of $\mathrm{Plane}$, so
+\begin{equation}\label{eq:rig-univ}
+  P\ \text{is}\ p\text{-harmonic on all of}\ \mathrm{Plane}\ \text{with weak gradient}\ G .
+\end{equation}
+
+\emph{Step 9: Lewis rigidity.}  We have $q\ge2$, the map $Q$ is a continuous $q$-linear form on
+$\mathrm{Plane}$, the function $x\mapsto Q[x,\ldots,x]$ equals $P$ by definition, and
+\eqref{eq:rig-univ} says that this function is $p$-harmonic on all of $\mathrm{Plane}$ with the
+weak gradient $G$.  These are exactly the hypotheses of \noderef{LewisRigidityInput}, whose
+conclusion is that $Q[x,\ldots,x]=0$ for every $x\in\mathrm{Plane}$.  Note that the weak
+gradient there is quantified along with $Q$, so it is enough to exhibit \emph{some} weak
+gradient for $P$; we never need to know that $G$ is the gradient of $P$.
+
+Finally, $Q[w,\ldots,w]=\tfrac1{q!}D^{q}u(x_0)[w,\ldots,w]$ by definition of $Q$ and clause (7)
+of the recursion background proposition, and $q!\neq0$, so $Q[w,\ldots,w]=0$ gives
+$D^{q}u(x_0)[w,\ldots,w]=0$ for every $w$.  This is \eqref{eq:rig-goal}, hence $T(q+1)$, and the
+induction is complete.
+
+\medskip\noindent Taking $q=m+1$ gives $T(m+1)$, which contains the asserted vanishing for every
+$j$ with $2\le j\le m$.
+\end{proof}

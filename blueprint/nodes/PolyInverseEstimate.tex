@@ -1,0 +1,242 @@
+\begin{lemma}[Inverse estimate for polynomials of degree at most $k$]
+Let $k\in\mathbb{N}$.  There is a constant $C_k>0$, depending only on $k$, with the following
+property.  Let $R\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^\infty$ with
+$D^{k+1}R(x)=0$ for every $x\in\mathrm{Plane}$ (as a continuous $(k+1)$-linear form); let
+$z\in\mathrm{Plane}$, let $d>0$ and let $A\ge0$.  If
+\[
+  \lvert R(y)\rvert\le A\qquad\text{for every }y\in B_d(z),
+\]
+then
+\[
+  \bigl\lVert D^{k}R(z)\bigr\rVert\le C_k\,\frac{A}{d^{\,k}},
+\]
+where $\lVert\cdot\rVert$ is the operator norm on continuous $k$-linear forms on
+$\mathrm{Plane}$.
+\end{lemma}
+\begin{proof}
+The condition that $R$ is smooth with $D^{k+1}R\equiv0$ says exactly that $R$ is a polynomial
+function of degree at most $k$ on $\mathrm{Plane}$; we use only the stated form of the
+condition.  Let
+\[
+  \mathcal{P}_k:=\bigl\{S\colon\mathrm{Plane}\to\mathbb{R}\;:\;
+    S\text{ is of class }C^\infty\text{ and }D^{k+1}S(w)=0\text{ for every }w\bigr\}.
+\]
+For $j\in\mathbb{N}$ let $V_j$ denote the space of continuous $j$-linear forms on
+$\mathrm{Plane}$, a normed real vector space which is finite dimensional by the
+operator-norm background proposition.
+
+\medskip\noindent\emph{Step 1: $\mathcal{P}_k$ is a real vector space.}
+The set of $C^\infty$ functions $\mathrm{Plane}\to\mathbb{R}$ is a real vector space, and for
+each fixed $n$ and $w$ the map $S\mapsto D^{n}S(w)\in V_n$ is linear on it.  Both assertions come
+from the same source: clause (2) of the background proposition on the recursion for the iterated
+Fr\'echet derivative together with the linearity of the Fr\'echet derivative give, for
+$a_1,a_2\in\mathbb{R}$ and $S_1,S_2$ of class $C^{\infty}$,
+\[
+  D^{n}\bigl(a_1S_1+a_2S_2\bigr)(w)=a_1\,D^{n}S_1(w)+a_2\,D^{n}S_2(w)
+  \qquad(n\in\mathbb{N},\ w\in\mathrm{Plane}),
+\]
+by induction on $n$: the case $n=0$ is clause (1) of that proposition, and the step differentiates
+the identity at $n$, using linearity of the Fr\'echet derivative and then clause (2) on each side.
+In particular each $D^{n}(a_1S_1+a_2S_2)$ is continuous on $\mathrm{Plane}$, being a linear
+combination of the continuous maps $D^{n}S_1$ and $D^{n}S_2$ (clause (5) of the same
+proposition), so $a_1S_1+a_2S_2$ is again of class $C^{\infty}$, and the displayed identity read at
+a fixed $n$ and $w$ is exactly the linearity of $S\mapsto D^{n}S(w)$.  Hence $\mathcal{P}_k$,
+being the intersection of the
+kernels of the linear maps $S\mapsto D^{k+1}S(w)$ over $w\in\mathrm{Plane}$, is a linear
+subspace.
+
+\medskip\noindent\emph{Step 2: $\mathcal{P}_k$ is finite dimensional.}
+Consider the linear map
+\[
+  \Phi\colon\mathcal{P}_k\to V_0\times V_1\times\cdots\times V_k,\qquad
+  \Phi(S):=\bigl(D^{0}S(0),D^{1}S(0),\ldots,D^{k}S(0)\bigr),
+\]
+which is linear by the linearity of $S\mapsto D^{j}S(0)$ noted in Step 1.  If $\Phi(S)=0$ then
+$D^{j}S(0)$ is the zero $j$-linear form for every $0\le j\le k$, so in particular all its
+diagonal evaluations $D^{j}S(0)[w,\ldots,w]$ vanish.  Apply
+\noderef{PolyDiagonalJetRigidity} with the order $k$ and the function $S$: its hypotheses hold
+because $S$ is of class $C^{\infty}$ with $D^{k+1}S(w)=0$ for every $w$, that being what
+membership in $\mathcal{P}_k$ says, and because those diagonal evaluations vanish for every
+$0\le j\le k$ and every $w$.  It gives $S\equiv0$.  So $\Phi$ is injective.  Each $V_j$ is finite dimensional, hence so is the product
+$V_0\times\cdots\times V_k$, and an injective linear map into a finite-dimensional space forces
+$\mathcal{P}_k$ to be finite dimensional, with
+$\dim\mathcal{P}_k\le\sum_{j=0}^{k}\dim V_j<\infty$.
+
+\medskip\noindent\emph{Step 3: a norm on $\mathcal{P}_k$.}
+For $S\in\mathcal{P}_k$ put
+\[
+  N(S):=\sup_{\lvert w\rvert\le1}\lvert S(w)\rvert ,
+\]
+the supremum over the closed unit ball $\overline{B_1(0)}$.
+
+\emph{(3a) $N(S)$ is finite.}  The set $\overline{B_1(0)}$ is compact, by the clause ``the closed
+ball as a compact space'' of the background proposition on bounded continuous functions on a
+compact base.  The set $\mathrm{Plane}$ is open, hence Lebesgue measurable by clause (2) of the
+background proposition on integrability of continuous and of compactly supported functions, and
+$S$ is continuous on it, being of class $C^{\infty}$; so clause (3) of that proposition, applied
+with the measurable set $\mathrm{Plane}$ and the continuous function $S$, makes $S$ bounded on
+every compact subset of $\mathrm{Plane}$, in particular on $\overline{B_1(0)}$.  Hence
+the supremum defining $N(S)$ is finite, and $N(S)\ge0$ because it is a supremum of absolute
+values over a nonempty set.  In particular the restriction
+$\Theta(S):=\left.S\right|_{\overline{B_1(0)}}$ is a bounded continuous real function on
+$\overline{B_1(0)}$, and $N(S)$ is its supremum norm.
+
+\emph{(3b) $N$ is a seminorm.}  Let $C_b$ denote the space of bounded continuous real functions
+on $\overline{B_1(0)}$, with the pointwise vector operations, normed by the supremum norm
+$\lVert f\rVert_\infty:=\sup_{\lvert w\rvert\le1}\lvert f(w)\rvert$.  That this is a norm, and
+that $\lvert f(w)\rvert\le\lVert f\rVert_\infty$ for every $w$, is clause (1) of the background
+proposition on bounded continuous functions on a compact base, read for the target
+$Y:=\mathbb{R}$: it supplies the supremum distance $d(f,g)$ together with that pointwise bound,
+and for real-valued maps $d(f,g)=\lVert f-g\rVert_\infty$, so the supremum distance is the
+metric of the supremum norm.  By (3a) the restriction map
+\[
+  \Theta\colon\mathcal{P}_k\to C_b,\qquad \Theta(S):=\left.S\right|_{\overline{B_1(0)}},
+\]
+is well defined, it is linear because the vector operations on both sides are pointwise, and
+$N(S)=\lVert\Theta(S)\rVert_\infty$.  Hence
+$N(\lambda S)=\lvert\lambda\rvert N(S)$ and $N(S+T)\le N(S)+N(T)$, these being the homogeneity
+and the triangle inequality for $\lVert\cdot\rVert_\infty$; and $\mathcal{P}_k$ is closed under
+these operations by Step 1.
+
+\emph{(3c) $N$ is definite, i.e.\ $N(S)=0$ implies $S\equiv0$.}
+Assume $N(S)=0$.  Then $\lvert S(w)\rvert\le N(S)=0$ for every $w$ with $\lvert w\rvert\le1$,
+that is,
+\begin{equation}\label{eq:pie-vanish}
+  S(w)=0\qquad\text{for every }w\text{ with }\lvert w\rvert\le1 .
+\end{equation}
+Apply \noderef{VanishingOnUnitBallKillsJets} with the function $S$: its hypotheses hold because
+$S$ is of class $C^{\infty}$, that being part of what membership in $\mathcal{P}_k$ says, and
+because of \eqref{eq:pie-vanish}.  It gives
+\begin{equation}\label{eq:pie-diag}
+  D^{j}S(0)[w,\ldots,w]=0\qquad(j\in\mathbb{N},\ w\in\mathrm{Plane}),
+\end{equation}
+in particular for every $0\le j\le k$.  Apply \noderef{PolyDiagonalJetRigidity} with the order
+$k$ and the function $S$, whose hypotheses hold for the same reasons as in Step 2 above: $S$ is
+of class $C^{\infty}$ with $D^{k+1}S\equiv0$ because $S\in\mathcal{P}_k$, and the diagonal
+evaluations vanish up to order $k$ by \eqref{eq:pie-diag}.  It gives $S\equiv0$, and $N$ is
+definite.
+
+By (3a)--(3c), $(\mathcal{P}_k,N)$ is a normed real vector space, and it is finite
+dimensional by Step 2.  Equivalently: $\Theta$ is an injective linear map of $\mathcal{P}_k$
+into $C_b$ with $N=\lVert\Theta(\cdot)\rVert_\infty$, injectivity being (3c) read through
+$\Theta(S)=0\iff\eqref{eq:pie-vanish}$.
+
+\medskip\noindent\emph{Step 4: the estimate at the normalized scale.}
+The map
+\[
+  L\colon\mathcal{P}_k\to V_k,\qquad L(S):=D^{k}S(0),
+\]
+is linear, again by Step 1.  By Step 2 the space $\mathcal{P}_k$ is finite dimensional; put
+$n:=\dim\mathcal{P}_k$ and fix a linear isomorphism $\varphi\colon\mathbb{R}^{n}\to\mathcal{P}_k$,
+that is, a choice of basis, where $\mathbb{R}^{n}$ carries a fixed norm $\lvert\cdot\rvert$.  We
+use the background proposition on linear maps out of a finite-dimensional normed space twice.
+
+\emph{(4a) The composite $\Theta\circ\varphi$ is bounded below.}  There is $C<\infty$, $C\ge0$,
+with
+\begin{equation}\label{eq:pie-below}
+  \lvert v\rvert\le C\,N\bigl(\varphi(v)\bigr)\qquad(v\in\mathbb{R}^{n}).
+\end{equation}
+Indeed $\Theta\circ\varphi\colon\mathbb{R}^{n}\to C_b$ is linear, and it is injective, being the
+composite of the injective maps $\varphi$ and $\Theta$ (Step 3).  Let
+$Y:=(\Theta\circ\varphi)(\mathbb{R}^{n})\subseteq C_b$, a linear subspace, normed by the
+restriction of $\lVert\cdot\rVert_\infty$ and finite dimensional, being the image of
+$\mathbb{R}^{n}$ under a linear map.  Then $\Theta\circ\varphi$ is a linear bijection of
+$\mathbb{R}^{n}$ onto $Y$, so its inverse $(\Theta\circ\varphi)^{-1}\colon Y\to\mathbb{R}^{n}$ is
+linear; the background proposition, applied with $V:=Y$ and $W:=\mathbb{R}^{n}$, gives $C<\infty$
+with $\lvert(\Theta\circ\varphi)^{-1}(y)\rvert\le C\lVert y\rVert_\infty$ for every $y\in Y$, and
+reading this at $y:=\Theta(\varphi(v))$, whose inverse image is $v$, gives \eqref{eq:pie-below}
+because $\lVert\Theta(\varphi(v))\rVert_\infty=N(\varphi(v))$ by (3b).
+
+\emph{(4b) The composite $L\circ\varphi$ is bounded above.}  The map
+$L\circ\varphi\colon\mathbb{R}^{n}\to V_k$ is linear and $V_k$ is a normed real vector space by
+the operator-norm proposition, so the background proposition, applied with $V:=\mathbb{R}^{n}$
+and $W:=V_k$, gives $\Lambda_0<\infty$ with
+\begin{equation}\label{eq:pie-above}
+  \bigl\lVert L\bigl(\varphi(v)\bigr)\bigr\rVert\le\Lambda_0\,\lvert v\rvert
+  \qquad(v\in\mathbb{R}^{n}).
+\end{equation}
+Both constants may be taken nonnegative: each bounds a norm, so replacing it by its absolute
+value preserves the stated inequality.
+
+Set
+\[
+  C_k:=\Lambda_0\,C+1\ \ (\ge1>0) ,
+\]
+which depends only on $k$, since $\mathcal{P}_k$, $N$, $L$ and the choice of $\varphi$ do.  Let
+$S\in\mathcal{P}_k$ and put $v:=\varphi^{-1}(S)$, so that $\varphi(v)=S$.  Chaining
+\eqref{eq:pie-above} and \eqref{eq:pie-below},
+\[
+  \bigl\lVert D^{k}S(0)\bigr\rVert=\bigl\lVert L\bigl(\varphi(v)\bigr)\bigr\rVert
+  \le\Lambda_0\,\lvert v\rvert\le\Lambda_0\,C\,N(S) ,
+\]
+and since $\Lambda_0 C\le C_k$ and $N(S)\ge0$ by (3a),
+\begin{equation}\label{eq:pie-norm}
+  \bigl\lVert D^{k}S(0)\bigr\rVert\le C_k\,N(S)\qquad\text{for every }S\in\mathcal{P}_k.
+\end{equation}
+
+\medskip\noindent\emph{Step 5: rescaling.}
+Now let $R$, $z$, $d>0$ and $A\ge0$ be as in the statement, so $R$ is $C^\infty$ with
+$D^{k+1}R\equiv0$ and $\lvert R\rvert\le A$ on $B_d(z)$.  Define
+\[
+  S(w):=R(d\,w+z)\qquad(w\in\mathrm{Plane}).
+\]
+
+\emph{(a) $S$ is of class $C^\infty$.}  Put $T(w):=d\,w+z$ and $T_z(y):=y+z$, maps
+$\mathrm{Plane}\to\mathrm{Plane}$.  Each is affine, hence of class $C^{\infty}$: directly from
+the definition of the Fr\'echet derivative, $T(w+\eta)-T(w)-d\,\eta=0$ and
+$T_z(y+\eta)-T_z(y)-\eta=0$ identically, so $DT(w)$ is the constant continuous linear map
+$\eta\mapsto d\,\eta$ and $DT_z(y)$ is the identity, and since both derivative maps are constant
+in the base point, clause (2) of the recursion proposition gives $D^{n}T\equiv0$ and
+$D^{n}T_z\equiv0$ for $n\ge2$, each $D^{n}$ being continuous.  Since
+$T(\mathrm{Plane})\subseteq\mathrm{Plane}$, $\mathrm{Plane}$ is open and $R$ is of class
+$C^{\infty}$ on $\mathrm{Plane}$, clause (3) of the background proposition on the chain rule for
+compositions, applied with $U:=\mathrm{Plane}$, $V:=\mathrm{Plane}$, $H:=T$ and $\Phi:=R$, gives
+that $S=R\circ T$ is of class $C^{\infty}$ on $\mathrm{Plane}$.  The same clause applied with
+$H:=T_z$ gives that $R_z:=R(\cdot+z)=R\circ T_z$ is of class $C^{\infty}$ on $\mathrm{Plane}$,
+hence of class $C^{n}$ on all of $\mathrm{Plane}$ for every $n$.
+
+\emph{(b) Derivatives of $S$.}  Note $S(w)=R(d\,w+z)=R_z(d\,w)$, i.e.\ $S=R_z(d\,\cdot)$.  Apply
+the background proposition on iterated derivatives under translations and dilations twice.  First
+its dilation identity, with the function $R_z$, the order $n$ and $\lambda:=d$ --- legitimate
+because that identity's hypothesis is that the function be of class $C^{n}$ on all of
+$\mathrm{Plane}$, which (a) supplies for $R_z$ --- gives
+$D^{n}S(w)=D^{n}\bigl(R_z(d\,\cdot)\bigr)(w)=d^{\,n}\,D^{n}R_z(d\,w)$.  Then its translation
+identity, with the function $R$, the order $n$ and $a:=z$ --- which carries no regularity
+hypothesis --- gives $D^{n}R_z(y)=D^{n}\bigl(R(\cdot+z)\bigr)(y)=D^{n}R(y+z)$ for every $y$, and
+in particular at $y:=d\,w$.  Combining, for every $n\in\mathbb{N}$ and every
+$w\in\mathrm{Plane}$, as an identity of continuous $n$-linear forms,
+\begin{equation}\label{eq:pie-scale}
+  D^{n}S(w)=d^{\,n}\,D^{n}R(d\,w+z).
+\end{equation}
+
+\emph{(c) $S\in\mathcal{P}_k$.}  Taking $n=k+1$ in \eqref{eq:pie-scale} gives
+$D^{k+1}S(w)=d^{\,k+1}D^{k+1}R(d\,w+z)=0$ for every $w$, since $D^{k+1}R$ vanishes
+identically.  With (a) this places $S$ in $\mathcal{P}_k$.
+
+\emph{(d) $N(S)\le A$.}  The set $\{y\in\mathrm{Plane}:\lvert R(y)\rvert\le A\}$ is closed,
+being the preimage of the closed half-line $(-\infty,A]$ under the continuous map
+$y\mapsto\lvert R(y)\rvert$, and by hypothesis it contains $B_d(z)$.  Since $\mathrm{Plane}$ is a
+normed space and $d>0$, the closure of $B_d(z)$ is the closed ball $\overline{B_d(z)}$; a closed
+set containing $B_d(z)$ contains its closure, so
+\begin{equation}\label{eq:pie-closed}
+  \lvert R(y)\rvert\le A\qquad\text{for every }y\text{ with }\lvert y-z\rvert\le d .
+\end{equation}
+Now let $\lvert w\rvert\le1$.  Then $\lvert(d\,w+z)-z\rvert=d\,\lvert w\rvert\le d\cdot1=d$, so
+\eqref{eq:pie-closed} applies to $y:=d\,w+z$ and gives
+$\lvert S(w)\rvert=\lvert R(d\,w+z)\rvert\le A$.  Thus $\lvert S\rvert\le A$ on
+$\overline{B_1(0)}$, and hence $N(S)\le A$.
+
+\emph{(e) Conclusion.}  Taking $n=k$ and $w=0$ in \eqref{eq:pie-scale} gives
+$D^{k}S(0)=d^{\,k}D^{k}R(d\,0+z)=d^{\,k}D^{k}R(z)$, hence, the operator norm being homogeneous and $d>0$,
+\[
+  \bigl\lVert D^{k}S(0)\bigr\rVert=d^{\,k}\bigl\lVert D^{k}R(z)\bigr\rVert .
+\]
+Combining this with \eqref{eq:pie-norm} applied to $S\in\mathcal{P}_k$ and with (d),
+\[
+  d^{\,k}\bigl\lVert D^{k}R(z)\bigr\rVert
+  =\bigl\lVert D^{k}S(0)\bigr\rVert\le C_k\,N(S)\le C_k\,A .
+\]
+Dividing by $d^{\,k}>0$ yields
+$\bigl\lVert D^{k}R(z)\bigr\rVert\le C_k\,A/d^{\,k}$, which is the assertion.  The constant
+$C_k$ was fixed in Step 4 before $R$, $z$, $d$ and $A$ were chosen, so it depends only on $k$.
+\end{proof}

@@ -1,0 +1,27 @@
+\begin{definition}[Local boundedness, as data attached to $p$]
+Let $p\in\mathbb{R}$.  A \emph{local boundedness datum for $p$} consists of a real number
+$C_b$ together with proofs of $C_b>0$ and of the following estimate.  Let $u$ be
+$p$-harmonic in $B_1$ with weak gradient $g$, and suppose $u\in L^p(B_1)$, i.e.\ $u$ is
+$p$-integrable with respect to Lebesgue measure restricted to $B_1$.  Then
+\[
+  \lvert u(x)\rvert\le C_b\,\lVert u\rVert_{L^p(B_1)}
+  \qquad\text{for every }x\in B_{3/4},
+\]
+where $\lVert u\rVert_{L^p(B_1)}=\bigl(\int_{B_1}\lvert u\rvert^{p}\,dx\bigr)^{1/p}$.
+
+The estimate is \emph{uniform}: $C_b$ is fixed before $u$ is chosen, so it depends only on
+$p$.
+
+This is the local boundedness estimate the paper records at the start of the proof of its
+main theorem: applying local boundedness to $u$ and $-u$ with integrability exponent $p$
+(Lindqvist, \emph{Notes on the $p$-Laplace equation}, Report 102, University of
+Jyv\"askyl\"a, 2006, Lemma~3.6) gives
+\[
+  \lVert u\rVert_{L^\infty(B_{3/4})}\le C_b\lVert u\rVert_{L^p(B_1)},\qquad C_b=C_b(p).
+\]
+The $L^\infty$ norm on the left is recorded here as a pointwise bound on $B_{3/4}$, which is
+the same statement for the continuous representative of $u$.
+
+The datum is assumed rather than constructed: it is one of the results the paper cites from
+the literature.
+\end{definition}

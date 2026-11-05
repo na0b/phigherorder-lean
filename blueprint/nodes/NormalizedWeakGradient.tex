@@ -1,0 +1,111 @@
+\begin{lemma}[The distributional gradient of an affinely normalized function]
+Let $p\in\mathbb{R}$, let $\Omega\subseteq\mathrm{Plane}$, let $u\colon\mathrm{Plane}\to
+\mathbb{R}$ and $g\colon\mathrm{Plane}\to\mathrm{Plane}$, let $x_0\in\mathrm{Plane}$, let
+$r,M,c\in\mathbb{R}$ with $r>0$, and suppose $u$ is $p$-harmonic on $\Omega$ with weak gradient
+$g$ in the sense of \noderef{IsPHarm}.  Write $T(x):=x_0+r\,x$ and
+$\Omega':=T^{-1}\Omega=\{x:x_0+r\,x\in\Omega\}$.  Then for every
+$\varphi\colon\mathrm{Plane}\to\mathbb{R}$ of class $C^{\infty}$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega'$,
+\[
+  \int_{\Omega'}\frac{u(T(x))-c}{M}\;D\varphi(x)\,dx
+  =-\int_{\Omega'}\varphi(x)\;\frac{r}{M}\,g(T(x))\,dx .
+\]
+
+That is: the normalized function $x\mapsto\bigl(u(T(x))-c\bigr)/M$ has
+$x\mapsto(r/M)\,g(T(x))$ as a weak gradient on $\Omega'$.  This is the distributional half of
+affine normalization and one of the bridge facts the paper's blow-up layer needs.  The iteration
+rescales its solution at every stage, and a rescaled function is a weak solution of anything only
+once its weak gradient has been identified; that identification is this statement.
+
+Two features are worth stating.  The additive constant $c$ is carried because the iteration
+subtracts one --- the case $w(x,y)=\bigl(u(x+y/4)-u(x)\bigr)/M_0$ --- and it DISAPPEARS from the
+right-hand side.  That is not bookkeeping but the one genuinely analytic step of the proof: the
+mean of the gradient of a compactly supported test function vanishes, so the $c$ contribution
+integrates to zero.  And no hypothesis $M>0$ is needed: $M$ enters only as a formal divisor,
+linearly on both sides, so the identity holds for every $M$, including $M=0$, where it reads
+$0=0$.
+\end{lemma}
+\begin{proof}
+Note $r\ne0$ since $r>0$, so $T$ is invertible with $T^{-1}(y)=S(y):=r^{-1}(y-x_0)$.  Let
+$\varphi$ be as given and put $\psi:=\varphi\circ S$.
+
+\medskip\noindent\emph{Step 1: the pushed-forward test function.}
+By \noderef{AffineTestFunctionPullback}, applied with this $x_0$, this $r>0$, the set $\Omega$ and
+this $\varphi$ --- whose hypothesis on $\operatorname{supp}\varphi$ is exactly
+$\operatorname{supp}\varphi\subseteq T^{-1}\Omega$, as assumed --- the function $\psi$ is of class
+$C^{\infty}$, has compact support, satisfies $\operatorname{supp}\psi\subseteq\Omega$, and obeys
+\begin{equation}\label{eq:nwg-chain}
+  D\varphi(x)=r\,D\psi\bigl(T(x)\bigr)\qquad\text{for every }x .
+\end{equation}
+So $\psi$ is an admissible test function for $\Omega$ itself.  Also $\psi(T(x))=\varphi(x)$ for
+every $x$, since $S(T(x))=x$.
+
+\medskip\noindent\emph{Step 2: localizing both integrals to the whole plane.}
+By \noderef{VanishingOffTsupport}, $\varphi$ and $D\varphi$ vanish off
+$\operatorname{supp}\varphi$, and $\psi$ and $D\psi$ vanish off $\operatorname{supp}\psi$.  Since
+$\operatorname{supp}\varphi\subseteq\Omega'$, both integrands on the left and right of the
+assertion vanish off $\Omega'$, so each set integral over $\Omega'$ equals the corresponding
+integral over all of $\mathrm{Plane}$.  Likewise $\operatorname{supp}\psi\subseteq\Omega$ lets us
+replace $\int_\Omega$ by $\int_{\mathrm{Plane}}$ in the two integrals appearing below.  All four
+replacements are instances of the clause of the integrability proposition that a function
+vanishing off a subset has the same integral over the subset as over the ambient space.
+
+\medskip\noindent\emph{Step 3: the weak-gradient identity for $u$, applied to $\psi$.}
+Since $\psi$ is admissible for $\Omega$, the weak-gradient clause of
+$p$-harmonicity for $u$ gives
+\begin{equation}\label{eq:nwg-key}
+  \int_{\mathrm{Plane}}u(y)\,D\psi(y)\,dy=-\int_{\mathrm{Plane}}\psi(y)\,g(y)\,dy ,
+\end{equation}
+after the replacements of Step 2.  Both integrals converge: $D\psi$ is continuous with compact
+support, hence integrable, and $u\,D\psi$ is continuous on the compact $\operatorname{supp}\psi$
+--- $u$ being continuous on $\Omega\supseteq\operatorname{supp}\psi$ --- and vanishes off it.
+
+\medskip\noindent\emph{Step 4: the constant drops out.}
+By \noderef{TestFunctionGradientIntegral} applied to $\psi$, which is of class $C^{1}$ with
+compact support,
+\[
+  \int_{\mathrm{Plane}}D\psi(y)\,dy=0 .
+\]
+Hence, $c\,D\psi$ being integrable as a scalar multiple of an integrable function,
+\begin{equation}\label{eq:nwg-split}
+  \int_{\mathrm{Plane}}\bigl(u(y)\,D\psi(y)-c\,D\psi(y)\bigr)dy
+  =\int_{\mathrm{Plane}}u(y)\,D\psi(y)\,dy-c\int_{\mathrm{Plane}}D\psi(y)\,dy
+  =\int_{\mathrm{Plane}}u(y)\,D\psi(y)\,dy .
+\end{equation}
+This is where $c$ disappears, and it is the only place any hypothesis about $\psi$ beyond
+admissibility is used.
+
+\medskip\noindent\emph{Step 5: change of variables, and the cancellation of the Jacobian.}
+By the affine change of variables for Lebesgue measure on the plane, for every integrable
+$F\colon\mathrm{Plane}\to\mathrm{Plane}$,
+\begin{equation}\label{eq:nwg-cov}
+  \int_{\mathrm{Plane}}F\bigl(T(x)\bigr)dx
+  =\bigl\lvert r^{-n}\bigr\rvert\int_{\mathrm{Plane}}F(y)\,dy ,
+  \qquad n:=\dim\mathrm{Plane},
+\end{equation}
+the factor being the Jacobian of the dilation.  Now compute, using \eqref{eq:nwg-chain} and
+$\psi(T(x))=\varphi(x)$ to rewrite each integrand, then \eqref{eq:nwg-cov} twice, then
+\eqref{eq:nwg-split} and \eqref{eq:nwg-key}:
+\[
+\begin{aligned}
+  \int_{\mathrm{Plane}}\frac{u(T(x))-c}{M}D\varphi(x)\,dx
+  &=\frac{r}{M}\int_{\mathrm{Plane}}
+      \bigl(u(T(x))\,D\psi(T(x))-c\,D\psi(T(x))\bigr)dx\\
+  &=\frac{r}{M}\,\bigl\lvert r^{-n}\bigr\rvert
+      \int_{\mathrm{Plane}}\bigl(u(y)\,D\psi(y)-c\,D\psi(y)\bigr)dy\\
+  &=\frac{r}{M}\,\bigl\lvert r^{-n}\bigr\rvert
+      \int_{\mathrm{Plane}}u(y)\,D\psi(y)\,dy
+   =-\frac{r}{M}\,\bigl\lvert r^{-n}\bigr\rvert
+      \int_{\mathrm{Plane}}\psi(y)\,g(y)\,dy\\
+  &=-\frac{r}{M}\int_{\mathrm{Plane}}\psi\bigl(T(x)\bigr)g\bigl(T(x)\bigr)dx
+   =-\int_{\mathrm{Plane}}\varphi(x)\,\frac{r}{M}\,g\bigl(T(x)\bigr)dx .
+\end{aligned}
+\]
+The first line pulls the constant $r/M$ out by \eqref{eq:nwg-chain} and linearity; the second and
+the fifth are \eqref{eq:nwg-cov}, applied to $y\mapsto u(y)D\psi(y)-cD\psi(y)$ and to
+$y\mapsto\psi(y)g(y)$ respectively.  THE JACOBIAN FACTOR APPEARS ON BOTH SIDES AND CANCELS
+between those two applications, which is why no dimensional constant survives into the statement.
+By Step 2 the two outer integrals equal the corresponding integrals over $\Omega'$, which is the
+assertion.  As $\varphi$ was an arbitrary admissible test function for $\Omega'$, the lemma is
+proved.
+\end{proof}

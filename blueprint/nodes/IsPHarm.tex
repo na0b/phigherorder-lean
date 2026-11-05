@@ -1,0 +1,52 @@
+\begin{definition}[Continuous $p$-harmonic function with weak gradient]
+Let $p\in\mathbb{R}$, let $\Omega\subseteq\mathrm{Plane}$, let $u\colon\mathrm{Plane}\to\mathbb{R}$
+and let $g\colon\mathrm{Plane}\to\mathrm{Plane}$.  We say that \emph{$u$ is $p$-harmonic in
+$\Omega$ with weak gradient $g$} when the following six conditions hold.
+\begin{enumerate}
+\item \textbf{The domain is open.} $\Omega$ is an open subset of $\mathrm{Plane}$.
+\item \textbf{Continuity.} $u$ is continuous on $\Omega$.
+\item \textbf{Measurability.} $g$ is almost everywhere strongly measurable with respect to
+Lebesgue measure restricted to $\Omega$.
+\item \textbf{Local $L^p$ integrability of the gradient.} For every compact
+$K\subseteq\Omega$ the function $x\mapsto\lvert g(x)\rvert^{p}$ is integrable on $K$; that is,
+$g\in L^p_{\mathrm{loc}}(\Omega)$.
+\item \textbf{$g$ is the distributional gradient of $u$.} For every
+$\varphi\in C^\infty(\mathrm{Plane})$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega$,
+\[
+  \int_\Omega u\,D\varphi\,dx = -\int_\Omega \varphi\,g\,dx ,
+\]
+an identity between vectors of $\mathrm{Plane}$.
+\item \textbf{Weak $p$-Laplace equation.} For every
+$\varphi\in C^\infty(\mathrm{Plane})$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega$,
+\[
+  \int_\Omega \bigl\langle A_p(g(x)),D\varphi(x)\bigr\rangle\,dx = 0 ,
+\]
+where $A_p$ is the $p$-flux and $\langle\cdot,\cdot\rangle$ the Euclidean inner product.
+\end{enumerate}
+Here $D\varphi$ denotes the classical gradient of the smooth function $\varphi$, and
+$\operatorname{supp}\varphi$ the closure of $\{\varphi\neq0\}$.
+
+Conditions (3)--(6) are exactly the paper's definition: $u\in W^{1,p}_{\mathrm{loc}}(\Omega)$
+with distributional gradient $Du=g$, satisfying
+$\int_\Omega\lvert Du\rvert^{p-2}Du\cdot D\varphi\,dx=0$ for every test function
+$\varphi\in C^\infty_c(\Omega)$.
+
+Condition (2) records that $u$ is the continuous representative of its Lebesgue class.  Every
+$p$-harmonic function possesses one, and the paper's statements about $p$-harmonic functions
+are pointwise assertions about it --- for instance $v(0)=0$, $\lvert Dv(0)\rvert>\delta$,
+$D^ju(x_0)=0$, and the suprema of derivatives over balls --- so this is the representative the
+paper works with throughout.
+
+Condition (1) records that the domain of a $p$-harmonic function is an open set.  This is the
+paper's convention everywhere and is not an extra restriction: the paper defines
+$p$-harmonicity in the open ball $B_1$, testing against $\varphi\in C^\infty_c(B_1)$, and every
+domain that occurs in the argument is an open ball --- $B_1$, $B_{3/4}$, $B_{1/2}$, $B_{2\tau}$,
+$B_\tau$, $B_{\rho_i}$, $B_{R_\ell}$, and $B_d(x)$.  Openness is also what makes the rest of
+the definition behave as intended.  It gives $\Omega$ measurable, so that continuity of $u$ on
+$\Omega$ (condition (2)) yields measurability of $u$ with respect to Lebesgue measure restricted
+to $\Omega$ and hence makes the integrals in conditions (5) and (6) meaningful; and it
+guarantees that every point of $\Omega$ has a ball around it inside $\Omega$, which is what
+lets test functions be localized and classical derivatives be taken at points of $\Omega$.
+\end{definition}

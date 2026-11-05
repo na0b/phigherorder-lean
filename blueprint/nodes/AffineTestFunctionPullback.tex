@@ -1,0 +1,100 @@
+\begin{lemma}[The test-function correspondence under an affine substitution]
+Let $x_0\in\mathrm{Plane}$, let $r\in\mathbb{R}$ with $r>0$, and let
+$\Omega\subseteq\mathrm{Plane}$ be any set.  Write
+\[
+  T(x):=x_0+r\,x,\qquad S(y):=r^{-1}(y-x_0),
+\]
+so that $S\circ T=\mathrm{id}$ and $T\circ S=\mathrm{id}$.  Let
+$\varphi\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^{\infty}$, have compact support, and
+satisfy
+\[
+  \operatorname{supp}\varphi\subseteq T^{-1}\Omega=\{x\in\mathrm{Plane}:x_0+r\,x\in\Omega\},
+\]
+where $\operatorname{supp}$ denotes the topological support.  Put $\psi:=\varphi\circ S$, that is
+$\psi(y)=\varphi\bigl(r^{-1}(y-x_0)\bigr)$.  Then
+\begin{enumerate}
+\item[(1)] $\psi$ is of class $C^{\infty}$;
+\item[(2)] $\psi$ has compact support;
+\item[(3)] $\operatorname{supp}\psi\subseteq\Omega$;
+\item[(4)] for every $x\in\mathrm{Plane}$,
+  $\;D\varphi(x)=r\,D\psi\bigl(x_0+r\,x\bigr)$, where $D$ denotes the classical gradient.
+\end{enumerate}
+
+Clauses (1)--(3) say exactly that $\psi$ is an admissible test function for $\Omega$ whenever
+$\varphi$ is one for the pulled-back domain $T^{-1}\Omega$, and (4) identifies its gradient.  The
+four are one lemma rather than four because they are consumed together: a weak formulation on
+the rescaled domain is tested against $\varphi$ and has to be matched against the original
+equation tested against $\psi$, so at the moment of use all four clauses are needed at once.
+
+The factor $r$ in (4), rather than $r^{-1}$, is forced and worth stating explicitly: $DS=r^{-1}I$,
+so the chain rule puts $r^{-1}$ on $D\psi$, and solving for $D\varphi$ produces $r$.
+
+No hypothesis on $\Omega$ is required --- not even that it be open.  Clauses (1), (2) and (4) do
+not mention $\Omega$ at all, and (3) is a statement about supports and the cancellation
+$T\circ S=\mathrm{id}$, which is insensitive to any topological property of $\Omega$.
+\end{lemma}
+\begin{proof}
+Since $r>0$ we have $r\ne0$, so $T$ and $S$ are mutually inverse: for every $x$,
+$S(T(x))=r^{-1}\bigl((x_0+r\,x)-x_0\bigr)=r^{-1}(r\,x)=x$, and for every $y$,
+$T(S(y))=x_0+r\bigl(r^{-1}(y-x_0)\bigr)=x_0+(y-x_0)=y$.  Both are continuous, being affine.
+
+\medskip\noindent\emph{Clause (1).}
+$S$ is of class $C^{\infty}$, being the composition of the translation $y\mapsto y-x_0$ with the
+dilation by the constant $r^{-1}$, each of which is affine.  Hence $\psi=\varphi\circ S$ is of
+class $C^{\infty}$ by clause (3) of the background proposition on the chain rule for
+compositions, applied with $\varphi$ of class $C^{\infty}$ on all of $\mathrm{Plane}$.
+
+\medskip\noindent\emph{The support identity.}
+We claim
+\begin{equation}\label{eq:atfp-img}
+  S^{-1}\bigl(\operatorname{supp}\varphi\bigr)=T\bigl(\operatorname{supp}\varphi\bigr).
+\end{equation}
+For $\subseteq$: if $S(y)\in\operatorname{supp}\varphi$ then $y=T(S(y))$ exhibits $y$ as the
+image under $T$ of the point $S(y)$ of $\operatorname{supp}\varphi$.  For $\supseteq$: if
+$y=T(x)$ with $x\in\operatorname{supp}\varphi$ then $S(y)=S(T(x))=x\in\operatorname{supp}\varphi$,
+so $y\in S^{-1}(\operatorname{supp}\varphi)$.  This is where the mutual inverseness is used, and
+it is what converts a preimage into an image so that compactness can be transported forwards.
+
+Next,
+\begin{equation}\label{eq:atfp-ts}
+  \operatorname{supp}\psi\subseteq S^{-1}\bigl(\operatorname{supp}\varphi\bigr).
+\end{equation}
+Indeed $\{\psi\ne0\}=\{y:\varphi(S(y))\ne0\}=S^{-1}\{\varphi\ne0\}$ as sets, so
+$\operatorname{supp}\psi=\overline{S^{-1}\{\varphi\ne0\}}$, and for a CONTINUOUS map the closure
+of a preimage is contained in the preimage of the closure, giving
+$\overline{S^{-1}\{\varphi\ne0\}}\subseteq S^{-1}\bigl(\overline{\{\varphi\ne0\}}\bigr)
+ =S^{-1}(\operatorname{supp}\varphi)$.
+
+\medskip\noindent\emph{Clause (2).}
+$\operatorname{supp}\varphi$ is compact by hypothesis and $T$ is continuous, so
+$T(\operatorname{supp}\varphi)$ is compact; by \eqref{eq:atfp-img} so is
+$S^{-1}(\operatorname{supp}\varphi)$.  Now $\operatorname{supp}\psi$ is a closed set --- it is a
+closure --- contained in that compact set by \eqref{eq:atfp-ts}, and a closed subset of a compact
+set is compact.  Hence $\psi$ has compact support.
+
+\medskip\noindent\emph{Clause (3).}
+Let $y\in\operatorname{supp}\psi$.  By \eqref{eq:atfp-ts}, $S(y)\in\operatorname{supp}\varphi$,
+so the hypothesis $\operatorname{supp}\varphi\subseteq T^{-1}\Omega$ gives $T(S(y))\in\Omega$;
+and $T(S(y))=y$.  Hence $y\in\Omega$.
+
+\medskip\noindent\emph{Clause (4).}
+Fix $x$ and put $y:=T(x)=x_0+r\,x$.  Being of class $C^{\infty}$, $\varphi$ is differentiable
+everywhere.  The map $S$ is affine with constant derivative $DS(\cdot)=r^{-1}I$, so
+$S$ has Fréchet derivative $r^{-1}I$ at $y$; and $\varphi$ has Fréchet derivative
+$D^{1}\varphi(x)$ at $S(y)=x$, using $S(T(x))=x$.  By clause (1) of the background proposition on
+the chain rule for compositions, $\psi=\varphi\circ S$ is differentiable at $y$ with
+\[
+  D^{1}\psi(y)=D^{1}\varphi(x)\circ\bigl(r^{-1}I\bigr)=r^{-1}\,D^{1}\varphi(x),
+\]
+the last equality because $D^{1}\varphi(x)$ is linear.  Apply the Riesz map $J$ of the background
+proposition on the Riesz identification of the gradient with the Fréchet derivative, which is
+injective and linear: by clause (6) of the recursion proposition,
+$J\bigl(D\psi(y)\bigr)=D^{1}\psi(y)=r^{-1}D^{1}\varphi(x)=r^{-1}J\bigl(D\varphi(x)\bigr)
+ =J\bigl(r^{-1}D\varphi(x)\bigr)$, whence $D\psi(y)=r^{-1}D\varphi(x)$.  Multiplying by $r$ and
+using $r\ne0$,
+\[
+  D\varphi(x)=r\,D\psi(y)=r\,D\psi\bigl(x_0+r\,x\bigr),
+\]
+which is clause (4).  As $x$ was arbitrary, and as $\varphi$ was an arbitrary test function
+admissible for $T^{-1}\Omega$, the lemma is proved.
+\end{proof}

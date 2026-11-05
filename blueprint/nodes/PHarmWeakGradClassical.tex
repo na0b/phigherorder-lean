@@ -1,0 +1,201 @@
+\begin{lemma}[A $C^1$ weak solution is $p$-harmonic with its classical gradient]
+Let $p\in\mathbb{R}$ with $p>1$, let $\Omega\subseteq\mathrm{Plane}$, let
+$u\colon\mathrm{Plane}\to\mathbb{R}$ and let $g\colon\mathrm{Plane}\to\mathrm{Plane}$.  Assume
+\begin{enumerate}
+\item $u$ is $p$-harmonic in $\Omega$ with weak gradient $g$;
+\item $u$ is of class $C^{1}$ on $\Omega$.
+\end{enumerate}
+Then
+\begin{enumerate}
+\item[(a)] $u$ is $p$-harmonic in $\Omega$ with weak gradient equal to its own classical
+gradient $Du$; and
+\item[(b)] $g(x)=Du(x)$ for Lebesgue-almost every $x\in\Omega$; that is, for almost every
+$x\in\mathrm{Plane}$, if $x\in\Omega$ then $g(x)=Du(x)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\medskip\noindent\emph{A remark on real powers, recorded once and used twice below.}  One fact
+about real powers is used below which is \emph{not} among the listed clauses of the background
+proposition on elementary properties of real powers, so we record it here rather than attaching a
+citation the proposition does not support.
+\begin{itemize}
+\item[(P1)] \emph{Integer exponents.}  For $t\ge0$ and $n\in\mathbb{N}$ the real power $t^{a}$
+at $a:=n$ agrees with the $n$-fold product $t^{n}$: for $t>0$ this is part of what it means for
+$t^{a}$ to be the real power, which extends the integer power, and for $t=0$ it is the stated
+convention, since clause (1) gives $0^{n}=0$ for $n\ge1$ while $0^{0}=1$ is the empty product.
+Only the case $n=1$ is used below, namely $t^{1}=t$ for every $t\ge0$.
+\end{itemize}
+
+We refer to the six conditions in the definition of a $p$-harmonic function with weak gradient,
+\noderef{IsPHarm}, by their numbers (1)--(6), and write $A_p$ for the $p$-flux \noderef{PFlux}.
+By condition (1) for the datum of hypothesis (1), the set $\Omega$ is open, hence Lebesgue
+measurable by clause (2) of the background proposition on integrability of continuous and
+compactly supported functions.  By hypothesis (2) and clause (2) of the background proposition
+on locality of $C^{1}$ regularity, $u$ is differentiable at every point of $\Omega$ and both
+$u$ and $Du$ are continuous on $\Omega$.
+
+\medskip\noindent\emph{Step 1: integration by parts against a test function.}
+\emph{Claim.}  For every $\varphi\colon\mathrm{Plane}\to\mathbb{R}$ of class $C^\infty$ with
+compact support and $\operatorname{supp}\varphi\subseteq\Omega$,
+\begin{equation}\label{eq:pwgc-ibp}
+  \int_\Omega u\,D\varphi\,dx=-\int_\Omega \varphi\,Du\,dx .
+\end{equation}
+
+\emph{Proof of the claim.}  Put $K_0:=\operatorname{supp}\varphi$, a compact subset of
+$\Omega$, and
+\[
+  \psi:=u\,\varphi .
+\]
+
+\emph{(i) $\psi$ has compact support.}  If $\varphi(x)=0$ then $\psi(x)=0$, so
+$\{\psi\neq0\}\subseteq\{\varphi\neq0\}$ and hence
+$\operatorname{supp}\psi\subseteq\operatorname{supp}\varphi=K_0$, which is compact.
+
+\emph{(ii) $\psi$ is of class $C^{1}$ on all of $\mathrm{Plane}$.}  The two sets $\Omega$ and
+$\mathrm{Plane}\setminus K_0$ are open and cover $\mathrm{Plane}$, because $K_0\subseteq\Omega$.
+On $\Omega$ the function $u$ is of class $C^{1}$ by hypothesis (2) and $\varphi$ is of class
+$C^\infty$, hence of class $C^{1}$, so $\psi=u\,\varphi$ is of class $C^{1}$ on $\Omega$ by
+clause (4) of the background proposition on the product rule for the classical gradient.  On
+$\mathrm{Plane}\setminus K_0$ we have $\varphi\equiv0$, since $K_0$ is the closure of
+$\{\varphi\neq0\}$, so $\psi\equiv0$ there, and the zero function is of class $C^{1}$ by the
+same clause.  Every point of $\mathrm{Plane}$ therefore has an open neighbourhood on which
+$\psi$ is of class $C^{1}$, so clause (1) of the locality proposition, applied with the open set
+$\mathrm{Plane}$, gives that $\psi$ is of class $C^{1}$ on $\mathrm{Plane}$.
+
+\emph{(iii) The product rule, globally.}  Let $x\in\Omega$.  Both $u$ and $\varphi$ are
+differentiable at $x$, so clause (1) of the product-rule proposition gives
+\[
+  D\psi(x)=\varphi(x)\,Du(x)+u(x)\,D\varphi(x).
+\]
+Let now $x\in\mathrm{Plane}\setminus K_0$.  On that open set $\psi\equiv0$ and $\varphi\equiv0$,
+so clause (3) of the product-rule proposition gives $D\psi(x)=0$ and $D\varphi(x)=0$, while
+$\varphi(x)=0$; hence both sides of the display vanish.  Since
+$\Omega\cup(\mathrm{Plane}\setminus K_0)=\mathrm{Plane}$,
+\begin{equation}\label{eq:pwgc-prod}
+  D\psi(x)=\varphi(x)\,Du(x)+u(x)\,D\varphi(x)\qquad\text{for every }x\in\mathrm{Plane}.
+\end{equation}
+
+\emph{(iv) The mean of $D\psi$ vanishes.}  By (i) and (ii), $\psi$ is of class $C^{1}$ with
+compact support, so \noderef{TestFunctionGradientIntegral} applies to $\psi$ and gives
+$\int_{\mathrm{Plane}}D\psi\,dx=0$.  Substituting \eqref{eq:pwgc-prod},
+\begin{equation}\label{eq:pwgc-zero}
+  \int_{\mathrm{Plane}}\bigl(\varphi\,Du+u\,D\varphi\bigr)\,dx=0 .
+\end{equation}
+
+\emph{(v) Localization.}  The functions $\varphi\,Du$ and $u\,D\varphi$ are continuous on
+$\Omega$, since $u$ and $Du$ are continuous on $\Omega$ and $\varphi$, $D\varphi$ are continuous
+on $\mathrm{Plane}$.  Both vanish off $K_0$: for $x\notin K_0$ we have $\varphi(x)=0$ and, by
+clause (3) of the product-rule proposition applied on the open set
+$\mathrm{Plane}\setminus K_0$, also $D\varphi(x)=0$.  Each is therefore bounded on the compact
+set $K_0\subseteq\Omega$, hence integrable there, by clause (3) of the integrability
+proposition; and since each vanishes off $K_0$, clause (4) of that proposition --- applied once
+with $S:=\mathrm{Plane}$ and once with $S:=\Omega$, both containing $K_0$ --- gives
+\[
+  \int_{\mathrm{Plane}}\varphi\,Du=\int_{K_0}\varphi\,Du=\int_\Omega\varphi\,Du,
+  \qquad
+  \int_{\mathrm{Plane}}u\,D\varphi=\int_{K_0}u\,D\varphi=\int_\Omega u\,D\varphi .
+\]
+Both summands in \eqref{eq:pwgc-zero} being integrable, the integral splits, and the two
+displays give $\int_\Omega u\,D\varphi+\int_\Omega\varphi\,Du=0$.  This is
+\eqref{eq:pwgc-ibp}, and the claim is proved.
+
+\medskip\noindent\emph{Step 2: the two weak-gradient identities force $\varphi\,(g-Du)$ to
+integrate to zero.}
+Let $\varphi$ be as in Step 1, and keep $K_0=\operatorname{supp}\varphi$ and
+$B':=\sup_x\lvert\varphi(x)\rvert<\infty$, finite because $\varphi$ is continuous and vanishes
+off the compact $K_0$.  Condition (5) of \noderef{IsPHarm} for the datum of hypothesis (1)
+gives $\int_\Omega u\,D\varphi=-\int_\Omega\varphi\,g$.  Comparing with \eqref{eq:pwgc-ibp},
+\begin{equation}\label{eq:pwgc-same}
+  \int_\Omega\varphi\,g\,dx=\int_\Omega\varphi\,Du\,dx .
+\end{equation}
+Both integrands are integrable on $\Omega$.  For $\varphi\,Du$ this is Step 1(v).  For
+$\varphi\,g$: the field $g$ is almost everywhere strongly measurable with respect to Lebesgue
+measure restricted to $\Omega$ by condition (3), hence so is $\varphi\,g$; taking $a=1$ in
+clause (4) of the background proposition on elementary properties of real powers --- legitimate
+since $0\le1\le p$, as $p>1$ --- gives $t^{1}\le1+t^{p}$ for every $t\ge0$, and $t^{1}=t$ by
+(P1), so $t\le1+t^{p}$ for every $t\ge0$; applying this at $t:=\lvert\eta\rvert\ge0$ gives
+$\lvert\eta\rvert\le1+\lvert\eta\rvert^{p}$ for every vector $\eta$, so
+\[
+  \lvert\varphi(y)\,g(y)\rvert\le B'\bigl(1+\lvert g(y)\rvert^{p}\bigr),
+\]
+and the right-hand side is integrable on $K_0$ because $\lvert g\rvert^{p}$ is, by condition
+(4), and $\lvert K_0\rvert<\infty$; clause (3) of the integrability proposition then gives
+integrability of $\varphi\,g$ on $K_0$, and clause (4) extends it to $\Omega$ and to
+$\mathrm{Plane}$, since $\varphi\,g$ vanishes off $K_0$.
+
+We may therefore subtract the two sides of \eqref{eq:pwgc-same}:
+\[
+  \int_\Omega\varphi(x)\,\bigl(g(x)-Du(x)\bigr)\,dx=0 .
+\]
+The integrand vanishes off $K_0\subseteq\Omega$, so clause (4) of the integrability proposition
+with $S:=\mathrm{Plane}$ gives
+\begin{equation}\label{eq:pwgc-test}
+  \int_{\mathrm{Plane}}\varphi(x)\,\bigl(g(x)-Du(x)\bigr)\,dx=0
+  \qquad\text{for every test function }\varphi\text{ with }\operatorname{supp}\varphi\subseteq\Omega .
+\end{equation}
+
+\medskip\noindent\emph{Step 3: part (b), by the fundamental lemma.}
+Put $f:=g-Du$, a map $\mathrm{Plane}\to\mathrm{Plane}$.  We check that $f$ is integrable on
+every compact subset of $\Omega$, which for the open set $\Omega$ is exactly local
+integrability on $\Omega$ as recorded in the fundamental-lemma background proposition.  Let
+$K\subseteq\Omega$ be compact.  The field $g$ is almost everywhere strongly measurable on
+$\Omega$ by condition (3) and satisfies $\lvert g\rvert\le1+\lvert g\rvert^{p}$ pointwise by
+clause (4) of the elementary-powers proposition with $a=1$, legitimate since $0\le1\le p$,
+together with $t^{1}=t$ from (P1) as in Step 2; the right-hand side is
+integrable on $K$ by condition (4) and $\lvert K\rvert<\infty$, so clause (3) of the
+integrability proposition makes $g$ integrable on $K$.  The field $Du$ is continuous on
+$\Omega$, hence bounded and integrable on $K$ by clause (3) of the integrability proposition.
+So $f=g-Du$ is integrable on $K$.
+
+By \eqref{eq:pwgc-test}, $\int_{\mathrm{Plane}}\varphi\,f\,dx=0$ for every
+$\varphi\colon\mathrm{Plane}\to\mathbb{R}$ of class $C^\infty$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega$.  The fundamental lemma of the calculus of
+variations, applied with $U:=\Omega$, $F:=\mathrm{Plane}$ and this $f$, therefore gives
+$f(x)=0$ for almost every $x\in\Omega$, that is
+\begin{equation}\label{eq:pwgc-ae}
+  g(x)=Du(x)\qquad\text{for almost every }x\in\Omega .
+\end{equation}
+This is part (b).
+
+\medskip\noindent\emph{Step 4: part (a).}
+We verify the six conditions of \noderef{IsPHarm} for $u$ and $Du$ on $\Omega$.
+
+(1) $\Omega$ is open, by condition (1) for the datum of hypothesis (1); this condition does not
+involve the gradient.
+
+(2) $u$ is continuous on $\Omega$, by condition (2) for that datum.
+
+(3) By hypothesis (2) and clause (2) of the locality proposition, $Du$ is continuous on
+$\Omega$; and $\Omega$ is measurable.  Clause (3) of the integrability proposition then gives
+that $Du$ is almost everywhere strongly measurable with respect to Lebesgue measure restricted
+to $\Omega$.
+
+(4) Let $K\subseteq\Omega$ be compact.  Since $Du$ is continuous on $\Omega$, clause (3) of the
+integrability proposition gives a bound $\lvert Du(y)\rvert\le B$ for $y\in K$, and we may
+assume $B\ge1$.  As $p>0$, clause (3) of the elementary-powers proposition (monotonicity of
+$t\mapsto t^{p}$ on $[0,\infty)$) gives $\lvert Du(y)\rvert^{p}\le B^{p}$ for $y\in K$.  The
+function $y\mapsto\lvert Du(y)\rvert^{p}$ is measurable on $K$, being a composition of the
+continuous maps $\eta\mapsto\lvert\eta\rvert$ and $t\mapsto t^{p}$ with $Du$, and it is
+dominated by the constant $B^{p}$, which is integrable on $K$ because
+$\lvert K\rvert<\infty$.  Clause (3) of the integrability proposition therefore makes
+$\lvert Du\rvert^{p}$ integrable on $K$.
+
+(5) This is exactly \eqref{eq:pwgc-ibp} of Step 1.
+
+(6) Let $\varphi$ be of class $C^\infty$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega$.  By \eqref{eq:pwgc-ae} we have $g=Du$ almost
+everywhere on $\Omega$, so by the composition remark in clause (6) of the background
+proposition on restriction and congruence, $A_p\circ g=A_p\circ Du$ almost everywhere on
+$\Omega$, and hence
+$\bigl\langle A_p(g),D\varphi\bigr\rangle=\bigl\langle A_p(Du),D\varphi\bigr\rangle$ almost
+everywhere on $\Omega$.  The same clause (6), which says that almost everywhere equal functions
+have the same integral, gives
+\[
+  \int_\Omega\bigl\langle A_p(Du(x)),D\varphi(x)\bigr\rangle\,dx
+  =\int_\Omega\bigl\langle A_p(g(x)),D\varphi(x)\bigr\rangle\,dx=0 ,
+\]
+the last equality being condition (6) for the datum of hypothesis (1).
+
+\medskip\noindent All six conditions hold, so $u$ is $p$-harmonic in $\Omega$ with weak gradient
+$Du$.  This is part (a), and part (b) was proved in Step 3.
+\end{proof}

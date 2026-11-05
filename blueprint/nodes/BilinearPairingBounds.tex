@@ -1,0 +1,99 @@
+\begin{lemma}[A continuous bilinear pairing preserves $C^{m,\kappa}$ bounds]
+Let $\kappa$ satisfy $0<\kappa\le1$, let $d>0$, let $m\in\mathbb{N}$ and let $K>0$.  Then there
+is $q>0$, depending only on $m,K,\kappa,d$, with the following property.
+
+Let $Z_1,Z_2,Z_3$ be normed real vector spaces, let $B\colon Z_1\times Z_2\to Z_3$ be continuous
+bilinear with
+\begin{equation}\label{eq:bpb-B}
+  \bigl\lVert B(a,b)\bigr\rVert\le\lVert a\rVert\,\lVert b\rVert\qquad(a\in Z_1,\ b\in Z_2),
+\end{equation}
+let $U\subseteq\mathrm{Plane}$ be open and convex with $\lvert x-y\rvert\le d$ for all
+$x,y\in U$, and let $F\colon\mathrm{Plane}\to Z_1$ and $G\colon\mathrm{Plane}\to Z_2$ satisfy
+\begin{enumerate}
+\item[(F1)] $F$ is of class $C^{\infty}$ on $U$, and
+  $\bigl\lVert D^{i}F(x)\bigr\rVert\le K$ for every $i\le m$ and every $x\in U$;
+\item[(F2)] $\bigl\lVert D^{m}F(x)-D^{m}F(y)\bigr\rVert\le K\lvert x-y\rvert^{\kappa}$ for all
+  $x,y\in U$;
+\item[(G1)] $G$ is of class $C^{\infty}$ on $U$, and
+  $\bigl\lVert D^{i}G(x)\bigr\rVert\le K$ for every $i\le m$ and every $x\in U$;
+\item[(G2)] $\bigl\lVert D^{m}G(x)-D^{m}G(y)\bigr\rVert\le K\lvert x-y\rvert^{\kappa}$ for all
+  $x,y\in U$.
+\end{enumerate}
+Then, writing $P(y):=B\bigl(F(y),G(y)\bigr)$,
+\[
+  \bigl\lVert D^{i}P(x)\bigr\rVert\le q\quad(i\le m,\ x\in U),
+  \qquad
+  \bigl\lVert D^{m}P(x)-D^{m}P(y)\bigr\rVert\le q\,\lvert x-y\rvert^{\kappa}\quad(x,y\in U).
+\]
+
+The constant $q$ is produced before $Z_1,Z_2,Z_3$, before $B$, and before $U,F,G$, so the
+estimate is uniform over all such data.  The hypothesis on $B$ is the pointwise bound
+\eqref{eq:bpb-B} rather than a bound on the operator norm of $B$, because the intended use
+applies the lemma with $Z_1,Z_2,Z_3$ themselves spaces of continuous linear maps, where only the
+pointwise form is available.
+\end{lemma}
+\begin{proof}
+\emph{Terminology.}  For a normed real vector space $Z$, an integer $n\ge0$ and a real $L\ge0$,
+say that $\Phi\colon\mathrm{Plane}\to Z$ is \emph{$(n,L)$-good on $U$} when $\Phi$ is of class
+$C^{\infty}$ on $U$ and
+\[
+  \bigl\lVert D^{i}\Phi(x)\bigr\rVert\le L\ \ (i\le n,\ x\in U),
+  \qquad
+  \bigl\lVert D^{n}\Phi(x)-D^{n}\Phi(y)\bigr\rVert\le L\,\lvert x-y\rvert^{\kappa}\ \ (x,y\in U).
+\]
+Thus (F1)--(F2) say that $F$ is $(m,K)$-good on $U$, (G1)--(G2) that $G$ is $(m,K)$-good, and the
+conclusion is that $P$ is $(m,q)$-good.  Note at once that $(n,L)$-goodness is monotone in $L$:
+if $\Phi$ is $(n,L)$-good and $L\le L'$ then $\Phi$ is $(n,L')$-good, since both displayed
+bounds only weaken.
+
+\medskip\noindent\emph{The induction.}
+We prove, by induction on $n$, the following claim: \emph{for every $n\in\mathbb{N}$ and every
+$L>0$ there is $q_n(L)>0$ such that, simultaneously for all normed real vector spaces
+$Z_1,Z_2,Z_3$, every continuous bilinear $B$ satisfying \eqref{eq:bpb-B}, every open convex $U$
+of diameter at most $d$, and all $(n,L)$-good $F$ and $(n,L)$-good $G$ on $U$, the map
+$y\mapsto B(F(y),G(y))$ is $(n,q_n(L))$-good on $U$.}  Taking $n:=m$ and $L:=K$ and
+$q:=q_m(K)$ then proves the lemma.  That the claim is quantified over all $Z_1,Z_2,Z_3$ is
+essential, because the inductive step applies it to derivatives, whose values lie in spaces of
+continuous linear maps.
+
+\medskip\noindent\emph{Base case $n=0$.}
+By clause (2) of the order-shift proposition, $P=B(F,G)$ is of class $C^{\infty}$ on $U$,
+because $F$ and $G$ are.  For $x\in U$, \eqref{eq:bpb-B} and the order-zero sup bounds give
+\[
+  \bigl\lVert P(x)\bigr\rVert=\bigl\lVert B(F(x),G(x))\bigr\rVert
+  \le\lVert F(x)\rVert\,\lVert G(x)\rVert\le L^{2}.
+\]
+For $x,y\in U$, bilinearity of $B$ gives the identity
+\begin{equation}\label{eq:bpb-split}
+  B\bigl(F(x),G(x)\bigr)-B\bigl(F(y),G(y)\bigr)
+  =B\bigl(F(x)-F(y),\,G(x)\bigr)+B\bigl(F(y),\,G(x)-G(y)\bigr),
+\end{equation}
+since the right-hand side expands to
+$B(F(x),G(x))-B(F(y),G(x))+B(F(y),G(x))-B(F(y),G(y))$.  Applying \eqref{eq:bpb-B} to each
+summand and then the order-zero H\"older and sup bounds for $F$ and $G$,
+\[
+  \bigl\lVert P(x)-P(y)\bigr\rVert
+  \le\lVert F(x)-F(y)\rVert\,\lVert G(x)\rVert+\lVert F(y)\rVert\,\lVert G(x)-G(y)\rVert
+  \le L\lvert x-y\rvert^{\kappa}L+L\,L\lvert x-y\rvert^{\kappa}
+  =2L^{2}\lvert x-y\rvert^{\kappa}.
+\]
+So $q_0(L):=2L^{2}+1$ works, the $+1$ only to keep it positive.
+
+\medskip\noindent\emph{Inductive step.}
+This is \noderef{BilinearPairingLeibnizStep}, applied with the exponent $\kappa$, the diameter
+bound $d$ and the order $n$.  Its hypothesis is exactly the claim at $n$ as displayed above ---
+for EVERY $L>0$ a constant $q_n(L)>0$ with the stated property, uniformly in $Z_1,Z_2,Z_3$,
+$B$, $U$, $F$ and $G$ --- which is precisely what the inductive hypothesis supplies here, and
+its conclusion is the claim at $n+1$.  The new constant it produces is
+\[
+  q_{n+1}(L)=L^{2}+2\,q_n(L\theta)+1,
+\]
+where $\theta\ge1$ is the diameter-dependent descent factor that node obtains for itself from
+\noderef{JetHolderDescent}, depending only on $\kappa$ and $d$.  That the hypothesis is
+quantified over every $L$, and not at one fixed constant, is what lets the step invoke the
+claim at $n$ at the LARGER constant $L\theta$; this is the price of the one order spent in
+differentiating $P$, and paying it in the constant rather than in the order is what keeps the
+induction from losing ground at each stage.  Nothing in the step depends on $m$ or $K$ or on
+any particular data, so with the base case above the claim holds for every $n\in\mathbb{N}$,
+which completes the induction and the proof.
+\end{proof}

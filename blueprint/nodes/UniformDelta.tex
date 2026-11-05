@@ -1,0 +1,45 @@
+\begin{lemma}[Uniform separation from the zero set of a continuous functional]
+Let $X$ be a topological space, let $K\subseteq X$ be compact, and let
+$F\colon X\to\mathbb{R}$ be continuous on $K$ with $F(z)\ge0$ for every $z\in K$.  Let
+$U\subseteq X$ be open and suppose
+\[
+  \{z\in K:F(z)=0\}\subseteq U .
+\]
+Then there is $\delta>0$ with
+\[
+  \{z\in K:F(z)\le\delta\}\subseteq U .
+\]
+\end{lemma}
+\begin{proof}
+Consider the set $K\setminus U$ and distinguish two cases.
+
+\medskip\noindent\emph{Case 1: $K\setminus U=\emptyset$.}
+Take $\delta:=1>0$.  Let $z\in K$ with $F(z)\le1$, and suppose $z\notin U$.  Then
+$z\in K\setminus U$, contradicting $K\setminus U=\emptyset$.  Hence $z\in U$, and
+$\{z\in K:F(z)\le1\}\subseteq U$ as required.
+
+\medskip\noindent\emph{Case 2: $K\setminus U\neq\emptyset$.}
+The set $U$ is open, so its complement is closed, and $K\setminus U$ is the intersection of the
+compact set $K$ with that closed set, hence compact by clause (10) of the background proposition
+on bounded continuous functions.  It is also nonempty in this case, and $F$ is continuous on it,
+being continuous on the larger set $K$.  A continuous real-valued function on a nonempty compact
+set attains its minimum, so there is $z_0\in K\setminus U$ with
+\begin{equation}\label{eq:ud-min}
+  F(z_0)\le F(z)\qquad\text{for every }z\in K\setminus U .
+\end{equation}
+
+\emph{The minimum is positive.}  We have $z_0\in K$, so $F(z_0)\ge0$ by hypothesis.  Suppose
+$F(z_0)=0$.  Then $z_0\in\{z\in K:F(z)=0\}$, so $z_0\in U$ by hypothesis; but
+$z_0\in K\setminus U$ means $z_0\notin U$, a contradiction.  Hence $F(z_0)\neq0$ and therefore
+\begin{equation}\label{eq:ud-pos}
+  F(z_0)>0 .
+\end{equation}
+
+\emph{Conclusion.}  Put $\delta:=F(z_0)/2$, which is positive by \eqref{eq:ud-pos}.  Let $z\in K$
+with $F(z)\le\delta$, and suppose for contradiction that $z\notin U$.  Then
+$z\in K\setminus U$, so \eqref{eq:ud-min} gives $F(z_0)\le F(z)$.  Combining this with
+$F(z)\le\delta=F(z_0)/2$ yields $F(z_0)\le F(z_0)/2$, that is $F(z_0)\le0$, contradicting
+\eqref{eq:ud-pos}.  Hence $z\in U$, and $\{z\in K:F(z)\le\delta\}\subseteq U$.
+
+\medskip\noindent In both cases a suitable $\delta>0$ exists, which proves the lemma.
+\end{proof}

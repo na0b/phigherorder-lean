@@ -1,0 +1,102 @@
+\begin{lemma}[The family of jets is compact]
+Let $1<p<2$ and let $(\kappa,C_0)$ be a first-order estimate datum for $p$.  Then the family
+$\mathcal{K}_p$ is a compact subset of $X_{1/2}\to^{b}(\mathbb{R}\times\mathrm{Plane})$.
+\end{lemma}
+\begin{proof}
+Write $\mathcal{G}_p$ for the generating set, so that $\mathcal{K}_p=\overline{\mathcal{G}_p}$ by
+\noderef{CompactJetFamily}.  Throughout, $\kappa$ and $C_0$ are the data of the first-order
+estimate datum, so $0<\kappa<1$ and $C_0>0$.
+
+\medskip\noindent\emph{Step 0: two inclusions of balls.}
+Let $x\in X_{1/2}$, so $\lvert x\rvert\le\tfrac12$ as a point of the plane.  Then
+$\lvert x\rvert\le\tfrac12<\tfrac34$ and $\lvert x\rvert<1$, so
+\begin{equation}\label{eq:cjfc-incl}
+  X_{1/2}\subseteq B_{3/4}\subseteq B_1 ,
+\end{equation}
+the second inclusion because $\tfrac34<1$.
+
+\medskip\noindent\emph{Step 1: the estimates available on a generator.}
+Let $z\in\mathcal{G}_p$.  By \noderef{CompactJetFamily} there are
+$v\colon\mathrm{Plane}\to\mathbb{R}$ and $g\colon\mathrm{Plane}\to\mathrm{Plane}$ with $v$
+$p$-harmonic in $B_1$ with weak gradient $g$, with $\lvert v(y)\rvert\le1$ for $y\in B_1$, with
+$v(0)=0$, and with $z(x)=\bigl(v(x),Dv(x)\bigr)$ for every $x\in X_{1/2}$.
+
+Apply \noderef{PHarmJetEquicontinuity} with $x_0:=0$, $R:=\tfrac12$ and $M:=1$.  Its hypotheses
+hold: $1<p<2$; $R=\tfrac12>0$ and $M=1>0$; $v$ is $p$-harmonic in $B_{2R}(0)=B_1$ with weak
+gradient $g$, since $2\cdot\tfrac12=1$; and $\lvert v(y)\rvert\le1=M$ for every
+$y\in B_{2R}(0)=B_1$.  Its conclusion, evaluated at these parameters --- where
+$3R/2=\tfrac34$, $C_0M/(2R)=C_0\cdot1/1=C_0$ and $2R=1$ --- is that $v$ is of class $C^1$ on
+$B_{3/4}$ and
+\begin{equation}\label{eq:cjfc-grad}
+  \lvert Dv(y)\rvert\le C_0\qquad(y\in B_{3/4}),
+\end{equation}
+\begin{equation}\label{eq:cjfc-hol}
+  \lvert Dv(y)-Dv(y')\rvert\le C_0\,\lvert y-y'\rvert^{\kappa}\qquad(y,y'\in B_{3/4}).
+\end{equation}
+
+\medskip\noindent\emph{Step 2: a compact target set containing every jet value.}
+Put
+\[
+  s:=[-1,1]\times\overline{B_{C_0}(0)}\subseteq\mathbb{R}\times\mathrm{Plane},
+\]
+which is compact by clause (2) of the background proposition on bounded continuous functions,
+applied with $A:=1$ and $B:=C_0$.
+
+We claim $z(x)\in s$ for every $z\in\mathcal{G}_p$ and every $x\in X_{1/2}$.  Take $v,g$ as in
+Step 1.  The first component of $z(x)$ is $v(x)$, and $x\in B_1$ by \eqref{eq:cjfc-incl}, so
+$\lvert v(x)\rvert\le1$, that is $v(x)\in[-1,1]$.  The second component is $Dv(x)$, and
+$x\in B_{3/4}$ by \eqref{eq:cjfc-incl}, so $\lvert Dv(x)\rvert\le C_0$ by \eqref{eq:cjfc-grad},
+that is $Dv(x)\in\overline{B_{C_0}(0)}$.  Hence $z(x)\in s$.
+
+\medskip\noindent\emph{Step 3: equicontinuity, with a modulus uniform over the family.}
+Let $\varepsilon>0$.  Since $\kappa>0$, clause (7) of the background proposition on elementary
+properties of real powers gives that $t\mapsto t^{\kappa}$ is continuous on $[0,\infty)$ with
+value $0$ at $t=0$, so there is $s_0>0$ with $C_0\,s_0^{\kappa}\le\varepsilon$.  Put
+\[
+  \delta:=\min\Bigl\{s_0,\ \frac{\varepsilon}{C_0}\Bigr\}>0 ,
+\]
+positive because $s_0>0$, $\varepsilon>0$ and $C_0>0$.  Let $z\in\mathcal{G}_p$ with witnesses
+$v,g$ as in Step 1, and let $x,x'\in X_{1/2}$ with $\lvert x-x'\rvert<\delta$.
+
+\emph{First components.}  The ball $B_{3/4}$ is convex; $v$ is of class $C^1$ on $B_{3/4}$ by
+Step 1, hence differentiable at every point of $B_{3/4}$ by clause (2) of the background
+proposition on locality of $C^1$ regularity; and $\lvert Dv\rvert\le C_0$ on $B_{3/4}$ by
+\eqref{eq:cjfc-grad}.  Both $x$ and $x'$ lie in $B_{3/4}$ by \eqref{eq:cjfc-incl}.  The
+background mean value inequality on a convex set therefore gives
+\[
+  \lvert v(x)-v(x')\rvert\le C_0\,\lvert x-x'\rvert<C_0\,\delta
+  \le C_0\cdot\frac{\varepsilon}{C_0}=\varepsilon .
+\]
+
+\emph{Second components.}  By \eqref{eq:cjfc-hol} with $y:=x$, $y':=x'$, both in $B_{3/4}$, and
+since $\lvert x-x'\rvert<\delta\le s_0$ with $t\mapsto t^{\kappa}$ nondecreasing on $[0,\infty)$
+(clause (3) of the elementary-powers proposition),
+\[
+  \lvert Dv(x)-Dv(x')\rvert\le C_0\,\lvert x-x'\rvert^{\kappa}\le C_0\,s_0^{\kappa}\le\varepsilon .
+\]
+
+By clause (2) of the bounded-continuous-functions proposition the distance in
+$\mathbb{R}\times\mathrm{Plane}$ is the maximum of the two component distances, so the two
+displays give
+\[
+  d\bigl(z(x),z(x')\bigr)
+  =\max\bigl(\lvert v(x)-v(x')\rvert,\ \lvert Dv(x)-Dv(x')\rvert\bigr)\le\varepsilon .
+\]
+The number $\delta$ was chosen from $\varepsilon$, $\kappa$ and $C_0$ alone, and $\kappa$ and
+$C_0$ are fixed with the datum before any $z$ is chosen; so this is a modulus uniform over
+$\mathcal{G}_p$.  By clause (4) of the bounded-continuous-functions proposition --- a uniform
+modulus suffices for equicontinuity --- the family of underlying maps of the elements of
+$\mathcal{G}_p$ is equicontinuous.
+
+\medskip\noindent\emph{Step 4: Arzel\`a--Ascoli.}
+The base space $X_{1/2}$ is compact, as recorded in \noderef{XHalf}.  Clause (5) of the
+bounded-continuous-functions background proposition, applied with $K:=X_{1/2}$,
+$Y:=\mathbb{R}\times\mathrm{Plane}$, the compact set $s$ of Step 2 and the set
+$A:=\mathcal{G}_p$, has exactly two further hypotheses: that $f(x)\in s$ for every
+$f\in\mathcal{G}_p$ and every $x\in X_{1/2}$, which is Step 2, and that the family of underlying
+maps of the elements of $\mathcal{G}_p$ be equicontinuous, which is Step 3.  Its conclusion is
+that $\overline{\mathcal{G}_p}$ is compact.  By \noderef{CompactJetFamily},
+$\overline{\mathcal{G}_p}=\mathcal{K}_p$, so $\mathcal{K}_p$ is compact.  Note that no
+closedness of $\mathcal{G}_p$ was needed: the compactness assertion is about the closure, which
+is what the paper's family is.
+\end{proof}

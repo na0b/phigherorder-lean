@@ -1,0 +1,115 @@
+\begin{lemma}[A locally bounded, locally equicontinuous sequence of jets has a locally uniformly convergent subsequence]
+Let $W\subseteq\mathrm{Plane}$ be open and let
+$J_n\colon\mathrm{Plane}\to\mathbb{R}\times\mathrm{Plane}$ for $n\in\mathbb{N}$, where
+$\mathbb{R}\times\mathrm{Plane}$ carries the norm
+$\lVert(a,b)\rVert=\max(\lvert a\rvert,\lvert b\rvert)$.  Assume that for every compact
+$K\subseteq W$ there are $N\in\mathbb{N}$ and $A\in\mathbb{R}$ such that
+\begin{enumerate}
+\item $J_n$ is continuous on $K$ for every $n\ge N$;
+\item $\lVert J_n(z)\rVert\le A$ for every $n\ge N$ and every $z\in K$;
+\item for every $\varepsilon>0$ there is $\delta>0$ such that
+$\lVert J_n(z)-J_n(z')\rVert\le\varepsilon$ for every $n\ge N$ and all $z,z'\in K$ with
+$\lvert z-z'\rvert<\delta$.
+\end{enumerate}
+Then there are a strictly increasing $\varphi\colon\mathbb{N}\to\mathbb{N}$ and a map
+$J_\infty\colon\mathrm{Plane}\to\mathbb{R}\times\mathrm{Plane}$ such that, for every compact
+$K\subseteq W$, the sequence $J_{\varphi(i)}$ converges to $J_\infty$ uniformly on $K$ as
+$i\to\infty$.
+\end{lemma}
+\begin{proof}
+Let $(K_j)_{j\in\mathbb{N}}$ be the compact exhaustion of the open set $W$ supplied by clause
+(2) of the background proposition on thickening and compact exhaustion: each $K_j$ is a compact
+subset of $W$, $K_j\subseteq K_{j+1}$, and $\bigcup_jK_j=W$.
+
+\medskip\noindent\emph{Step 1: extraction on a single piece, after an arbitrary earlier
+extraction.}
+\emph{Claim.}  For every $j\in\mathbb{N}$ and every strictly increasing
+$\sigma\colon\mathbb{N}\to\mathbb{N}$ there is a strictly increasing
+$\tau\colon\mathbb{N}\to\mathbb{N}$ such that the sequence $\bigl(J_{\sigma(\tau(i))}\bigr)_i$
+converges uniformly on $K_j$.
+
+\emph{Proof of the claim.}  Apply the hypothesis to the compact set $K:=K_j\subseteq W$,
+obtaining $N_j$ and $A_j$ with properties (1), (2), (3) for all $n\ge N_j$.  A strictly
+increasing map $\mathbb{N}\to\mathbb{N}$ satisfies $\sigma(i)\ge i$ for every $i$ --- by
+induction, since $\sigma(0)\ge0$ and $\sigma(i+1)>\sigma(i)\ge i$ forces $\sigma(i+1)\ge i+1$.
+Hence $\sigma(N_j+i)\ge N_j+i\ge N_j$ for every $i\in\mathbb{N}$, so properties (1), (2), (3)
+hold for every member of the sequence
+\[
+  \bigl(J_{\sigma(N_j+i)}\bigr)_{i\in\mathbb{N}} .
+\]
+Concretely: each of its terms is continuous on $K_j$ by (1); each satisfies
+$\lVert J_{\sigma(N_j+i)}(z)\rVert\le A_j$ for all $z\in K_j$ by (2), so the family is uniformly
+bounded on $K_j$; and for every $\varepsilon>0$ the $\delta>0$ supplied by (3) satisfies
+$\lVert J_{\sigma(N_j+i)}(z)-J_{\sigma(N_j+i)}(z')\rVert\le\varepsilon$ for every $i$ and all
+$z,z'\in K_j$ with $\lvert z-z'\rvert<\delta$, which is the uniform-modulus form of
+equicontinuity required by the hypothesis of the background Arzel\`a--Ascoli proposition, with
+the same $\delta$ serving all indices $i$.
+
+The set $K_j$ is a compact metric space, being a compact subset of $\mathrm{Plane}$ with the
+induced metric, and $\mathbb{R}\times\mathrm{Plane}$ is a finite-dimensional normed real vector
+space, as recorded in the first remark accompanying that proposition.  The sequential
+Arzel\`a--Ascoli background proposition therefore supplies a strictly increasing
+$\iota\colon\mathbb{N}\to\mathbb{N}$ and a continuous limit such that
+$\bigl(J_{\sigma(N_j+\iota(i))}\bigr)_i$ converges uniformly on $K_j$.  Put
+$\tau(i):=N_j+\iota(i)$.  Then $\tau$ is strictly increasing, being $\iota$ followed by a
+translation, and $\bigl(J_{\sigma(\tau(i))}\bigr)_i$ converges uniformly on $K_j$.  This proves
+the claim.
+
+\medskip\noindent\emph{Step 2: nested extraction.}
+Define strictly increasing maps $\Phi_j\colon\mathbb{N}\to\mathbb{N}$ recursively.  Apply the
+claim of Step 1 with $j:=0$ and $\sigma:=\mathrm{id}$, which is strictly increasing, to obtain
+$\tau_0$, and put $\Phi_0:=\tau_0$.  Given a strictly increasing $\Phi_j$, apply the claim with
+$j+1$ in place of $j$ and $\sigma:=\Phi_j$ to obtain $\tau_{j+1}$, and put
+$\Phi_{j+1}:=\Phi_j\circ\tau_{j+1}$.  Each $\Phi_j$ is strictly increasing, being a composition
+of strictly increasing maps, and by construction
+\begin{equation}\label{eq:jlc-stage}
+  \bigl(J_{\Phi_j(i)}\bigr)_i\ \text{converges uniformly on }K_j\qquad\text{for every }j .
+\end{equation}
+Indeed for $j=0$ this is the claim applied with $\sigma=\mathrm{id}$, and for $j+1$ it is the
+claim applied with $\sigma=\Phi_j$, whose conclusion concerns
+$\bigl(J_{\Phi_j(\tau_{j+1}(i))}\bigr)_i=\bigl(J_{\Phi_{j+1}(i)}\bigr)_i$.
+
+\medskip\noindent\emph{Step 3: the diagonal subsequence.}
+Put $\varphi(i):=\Phi_i(i)$.  Then $\varphi$ is strictly increasing: using
+$\tau_{i+1}(i+1)\ge i+1$ (again because a strictly increasing map $\mathbb{N}\to\mathbb{N}$
+dominates the identity) and the strict monotonicity of $\Phi_i$,
+\[
+  \varphi(i+1)=\Phi_{i+1}(i+1)=\Phi_i\bigl(\tau_{i+1}(i+1)\bigr)\ge\Phi_i(i+1)>\Phi_i(i)=\varphi(i),
+\]
+and a map $\mathbb{N}\to\mathbb{N}$ with $\varphi(i+1)>\varphi(i)$ for every $i$ is strictly
+increasing.
+
+Fix $j$.  By construction $\Phi_i=\Phi_j\circ(\tau_{j+1}\circ\cdots\circ\tau_i)$ for every
+$i\ge j$, the composition being empty when $i=j$.  Hence for $i\ge j$ we may write
+$\varphi(i)=\Phi_j(\theta(i))$ where $\theta(i):=(\tau_{j+1}\circ\cdots\circ\tau_i)(i)$, with
+$\theta(j)=j$.  The map $\theta$ is strictly increasing on $\{i:i\ge j\}$: if $j\le i<i'$ then
+$\Phi_j(\theta(i))=\varphi(i)<\varphi(i')=\Phi_j(\theta(i'))$ by strict monotonicity of
+$\varphi$, and a strictly increasing map is order reflecting, so $\theta(i)<\theta(i')$.
+Therefore $\bigl(J_{\varphi(i)}\bigr)_{i\ge j}$ is a tail of a subsequence of
+$\bigl(J_{\Phi_j(i)}\bigr)_i$, and by \eqref{eq:jlc-stage} together with the second remark
+accompanying the Arzel\`a--Ascoli proposition --- a tail of a subsequence of a sequence
+converging uniformly on a set converges uniformly on that set to the same limit ---
+\begin{equation}\label{eq:jlc-unif}
+  \bigl(J_{\varphi(i)}\bigr)_i\ \text{converges uniformly on }K_j\qquad\text{for every }j .
+\end{equation}
+
+\medskip\noindent\emph{Step 4: the limit map, and arbitrary compact subsets.}
+Let $z\in W$.  By clause (2) of the exhaustion proposition there is $j$ with $z\in K_j$, and
+\eqref{eq:jlc-unif} gives in particular, by the remark that uniform convergence on a set
+implies pointwise convergence at each of its points (background proposition on uniform limits
+of continuous functions), that $\bigl(J_{\varphi(i)}(z)\bigr)_i$ converges in
+$\mathbb{R}\times\mathrm{Plane}$.  Its limit does not depend on the choice of $j$, because
+limits in a metric space are unique.  Define $J_\infty(z)$ to be that limit for $z\in W$, and
+$J_\infty(z):=(0,0)$ for $z\notin W$.
+
+Fix $j$.  The uniform limit of $\bigl(J_{\varphi(i)}\bigr)_i$ on $K_j$ supplied by
+\eqref{eq:jlc-unif} agrees with $J_\infty$ at every point of $K_j$, again by uniqueness of
+pointwise limits; hence $J_{\varphi(i)}\to J_\infty$ uniformly on $K_j$.
+
+Finally let $K\subseteq W$ be compact.  By clause (3) of the exhaustion proposition there is $j$
+with $K\subseteq K_j$.  Uniform convergence on $K_j$ restricts to uniform convergence on the
+subset $K$: for $\varepsilon>0$ the index $N$ beyond which
+$\lVert J_{\varphi(i)}(z)-J_\infty(z)\rVert\le\varepsilon$ holds for every $z\in K_j$ serves
+also for every $z\in K$.  Hence $J_{\varphi(i)}\to J_\infty$ uniformly on $K$, which is the
+assertion.
+\end{proof}

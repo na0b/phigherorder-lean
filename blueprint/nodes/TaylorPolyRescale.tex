@@ -1,0 +1,149 @@
+\begin{lemma}[Taylor data under the blow-up rescaling]
+Let $k\in\mathbb{N}$, let $\sigma\in\mathbb{R}$, let $\rho>0$, let
+$v\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^{k}$ on $B_{\rho}(0)$, let $R>0$ and let
+$v_L\colon\mathrm{Plane}\to\mathbb{R}$ satisfy
+\[
+  v_L(x)=\frac{v(Rx)}{R^{\sigma}}\qquad\text{for every }x\in\mathrm{Plane}.
+\]
+Then:
+\begin{enumerate}
+\item for every $j$ with $0\le j\le k$ and every $w\in\mathrm{Plane}$,
+\[
+  D^{j}v(0)[w,\ldots,w]=R^{\,\sigma-j}\,D^{j}v_L(0)[w,\ldots,w];
+\]
+\item for every $z\in\mathrm{Plane}$,
+\[
+  \mathrm{TaylorPoly}(k,v,0)(z)=R^{\sigma}\,\mathrm{TaylorPoly}\bigl(k,v_L,0\bigr)
+    \bigl(R^{-1}z\bigr).
+\]
+\end{enumerate}
+Assertion (1) is the paper's identity (3.3): taking absolute values in (1) gives
+$\lvert D^{j}v(0)[w,\ldots,w]\rvert=R^{\,\sigma-j}\lvert D^{j}v_L(0)[w,\ldots,w]\rvert$, and
+when $k<\sigma$ the exponent $\sigma-j$ is strictly positive for every $j\le k$, which is what
+makes the rescaling a gain as $R\to0$.  The lemma does not need that inequality and does not
+assume it.  The hypothesis on $v$ is \emph{local} --- class $C^{k}$ on a single ball around the
+origin --- because that is all its consumers have.
+
+\medskip\noindent\emph{Remark on the diagonal rendering.  This paragraph is classical background
+about the object the statement is about; it is not a background item of this development and it is not a
+step available to any proof in the tablet, here or elsewhere.}  Assertion (1) is stated through
+diagonal evaluations rather than through the full $j$-linear forms, and it is a faithful
+phrasing of the paper's (3.3) rather than a weakening of it.  Classically, the
+iterated derivative $D^{j}$ of a function of class $C^{j}$ is a \emph{symmetric} $j$-linear
+form at each point --- the higher-order Schwarz--Clairaut theorem --- and a symmetric
+$j$-linear form is determined by its diagonal evaluations, through the polarization identity
+\[
+  T[v_1,\ldots,v_j]=\frac{1}{j!\,2^{j}}\sum_{\varepsilon\in\{-1,1\}^{j}}
+    \varepsilon_1\cdots\varepsilon_j\,
+    T\Bigl[\textstyle\sum_{i=1}^{j}\varepsilon_iv_i,\ \ldots,\ \sum_{i=1}^{j}\varepsilon_iv_i\Bigr].
+\]
+Here $v$ is of class $C^{k}$ on $B_{\rho}(0)$, and $v_L$ is $v$ precomposed with the dilation
+$x\mapsto Rx$ and multiplied by the constant $R^{-\sigma}$, hence of class $C^{k}$ on
+$B_{\rho/R}(0)$; so for every $j\le k$ both $D^{j}v(0)$ and $D^{j}v_L(0)$ are symmetric, and
+assertion (1) says exactly the same thing about them as the identity of full multilinear forms
+$D^{j}v(0)=R^{\,\sigma-j}D^{j}v_L(0)$, which is the content of (3.3).  Neither the
+classical symmetry at order $j\ge3$ nor the polarization identity is available inside this
+development: Mathlib at the pinned revision proves symmetry of the iterated derivative of a
+finitely smooth function only at order two, general order requiring analyticity, which is
+precisely why every statement here carries higher-order derivatives diagonally.
+\end{lemma}
+\begin{proof}
+Let $L\colon\mathrm{Plane}\to\mathrm{Plane}$, $L(x):=Rx$.  This is a linear map, continuous
+with $\lvert L(h)\rvert=R\lvert h\rvert$, and $L(0)=0$.  Put $U:=B_{\rho}(0)$ and
+$V:=L^{-1}(U)=B_{\rho/R}(0)$; both are open and both contain $0$.  Note $R^{\sigma}>0$, so
+$R^{\sigma}\ne0$, by clause (1) of the background proposition on elementary properties of real
+powers.
+
+\medskip\noindent\emph{Step 1: the local dilation rule.}
+We claim that for every $j$ with $0\le j\le k$ and every $x\in V$, as continuous $j$-linear
+forms,
+\begin{equation}\label{eq:tpr-dil}
+  D^{j}(v\circ L)(x)=R^{\,j}\,D^{j}v(Lx).
+\end{equation}
+Here $v\circ L$ is of class $C^{k}$ on $V$, being the composition of the linear map $L$, which
+is of class $C^{\infty}$, with $v$, which is of class $C^{k}$ on $U=L(V)$.
+
+We argue by induction on $j$.  For $j=0$ both sides equal the constant $0$-linear form with
+value $v(Lx)$, by clause (1) of the background proposition on the recursion for the iterated
+Fr\'echet derivative.
+
+Assume \eqref{eq:tpr-dil} for some $j$ with $j<k$ and every $x\in V$.  Since $v$ is of class
+$C^{j+1}$ on $U$, clause (3) of the recursion proposition says that $y\mapsto D^{j}v(y)$, with
+values in the normed space $V_j$ of continuous $j$-linear forms on $\mathrm{Plane}$, is
+differentiable at every $y\in U$, with derivative given by clause (2).  We first record the
+chain rule for the composition with $L$: for $x\in V$ and $h\in\mathrm{Plane}$ small enough
+that $x+h\in V$,
+\[
+  D^{j}v\bigl(L(x+h)\bigr)-D^{j}v(Lx)-D\bigl(D^{j}v\bigr)(Lx)[Lh]
+  =D^{j}v\bigl(Lx+Lh\bigr)-D^{j}v(Lx)-D\bigl(D^{j}v\bigr)(Lx)[Lh],
+\]
+using $L(x+h)=Lx+Lh$; by differentiability of $D^{j}v$ at $Lx\in U$ this is $o(\lvert
+Lh\rvert)=o(R\lvert h\rvert)=o(\lvert h\rvert)$ as $h\to0$.  Hence $x\mapsto D^{j}v(Lx)$ is
+differentiable on $V$ with
+\begin{equation}\label{eq:tpr-chain}
+  D\bigl(x\mapsto D^{j}v(Lx)\bigr)(x)[h]=D\bigl(D^{j}v\bigr)(Lx)[Lh]
+  =R\,D\bigl(D^{j}v\bigr)(Lx)[h],
+\end{equation}
+the last equality because $Lh=Rh$ and $D(D^{j}v)(Lx)$ is linear.
+
+By the inductive hypothesis the two maps $x\mapsto D^{j}(v\circ L)(x)$ and $x\mapsto
+R^{j}D^{j}v(Lx)$ from $V$ to $V_j$ agree on the open set $V$; derivatives at a point depend
+only on the values of a map near that point, so their derivatives at each $x\in V$ agree.  By
+\eqref{eq:tpr-chain} and linearity of the derivative in the map,
+\[
+  D\bigl(D^{j}(v\circ L)\bigr)(x)[h]=R^{j}\cdot R\,D\bigl(D^{j}v\bigr)(Lx)[h]
+  =R^{\,j+1}\,D\bigl(D^{j}v\bigr)(Lx)[h]\qquad(x\in V,\;h\in\mathrm{Plane}).
+\]
+Evaluating both sides on $[v_1,\ldots,v_j]$ and using clause (2) of the recursion proposition
+twice --- once for $v\circ L$ at $x$ and once for $v$ at $Lx$ --- gives, for all
+$h,v_1,\ldots,v_j\in\mathrm{Plane}$,
+\[
+  D^{j+1}(v\circ L)(x)[h,v_1,\ldots,v_j]=R^{\,j+1}\,D^{j+1}v(Lx)[h,v_1,\ldots,v_j],
+\]
+which is \eqref{eq:tpr-dil} at order $j+1$.  This completes the induction.
+
+\medskip\noindent\emph{Step 2: the jet identity (1).}
+By hypothesis $v_L=R^{-\sigma}\,(v\circ L)$ as functions on all of $\mathrm{Plane}$.  The
+$j$-th iterated Fr\'echet derivative is linear in the function (clause (2) of the recursion
+proposition together with the linearity of the Fr\'echet derivative), so for every
+$j\in\mathbb{N}$
+\[
+  D^{j}v_L(0)=R^{-\sigma}\,D^{j}(v\circ L)(0),
+\]
+and for $0\le j\le k$, using \eqref{eq:tpr-dil} at the point $x=0\in V$ together with $L0=0$,
+\begin{equation}\label{eq:tpr-jet}
+  D^{j}v_L(0)=R^{\,j-\sigma}\,D^{j}v(0).
+\end{equation}
+Evaluating \eqref{eq:tpr-jet} at $[w,\ldots,w]$ --- scalar multiples of continuous multilinear
+forms evaluate pointwise, by clause (7) of the recursion proposition --- and multiplying by
+$R^{\,\sigma-j}$ gives
+\[
+  R^{\,\sigma-j}\,D^{j}v_L(0)[w,\ldots,w]
+  =R^{\,\sigma-j}R^{\,j-\sigma}\,D^{j}v(0)[w,\ldots,w]
+  =D^{j}v(0)[w,\ldots,w],
+\]
+since $R^{\,\sigma-j}R^{\,j-\sigma}=R^{0}=1$ by clause (2) of the proposition on elementary
+properties of real powers (applicable because $R>0$).  This is assertion (1).
+
+\medskip\noindent\emph{Step 3: the polynomial identity (2).}
+Fix $z\in\mathrm{Plane}$.  Both Taylor polynomials are centred at $0$, so by the definition in
+\noderef{TaylorPoly} (where the shift $z-x_0$ is $z-0=z$),
+\[
+  \mathrm{TaylorPoly}(k,v_L,0)\bigl(R^{-1}z\bigr)
+  =\sum_{j=0}^{k}\frac{1}{j!}\,D^{j}v_L(0)\bigl[R^{-1}z,\ldots,R^{-1}z\bigr].
+\]
+A diagonal evaluation of a continuous $j$-linear form is homogeneous of degree $j$, by clause
+(7) of the recursion proposition, so
+$D^{j}v_L(0)[R^{-1}z,\ldots,R^{-1}z]=R^{-j}\,D^{j}v_L(0)[z,\ldots,z]$.  Substituting
+\eqref{eq:tpr-jet} evaluated at $[z,\ldots,z]$ and using $R^{-j}R^{\,j-\sigma}=R^{-\sigma}$
+(again clause (2) of the real-powers proposition),
+\[
+  \mathrm{TaylorPoly}(k,v_L,0)\bigl(R^{-1}z\bigr)
+  =\sum_{j=0}^{k}\frac{1}{j!}\,R^{-j}R^{\,j-\sigma}\,D^{j}v(0)[z,\ldots,z]
+  =R^{-\sigma}\sum_{j=0}^{k}\frac{1}{j!}\,D^{j}v(0)[z,\ldots,z],
+\]
+and the last sum is $\mathrm{TaylorPoly}(k,v,0)(z)$.  Multiplying by $R^{\sigma}$ and using
+$R^{\sigma}R^{-\sigma}=1$ yields
+$\mathrm{TaylorPoly}(k,v,0)(z)=R^{\sigma}\,\mathrm{TaylorPoly}(k,v_L,0)(R^{-1}z)$, which is
+assertion (2).
+\end{proof}

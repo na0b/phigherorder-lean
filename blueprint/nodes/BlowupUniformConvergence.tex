@@ -1,0 +1,128 @@
+\begin{lemma}[Uniform convergence of the blow-ups on compact sets]
+Let $\Omega\subseteq\mathrm{Plane}$ be open, let $u\colon\mathrm{Plane}\to\mathbb{R}$, let
+$x_0\in\Omega$ and let $m\in\mathbb{N}$ with $m\ge1$.  Assume that $u$ is of class $C^{m}$ on
+$\Omega$ and that
+\[
+  D^{j}u(x_0)[w,\ldots,w]=0\qquad\text{for every }j\text{ with }1\le j<m
+  \text{ and every }w\in\mathrm{Plane}.
+\]
+For $r>0$ and $x\in\mathrm{Plane}$ put
+\[
+  u_r(x):=\frac{u(x_0+r\,x)-u(x_0)}{r^{m}},\qquad
+  P_m(x):=\frac{1}{m!}\,D^{m}u(x_0)[x,\ldots,x],
+\]
+where $D^{j}u(x_0)$ is the $j$-th Fr\'echet derivative of $u$ at $x_0$ and the brackets denote
+its evaluation on the indicated number of copies of the vector shown.  Then for every $R>0$ the
+family $u_r$ converges to $P_m$ uniformly on the closed ball $\overline{B_R(0)}$ as $r$
+decreases to $0$ through positive values; explicitly, for every $R>0$ and every
+$\varepsilon>0$ there is $\delta>0$ such that
+\[
+  \lvert u_r(x)-P_m(x)\rvert<\varepsilon
+  \qquad\text{for all }r\text{ with }0<r<\delta\text{ and all }x\text{ with }\lvert x\rvert\le R.
+\]
+\end{lemma}
+\begin{proof}
+Fix $R>0$ and $\varepsilon>0$.
+
+\medskip\noindent\emph{Step 1: a ball inside $\Omega$, and continuity of $D^{m}u$ at $x_0$.}
+Since $\Omega$ is open and $x_0\in\Omega$, there is $\rho>0$ with
+$\overline{B_\rho(x_0)}\subseteq\Omega$.  Since $u$ is of class $C^{m}$ on the open set
+$\Omega$, clause (5) of the background proposition on the recursion for the iterated Fr\'echet
+derivative says that the map $y\mapsto D^{m}u(y)$, with values in the normed space of
+continuous $m$-linear forms on $\mathrm{Plane}$, is continuous on $\Omega$.  Put
+\[
+  \eta:=\frac{\varepsilon\,m!}{2R^{m}}>0 .
+\]
+By continuity of $y\mapsto D^{m}u(y)$ at $x_0\in\Omega$ there is $\delta_0$ with
+$0<\delta_0\le\rho$ such that
+\begin{equation}\label{eq:buc-cont}
+  \bigl\lVert D^{m}u(y)-D^{m}u(x_0)\bigr\rVert\le\eta
+  \qquad\text{whenever }\lvert y-x_0\rvert\le\delta_0 ,
+\end{equation}
+where $\lVert\cdot\rVert$ is the operator norm; note that any such $y$ lies in
+$\overline{B_\rho(x_0)}\subseteq\Omega$, so $D^{m}u(y)$ is defined.  Set
+\[
+  \delta:=\frac{\delta_0}{R}>0 .
+\]
+
+\medskip\noindent\emph{Step 2: the one-variable restriction.}
+Fix $r$ with $0<r<\delta$ and fix $x$ with $\lvert x\rvert\le R$.  Put
+\[
+  \gamma(s):=x_0+s\,x,\qquad \phi(s):=u(\gamma(s))\qquad(s\in\mathbb{R}),
+\]
+and let $J:=(-\delta,\delta)$, an open interval.  For $s\in J$,
+\[
+  \lvert\gamma(s)-x_0\rvert=\lvert s\rvert\,\lvert x\rvert\le\lvert s\rvert\,R<\delta R=\delta_0\le\rho ,
+\]
+so $\gamma(s)\in\overline{B_\rho(x_0)}\subseteq\Omega$.  Thus $\gamma(J)\subseteq\Omega$, and
+$J$ contains the closed interval $[0,r]$ because $0\le r<\delta$.  The path $\gamma$ is affine
+with $\gamma'(s)=x$, and $u$ is of class $C^{m}$ on the open set $\Omega$, so the chain-rule
+background proposition gives that $\phi=u\circ\gamma$ is of class $C^{m}$ on $J$.
+
+\medskip\noindent\emph{Step 3: the derivatives of $\phi$ at $0$.}
+Let $0\le j\le m$.  Since $u$ is of class $C^{m}$ on $\Omega$ it is of class $C^{j}$ on
+$\Omega$, and $\gamma(0)=x_0\in\Omega$.  Hence \noderef{IteratedDerivAlongRay}, applied with
+the open set $U=\Omega$, the function $u$, the order $j$, the base point $x_0$, the direction
+$x$ and the parameter $t=0$, gives
+\begin{equation}\label{eq:buc-at0}
+  \phi^{(j)}(0)=D^{j}u(x_0)[x,\ldots,x]\qquad(0\le j\le m).
+\end{equation}
+For $j=0$ this reads $\phi^{(0)}(0)=u(x_0)$.  For $1\le j\le m-1$ the hypothesis of the lemma,
+taken with $w=x$, makes the right-hand side of \eqref{eq:buc-at0} vanish, so
+\begin{equation}\label{eq:buc-vanish}
+  \phi^{(j)}(0)=0\qquad\text{for }1\le j\le m-1 .
+\end{equation}
+(For $m=1$ the range $1\le j\le m-1$ is empty and \eqref{eq:buc-vanish} is vacuous.)
+
+\medskip\noindent\emph{Step 4: Taylor's theorem of order $m-1$ along the ray.}
+Apply the Taylor--Lagrange background proposition with $n:=m-1$ --- legitimate because $m\ge1$,
+so $n\in\mathbb{N}$ and $n+1=m$ --- with $a:=0$ and $b:=r$, which are distinct since $r>0$, and
+with the function $\phi$, which by Step 2 is of class $C^{n+1}=C^{m}$ on the open interval
+$J\supseteq[0,r]$.  It produces $\xi$ strictly between $0$ and $r$, so $\xi\in(0,r)\subseteq J$,
+with
+\[
+  \phi(r)=\sum_{j=0}^{m-1}\frac{\phi^{(j)}(0)}{j!}\,r^{j}
+          +\frac{\phi^{(m)}(\xi)}{m!}\,r^{m} .
+\]
+By \eqref{eq:buc-vanish} all the terms with $1\le j\le m-1$ vanish, and the $j=0$ term is
+$\phi(0)=u(x_0)$.  Hence
+\begin{equation}\label{eq:buc-taylor}
+  u(x_0+r\,x)=\phi(r)=u(x_0)+\frac{r^{m}}{m!}\,\phi^{(m)}(\xi).
+\end{equation}
+Since $\gamma(\xi)\in\Omega$ by Step 2, \noderef{IteratedDerivAlongRay} applies again, now with
+the order $m$ and the parameter $t=\xi$, and gives
+\begin{equation}\label{eq:buc-atxi}
+  \phi^{(m)}(\xi)=D^{m}u(x_0+\xi\,x)[x,\ldots,x].
+\end{equation}
+
+\medskip\noindent\emph{Step 5: the estimate.}
+Dividing \eqref{eq:buc-taylor} by $r^{m}>0$ and inserting \eqref{eq:buc-atxi},
+\[
+  u_r(x)=\frac{u(x_0+r\,x)-u(x_0)}{r^{m}}
+        =\frac{1}{m!}\,D^{m}u(x_0+\xi\,x)[x,\ldots,x].
+\]
+Subtracting $P_m(x)=\frac1{m!}D^{m}u(x_0)[x,\ldots,x]$ and using that evaluation at the fixed
+family $(x,\ldots,x)$ is linear in the multilinear form,
+\[
+  u_r(x)-P_m(x)=\frac{1}{m!}\,\bigl(D^{m}u(x_0+\xi\,x)-D^{m}u(x_0)\bigr)[x,\ldots,x].
+\]
+The operator-norm background proposition therefore gives
+\[
+  \lvert u_r(x)-P_m(x)\rvert
+  \le\frac{1}{m!}\,\bigl\lVert D^{m}u(x_0+\xi\,x)-D^{m}u(x_0)\bigr\rVert\;\lvert x\rvert^{m}.
+\]
+Now $\lvert(x_0+\xi\,x)-x_0\rvert=\xi\,\lvert x\rvert\le r\,R<\delta R=\delta_0$, using
+$0<\xi<r$ and $\lvert x\rvert\le R$, so \eqref{eq:buc-cont} applies at $y=x_0+\xi\,x$ and bounds
+the operator norm by $\eta$.  Together with $\lvert x\rvert^{m}\le R^{m}$ (monotonicity of
+$t\mapsto t^{m}$ on $[0,\infty)$) this yields
+\[
+  \lvert u_r(x)-P_m(x)\rvert
+  \le\frac{\eta\,R^{m}}{m!}
+  =\frac{1}{m!}\cdot\frac{\varepsilon\,m!}{2R^{m}}\cdot R^{m}
+  =\frac{\varepsilon}{2}<\varepsilon .
+\]
+
+\medskip\noindent Since $r\in(0,\delta)$ and $x$ with $\lvert x\rvert\le R$ were arbitrary, and
+$\delta$ was produced from $R$ and $\varepsilon$ alone, this is exactly the asserted uniform
+convergence on $\overline{B_R(0)}$ as $r$ decreases to $0$ through positive values.
+\end{proof}

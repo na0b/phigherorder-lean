@@ -1,0 +1,40 @@
+\begin{definition}[The classical first-order estimates, as data attached to $p$]
+Let $p\in\mathbb{R}$.  A \emph{first-order estimate datum for $p$} consists of two real
+numbers $\kappa$ and $C_0$ together with proofs of
+\[
+  0<\kappa<1,\qquad C_0>0,
+\]
+and of the following estimate.  Let $v$ be $p$-harmonic in $B_1$ with weak gradient $g$, and
+suppose $\lvert v(x)\rvert\le1$ for every $x\in B_1$.  Then $v$ is of class $C^1$ on
+$B_{3/4}$ and its classical gradient $Dv$ satisfies
+\[
+  \lvert Dv(x)\rvert\le C_0\quad\text{for all }x\in B_{3/4},
+  \qquad
+  \lvert Dv(x)-Dv(y)\rvert\le C_0\,\lvert x-y\rvert^{\kappa}
+  \quad\text{for all }x,y\in B_{3/4}.
+\]
+
+The estimate is \emph{uniform}: $\kappa$ and $C_0$ are fixed before the solution $v$ is
+chosen, so they depend only on $p$ and not on $v$.
+
+This is the classical first-order regularity theory of Lewis (\emph{Regularity of the
+derivatives of solutions to certain degenerate elliptic equations}, Indiana Univ. Math. J.
+\textbf{32} (1983), 849--858) and Tolksdorf (\emph{Regularity for a more general class of
+quasilinear elliptic equations}, J. Differential Equations \textbf{51} (1984), 126--150), in
+the form in which the paper records it: there are $\kappa\in(0,1)$ and $C_0$, depending only
+on $p$, with
+\[
+  \lVert Dv\rVert_{L^\infty(B_{3/4})}+[Dv]_{C^{0,\kappa}(B_{3/4})}\le C_0
+\]
+whenever $v$ is $p$-harmonic in $B_1$ and $\lVert v\rVert_{L^\infty(B_1)}\le1$.  The two
+summands are listed here as two separate bounds by $C_0$; this is equivalent to the displayed
+form of the paper up to replacing $C_0$ by $2C_0$, and $C_0$ is an unspecified constant
+depending only on $p$.  The hypothesis $\lVert v\rVert_{L^\infty(B_1)}\le1$ is recorded as the
+pointwise bound $\lvert v\rvert\le1$ on $B_1$, which is equivalent for the continuous
+representative of $v$.  Both the gradient bound and the H\"older bound are assertions about
+the classical gradient $Dv$, which exists on the open ball $B_{3/4}$ by the asserted $C^1$
+regularity.
+
+The datum is assumed rather than constructed: it is one of the results the paper cites from
+the literature.
+\end{definition}

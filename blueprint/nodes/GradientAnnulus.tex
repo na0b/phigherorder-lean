@@ -1,0 +1,75 @@
+\begin{lemma}[Gradient annulus on a small ball]
+Let $p\in\mathbb{R}$, let $F$ be a datum of Lewis--Tolksdorf type for $p$ as in
+\noderef{FirstOrderEstimateInput}, with exponent $\kappa\in(0,1)$ and constant $C_0>0$, and
+let $\delta>0$.  Then there is $\tau$ with $0<\tau<1/4$, depending only on $\delta$ and on the
+data $\kappa,C_0$ (hence only on $p$ and $\delta$), with the following property.
+
+Let $v\colon\mathrm{Plane}\to\mathbb{R}$ be $p$-harmonic on $B_1$ with weak gradient $g$ (in
+the sense of \noderef{IsPHarm}), suppose $\lvert v\rvert\le1$ on $B_1$, and suppose
+$\lvert Dv(0)\rvert>\delta$, where $Dv$ denotes the classical gradient.  Then $v$ is of class
+$C^{1}$ on $B_{2\tau}$ and, for every $x\in B_{2\tau}$,
+\[
+  \frac{\delta}{2}\le\lvert Dv(x)\rvert\le C_0
+  \qquad\text{and}\qquad
+  \lvert Dv(x)-Dv(0)\rvert\le\frac{\delta}{2}.
+\]
+
+The third bound is the displacement estimate behind the first two, kept in the statement
+because it is what a later Schauder bootstrap needs: it says that $Dv\bigl(B_{2\tau}\bigr)$ is
+contained in the closed ball of radius $\delta/2$ about $Dv(0)$, which is \emph{convex} and
+avoids the origin since $\lvert Dv(0)\rvert>\delta$.  The annulus
+$\{\delta/2\le\lvert\xi\rvert\le C_0\}$ cut out by the first two bounds is not convex, so a
+mean value inequality along a segment joining two values of $Dv$ cannot be run from those
+alone.
+\end{lemma}
+\begin{proof}
+\emph{Choice of $\tau$.}  Put
+\[
+  \tau:=\frac{1}{2}\min\Bigl\{\frac{1}{4},\;
+    \Bigl(\frac{\delta}{2C_0}\Bigr)^{1/\kappa}\Bigr\} .
+\]
+Then $\tau>0$, because $\kappa>0$, $C_0>0$ and $\delta>0$ make both entries of the minimum
+positive, and $\tau\le1/8<1/4$.  Moreover $2\tau\le(\delta/(2C_0))^{1/\kappa}$, so by
+monotonicity of $t\mapsto t^{\kappa}$ on $[0,\infty)$ (clause (3) of the background proposition
+on elementary properties of real powers) and the identity
+$\bigl(s^{1/\kappa}\bigr)^{\kappa}=s$ for $s\ge0$ (clause (2) of that proposition),
+\begin{equation}\label{eq:ga-tau}
+  C_0\,(2\tau)^{\kappa}\le C_0\cdot\frac{\delta}{2C_0}=\frac{\delta}{2}.
+\end{equation}
+This is the paper's choice $C_0(2\tau)^{\kappa}\le\delta/2$.  The number $\tau$ was fixed from
+$\delta,\kappa,C_0$ alone, before any function $v$ was given.
+
+\emph{Verification.}  Let $v$ and $g$ be as in the statement.  Since $2\tau\le1/4<3/4$, we have
+$B_{2\tau}\subseteq B_{3/4}$.  Applying the estimate carried by $F$ (clause \texttt{est} of
+\noderef{FirstOrderEstimateInput}) to $v$, $g$ and the hypothesis $\lvert v\rvert\le1$ on
+$B_1$, we obtain:
+\begin{enumerate}
+\item[(i)] $v$ is of class $C^{1}$ on $B_{3/4}$; by restriction (clause (4) of the background
+proposition on locality of $C^{1}$ regularity) $v$ is of class $C^{1}$ on $B_{2\tau}$, which is
+the first assertion;
+\item[(ii)] $\lvert Dv(x)\rvert\le C_0$ for every $x\in B_{3/4}$, hence in particular for every
+$x\in B_{2\tau}$, which is the upper bound;
+\item[(iii)] $\lvert Dv(x)-Dv(y)\rvert\le C_0\lvert x-y\rvert^{\kappa}$ for all
+$x,y\in B_{3/4}$.
+\end{enumerate}
+
+Now fix $x\in B_{2\tau}$.  Both $x$ and $0$ lie in $B_{3/4}$ (note $0\in B_{2\tau}$ because
+$\tau>0$), so (iii) applies with $y=0$:
+\[
+  \lvert Dv(x)-Dv(0)\rvert\le C_0\,\lvert x\rvert^{\kappa}\le C_0\,(2\tau)^{\kappa}
+  \le\frac{\delta}{2},
+\]
+where the middle inequality uses $\lvert x\rvert<2\tau$ and the monotonicity of
+$t\mapsto t^{\kappa}$, and the last is \eqref{eq:ga-tau}.  By the triangle inequality in the
+form $\lvert Dv(0)\rvert\le\lvert Dv(x)\rvert+\lvert Dv(x)-Dv(0)\rvert$ and the hypothesis
+$\lvert Dv(0)\rvert>\delta$,
+\[
+  \lvert Dv(x)\rvert\ge\lvert Dv(0)\rvert-\lvert Dv(x)-Dv(0)\rvert
+  >\delta-\frac{\delta}{2}=\frac{\delta}{2},
+\]
+so in particular $\lvert Dv(x)\rvert\ge\delta/2$.  Together with (ii) this is the asserted
+two-sided bound.  The displayed estimate
+$\lvert Dv(x)-Dv(0)\rvert\le C_0\lvert x\rvert^{\kappa}\le C_0(2\tau)^{\kappa}\le\delta/2$ just
+used is itself the third asserted bound, so all three conclusions are established for the
+arbitrary $x\in B_{2\tau}$ fixed above, and the proof is complete.
+\end{proof}

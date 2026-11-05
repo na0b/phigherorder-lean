@@ -1,0 +1,50 @@
+\begin{lemma}[The order shift, two-point form]
+Let $Z$ be a normed real vector space, let $f\colon\mathrm{Plane}\to Z$, let $n\in\mathbb{N}$ and
+let $x,y\in\mathrm{Plane}$.  Write $Df\colon\mathrm{Plane}\to\mathcal{L}(\mathrm{Plane},Z)$ for
+the Fr\'echet derivative of $f$, a map into the space of continuous linear maps
+$\mathrm{Plane}\to Z$.  Then
+\[
+  \bigl\lVert D^{\,n+1}f(x)-D^{\,n+1}f(y)\bigr\rVert
+  =\bigl\lVert D^{n}(Df)(x)-D^{n}(Df)(y)\bigr\rVert .
+\]
+
+There are no hypotheses: no regularity of $f$, no restriction on the points $x,y$, and no
+condition on $Z$ beyond being a normed real vector space.  The identity is an EQUALITY of norms
+of DIFFERENCES at two points, which is what distinguishes it from the one-point companion
+$\lVert D^{\,n+1}f(x)\rVert=\lVert D^{n}(Df)(x)\rVert$: a H\"older seminorm is a two-point
+difference, so an estimate of H\"older type at order $n+1$ for $f$ is the same thing as one at
+order $n$ for $Df$ only once this form is available.  Passing between the two orders therefore
+costs nothing at all --- no constant, no derivative, no hypothesis.
+\end{lemma}
+\begin{proof}
+By clause (1) of the background proposition on the order shift and derivatives of a continuous
+bilinear pairing, applied with $W_1:=Z$ and this $f$, there is a linear isometric isomorphism
+$\Psi_n$ from the space of continuous $n$-linear maps
+$\mathrm{Plane}^{n}\to\mathcal{L}(\mathrm{Plane},Z)$ onto the space of continuous
+$(n+1)$-linear maps $\mathrm{Plane}^{n+1}\to Z$, depending only on $n$, such that
+\begin{equation}\label{eq:ifdstp-shift}
+  D^{\,n+1}f(z)=\Psi_n\Bigl(D^{n}\bigl(Df\bigr)(z)\Bigr)
+  \qquad\text{for every }z\in\mathrm{Plane}.
+\end{equation}
+Note that \eqref{eq:ifdstp-shift} is asserted at every point, with no differentiability
+hypothesis on $f$, which is what allows the present statement to carry none either.
+
+Apply \eqref{eq:ifdstp-shift} at $z:=x$ and at $z:=y$ and subtract.  Since $\Psi_n$ is linear,
+$\Psi_n(P)-\Psi_n(Q)=\Psi_n(P-Q)$ for any two continuous $n$-linear maps $P,Q$, so
+\[
+  D^{\,n+1}f(x)-D^{\,n+1}f(y)
+  =\Psi_n\Bigl(D^{n}\bigl(Df\bigr)(x)\Bigr)-\Psi_n\Bigl(D^{n}\bigl(Df\bigr)(y)\Bigr)
+  =\Psi_n\Bigl(D^{n}\bigl(Df\bigr)(x)-D^{n}\bigl(Df\bigr)(y)\Bigr).
+\]
+Taking norms and using that $\Psi_n$ is an isometry, hence preserves the norm of the single
+element to which it is applied,
+\[
+  \bigl\lVert D^{\,n+1}f(x)-D^{\,n+1}f(y)\bigr\rVert
+  =\Bigl\lVert\Psi_n\Bigl(D^{n}(Df)(x)-D^{n}(Df)(y)\Bigr)\Bigr\rVert
+  =\bigl\lVert D^{n}(Df)(x)-D^{n}(Df)(y)\bigr\rVert ,
+\]
+which is the assertion.  (This is exactly the second display of the ``in particular'' clause of
+that background proposition; the node exists because its LEAN counterpart is not a single
+library lemma --- the library carries the one-point form only --- so the three-rewrite argument
+behind it is worth holding once rather than once per consumer.)
+\end{proof}

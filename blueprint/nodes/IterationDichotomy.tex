@@ -1,0 +1,153 @@
+\begin{lemma}[The dichotomy of the iteration]
+Let $\sigma,\delta,\theta\in\mathbb{R}$ with $\sigma>1$, $\delta>0$ and $\theta>0$, let
+$v\colon\mathrm{Plane}\to\mathbb{R}$ and let $R\colon\mathbb{N}\to\mathbb{R}$ satisfy
+\begin{enumerate}
+\item[(H1)] $R_0=1$ and $R_\ell>0$ for every $\ell\in\mathbb{N}$;
+\item[(H2)] $\lvert v(y)\rvert\le R_\ell^{\sigma}$ for every $\ell$ and every $y$ with
+  $\lvert y\rvert<R_\ell$;
+\item[(H3)] for every $\ell$, if $R_\ell^{\,1-\sigma}\lvert Dv(0)\rvert\le\delta$, then
+  $\theta R_\ell\le R_{\ell+1}$ and $R_{\ell+1}\le R_\ell/4$,
+\end{enumerate}
+where $Dv$ is the classical gradient.  Abbreviate by $\mathrm{Cont}(\ell)$ the condition
+$R_\ell^{\,1-\sigma}\lvert Dv(0)\rvert\le\delta$.  Then:
+\begin{enumerate}
+\item $\mathrm{Cont}(\ell)$ holds for every $\ell$ if and only if $Dv(0)=0$;
+\item if $\mathrm{Cont}(\ell)$ holds for every $\ell$, then $R_\ell\to0$ as $\ell\to\infty$ and
+\[
+  \lvert v(y)\rvert\le\theta^{-\sigma}r^{\sigma}
+  \qquad\text{for every }r\text{ with }0<r\le1\text{ and every }y\text{ with }
+  \lvert y\rvert<r;
+\]
+\item if $Dv(0)\ne0$, there is $L\in\mathbb{N}$ with $\neg\,\mathrm{Cont}(L)$ and
+  $\mathrm{Cont}(\ell)$ for every $\ell<L$.
+\end{enumerate}
+
+These are the paper's three assertions at lines 247--255: that the iteration continues
+indefinitely precisely when $Dv(0)=0$; that in the infinite branch $R_\ell\to0$ and $v$ obeys
+the decay $\lVert v\rVert_{L^{\infty}(B_r)}\le\theta^{-\sigma}r^{\sigma}$; and that otherwise
+there is a first index $L$ at which the iteration stops.  Every assumption on the chain $R$ is
+written out above as (H1)--(H3): the chain is a hypothesis of this lemma, not something it
+constructs, and nothing about it is invoked by citation.
+\end{lemma}
+\begin{proof}
+\medskip\noindent\emph{A remark on real powers, recorded once and used throughout.}  Three facts
+about real powers are used below which are \emph{not} among the listed clauses of the background
+proposition on elementary properties of real powers, so we derive them here from those clauses
+rather than attaching a citation the proposition does not support.  Throughout, $t^{0}=1$ for
+$t>0$: that is the value of the real power at exponent $0$.
+\begin{itemize}
+\item[(P1)] \emph{Positivity.}  For $t>0$ and every $a\in\mathbb{R}$, $t^{a}>0$.  If $a=0$ this
+is $t^{0}=1>0$.  If $a>0$, clause (3) makes $s\mapsto s^{a}$ nondecreasing on $[0,\infty)$ and
+clause (1) gives $0^{a}=0$, so $t^{a}\ge0^{a}=0$; and clause (2), applicable because $t>0$,
+gives $t^{a}t^{-a}=t^{0}=1$, so $t^{a}\ne0$; hence $t^{a}>0$.  If $a<0$ then $-a>0$, so
+$t^{-a}>0$ by the case just done, and $t^{a}t^{-a}=1$ gives $t^{a}=1/t^{-a}>0$.
+\item[(P2)] \emph{The base $1$.}  For every $a\in\mathbb{R}$, $1^{a}=1$.  Clause (2) gives
+$1^{a}=(1\cdot1)^{a}=1^{a}\cdot1^{a}$, and $1^{a}>0$ by (P1), so dividing by $1^{a}$ gives
+$1^{a}=1$.
+\item[(P3)] \emph{Inverting the base.}  For $t>0$ and every $a\in\mathbb{R}$,
+$\bigl(t^{-1}\bigr)^{a}=t^{-a}$.  Clause (2) gives
+$t^{a}\bigl(t^{-1}\bigr)^{a}=\bigl(t\,t^{-1}\bigr)^{a}=1^{a}=1$ by (P2), and
+$t^{a}t^{-a}=t^{0}=1$; since $t^{a}>0$ by (P1), both $\bigl(t^{-1}\bigr)^{a}$ and $t^{-a}$
+equal $1/t^{a}$, hence they are equal.
+\end{itemize}
+
+Throughout, $\sigma>1$, so $\sigma-1>0$ and $1-\sigma<0$; and $R_\ell>0$ for every $\ell$ by
+(H1), so every real power of $R_\ell$ appearing below is a real power of a positive number and is
+therefore itself positive, by (P1).
+
+\medskip\noindent\emph{Step 1: a geometric bound on the radii under full continuation.}
+Assume $\mathrm{Cont}(\ell)$ for every $\ell$.  Then (H3) applies at every $\ell$ and gives
+\begin{equation}\label{eq:id-sand}
+  \theta R_\ell\le R_{\ell+1}\le\frac{R_\ell}{4}\qquad(\ell\in\mathbb{N}).
+\end{equation}
+By induction on $\ell$, $R_\ell\le4^{-\ell}$: for $\ell=0$ this is $R_0=1=4^{0}$, and if
+$R_\ell\le4^{-\ell}$ then $R_{\ell+1}\le R_\ell/4\le4^{-\ell}/4=4^{-(\ell+1)}$ by
+\eqref{eq:id-sand}.  Since $0<4^{-\ell}\to0$ as $\ell\to\infty$ and $0<R_\ell\le4^{-\ell}$, the
+squeeze gives
+\begin{equation}\label{eq:id-tendsto}
+  R_\ell\to0\qquad(\ell\to\infty).
+\end{equation}
+
+\medskip\noindent\emph{Step 2: conclusion (1).}
+
+\emph{($\Leftarrow$)}  Suppose $Dv(0)=0$.  Then $\lvert Dv(0)\rvert=0$, so for every $\ell$
+\[
+  R_\ell^{\,1-\sigma}\lvert Dv(0)\rvert=R_\ell^{\,1-\sigma}\cdot0=0\le\delta,
+\]
+using $\delta>0$.  So $\mathrm{Cont}(\ell)$ holds for every $\ell$.
+
+\emph{($\Rightarrow$)}  Suppose $\mathrm{Cont}(\ell)$ holds for every $\ell$, and suppose for
+contradiction that $Dv(0)\ne0$, so that $c:=\lvert Dv(0)\rvert>0$.  Fix $\ell$.  Since
+$R_\ell>0$, clause (2) of the real-powers proposition gives
+$R_\ell^{\,1-\sigma}R_\ell^{\,\sigma-1}=R_\ell^{0}=1$, so
+$R_\ell^{\,1-\sigma}=1/R_\ell^{\,\sigma-1}$ with $R_\ell^{\,\sigma-1}>0$.  Hence
+$\mathrm{Cont}(\ell)$ reads $c/R_\ell^{\,\sigma-1}\le\delta$, i.e., multiplying by
+$R_\ell^{\,\sigma-1}/\delta>0$,
+\begin{equation}\label{eq:id-contra}
+  \frac{c}{\delta}\le R_\ell^{\,\sigma-1}\qquad(\ell\in\mathbb{N}).
+\end{equation}
+On the other hand $R_\ell\to0$ by \eqref{eq:id-tendsto}, which is available because
+$\mathrm{Cont}(\ell)$ is assumed at every $\ell$; moreover $R_\ell>0$ for every $\ell$ by (H1),
+so the whole sequence lies in $[0,\infty)$, and $\sigma-1>0$.  By clause (7) of the real-powers
+proposition the map $t\mapsto t^{\,\sigma-1}$ is continuous on $[0,\infty)$ with value
+$0^{\,\sigma-1}=0$ at $t=0$, the value being $0$ by clause (1) since $\sigma-1\neq0$.  Continuity
+on $[0,\infty)$ applied to the convergent sequence $(R_\ell)$ in $[0,\infty)$ therefore gives
+\[
+  R_\ell^{\,\sigma-1}\longrightarrow0^{\,\sigma-1}=0\qquad(\ell\to\infty).
+\]
+Since $c/\delta>0$, there is therefore an $\ell$ with $R_\ell^{\,\sigma-1}<c/\delta$,
+contradicting \eqref{eq:id-contra}.  So $Dv(0)=0$, which completes conclusion (1).
+
+\medskip\noindent\emph{Step 3: conclusion (2).}
+Assume $\mathrm{Cont}(\ell)$ for every $\ell$.  That $R_\ell\to0$ is \eqref{eq:id-tendsto}.
+
+Now fix $r$ with $0<r\le1$ and consider
+\[
+  S:=\{\ell\in\mathbb{N}:r\le R_\ell\}.
+\]
+$S$ is nonempty: $0\in S$ because $R_0=1\ge r$.  $S$ is bounded above: by
+\eqref{eq:id-tendsto} and $r>0$ there is $N$ with $R_\ell<r$ for every $\ell\ge N$, so
+$S\subseteq\{0,1,\ldots,N-1\}$.  A nonempty set of natural numbers that is bounded above has a
+greatest element; let $\ell$ be the greatest element of $S$.  Then
+\begin{equation}\label{eq:id-bracket}
+  r\le R_\ell\qquad\text{and}\qquad R_{\ell+1}<r,
+\end{equation}
+the second because $\ell+1\notin S$ by maximality of $\ell$.
+
+Let $\lvert y\rvert<r$.  Then $\lvert y\rvert<r\le R_\ell$, so (H2) at the index $\ell$ gives
+\begin{equation}\label{eq:id-good}
+  \lvert v(y)\rvert\le R_\ell^{\sigma}.
+\end{equation}
+By \eqref{eq:id-sand} and \eqref{eq:id-bracket}, $\theta R_\ell\le R_{\ell+1}<r$, so, dividing
+by $\theta>0$,
+\[
+  R_\ell<\frac{r}{\theta}.
+\]
+Since $\sigma>0$, the monotonicity of $t\mapsto t^{\sigma}$ on $[0,\infty)$ (clause (3) of the
+real-powers proposition) and $0<R_\ell$ give
+\[
+  R_\ell^{\sigma}\le\Bigl(\frac{r}{\theta}\Bigr)^{\sigma}
+  =\bigl(r\,\theta^{-1}\bigr)^{\sigma}
+  =r^{\sigma}\bigl(\theta^{-1}\bigr)^{\sigma}
+  =r^{\sigma}\,\theta^{-\sigma}
+  =\theta^{-\sigma}r^{\sigma},
+\]
+whose second equality is clause (2) of the real-powers proposition, applied to the product
+$r\cdot\theta^{-1}$ of two nonnegative numbers, and whose third is (P3) with $t:=\theta>0$ and
+$a:=\sigma$; the first and fourth are arithmetic in $\mathbb{R}$.  Combining with
+\eqref{eq:id-good},
+$\lvert v(y)\rvert\le\theta^{-\sigma}r^{\sigma}$.  As $y$ was arbitrary with
+$\lvert y\rvert<r$, and $r$ arbitrary in $(0,1]$, this is conclusion (2).
+
+\medskip\noindent\emph{Step 4: conclusion (3).}
+Assume $Dv(0)\ne0$.  By conclusion (1), read contrapositively in the direction
+($\Rightarrow$), it is not the case that $\mathrm{Cont}(\ell)$ holds for every $\ell$; that is,
+the set
+\[
+  T:=\{\ell\in\mathbb{N}:\neg\,\mathrm{Cont}(\ell)\}
+\]
+is nonempty.  Every nonempty set of natural numbers has a least element; let $L$ be the least
+element of $T$.  Then $\neg\,\mathrm{Cont}(L)$ because $L\in T$, and for every $\ell<L$ we have
+$\ell\notin T$ by minimality of $L$, i.e.\ $\mathrm{Cont}(\ell)$ holds.  This is conclusion
+(3).
+\end{proof}

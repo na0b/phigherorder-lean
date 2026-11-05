@@ -1,0 +1,126 @@
+\begin{lemma}[The flux Jacobian is uniformly elliptic on an annulus]
+Let $1<p<2$ and let $0<a\le b$.  Write $A_p(\xi)=\lvert\xi\rvert^{p-2}\xi$ for the flux of
+\noderef{PFlux}, write $D_\xi A_p(\xi)=\mathrm{FluxJacobian}(p,\xi)$ for the map of
+\noderef{FluxJacobian}, and set
+\[
+  \lambda:=(p-1)\,b^{\,p-2},\qquad \Lambda:=a^{\,p-2}.
+\]
+Then:
+\begin{enumerate}
+\item for every $\xi\ne0$, $A_p$ is Fr\'echet differentiable at $\xi$ with
+  $DA_p(\xi)=D_\xi A_p(\xi)$;
+\item $\xi\mapsto D_\xi A_p(\xi)$ is of class $C^{\infty}$ on the open set
+  $\{\zeta\in\mathrm{Plane}:\zeta\ne0\}$;
+\item $0<\lambda\le\Lambda$, and $\lambda,\Lambda$ depend only on $p,a,b$;
+\item for every $\xi$ with $a\le\lvert\xi\rvert\le b$ and every $w\in\mathrm{Plane}$,
+\[
+  \lambda\,\lvert w\rvert^{2}\le\bigl\langle D_\xi A_p(\xi)w,\,w\bigr\rangle,
+  \qquad
+  \bigl\lvert D_\xi A_p(\xi)w\bigr\rvert\le\Lambda\,\lvert w\rvert ;
+\]
+\item for every $j\in\mathbb{N}$ there is $M>0$ with
+  $\bigl\lVert D^{j}\bigl(D_\xi A_p\bigr)(\xi)\bigr\rVert\le M$ for every $\xi$ with
+  $a\le\lvert\xi\rvert\le b$;
+\item $A_p$ itself is of class $C^{\infty}$ on the open set
+  $\{\zeta\in\mathrm{Plane}:\zeta\ne0\}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout, $0<p-1<1$ and $p-2<0$.  Also $b\ge a>0$, so $a^{\,p-2}$ and $b^{\,p-2}$ are
+positive real powers of positive numbers.
+
+\medskip\noindent\emph{Preliminaries on the norm and the real power.}
+On $\mathrm{Plane}$ we have $\lvert\zeta\rvert^{2}=\langle\zeta,\zeta\rangle$, a polynomial,
+hence $C^{\infty}$ function of $\zeta$; it is positive exactly when $\zeta\ne0$.  Since
+$t\mapsto\sqrt{t}$ is $C^{\infty}$ on $(0,\infty)$, the map $\zeta\mapsto\lvert\zeta\rvert$ is
+$C^{\infty}$ on the open set $\{\zeta\ne0\}$, with
+\[
+  D\bigl(\zeta\mapsto\lvert\zeta\rvert\bigr)(\xi)[w]
+  =\frac{\langle\xi,w\rangle}{\lvert\xi\rvert}\qquad(\xi\ne0),
+\]
+as follows by the chain rule from $D(\zeta\mapsto\langle\zeta,\zeta\rangle)(\xi)[w]
+=2\langle\xi,w\rangle$ and $\frac{d}{dt}\sqrt{t}=\frac{1}{2\sqrt t}$.  Furthermore
+$t\mapsto t^{\,p-2}$ is $C^{\infty}$ on $(0,\infty)$ with derivative $(p-2)t^{\,p-3}$, and
+since $p-2<0$ it is \emph{decreasing} there:
+\begin{equation}\label{eq:fje-mono}
+  0<s\le t\;\Longrightarrow\;t^{\,p-2}\le s^{\,p-2},
+\end{equation}
+because $t^{\,p-2}=\bigl(t^{\,2-p}\bigr)^{-1}$, $2-p>0$, and $t\mapsto t^{\,2-p}$ is
+nondecreasing and positive on $(0,\infty)$ by clauses (2) and (3) of the background
+proposition on elementary properties of real powers.
+
+\medskip\noindent\emph{(1) The derivative of the flux.}
+This is \noderef{FluxJacobianIsDeriv}, applied with the same $p$.  That node takes no
+restriction on $p$ at all --- the statement that $D_\xi A_p(\xi)$ is the Frechet derivative of
+$A_p$ at every $\xi\ne0$ holds for every real $p$, the range $1<p<2$ being about ellipticity
+and playing no part --- so the citation needs nothing beyond what is in hand.  It carries the
+computation, which goes through the SQUARED norm rather than the norm, the latter being
+non-differentiable at the origin: writing
+$A_p(\zeta)=\bigl(\lvert\zeta\rvert^{2}\bigr)^{(p-2)/2}\zeta$, an identity valid at every
+$\zeta$, reduces the derivative to the real power rule composed with
+$D(\lvert\cdot\rvert^{2})(\xi)=2\langle\xi,\cdot\rangle$, and the product rule then assembles
+the two summands of $D_\xi A_p(\xi)$.
+
+\medskip\noindent\emph{(2) and (6): smoothness off the origin.}
+The scalar function $\varphi(\zeta)=\lvert\zeta\rvert^{\,p-2}$ is of class $C^{\infty}$ on
+$\{\zeta\ne0\}$: there $\zeta\mapsto\lvert\zeta\rvert$ is $C^{\infty}$ and positive, as noted
+in the preliminaries, and $t\mapsto t^{\,p-2}$ is $C^{\infty}$ on $(0,\infty)$, so the
+composition is $C^{\infty}$ by clause (3) of the background proposition on the chain rule for
+compositions.  The identity map $\zeta\mapsto\zeta$ is linear, hence $C^{\infty}$.  A product
+of a $C^{\infty}$ scalar function with a $C^{\infty}$ $\mathrm{Plane}$-valued function is
+$C^{\infty}$, so $A_p=\varphi\cdot\mathrm{id}$ is of class $C^{\infty}$ on $\{\zeta\ne0\}$.
+This is (6).
+
+For (2), on $\{\zeta\ne0\}$ the three ingredients of $D_\xi A_p$ are each $C^{\infty}$: the
+scalar $\varphi$, just treated; the scalar
+$\zeta\mapsto(p-2)/\lvert\zeta\rvert^{2}$, as a quotient of $C^{\infty}$ functions with
+nonvanishing denominator; and the map $\zeta\mapsto\zeta\otimes\zeta$ into the space of
+continuous linear maps of $\mathrm{Plane}$, which is the restriction to the diagonal of the
+continuous bilinear map $(\zeta,\eta)\mapsto\bigl(w\mapsto\langle\zeta,w\rangle\eta\bigr)$ and
+hence $C^{\infty}$.  The identity map is constant as an element of that space, hence
+$C^{\infty}$.  Sums and scalar products of $C^{\infty}$ maps into a normed space are
+$C^{\infty}$, so $D_\xi A_p$ is $C^{\infty}$ on $\{\zeta\ne0\}$.
+
+\medskip\noindent\emph{(3) The constants.}
+We have $b^{\,p-2}>0$ and $p-1>0$, so $\lambda>0$.  Since $0<p-1<1$ and $b^{\,p-2}>0$,
+$\lambda=(p-1)b^{\,p-2}\le b^{\,p-2}$, and $b^{\,p-2}\le a^{\,p-2}=\Lambda$ by
+\eqref{eq:fje-mono} applied with $s=a\le t=b$.  Both numbers are built from $p,a,b$ only.
+
+\medskip\noindent\emph{(4) Uniform ellipticity on the annulus.}
+This is \noderef{FluxJacobianAnnulusEllipticity}, applied with the same $p$, the range
+$1<p<2$, and the same $a,b$ with $0<a\le b$ --- all of which are hypotheses of the present
+statement, so the citation is immediate and the clause is exactly that node's conclusion:
+\[
+  \lambda\lvert w\rvert^{2}\le\bigl\langle D_\xi A_p(\xi)w,\,w\bigr\rangle,
+  \qquad
+  \bigl\lvert D_\xi A_p(\xi)w\bigr\rvert\le\Lambda\lvert w\rvert
+\]
+for every $\xi$ with $a\le\lvert\xi\rvert\le b$ and every $w$, with the same
+$\lambda=(p-1)b^{\,p-2}$ and $\Lambda=a^{\,p-2}$ named in (3).  That node carries the
+Cauchy--Schwarz computation for the lower bound and the orthogonal-splitting computation for
+the upper one, together with the observation that for $p<2$ the exponent $p-2$ is negative, so
+the lower constant must carry $b$ and the upper one $a$ and not the reverse.
+
+\medskip\noindent\emph{(5) Bounded derivatives of every order.}
+Let $K:=\{\xi\in\mathrm{Plane}:a\le\lvert\xi\rvert\le b\}$.  The map
+$\xi\mapsto\lvert\xi\rvert$ is continuous, so $K$ is closed, being the intersection of the
+preimages of the closed sets $[a,\infty)$ and $(-\infty,b]$; and $K$ is bounded, being
+contained in the closed ball of radius $b$.  As $\mathrm{Plane}$ is finite dimensional, $K$ is
+compact.  Moreover $K\subseteq\{\zeta\ne0\}$ because $a>0$.
+
+Fix $j\in\mathbb{N}$.  By (2), $D_\xi A_p$ is of class $C^{\infty}$ on the open set
+$\{\zeta\ne0\}$; since iterated Fr\'echet derivatives at a point depend only on the values of
+the map near that point, the ambient $j$-th iterated derivative
+$\xi\mapsto D^{j}\bigl(D_\xi A_p\bigr)(\xi)$ is defined at every point of $\{\zeta\ne0\}$ and
+agrees there with the derivative computed within that open set.  By clause (5) of the
+background proposition on the recursion for the iterated Fr\'echet derivative, applied with
+$W$ the normed space of continuous linear maps of $\mathrm{Plane}$, this map is continuous on
+$\{\zeta\ne0\}$, hence on $K$; therefore
+$\xi\mapsto\bigl\lVert D^{j}\bigl(D_\xi A_p\bigr)(\xi)\bigr\rVert$ is continuous on $K$.
+
+If $K=\emptyset$ take $M:=1$; the assertion is vacuous.  Otherwise a continuous real function
+on a nonempty compact set attains a maximum, say $M_0\ge0$, and we take $M:=M_0+1>0$.  Then
+$\bigl\lVert D^{j}\bigl(D_\xi A_p\bigr)(\xi)\bigr\rVert\le M_0\le M$ for every $\xi\in K$,
+which is (5).  The constant $M$ depends on $j$, $p$, $a$ and $b$ only, since $K$ and
+$D_\xi A_p$ do.
+\end{proof}

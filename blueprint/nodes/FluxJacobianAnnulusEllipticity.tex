@@ -1,0 +1,103 @@
+\begin{lemma}[Uniform ellipticity of the $p$-flux Jacobian on an annulus]
+Let $p\in\mathbb{R}$ with $1<p<2$, and let $a,b\in\mathbb{R}$ with $0<a\le b$.  Then for every
+$\xi\in\mathrm{Plane}$ with $a\le\lvert\xi\rvert\le b$ and every $w\in\mathrm{Plane}$,
+\[
+  (p-1)\,b^{\,p-2}\,\lvert w\rvert^{2}
+    \le\bigl\langle D_\xi A_p(\xi)\,w,\;w\bigr\rangle,
+  \qquad
+  \bigl\lvert D_\xi A_p(\xi)\,w\bigr\rvert\le a^{\,p-2}\,\lvert w\rvert ,
+\]
+where $D_\xi A_p(\xi)$ is the flux Jacobian of \noderef{FluxJacobian}.
+
+The two constants $\lambda:=(p-1)b^{\,p-2}$ and $\Lambda:=a^{\,p-2}$ depend only on $p,a,b$ and
+never on $\xi$: that uniformity over the annulus, not the mere positivity of the quadratic form
+at each point, is what a divergence-form Schauder estimate consumes.
+
+The DIRECTION of the dependence is part of the statement and is easy to get backwards.  Since
+$p<2$ the exponent $p-2$ is NEGATIVE, so $t\mapsto t^{\,p-2}$ is decreasing on $(0,\infty)$;
+hence the scalar factor $\lvert\xi\rvert^{\,p-2}$ is SMALLEST at the outer radius $b$ and
+LARGEST at the inner radius $a$.  The lower constant therefore carries $b$ and the upper one
+carries $a$.  Both degenerate as $a\to0$, which is why the annulus must stay away from the
+origin and why the paper's bootstrap traps the gradient in such an annulus before using this.
+\end{lemma}
+\begin{proof}
+Write $\lambda:=(p-1)b^{\,p-2}$ and $\Lambda:=a^{\,p-2}$.  Note $0<p-1$ and $p-2<0$ from
+$1<p<2$, and $0<b$ from $0<a\le b$, so $b^{\,p-2}>0$ and $\lambda>0$.  Since $p-2\le0$, the
+function $t\mapsto t^{\,p-2}$ is antitone on $(0,\infty)$: for $0<s\le t$ we have
+$t^{\,p-2}\le s^{\,p-2}$.  Call this (M); it is the only monotonicity used below, and it is
+where the negativity of the exponent enters.
+
+Fix $\xi$ with $a\le\lvert\xi\rvert\le b$ and fix $w$.  Then $0<\lvert\xi\rvert$, so
+$\lvert\xi\rvert^{2}>0$ and $\lvert\xi\rvert^{\,p-2}>0$.  By the definition of the flux Jacobian,
+\begin{equation}\label{eq:fjae-val}
+  D_\xi A_p(\xi)\,w
+  =\lvert\xi\rvert^{\,p-2}\Bigl(w+\frac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle\,\xi\Bigr).
+\end{equation}
+
+\medskip\noindent\emph{The lower bound.}
+Pair \eqref{eq:fjae-val} with $w$ and use bilinearity of the inner product:
+\[
+  \bigl\langle D_\xi A_p(\xi)w,\,w\bigr\rangle
+  =\lvert\xi\rvert^{\,p-2}\Bigl(\lvert w\rvert^{2}
+    +\frac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle^{2}\Bigr).
+\]
+By Cauchy--Schwarz, $\langle\xi,w\rangle^{2}\le\lvert\xi\rvert^{2}\lvert w\rvert^{2}$, so
+$\langle\xi,w\rangle^{2}/\lvert\xi\rvert^{2}\le\lvert w\rvert^{2}$.  Multiplying that inequality
+by the NEGATIVE number $p-2$ reverses it, giving
+\[
+  \frac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle^{2}\ge(p-2)\lvert w\rvert^{2},
+\]
+and therefore
+$\lvert w\rvert^{2}+\frac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle^{2}
+ \ge\lvert w\rvert^{2}+(p-2)\lvert w\rvert^{2}=(p-1)\lvert w\rvert^{2}\ge0$.
+Multiplying by $\lvert\xi\rvert^{\,p-2}>0$,
+\[
+  \bigl\langle D_\xi A_p(\xi)w,\,w\bigr\rangle
+  \ge\lvert\xi\rvert^{\,p-2}(p-1)\lvert w\rvert^{2}.
+\]
+Finally $\lvert\xi\rvert\le b$ and (M) give $b^{\,p-2}\le\lvert\xi\rvert^{\,p-2}$, and
+$(p-1)\lvert w\rvert^{2}\ge0$, so
+$\lvert\xi\rvert^{\,p-2}(p-1)\lvert w\rvert^{2}\ge(p-1)b^{\,p-2}\lvert w\rvert^{2}=\lambda\lvert
+w\rvert^{2}$.  This is the lower bound, and it is the step at which the constant acquires $b$
+rather than $a$.
+
+\medskip\noindent\emph{The upper bound.}
+We first show
+\begin{equation}\label{eq:fjae-inner}
+  \Bigl\lvert w+\frac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle\,\xi\Bigr\rvert
+  \le\lvert w\rvert .
+\end{equation}
+Put $c:=\dfrac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle$ and expand the square of the
+left-hand side by bilinearity:
+\[
+  \lvert w+c\,\xi\rvert^{2}
+  =\lvert w\rvert^{2}+2c\langle\xi,w\rangle+c^{2}\lvert\xi\rvert^{2}
+  =\lvert w\rvert^{2}+\bigl(2(p-2)+(p-2)^{2}\bigr)
+    \frac{\langle\xi,w\rangle^{2}}{\lvert\xi\rvert^{2}} ,
+\]
+using $c\langle\xi,w\rangle=(p-2)\langle\xi,w\rangle^{2}/\lvert\xi\rvert^{2}$ and
+$c^{2}\lvert\xi\rvert^{2}=(p-2)^{2}\langle\xi,w\rangle^{2}/\lvert\xi\rvert^{2}$.  Now
+$2(p-2)+(p-2)^{2}=(p-2)(p-2+2)=p(p-2)<0$, because $p>1>0$ and $p-2<0$, while
+$\langle\xi,w\rangle^{2}/\lvert\xi\rvert^{2}\ge0$.  So the second term is $\le0$ and
+$\lvert w+c\xi\rvert^{2}\le\lvert w\rvert^{2}$.  Taking square roots --- legitimate, both sides
+being squares of nonnegative reals --- gives \eqref{eq:fjae-inner}.
+
+(This is the sharp form.  Writing $w=w_\parallel+w_\perp$ for the orthogonal splitting along and
+across $\xi$, the map $I+(p-2)\xi\otimes\xi/\lvert\xi\rvert^{2}$ acts on $w_\parallel$ by $p-1$
+and on $w_\perp$ by $1$; for $p<2$ both factors are at most $1$, so the operator norm is exactly
+$1$ and no constant larger than $\lvert\xi\rvert^{\,p-2}$ is needed.)
+
+Now take norms in \eqref{eq:fjae-val}, pulling the positive scalar out, and use
+\eqref{eq:fjae-inner} followed by $a\le\lvert\xi\rvert$ with (M), which gives
+$\lvert\xi\rvert^{\,p-2}\le a^{\,p-2}$:
+\[
+  \bigl\lvert D_\xi A_p(\xi)w\bigr\rvert
+  =\lvert\xi\rvert^{\,p-2}\Bigl\lvert w+\frac{p-2}{\lvert\xi\rvert^{2}}\langle\xi,w\rangle\xi
+    \Bigr\rvert
+  \le\lvert\xi\rvert^{\,p-2}\lvert w\rvert
+  \le a^{\,p-2}\lvert w\rvert=\Lambda\lvert w\rvert ,
+\]
+the middle step by $\lvert\xi\rvert^{\,p-2}>0$ and the last by $\lvert w\rvert\ge0$.  This is the
+upper bound, and it is the step at which the constant acquires $a$ rather than $b$.  As $\xi$ and
+$w$ were arbitrary subject to the annulus condition, the lemma is proved.
+\end{proof}

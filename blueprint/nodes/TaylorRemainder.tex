@@ -1,0 +1,103 @@
+\begin{lemma}[Taylor's theorem with Lagrange remainder, diagonal form]
+Let $u\colon\mathrm{Plane}\to\mathbb{R}$, let $x_0\in\mathrm{Plane}$, let $\rho>0$, let
+$k\in\mathbb{N}$ and let $M\ge0$.  Suppose $u$ is of class $C^{k+1}$ on $B_{\rho}(x_0)$ and
+\[
+  \bigl\lVert D^{k+1}u(x)\bigr\rVert\le M\qquad\text{for every }x\in B_{\rho}(x_0),
+\]
+the norm being the operator norm on continuous $(k+1)$-linear forms.  Then, with
+$P=\mathrm{TaylorPoly}(k,u,x_0)$ the degree-$k$ Taylor polynomial of \noderef{TaylorPoly},
+\[
+  \bigl\lvert u(x)-P(x)\bigr\rvert
+    \le\frac{M}{(k+1)!}\,\lvert x-x_0\rvert^{\,k+1}
+  \qquad\text{for every }x\in B_{\rho}(x_0).
+\]
+The hypotheses $\rho>0$ and $M\ge0$ are the natural domain conditions on a ball radius and on a
+bound for a norm; the conclusion does not use them, since $B_{\rho}(x_0)\ne\emptyset$ already
+forces $\rho>0$ and the derivative bound already forces $M\ge0$.
+\end{lemma}
+\begin{proof}
+Fix $x\in B_{\rho}(x_0)$ and put $e:=x-x_0$, so that $\lvert e\rvert<\rho$ and
+$x=x_0+1\cdot e$.
+
+\medskip\noindent\emph{Step 1: the ray and its parameter set.}
+Let $\gamma(s):=x_0+s\,e$ for $s\in\mathbb{R}$ and $f:=u\circ\gamma$, i.e.\
+$f(s)=u(x_0+s\,e)$.  Put
+\[
+  J:=\{s\in\mathbb{R}:\lvert s\,e\rvert<\rho\},
+\]
+which is open, being the preimage of the open half-line $(-\infty,\rho)$ under the continuous
+map $s\mapsto\lvert s\,e\rvert$.  For $s\in J$ we have
+$\lvert\gamma(s)-x_0\rvert=\lvert s\,e\rvert<\rho$, so
+\begin{equation}\label{eq:tr-maps}
+  \gamma(s)\in B_{\rho}(x_0)\qquad\text{for every }s\in J.
+\end{equation}
+Moreover $[0,1]\subseteq J$: for $0\le s\le1$ we have
+$\lvert s\,e\rvert=s\lvert e\rvert\le\lvert e\rvert<\rho$, using
+$\lvert s\,e\rvert=\lvert s\rvert\lvert e\rvert=s\lvert e\rvert$ and the monotonicity of
+multiplication by $\lvert e\rvert\ge0$.
+
+The map $\gamma$ is affine, hence of class $C^{\infty}$, by the background proposition on the
+chain rule and derivatives of affine paths.  Since $\gamma(J)\subseteq B_{\rho}(x_0)$ by
+\eqref{eq:tr-maps} and $u$ is of class $C^{k+1}$ on $B_{\rho}(x_0)$, clause (3) of the
+background proposition on the chain rule for compositions gives
+\begin{equation}\label{eq:tr-reg}
+  f\ \text{is of class }C^{k+1}\text{ on }J,
+\end{equation}
+and therefore also on the subset $[0,1]$.
+
+\medskip\noindent\emph{Step 2: the one-variable Taylor--Lagrange theorem on $[0,1]$.}
+Apply the background proposition on Taylor's theorem with Lagrange remainder in one variable
+with $n:=k$, $a:=0$ and $b:=1$ (distinct), to the function $f$, which by \eqref{eq:tr-reg} is
+of class $C^{k+1}$ on an open set containing $[0,1]$.  It produces $\xi\in(0,1)$ with
+\begin{equation}\label{eq:tr-lag}
+  f(1)=\sum_{j=0}^{k}\frac{f^{(j)}(0)}{j!}+\frac{f^{(k+1)}(\xi)}{(k+1)!}.
+\end{equation}
+
+\medskip\noindent\emph{Step 3: identifying the two sides with $u$ and $P$.}
+First, $f(1)=u(x_0+e)=u(x)$.
+
+Next, fix $0\le j\le k$.  The function $u$ is of class $C^{j}$ on $B_{\rho}(x_0)$, since
+$j\le k+1$ and $C^{k+1}$ regularity on a set implies $C^{j}$ regularity there, and
+$x_0+0\cdot e=x_0\in B_{\rho}(x_0)$.  So \noderef{IteratedDerivAlongRay}, applied with the open
+set $U=B_{\rho}(x_0)$, the function $u$, the order $j$, the base point $x_0$, the direction $e$
+and the parameter $t=0$, gives
+\begin{equation}\label{eq:tr-ray0}
+  f^{(j)}(0)=D^{j}u(x_0)[e,\ldots,e]\qquad(0\le j\le k).
+\end{equation}
+Substituting \eqref{eq:tr-ray0} into the sum of \eqref{eq:tr-lag} and comparing with the
+definition in \noderef{TaylorPoly}, in which the slot is filled with $x-x_0=e$,
+\[
+  \sum_{j=0}^{k}\frac{f^{(j)}(0)}{j!}
+  =\sum_{j=0}^{k}\frac{1}{j!}\,D^{j}u(x_0)[e,\ldots,e]
+  =\mathrm{TaylorPoly}(k,u,x_0)(x)=P(x).
+\]
+
+Finally, $\xi\in(0,1)\subseteq[0,1]\subseteq J$, so $\gamma(\xi)\in B_{\rho}(x_0)$ by
+\eqref{eq:tr-maps}, and $u$ is of class $C^{k+1}$ there; applying
+\noderef{IteratedDerivAlongRay} once more, now with order $k+1$ and parameter $t=\xi$,
+\begin{equation}\label{eq:tr-rayxi}
+  f^{(k+1)}(\xi)=D^{k+1}u\bigl(x_0+\xi\,e\bigr)[e,\ldots,e].
+\end{equation}
+
+\medskip\noindent\emph{Step 4: the bound.}
+By \eqref{eq:tr-lag} and Step 3,
+\[
+  u(x)-P(x)=\frac{1}{(k+1)!}\,D^{k+1}u\bigl(x_0+\xi\,e\bigr)[e,\ldots,e].
+\]
+By the background proposition on the operator norm of a continuous multilinear map, applied to
+the $(k+1)$-linear form $Q:=D^{k+1}u(x_0+\xi\,e)$ on the diagonal family $(e,\ldots,e)$,
+\[
+  \bigl\lvert Q[e,\ldots,e]\bigr\rvert\le\lVert Q\rVert\,\lvert e\rvert^{\,k+1},
+\]
+and $\lVert Q\rVert\le M$ by the hypothesis of the lemma applied at the point
+$x_0+\xi\,e\in B_{\rho}(x_0)$.  Since $\lvert e\rvert^{\,k+1}\ge0$, multiplying the inequality
+$\lVert Q\rVert\le M$ by $\lvert e\rvert^{\,k+1}$ preserves it, so
+$\bigl\lvert Q[e,\ldots,e]\bigr\rvert\le M\lvert e\rvert^{\,k+1}$.  Dividing by $(k+1)!>0$,
+\[
+  \bigl\lvert u(x)-P(x)\bigr\rvert
+  =\frac{\bigl\lvert Q[e,\ldots,e]\bigr\rvert}{(k+1)!}
+  \le\frac{M}{(k+1)!}\,\lvert e\rvert^{\,k+1}
+  =\frac{M}{(k+1)!}\,\lvert x-x_0\rvert^{\,k+1},
+\]
+which is the assertion.  As $x\in B_{\rho}(x_0)$ was arbitrary, the proof is complete.
+\end{proof}

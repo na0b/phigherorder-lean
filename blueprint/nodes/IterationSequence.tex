@@ -1,0 +1,68 @@
+\begin{lemma}[The iteration radii, as a total guarded chain]
+Let $\mathrm{Good}$ and $\mathrm{Cont}$ be predicates on $\mathbb{R}$ and let
+$\theta\in\mathbb{R}$.  Assume
+\begin{enumerate}
+\item[(H1)] $\mathrm{Good}(1)$ holds;
+\item[(H2)] for every $R\in\mathbb{R}$ with $\mathrm{Good}(R)$ and $\mathrm{Cont}(R)$ there is
+$R'\in\mathbb{R}$ with $\mathrm{Good}(R')$, $\theta R\le R'$ and $R'\le R/4$.
+\end{enumerate}
+Then there is a sequence $R\colon\mathbb{N}\to\mathbb{R}$ such that
+\begin{enumerate}
+\item $R_0=1$;
+\item $\mathrm{Good}(R_\ell)$ for \emph{every} $\ell\in\mathbb{N}$;
+\item for every $\ell\in\mathbb{N}$, \emph{if} $\mathrm{Cont}(R_\ell)$ holds, then
+$\theta R_\ell\le R_{\ell+1}$ and $R_{\ell+1}\le R_\ell/4$.
+\end{enumerate}
+
+This is the sequence of radii of the paper's main iteration (paper lines 228-247), made total.
+The paper's own construction is partial: it sets $R_0=1$, defines $R_{\ell+1}=R_\ell\rho_i$ only
+when the continuation condition holds, and stops otherwise.  Conclusion (2) is unconditional
+and conclusion (3) is guarded by $\mathrm{Cont}(R_\ell)$, which is exactly the paper's caveat
+that the bounds involving $R_{\ell+1}$ "apply whenever the next scale is constructed": where the
+paper stops, conclusion (3) is vacuous and conclusion (2) persists.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: a total step function.}  We claim that for every $R\in\mathbb{R}$ there is
+$R'\in\mathbb{R}$ such that
+\begin{equation}\label{eq:is-step}
+  \bigl(\mathrm{Good}(R)\wedge\mathrm{Cont}(R)\bigr)\Longrightarrow
+    \bigl(\mathrm{Good}(R')\wedge\theta R\le R'\wedge R'\le R/4\bigr),
+  \qquad
+  \neg\bigl(\mathrm{Good}(R)\wedge\mathrm{Cont}(R)\bigr)\Longrightarrow R'=R .
+\end{equation}
+Fix $R$ and distinguish two cases.  If $\mathrm{Good}(R)$ and $\mathrm{Cont}(R)$ both hold, let
+$R'$ be a radius furnished by (H2); the first implication of \eqref{eq:is-step} holds by
+construction and the second holds because its hypothesis is false.  If they do not both hold,
+take $R':=R$; the second implication holds by reflexivity and the first because its hypothesis
+is false.  This proves the claim.
+
+Choosing such an $R'$ for each $R$ gives a function $f\colon\mathbb{R}\to\mathbb{R}$ with
+\begin{equation}\label{eq:is-f}
+  \mathrm{Good}(R)\wedge\mathrm{Cont}(R)\Longrightarrow
+    \mathrm{Good}(f(R))\wedge\theta R\le f(R)\wedge f(R)\le R/4,
+  \qquad
+  \neg\bigl(\mathrm{Good}(R)\wedge\mathrm{Cont}(R)\bigr)\Longrightarrow f(R)=R .
+\end{equation}
+Note that $f$ is defined at every real number: where the guard fails it stalls, returning its
+argument.  This is what replaces the paper's partial construction.
+
+\emph{Step 2: the sequence.}  Define $R\colon\mathbb{N}\to\mathbb{R}$ by the recursion
+\[
+  R_0:=1,\qquad R_{\ell+1}:=f(R_\ell)\quad(\ell\in\mathbb{N}),
+\]
+which is a legitimate definition by recursion on $\mathbb{N}$ because $f$ is total.  Conclusion
+(1) is the first clause of the definition.
+
+\emph{Step 3: conclusion (2), by induction on $\ell$.}  For $\ell=0$, $\mathrm{Good}(R_0)$ is
+(H1) since $R_0=1$.  Assume $\mathrm{Good}(R_n)$.  If $\mathrm{Cont}(R_n)$ holds, then
+$\mathrm{Good}(R_n)\wedge\mathrm{Cont}(R_n)$ holds, so the first implication of
+\eqref{eq:is-f} gives $\mathrm{Good}(f(R_n))=\mathrm{Good}(R_{n+1})$.  If $\mathrm{Cont}(R_n)$
+fails, then $\mathrm{Good}(R_n)\wedge\mathrm{Cont}(R_n)$ fails, so the second implication of
+\eqref{eq:is-f} gives $R_{n+1}=f(R_n)=R_n$, and $\mathrm{Good}(R_{n+1})$ is the inductive
+hypothesis.  In both cases $\mathrm{Good}(R_{n+1})$ holds, completing the induction.
+
+\emph{Step 4: conclusion (3).}  Let $\ell\in\mathbb{N}$ and assume $\mathrm{Cont}(R_\ell)$.  By
+Step 3 we have $\mathrm{Good}(R_\ell)$, so $\mathrm{Good}(R_\ell)\wedge\mathrm{Cont}(R_\ell)$
+holds and the first implication of \eqref{eq:is-f} gives $\theta R_\ell\le f(R_\ell)=R_{\ell+1}$
+and $R_{\ell+1}=f(R_\ell)\le R_\ell/4$, which is conclusion (3).
+\end{proof}

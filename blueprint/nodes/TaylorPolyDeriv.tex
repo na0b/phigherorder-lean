@@ -1,0 +1,157 @@
+\begin{lemma}[Derivatives of the Taylor polynomial]
+Let $k\in\mathbb{N}$, let $u\colon\mathrm{Plane}\to\mathbb{R}$, let $x_0\in\mathrm{Plane}$ and
+put $P:=\mathrm{TaylorPoly}(k,u,x_0)$ as in \noderef{TaylorPoly}.  Then:
+\begin{enumerate}
+\item $P$ is of class $C^{\infty}$ on $\mathrm{Plane}$;
+\item $D^{k+1}P(z)=0$ as a continuous $(k+1)$-linear form, for every $z\in\mathrm{Plane}$;
+\item for every $z,w\in\mathrm{Plane}$,
+  $D^{k}P(z)[w,\ldots,w]=D^{k}u(x_0)[w,\ldots,w]$ --- at \emph{every} point $z$, not only at
+  the centre;
+\item for every $j$ with $0\le j\le k$ and every $w\in\mathrm{Plane}$,
+  $D^{j}P(x_0)[w,\ldots,w]=D^{j}u(x_0)[w,\ldots,w]$;
+\item $P(x_0)=u(x_0)$.
+\end{enumerate}
+No regularity of $u$ is assumed: $P$ is assembled from the fixed continuous multilinear forms
+$D^{j}u(x_0)$, $0\le j\le k$, and all five assertions are unconditional identities about the
+resulting polynomial.
+
+Assertions (3) and (4) are stated through \emph{diagonal} evaluations, and this is not an
+oversight: as the proof shows, $D^{k}P(z)$ equals $k!$ times the symmetrization of
+$D^{k}u(x_0)$, which agrees with $D^{k}u(x_0)$ itself only where the latter is symmetric.  The
+diagonal rendering is the sharp statement available here.  (For orientation only: classically,
+when $u$ is of class $C^{k}$ near $x_0$ the form $D^{k}u(x_0)$ is symmetric, and a symmetric
+form is determined by its diagonal evaluations, so for such $u$ nothing is lost.  That
+classical fact is \emph{not} a background item of this development and no proof in the tablet
+invokes it; Mathlib at the pinned revision supplies symmetry of the iterated derivative of a
+finitely smooth function only at order two, which is why every statement here carries
+higher-order derivatives diagonally.)
+\end{lemma}
+\begin{proof}
+For $0\le j\le k$ write $T_j:=D^{j}u(x_0)$, a continuous $j$-linear form on $\mathrm{Plane}$,
+and put
+\[
+  Q_j(z):=T_j[z-x_0,\ldots,z-x_0],\qquad f_j(z):=\frac{1}{j!}\,Q_j(z),
+\]
+so that $P=\sum_{j=0}^{k}f_j$ by the definition in \noderef{TaylorPoly}.
+
+\medskip\noindent\emph{Step 1: derivatives of a single shifted diagonal.}
+Fix $j\in\mathbb{N}$ and a continuous $j$-linear form $T$ on $\mathrm{Plane}$, and set
+\[
+  \widetilde{Q}(y):=T[y,\ldots,y],\qquad Q(z):=T[z-x_0,\ldots,z-x_0]=\widetilde{Q}(z-x_0).
+\]
+By the translation identity of the background proposition on iterated derivatives under
+translations and dilations (which is unconditional), for every $m\in\mathbb{N}$ and every
+$z\in\mathrm{Plane}$
+\begin{equation}\label{eq:tpd-shift}
+  D^{m}Q(z)=D^{m}\widetilde{Q}(z-x_0).
+\end{equation}
+So it suffices to compute the iterated derivatives of $\widetilde{Q}$.
+
+We claim: $\widetilde{Q}$ is of class $C^{\infty}$ and for every $m\in\mathbb{N}$, every
+$y\in\mathrm{Plane}$ and all $h^{1},\ldots,h^{m}\in\mathrm{Plane}$,
+\begin{equation}\label{eq:tpd-formula}
+  D^{m}\widetilde{Q}(y)\bigl[h^{1},\ldots,h^{m}\bigr]
+  =\sum_{\iota}T\bigl[y^{\iota}_1,\ldots,y^{\iota}_j\bigr],
+\end{equation}
+where the sum runs over all injections $\iota\colon\{1,\ldots,m\}\to\{1,\ldots,j\}$ and
+$y^{\iota}_{\,\iota(r)}:=h^{r}$ for $1\le r\le m$ while $y^{\iota}_{i}:=y$ for every
+$i\notin\iota(\{1,\ldots,m\})$.  (For $m=0$ there is exactly one injection, the empty one, and
+the right-hand side is $T[y,\ldots,y]=\widetilde{Q}(y)$, consistent with clause (1) of the
+background proposition on the recursion for the iterated Fr\'echet derivative.  If $m>j$ there
+is no injection and the right-hand side is $0$.)
+
+We prove \eqref{eq:tpd-formula} by induction on $m$.  For $m=0$ it is the parenthetical remark
+just made.  Assume \eqref{eq:tpd-formula} holds for some $m$, and abbreviate by
+$G(y)[h^{1},\ldots,h^{m}]$ its right-hand side.  For fixed $h^{1},\ldots,h^{m}$ the map
+$y\mapsto G(y)[h^{1},\ldots,h^{m}]$ is a finite sum of terms each of which is multilinear of
+degree $j-m$ in $y$ (every slot not in the image of $\iota$ carries a $y$).  A term with
+$j-m=0$ copies of $y$ is constant in $y$ and so has zero derivative.  A term with $d:=j-m\ge1$
+copies of $y$ is of the form $y\mapsto B[y,\ldots,y]$ for a continuous $d$-linear form $B$
+(obtained from $T$ by freezing the slots in the image of $\iota$ at the corresponding
+$h^{r}$); expanding by multilinearity,
+\[
+  B[y+h,\ldots,y+h]-B[y,\ldots,y]
+  =\sum_{i=1}^{d}B[y,\ldots,\underset{\text{slot }i}{h},\ldots,y]+\mathcal{R}(h),
+\]
+where $\mathcal{R}(h)$ collects the $2^{d}-d-1$ terms containing at least two copies of $h$,
+and by the background proposition on the operator norm of a continuous multilinear map
+$\lvert\mathcal{R}(h)\rvert\le(2^{d}-d-1)\lVert B\rVert\max(\lvert y\rvert,\lvert
+h\rvert)^{d-2}\lvert h\rvert^{2}=O(\lvert h\rvert^{2})$ as $h\to0$ with $y$ fixed.  Hence
+$y\mapsto B[y,\ldots,y]$ is differentiable with derivative
+$h\mapsto\sum_{i=1}^{d}B[y,\ldots,h,\ldots,y]$, this derivative depending continuously on $y$
+(again by multilinearity and the operator-norm proposition), and the same computation applies
+to it in place of $B[y,\ldots,y]$.  Summing over the terms of $G$, the map $y\mapsto G(y)$,
+with values in the normed space of continuous $m$-linear forms, is differentiable at every $y$
+with
+\[
+  \bigl(DG(y)[h]\bigr)\bigl[h^{1},\ldots,h^{m}\bigr]
+  =\sum_{\iota}\;\sum_{i\notin\iota(\{1,\ldots,m\})}T\bigl[\ldots,\underset{\text{slot
+  }i}{h},\ldots\bigr],
+\]
+the inner entries being as in \eqref{eq:tpd-formula}.  The pairs $(\iota,i)$ with
+$i\notin\iota(\{1,\ldots,m\})$ are in bijection with the injections
+$\iota'\colon\{1,\ldots,m+1\}\to\{1,\ldots,j\}$ extending $\iota$ by $\iota'(m+1):=i$, so the
+right-hand side is exactly the expression \eqref{eq:tpd-formula} at order $m+1$ evaluated on
+$h^{1},\ldots,h^{m},h$.  By clause (2) of the recursion proposition, read with $w:=h$, this is
+$D^{m+1}\widetilde{Q}(y)[h,h^{1},\ldots,h^{m}]$; since all injections
+$\{1,\ldots,m+1\}\to\{1,\ldots,j\}$ arise and the labelling of the $m+1$ arguments is
+immaterial to the resulting set of terms, \eqref{eq:tpd-formula} holds at order $m+1$.  The
+derivative so computed is continuous in $y$, so by induction $\widetilde{Q}$ is of class
+$C^{m}$ for every $m$, i.e.\ of class $C^{\infty}$, and \eqref{eq:tpd-formula} is established.
+
+Three consequences, with $Q$ and $\widetilde{Q}$ as above:
+\begin{enumerate}
+\item[(1a)] $Q$ is of class $C^{\infty}$ on $\mathrm{Plane}$, by \eqref{eq:tpd-shift} and the
+smoothness of $\widetilde{Q}$ (or directly: $Q$ is $\widetilde{Q}$ precomposed with a
+translation).
+\item[(1b)] If $m>j$ then $D^{m}Q(z)=0$ for every $z$: there is no injection
+$\{1,\ldots,m\}\to\{1,\ldots,j\}$, so the right-hand side of \eqref{eq:tpd-formula} is an
+empty sum.
+\item[(1c)] If $m<j$ then $D^{m}Q(x_0)=0$: by \eqref{eq:tpd-shift} this equals
+$D^{m}\widetilde{Q}(0)$, and in \eqref{eq:tpd-formula} with $y=0$ every term has $j-m\ge1$
+slots occupied by $y=0$, hence vanishes by linearity of $T$ in that slot.
+\item[(1d)] For $m=j$ and every $z,w\in\mathrm{Plane}$,
+\[
+  D^{j}Q(z)[w,\ldots,w]=j!\;T[w,\ldots,w].
+\]
+Indeed the injections $\{1,\ldots,j\}\to\{1,\ldots,j\}$ are exactly the $j!$ permutations
+$\sigma$ of $\{1,\ldots,j\}$, no slot is left carrying $y$, and \eqref{eq:tpd-formula} reads
+$D^{j}\widetilde{Q}(y)[h^{1},\ldots,h^{j}]=\sum_{\sigma}T[h^{\sigma^{-1}(1)},\ldots,h^{\sigma^{-1}(j)}]$,
+independently of $y$.  Taking $h^{1}=\cdots=h^{j}=w$ makes every summand equal to
+$T[w,\ldots,w]$, and there are $j!$ of them; now use \eqref{eq:tpd-shift}.
+\end{enumerate}
+We note in passing what (1d) says without the diagonal restriction: $D^{j}\widetilde{Q}$ is
+$j!$ times the \emph{symmetrization} of $T$, not $T$ itself.  This is the reason assertions (3)
+and (4) of the lemma are stated diagonally.
+
+\medskip\noindent\emph{Step 2: the derivatives of $P$ split termwise.}
+Each $f_j=\frac{1}{j!}Q_j$ is of class $C^{\infty}$ by (1a) and clause (7) of the recursion
+proposition (scalar multiples of multilinear forms evaluate pointwise), so $P$ is a finite sum
+of $C^{\infty}$ functions and assertion (1) holds.  Since the $m$-th iterated Fr\'echet
+derivative is linear in the function, as follows from clause (2) of the recursion proposition
+and the linearity of the Fr\'echet derivative, for every $m\in\mathbb{N}$ and
+$z\in\mathrm{Plane}$
+\begin{equation}\label{eq:tpd-split}
+  D^{m}P(z)=\sum_{j=0}^{k}\frac{1}{j!}\,D^{m}Q_j(z).
+\end{equation}
+
+\medskip\noindent\emph{Step 3: the four remaining assertions.}
+
+\emph{(2).}  Take $m=k+1$ in \eqref{eq:tpd-split}.  Each index $j$ satisfies $j\le k<k+1=m$, so
+every term vanishes by (1b), whence $D^{k+1}P(z)=0$ for every $z$.
+
+\emph{(3).}  Take $m=k$ in \eqref{eq:tpd-split} and evaluate at $[w,\ldots,w]$.  For $j<k$ the
+term vanishes by (1b).  For $j=k$, (1d) gives
+$\frac{1}{k!}D^{k}Q_k(z)[w,\ldots,w]=\frac{1}{k!}\,k!\,T_k[w,\ldots,w]=D^{k}u(x_0)[w,\ldots,w]$.
+Hence $D^{k}P(z)[w,\ldots,w]=D^{k}u(x_0)[w,\ldots,w]$ for every $z$ and $w$.
+
+\emph{(4).}  Fix $0\le j\le k$, take $m=j$ in \eqref{eq:tpd-split}, evaluate at $z=x_0$ and on
+$[w,\ldots,w]$.  A term of index $i<j$ vanishes by (1b) (its arity $i$ is below the order $j$).
+A term of index $i>j$ vanishes at $x_0$ by (1c) (its arity $i$ exceeds the order $j$, and the
+evaluation point is the centre).  The term of index $i=j$ gives
+$\frac{1}{j!}\,j!\,T_j[w,\ldots,w]=D^{j}u(x_0)[w,\ldots,w]$ by (1d).  This is assertion (4).
+
+\emph{(5).}  Apply (4) with $j=0$ and $w=0$.  By clause (1) of the recursion proposition
+$D^{0}P(x_0)$ evaluated on the empty family is $P(x_0)$ and $D^{0}u(x_0)$ evaluated on the
+empty family is $u(x_0)$, so $P(x_0)=u(x_0)$.
+\end{proof}

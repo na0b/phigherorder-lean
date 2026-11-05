@@ -1,0 +1,583 @@
+\begin{proposition}[Integrability of continuous and of compactly supported functions]
+Let $X$ be a finite-dimensional real inner product space carrying its Lebesgue measure --- in
+the applications below either $X=\mathbb{R}$ or $X=\mathrm{Plane}$ --- and let $E$ be a Banach
+space.
+\begin{enumerate}
+\item If $f\colon X\to E$ is continuous with compact support, then $f$ is Lebesgue integrable
+on $X$, and so is its restriction to every measurable subset of $X$.
+\item Every open subset of $X$ is Lebesgue measurable, as is every compact subset.
+\item Let $S\subseteq X$ be Lebesgue measurable and let $f\colon X\to E$ be continuous on $S$.
+Then $f$ is almost everywhere strongly measurable with respect to Lebesgue measure restricted
+to $S$.  Measurability of $S$ is needed here and is not implied by continuity of $f$ on $S$.
+Consequently $f$ is bounded, hence integrable, on every compact subset of $S$, and any
+measurable $h\colon X\to E$ obeying $\lvert h\rvert\le H$ on a measurable set $S'$ with $H$
+integrable on $S'$ is itself integrable on $S'$.
+\item If $f\colon X\to E$ is integrable on $S\subseteq X$ and $f$ vanishes outside a subset
+$K\subseteq S$, then $\int_Sf\,dx=\int_Kf\,dx$; in particular $\int_Xf\,dx=\int_Kf\,dx$ when
+$K\subseteq X$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Continuous linear maps commute with the Bochner integral]
+Let $E,F$ be Banach spaces, let $L\colon E\to F$ be a continuous linear map and let
+$f\colon\mathrm{Plane}\to E$ be integrable.  Then $L\circ f$ is integrable and
+$\int L(f(x))\,dx=L\bigl(\int f(x)\,dx\bigr)$.  In particular, for $e\in\mathrm{Plane}$ and
+$f\colon\mathrm{Plane}\to\mathrm{Plane}$ integrable,
+$\int\langle f(x),e\rangle\,dx=\bigl\langle\int f(x)\,dx,\;e\rangle$, and a vector-valued
+integral vanishes if and only if all of its inner products with the vectors of an orthonormal
+basis vanish.
+\end{proposition}
+
+\begin{proposition}[Fubini's theorem on the plane]
+Let $e_1,e_2$ be the standard orthonormal basis of $\mathrm{Plane}$ and identify
+$\mathrm{Plane}$ with $\mathbb{R}\times\mathbb{R}$ by $x\mapsto(x_1,x_2)$ where
+$x=x_1e_1+x_2e_2$.  This identification is measure preserving: Lebesgue measure on
+$\mathrm{Plane}$ corresponds to the product of two copies of one-dimensional Lebesgue measure.
+Consequently, for every Banach space $E$ and every integrable $f\colon\mathrm{Plane}\to E$,
+\[
+  \int_{\mathrm{Plane}}f(x)\,dx=\int_{\mathbb{R}}\left(\int_{\mathbb{R}}f(t\,e_1+s\,e_2)\,dt\right)ds
+  =\int_{\mathbb{R}}\left(\int_{\mathbb{R}}f(t\,e_1+s\,e_2)\,ds\right)dt ,
+\]
+and for almost every value of the outer variable the inner integrand is integrable in the
+other variable.
+\end{proposition}
+
+\begin{proposition}[Fundamental theorem of calculus]
+Let $h\colon\mathbb{R}\to\mathbb{R}$ be continuously differentiable and let $a\le b$.  Then
+$h'$ is integrable on $[a,b]$ and $\int_a^bh'(t)\,dt=h(b)-h(a)$.
+\end{proposition}
+
+\begin{proposition}[Affine change of variables for Lebesgue measure on the plane]
+Let $x_0\in\mathrm{Plane}$ and $r>0$, and let $T\colon\mathrm{Plane}\to\mathrm{Plane}$ be the
+affine homeomorphism $T(x)=x_0+rx$, with inverse $T^{-1}(y)=r^{-1}(y-x_0)$.  Then the
+pushforward of Lebesgue measure under $T$ is $r^{-2}$ times Lebesgue measure; equivalently,
+$\lvert T(S)\rvert=r^{2}\lvert S\rvert$ for every measurable $S\subseteq\mathrm{Plane}$.  In
+particular $T$ and $T^{-1}$ map null sets to null sets, so composition with $T$ preserves
+almost-everywhere strong measurability, and for every Banach space $E$, every measurable
+$S\subseteq\mathrm{Plane}$ and every $f\colon\mathrm{Plane}\to E$ integrable on $S$, the
+function $f\circ T$ is integrable on $T^{-1}(S)$ with
+\[
+  \int_{T^{-1}(S)}f(T(x))\,dx=r^{-2}\int_{S}f(y)\,dy .
+\]
+\end{proposition}
+
+\begin{proposition}[Taylor's theorem with Lagrange remainder in one variable]
+Let $n\in\mathbb{N}$, let $a\neq b$ be real numbers and let $h\colon\mathbb{R}\to\mathbb{R}$ be
+of class $C^{n+1}$ on an open interval containing the closed interval with endpoints $a$ and
+$b$.  Then there is a point $\xi$ strictly between $a$ and $b$ with
+\[
+  h(b)=\sum_{j=0}^{n}\frac{h^{(j)}(a)}{j!}\,(b-a)^{j}
+        +\frac{h^{(n+1)}(\xi)}{(n+1)!}\,(b-a)^{n+1},
+\]
+where $h^{(j)}$ denotes the $j$-th derivative of $h$, with $h^{(0)}=h$.
+\end{proposition}
+
+\begin{proposition}[Operator norm of a continuous multilinear map]
+Let $m\in\mathbb{N}$ and let $Q$ be a continuous $m$-linear form on $\mathrm{Plane}$.  Then
+\[
+  \lvert Q[v_1,\ldots,v_m]\rvert\le\lVert Q\rVert\,\lvert v_1\rvert\cdots\lvert v_m\rvert
+  \qquad\text{for all }v_1,\ldots,v_m\in\mathrm{Plane},
+\]
+where $\lVert Q\rVert$ is the operator norm of $Q$.  In particular
+$\lvert Q[v,\ldots,v]\rvert\le\lVert Q\rVert\,\lvert v\rvert^{m}$.  The space of continuous
+$m$-linear forms on $\mathrm{Plane}$ is a normed real vector space under this norm, and it is
+finite dimensional.
+\end{proposition}
+
+\begin{proposition}[Linear maps out of a finite-dimensional normed space are bounded]
+Let $V$ be a finite-dimensional normed real vector space, let $W$ be a normed real vector
+space and let $L\colon V\to W$ be linear.  Then $L$ is continuous, and consequently there is
+$\Lambda<\infty$ with $\lVert L(v)\rVert\le\Lambda\lVert v\rVert$ for every $v\in V$.
+\end{proposition}
+
+\begin{proposition}[Chain rule and derivatives of affine paths]
+Let $x_0,e\in\mathrm{Plane}$ and let $\gamma\colon\mathbb{R}\to\mathrm{Plane}$,
+$\gamma(s)=x_0+s\,e$.  Then $\gamma$ is of class $C^\infty$ and
+$\gamma'(s)=e$ for every $s$.  If $W$ is a normed real vector space, $f\colon\mathrm{Plane}\to W$
+is differentiable at $\gamma(t)$, then $f\circ\gamma$ is differentiable at $t$ with
+$(f\circ\gamma)'(t)=Df(\gamma(t))[e]$.  If $f$ is of class $C^{j}$ on an open set containing
+$\gamma(t)$, then $f\circ\gamma$ is of class $C^{j}$ on an open interval containing $t$.
+Finally, derivatives are local: if two functions $\mathbb{R}\to W$ agree on a neighbourhood of
+$t$, their derivatives at $t$ agree.
+\end{proposition}
+
+\begin{proposition}[Iterated derivatives under translations and dilations]
+Let $W$ be a normed real vector space, let $f\colon\mathrm{Plane}\to W$, let $n\in\mathbb{N}$
+and let $a\in\mathrm{Plane}$.  Then, as continuous $n$-linear forms,
+\[
+  D^{n}\bigl(f(a+\cdot)\bigr)(x)=D^{n}f(a+x)\qquad\text{for every }x\in\mathrm{Plane},
+\]
+and if $f$ is of class $C^{n}$ on all of $\mathrm{Plane}$ then for every $\lambda\in\mathbb{R}$
+\[
+  D^{n}\bigl(f(\lambda\,\cdot)\bigr)(x)=\lambda^{n}\,D^{n}f(\lambda x)
+  \qquad\text{for every }x\in\mathrm{Plane}.
+\]
+Both identities hold at the level of the full multilinear form, not only of its diagonal
+evaluations.
+\end{proposition}
+
+\begin{proposition}[Recursion for the iterated Fr\'echet derivative]
+Let $W$ be a normed real vector space, let $U\subseteq\mathrm{Plane}$ be open, let
+$f\colon\mathrm{Plane}\to W$ and let $n\in\mathbb{N}$.
+\begin{enumerate}
+\item $D^{0}f(x)$ is the constant $0$-linear form with value $f(x)$; evaluated on the empty
+family of vectors it equals $f(x)$.
+\item For every $x$ and all $w,v_1,\ldots,v_n\in\mathrm{Plane}$,
+\[
+  \bigl(D\bigl(D^{n}f\bigr)(x)[w]\bigr)[v_1,\ldots,v_n]=D^{n+1}f(x)[w,v_1,\ldots,v_n],
+\]
+where $D^{n}f$ is regarded as a map from $\mathrm{Plane}$ to the normed space of continuous
+$n$-linear forms on $\mathrm{Plane}$ and $D$ is its Fr\'echet derivative.  That is, the
+iterated derivative is obtained by differentiating in the first slot.
+\item If $f$ is of class $C^{n+1}$ on $U$, then $x\mapsto D^{n}f(x)$ is of class $C^{1}$ on
+$U$; in particular it is differentiable at every point of $U$, and its derivative there is
+given by (2).
+\item For one-variable functions $h\colon\mathbb{R}\to W$ the iterated derivatives are defined
+by $h^{(0)}=h$ and $h^{(n+1)}=\bigl(h^{(n)}\bigr)'$.
+\item If $f$ is of class $C^{n}$ on $U$, then the map $x\mapsto D^{n}f(x)$, with values in the
+normed space of continuous $n$-linear forms on $\mathrm{Plane}$, is continuous on $U$.
+\item At order $1$ the Fr\'echet derivative is the classical gradient paired against the
+argument: if $f\colon\mathrm{Plane}\to\mathbb{R}$ is differentiable at $x$, then
+$D^{1}f(x)[w]=\langle Df(x),w\rangle$ for every $w\in\mathrm{Plane}$, where $Df(x)$ is the
+classical gradient.  Consequently $Df(x)=0$ if and only if $D^{1}f(x)[w]=0$ for every $w$.
+\item A diagonal evaluation of a continuous $n$-linear form is continuous and positively
+homogeneous of degree $n$: the map $x\mapsto Q[x,\ldots,x]$ is continuous, and
+$Q[tx,\ldots,tx]=t^{n}\,Q[x,\ldots,x]$ for every $t\in\mathbb{R}$, by multilinearity alone.
+Scalar multiples of continuous multilinear forms evaluate pointwise:
+$(\mu\,Q)[x,\ldots,x]=\mu\,Q[x,\ldots,x]$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Elementary properties of real powers]
+Let $t,a,b$ be real numbers with $t\ge0$, and let $t^{a}$ denote the real power with the
+convention $0^{a}=0$ for $a\neq0$ and $0^{0}=1$.
+\begin{enumerate}
+\item $0^{a}=0$ whenever $a\neq0$; in particular $0^{a}=0$ for every $a>0$.
+\item If $t>0$ then $t^{a}t^{b}=t^{a+b}$, and $(st)^{a}=s^{a}t^{a}$ for $s,t\ge0$.
+\item If $a\ge0$ then $t\mapsto t^{a}$ is nondecreasing on $[0,\infty)$.
+\item If $0\le a\le p$ then $t^{a}\le1+t^{p}$ for every $t\ge0$ (indeed $t^{a}\le1$ when
+$t\le1$ and $t^{a}\le t^{p}$ when $t\ge1$).
+\item If $q\ge1$ then $(s+t)^{q}\le2^{q}\bigl(s^{q}+t^{q}\bigr)$ for all $s,t\ge0$ (since
+$s+t\le2\max(s,t)$ and $r\mapsto r^{q}$ is nondecreasing).
+\item If $0<a\le1$ and $0<t<1$ then $t^{a}\le1$.
+\item For $a\ge0$ the map $t\mapsto t^{a}$ is continuous on $[0,\infty)$, with value
+$0^{a}=0$ at $t=0$ when $a>0$.  For $a\neq0$ it is continuous at every $t>0$.  For $a<0$ it is
+\emph{not} continuous at $t=0$: it tends to $+\infty$ there.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Uniform limits of continuous functions]
+Let $X$ be a topological space, let $Y$ be a metric space, let $S\subseteq X$ and let
+$f_n,f\colon X\to Y$.  If each $f_n$ is continuous on $S$ and $f_n\to f$ uniformly on $S$,
+then $f$ is continuous on $S$.  Uniform convergence on $S$ implies pointwise convergence at
+every point of $S$.  If moreover $S$ is a neighbourhood of a point $x$, then continuity of $f$
+on $S$ gives continuity of $f$ at $x$.
+\end{proposition}
+
+\begin{proposition}[Pointwise limits preserve almost-everywhere strong measurability]
+Let $\mu$ be a measure on $\mathrm{Plane}$, let $E$ be a Banach space and let
+$f_n,f\colon\mathrm{Plane}\to E$.  If every $f_n$ is almost everywhere strongly measurable
+with respect to $\mu$ and $f_n(x)\to f(x)$ for $\mu$-almost every $x$, then $f$ is almost
+everywhere strongly measurable with respect to $\mu$.
+
+Moreover, almost-everywhere strong measurability is stable under composition with a continuous
+map: if $f\colon\mathrm{Plane}\to E$ is almost everywhere strongly measurable with respect to
+$\mu$ and $\Phi\colon E\to E'$ is continuous, with $E'$ a Banach space, then $\Phi\circ f$ is
+almost everywhere strongly measurable with respect to $\mu$; and a product or inner product of
+two almost everywhere strongly measurable functions is almost everywhere strongly measurable.
+\end{proposition}
+
+\begin{proposition}[Dominated convergence theorem]
+Let $\mu$ be a measure on $\mathrm{Plane}$, let $E$ be a Banach space, let
+$F_n,F\colon\mathrm{Plane}\to E$ and let $H\colon\mathrm{Plane}\to\mathbb{R}$.  Assume that
+every $F_n$ is almost everywhere strongly measurable with respect to $\mu$, that $H$ is
+integrable with respect to $\mu$, that for every $n$ one has $\lVert F_n(x)\rVert\le H(x)$ for
+$\mu$-almost every $x$, and that $F_n(x)\to F(x)$ for $\mu$-almost every $x$.  Then
+\[
+  \int F_n\,d\mu\longrightarrow\int F\,d\mu .
+\]
+Discarding finitely many terms of a sequence changes neither the hypotheses nor the conclusion,
+so it suffices that the domination hold for all sufficiently large $n$.
+\end{proposition}
+
+\begin{proposition}[Restriction and congruence for continuity, measurability and integrals]
+Let $E$ be a Banach space, and let all sets and measures below live in $\mathrm{Plane}$ with its
+Lebesgue measure, written $\lvert\cdot\rvert$ for the measure and $\mathrm{vol}$ when it is
+restricted.
+\begin{enumerate}
+\item If $f$ is continuous on $S$ and $S'\subseteq S$, then $f$ is continuous on $S'$.  If $f$
+is continuous on $S$ and $f'=f$ on $S$, then $f'$ is continuous on $S$.
+\item If $S'\subseteq S$, then $\mathrm{vol}|_{S'}\le\mathrm{vol}|_{S}$ as measures, and almost
+everywhere strong measurability with respect to a larger measure implies it with respect to a
+smaller one.  Hence a function almost everywhere strongly measurable for $\mathrm{vol}|_{S}$ is
+almost everywhere strongly measurable for $\mathrm{vol}|_{S'}$.
+\item If $f'=f$ on a measurable set $S$, then $f'=f$ almost everywhere with respect to
+$\mathrm{vol}|_{S}$, because that measure is carried by $S$.  Almost everywhere strong
+measurability transfers between two functions that agree almost everywhere.
+\item For a \emph{countable} family $(S_n)$ of sets, a function is almost everywhere strongly
+measurable for $\mathrm{vol}|_{\bigcup_nS_n}$ if and only if it is almost everywhere strongly
+measurable for every $\mathrm{vol}|_{S_n}$.
+\item If $f'=f$ on a measurable set $S$, then $\int_Sf'\,dx=\int_Sf\,dx$, and for every
+$K\subseteq S$ the function $f'$ is integrable on $K$ if and only if $f$ is.  More generally,
+two functions agreeing on $S$ have the same integral over every subset of $S$ and the same
+integrability there.
+\item The same holds for almost-everywhere agreement, which is strictly weaker than agreement
+on a set: if $f'=f$ $\mu$-almost everywhere, then $\int f'\,d\mu=\int f\,d\mu$ and $f'$ is
+$\mu$-integrable if and only if $f$ is.  In particular, if $f'=f$ almost everywhere on a
+measurable $S$ --- that is, $\mathrm{vol}|_{S}$-almost everywhere --- then
+$\int_Sf'\,dx=\int_Sf\,dx$.  Composition preserves almost-everywhere agreement: if $f'=f$
+almost everywhere and $\Phi$ is any map, then $\Phi\circ f'=\Phi\circ f$ almost everywhere.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Gradient under an affine substitution]
+Let $x_0\in\mathrm{Plane}$, let $\lambda>0$, and let
+\[
+  T(x):=x_0+\lambda\,x,\qquad S(z):=\lambda^{-1}(z-x_0),
+\]
+mutually inverse affine homeomorphisms of $\mathrm{Plane}$.  Let $w\colon\mathrm{Plane}\to\mathbb{R}$
+and $\mu\in\mathbb{R}$.
+\begin{enumerate}
+\item If $w$ is differentiable at $S(z)$, then $w\circ S$ is differentiable at $z$ with
+classical gradient
+\[
+  D(w\circ S)(z)=\lambda^{-1}\,Dw\bigl(S(z)\bigr).
+\]
+\item If $w$ is of class $C^{1}$ on an open set $V\subseteq\mathrm{Plane}$, then $w\circ S$ is of
+class $C^{1}$ on $S^{-1}(V)=\{z:S(z)\in V\}=T(V)$, which is open.
+\item For a constant $\mu$, the function $\mu\,w$ is differentiable wherever $w$ is, with
+$D(\mu\,w)=\mu\,Dw$, and is of class $C^{1}$ wherever $w$ is.
+\item $\lvert S(z)-S(z')\rvert=\lambda^{-1}\lvert z-z'\rvert$ for all $z,z'$, and
+$S$ maps $B_{\lambda t}(x_0)$ onto $B_{t}(0)$ for every $t>0$.
+\item The same statements hold for the forward map $T$: if $w$ is differentiable at $T(x)$ then
+$w\circ T$ is differentiable at $x$ with $D(w\circ T)(x)=\lambda\,Dw(T(x))$; if $w$ is of class
+$C^{1}$ on an open $V$ then $w\circ T$ is of class $C^{1}$ on
+$T^{-1}(V)=\{x:T(x)\in V\}$, which is open; and $T$ maps $B_{t}(0)$ onto $B_{\lambda t}(x_0)$ for
+every $t>0$.  Adding a constant to a function does not change its gradient, so
+$D\bigl(\mu\,(w\circ T-c)\bigr)(x)=\mu\,\lambda\,Dw(T(x))$ for constants $\mu,c$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Riesz identification of the gradient with the Fr\'echet derivative]
+Write $\mathrm{Plane}^{*}$ for the space of continuous linear functionals on $\mathrm{Plane}$,
+and let $J\colon\mathrm{Plane}\to\mathrm{Plane}^{*}$ be the Riesz map
+$J(\xi):=\langle\xi,\cdot\rangle$.
+\begin{enumerate}
+\item $J$ is a linear isometry of $\mathrm{Plane}$ onto $\mathrm{Plane}^{*}$; in particular
+$\lVert J(\xi)-J(\eta)\rVert=\lvert\xi-\eta\rvert$ for all $\xi,\eta\in\mathrm{Plane}$.
+\item For $f\colon\mathrm{Plane}\to\mathbb{R}$, a vector $\xi\in\mathrm{Plane}$ and a point $x$:
+$f$ has classical gradient $\xi$ at $x$ if and only if $f$ has Fr\'echet derivative $J(\xi)$ at
+$x$.
+\item The gradient is unique where it exists: if $f$ has classical gradient $\xi$ at $x$, then
+$Df(x)=\xi$, where $Df$ denotes the gradient map.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Derivative of a locally uniform limit of derivatives]
+Let $\Omega\subseteq\mathrm{Plane}$ be open, let $f_n,f\colon\mathrm{Plane}\to\mathbb{R}$ and let
+$f'_n,f'\colon\mathrm{Plane}\to\mathrm{Plane}^{*}$ be families of continuous linear functionals.
+Suppose
+\begin{enumerate}
+\item $f'_n\to f'$ locally uniformly on $\Omega$;
+\item for every $n$ and every $x\in\Omega$, the function $f_n$ has Fr\'echet derivative
+$f'_n(x)$ at $x$;
+\item for every $x\in\Omega$, $f_n(x)\to f(x)$.
+\end{enumerate}
+Then for every $x\in\Omega$ the function $f$ has Fr\'echet derivative $f'(x)$ at $x$.
+
+Moreover, since $\mathrm{Plane}$ is locally compact, for an open $\Omega$ locally uniform
+convergence on $\Omega$ is equivalent to uniform convergence on every compact subset of
+$\Omega$.
+\end{proposition}
+
+\begin{proposition}[Locality of $C^1$ regularity and continuity of the gradient]
+Let $\Omega\subseteq\mathrm{Plane}$ be open and let $f\colon\mathrm{Plane}\to\mathbb{R}$.
+\begin{enumerate}
+\item If every $z\in\Omega$ has an open neighbourhood $V$ with $V\subseteq\Omega$ on which $f$
+is of class $C^{1}$, then $f$ is of class $C^{1}$ on $\Omega$.
+\item If $f$ is of class $C^{1}$ on $\Omega$, then $f$ is differentiable at every point of
+$\Omega$ and both $f$ and its classical gradient $Df$ are continuous on $\Omega$.
+\item Consequently, if $S\subseteq\mathrm{Plane}$ and every point of $S$ has an open
+neighbourhood on which $f$ is of class $C^{1}$, then $f$ and $Df$ are continuous on $S$.
+\item $C^{1}$ regularity restricts: if $f$ is of class $C^{1}$ on $S$ and $S'\subseteq S$, then
+$f$ is of class $C^{1}$ on $S'$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Thickening and compact exhaustion of an open subset of the plane]
+Let $\Omega\subseteq\mathrm{Plane}$ be open.
+\begin{enumerate}
+\item \textbf{Uniform thickening.}  For every compact $K\subseteq\Omega$ there is $\rho>0$ such
+that the thickened set $K^{\rho}:=\{z\in\mathrm{Plane}:\operatorname{dist}(z,K)\le\rho\}$
+satisfies $K^{\rho}\subseteq\Omega$; and $K^{\rho}$ is compact.  In particular
+$\overline{B_{\rho}(z_0)}\subseteq K^{\rho}$ for every $z_0\in K$.
+\item \textbf{Exhaustion.}  For $j\ge1$ put
+$K_j:=\{z\in\mathrm{Plane}:\lvert z\rvert\le j\text{ and }B_{1/j}(z)\subseteq\Omega\}$, and
+$K_0:=\emptyset$.  Each $K_j$ is a compact subset of $\Omega$, $K_j\subseteq K_{j+1}$, and
+$\bigcup_{j}K_j=\Omega$.
+\item \textbf{The exhaustion eventually covers.}  Every compact $K\subseteq\Omega$ satisfies
+$K\subseteq K_j$ for some $j$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Arzel\`a--Ascoli, sequential form]
+Let $K$ be a compact metric space, let $W$ be a finite-dimensional normed real vector space,
+and let $f_n\colon K\to W$ be continuous for $n\in\mathbb{N}$.  Assume
+\begin{enumerate}
+\item \textbf{uniform boundedness:} there is $C<\infty$ with $\lVert f_n(z)\rVert\le C$ for all
+$n\in\mathbb{N}$ and all $z\in K$;
+\item \textbf{equicontinuity:} for every $\varepsilon>0$ there is $\delta>0$ such that for all
+$n\in\mathbb{N}$ and all $z,z'\in K$ with $d(z,z')<\delta$ one has
+$\lVert f_n(z)-f_n(z')\rVert\le\varepsilon$.
+\end{enumerate}
+Then there are a strictly increasing $\sigma\colon\mathbb{N}\to\mathbb{N}$ and a continuous
+$f\colon K\to W$ such that $f_{\sigma(i)}\to f$ uniformly on $K$ as $i\to\infty$.
+
+Two standard remarks that are used with it.  First, $\mathbb{R}\times\mathrm{Plane}$ is a
+finite-dimensional normed real vector space, so the proposition applies to pair-valued maps
+$z\mapsto(a(z),b(z))$, and such a map is bounded, respectively equicontinuous, exactly when both
+components are.  Second, a tail of a subsequence of a sequence converging uniformly on $K$
+converges uniformly on $K$ to the same limit.
+\end{proposition}
+
+\begin{proposition}[Mean value inequality on a convex set]
+Let $U\subseteq\mathrm{Plane}$ be convex, let $f\colon\mathrm{Plane}\to\mathbb{R}$ be
+differentiable at every point of $U$, and let $L\ge0$ satisfy
+$\lvert Df(z)\rvert\le L$ for every $z\in U$, where $Df$ is the classical gradient.  Then
+\[
+  \lvert f(z)-f(z')\rvert\le L\,\lvert z-z'\rvert\qquad\text{for all }z,z'\in U.
+\]
+(The operator norm of the Fr\'echet derivative equals $\lvert Df\rvert$, by clause (1) of the
+background proposition on the Riesz identification, so the hypothesis is the usual one.)
+\end{proposition}
+
+\begin{proposition}[Product rule and linearity for the classical gradient]
+Let $f,f_1,f_2\colon\mathrm{Plane}\to\mathbb{R}$, let $a_1,a_2\in\mathbb{R}$ and let
+$x\in\mathrm{Plane}$.
+\begin{enumerate}
+\item \textbf{Product rule.}  If $f_1$ and $f_2$ are differentiable at $x$, then so is
+$f_1f_2$, with classical gradient
+\[
+  D(f_1f_2)(x)=f_2(x)\,Df_1(x)+f_1(x)\,Df_2(x).
+\]
+\item \textbf{Linearity.}  If $f_1$ and $f_2$ are differentiable at $x$, then so is
+$a_1f_1+a_2f_2$, with $D(a_1f_1+a_2f_2)(x)=a_1\,Df_1(x)+a_2\,Df_2(x)$.
+\item \textbf{Vanishing on an open set.}  If $V\subseteq\mathrm{Plane}$ is open and $f\equiv0$
+on $V$, then $f$ is differentiable at every point of $V$ with $Df\equiv0$ on $V$.  The same
+applies to any function constant on $V$.
+\item \textbf{Products of $C^1$ functions.}  If $f_1$ and $f_2$ are of class $C^{1}$ on a set
+$S$, then so is $f_1f_2$; and the zero function is of class $C^{1}$ on any set.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Fundamental lemma of the calculus of variations]
+Let $U\subseteq\mathrm{Plane}$ be open, let $F$ be a Banach space --- in the applications below
+$F=\mathrm{Plane}$ or $F=\mathbb{R}$ --- and let $f\colon\mathrm{Plane}\to F$ be locally
+integrable on $U$ with respect to Lebesgue measure.  Suppose
+\[
+  \int_{\mathrm{Plane}}\varphi(x)\,f(x)\,dx=0
+\]
+for every $\varphi\colon\mathrm{Plane}\to\mathbb{R}$ of class $C^\infty$ with compact support
+and $\operatorname{supp}\varphi\subseteq U$.  Then $f(x)=0$ for Lebesgue-almost every $x\in U$;
+that is, for almost every $x\in\mathrm{Plane}$, if $x\in U$ then $f(x)=0$.
+
+Here \emph{locally integrable on $U$} means that every point of $U$ has a neighbourhood on
+which $f$ is integrable; since $U$ is open and $\mathrm{Plane}$ is locally compact, this is
+equivalent to $f$ being integrable on every compact subset of $U$, and that is the form in
+which the hypothesis is verified below.
+\end{proposition}
+
+\begin{proposition}[Bounded continuous functions on a compact base, and Arzel\`a--Ascoli for them]
+Let $K$ be a compact topological space and let $Y$ be a metric space.  Write $K\to^{b}Y$ for the
+space of bounded continuous maps $K\to Y$.
+\begin{enumerate}
+\item \textbf{The sup metric.}  $K\to^{b}Y$ is a metric space under the supremum distance, and
+for every $f,g\in K\to^{b}Y$ and every $x\in K$,
+\[
+  d\bigl(f(x),g(x)\bigr)\le d(f,g).
+\]
+Consequently, if $f_n\to f$ in $K\to^{b}Y$ then $f_n\to f$ uniformly on $K$, and in particular
+pointwise at every $x\in K$.
+\item \textbf{The product metric.}  $\mathbb{R}\times\mathrm{Plane}$ is a metric space under
+$d\bigl((a,b),(a',b')\bigr)=\max\bigl(\lvert a-a'\rvert,\lvert b-b'\rvert\bigr)$.  Hence the
+distance between either pair of components is at most the distance between the pairs,
+convergence of pairs is convergence of both components, and for $A,B\ge0$ the set
+$[-A,A]\times\overline{B_B(0)}$ is a compact subset of $\mathbb{R}\times\mathrm{Plane}$.
+\item \textbf{Closures are sequential.}  In a metric space, every point of the closure of a set
+$A$ is the limit of a sequence of elements of $A$.
+\item \textbf{Equicontinuity.}  A family $(F_i)_{i\in\iota}$ of maps $K\to Y$ is
+\emph{equicontinuous} when for every $x_0\in K$ and every $\varepsilon>0$ there is a
+neighbourhood $V$ of $x_0$ in $K$ with $d\bigl(F_i(x),F_i(x_0)\bigr)\le\varepsilon$ for every
+$i\in\iota$ and every $x\in V$.  A uniform modulus suffices: if for every $\varepsilon>0$ there
+is $\delta>0$ such that $d\bigl(F_i(x),F_i(x')\bigr)\le\varepsilon$ for every $i\in\iota$ and all
+$x,x'\in K$ with $d(x,x')<\delta$, then the family is equicontinuous.
+\item \textbf{Arzel\`a--Ascoli for bundled maps.}  Let $s\subseteq Y$ be compact and let
+$A\subseteq K\to^{b}Y$ be such that $f(x)\in s$ for every $f\in A$ and every $x\in K$, and such
+that the family of underlying maps of the elements of $A$ is equicontinuous.  Then
+$\overline{A}$ is a compact subset of $K\to^{b}Y$.  Note that closedness is not a hypothesis:
+the conclusion is about the closure.
+\item \textbf{Pointwise limits and weak inequalities.}  If $a_n\to a$ in $\mathbb{R}$ and
+$a_n\le c$ for every $n$, then $a\le c$; if $a_n=c$ for every $n$, then $a=c$.  The same holds
+for limits in $\mathrm{Plane}$ and equalities there.
+\item \textbf{The closed ball as a compact space.}  For $r\ge0$ the set
+$\overline{B_r(0)}\subseteq\mathrm{Plane}$, regarded as a topological space in its own right
+(the subtype of points at distance at most $r$ from the origin), is compact.
+\item \textbf{Evaluation is continuous.}  For each $x\in K$ the evaluation map
+$z\mapsto z(x)$ from $K\to^{b}Y$ to $Y$ is continuous.  Hence, for
+$Y=\mathbb{R}\times\mathrm{Plane}$, each of $z\mapsto(z(x))_1$, $z\mapsto(z(x))_2$,
+$z\mapsto\lvert(z(x))_1\rvert$ and $z\mapsto\lvert(z(x))_2\rvert$ is continuous on
+$K\to^{b}Y$.
+\item \textbf{Continuous maps on a compact base are bounded.}  If $f\colon K\to Y$ is
+continuous then $f$ is bounded, so it determines an element of $K\to^{b}Y$ taking the same
+values as $f$ at every point of $K$.
+\item \textbf{Closed subsets of compact sets.}  The preimage of a closed set under a continuous
+map is closed; a singleton in a metric space is closed; and the intersection of a compact set
+with a closed set is compact.
+\item \textbf{Finite subcovers.}  Open metric balls are open.  If $C$ is a compact set and
+$(V_i)_{i\in\iota}$ is a family of open sets with $C\subseteq\bigcup_{i}V_i$, then there is a
+finite subset $s\subseteq\iota$ with $C\subseteq\bigcup_{i\in s}V_i$.
+\end{enumerate}
+\end{proposition}
+\begin{proposition}[Regularity of the gradient field and of directional derivatives]
+Let $U\subseteq\mathrm{Plane}$ be open.  Below $n$ ranges over $\mathbb{N}\cup\{\infty\}$, with
+the convention that ``of class $C^{n+1}$'' means ``of class $C^{\infty}$'' when $n=\infty$.
+\begin{enumerate}
+\item \textbf{Regularity of the gradient field.}  If $f\colon\mathrm{Plane}\to\mathbb{R}$ is of
+class $C^{n+1}$ on $U$, then the classical gradient field $Df\colon\mathrm{Plane}\to
+\mathrm{Plane}$ is of class $C^{n}$ on $U$.
+\item \textbf{Directional derivatives.}  For $e\in\mathrm{Plane}$ put
+$\partial_ef(x):=\langle Df(x),e\rangle$.  If $f\colon\mathrm{Plane}\to\mathbb{R}$ is of class
+$C^{n+1}$ on $U$, then $\partial_ef$ is of class $C^{n}$ on $U$; and if moreover $n\ge1$ then
+for every $x\in U$ and every $w\in\mathrm{Plane}$,
+$\bigl\langle D(\partial_ef)(x),w\bigr\rangle=D^{2}f(x)[w,e]$.
+\item \textbf{Order two, in gradient form.}  If $f\colon\mathrm{Plane}\to\mathbb{R}$ is of
+class $C^{2}$ on $U$ and $e\in\mathrm{Plane}$, then for every $x\in U$ the map
+$Df\colon\mathrm{Plane}\to\mathrm{Plane}$ is differentiable at $x$ and
+\[
+  D\bigl(\partial_ef\bigr)(x)=\partial_e\bigl(Df\bigr)(x),
+\]
+an identity of vectors of $\mathrm{Plane}$, where the right-hand side
+$\partial_e(Df)(x)=D(Df)(x)[e]$ is the derivative of the gradient field at $x$ in the
+direction $e$.  Equivalently
+$\bigl\langle D(\partial_ef)(x),w\bigr\rangle=D^{2}f(x)[w,e]=D^{2}f(x)[e,w]$ for every
+$w\in\mathrm{Plane}$.  This is symmetry of the \emph{second} derivative of a $C^{2}$ function
+and is asserted at order two only.
+\item \textbf{Directional derivatives of test functions.}  If
+$f\colon\mathrm{Plane}\to\mathbb{R}$ is of class $C^{\infty}$ on all of $\mathrm{Plane}$ and
+has compact support, then for every $e\in\mathrm{Plane}$ the function $\partial_ef$ is of class
+$C^{\infty}$ on all of $\mathrm{Plane}$, has compact support, and satisfies
+$\operatorname{tsupp}(\partial_ef)\subseteq\operatorname{tsupp}(f)$.
+\item \textbf{Derivatives of order $i$ from derivatives of a directional derivative.}  If
+$f\colon\mathrm{Plane}\to\mathbb{R}$ is of class $C^{i}$ on $U$ with $i\ge1$, then for every
+$x\in U$, every $e\in\mathrm{Plane}$ and all $v_1,\ldots,v_{i-1}\in\mathrm{Plane}$,
+\[
+  D^{\,i-1}\bigl(\partial_ef\bigr)(x)[v_1,\ldots,v_{i-1}]
+  =D^{\,i}f(x)[v_1,\ldots,v_{i-1},e].
+\]
+Consequently, if $(e_1,e_2)$ is the standard orthonormal basis of $\mathrm{Plane}$, then
+$\bigl\lVert D^{\,i}f(x)\bigr\rVert\le\sum_{m=1}^{2}
+  \bigl\lVert D^{\,i-1}(\partial_{e_m}f)(x)\bigr\rVert$.
+Both assertions expand the \emph{last} slot of $D^{i}f(x)$ and use multilinearity alone; no
+symmetry of $D^{i}f(x)$ is asserted or used.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Chain rule for compositions, and iterated derivatives of a composition]
+Let $E,F,G$ be normed real vector spaces --- in the applications below each of them is
+$\mathrm{Plane}$, $\mathbb{R}$, or a space of continuous multilinear forms on
+$\mathrm{Plane}$.
+\begin{enumerate}
+\item \textbf{Chain rule.}  Let $H\colon E\to F$ be differentiable at $x\in E$ and let
+$\Phi\colon F\to G$ be differentiable at $H(x)$.  Then $\Phi\circ H$ is differentiable at $x$
+and, as continuous linear maps $E\to G$,
+\[
+  D(\Phi\circ H)(x)=D\Phi\bigl(H(x)\bigr)\circ DH(x),
+  \qquad\text{i.e.}\qquad
+  D(\Phi\circ H)(x)[w]=D\Phi\bigl(H(x)\bigr)\bigl[DH(x)[w]\bigr].
+\]
+No affineness of $H$ is assumed.
+\item \textbf{Directional form.}  With $E=\mathrm{Plane}$ and $e\in\mathrm{Plane}$, writing
+$\partial_e$ for the derivative in the direction $e$, the same hypotheses give
+$\partial_e(\Phi\circ H)(x)=D\Phi(H(x))\bigl[\partial_eH(x)\bigr]$.
+\item \textbf{Regularity.}  If $U\subseteq E$ and $V\subseteq F$ are open with $H(U)\subseteq V$,
+$H$ is of class $C^{n}$ on $U$ and $\Phi$ is of class $C^{n}$ on $V$ (for $n\in\mathbb{N}$ or
+$n=\infty$), then $\Phi\circ H$ is of class $C^{n}$ on $U$.
+\item \textbf{Bound for the iterated derivatives of a composition.}  In the situation of (3)
+with $n\in\mathbb{N}$, let $x\in U$ and let $C,D\ge0$ satisfy
+\[
+  \bigl\lVert D^{i}\Phi\bigl(H(x)\bigr)\bigr\rVert\le C\quad(0\le i\le n),
+  \qquad
+  \bigl\lVert D^{i}H(x)\bigr\rVert\le D^{\,i}\quad(1\le i\le n).
+\]
+Then $\bigl\lVert D^{n}(\Phi\circ H)(x)\bigr\rVert\le n!\,C\,D^{\,n}$.  Here all iterated
+derivatives are those computed on the open sets $U$ and $V$, which by locality of derivatives
+agree with the ambient ones at points of those sets.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Mean value inequality on a convex set, vector valued]
+Let $W$ be a normed real vector space, let $U\subseteq\mathrm{Plane}$ be convex, let
+$f\colon\mathrm{Plane}\to W$ be differentiable at every point of $U$, and let $L\ge0$ satisfy
+$\lVert Df(z)\rVert\le L$ for every $z\in U$, where $Df(z)$ is the Fr\'echet derivative of $f$
+at $z$, a continuous linear map $\mathrm{Plane}\to W$, and $\lVert\cdot\rVert$ its operator
+norm.  Then
+\[
+  \lVert f(z)-f(z')\rVert\le L\,\lvert z-z'\rvert\qquad\text{for all }z,z'\in U.
+\]
+In particular, if $U$ has diameter at most $d$ and $0<\kappa\le1$, then for all $z,z'\in U$
+\[
+  \lVert f(z)-f(z')\rVert\le L\,d^{\,1-\kappa}\,\lvert z-z'\rvert^{\kappa},
+\]
+so a derivative bound on a convex set of finite diameter upgrades to a $\kappa$-H\"older
+estimate there.  The scalar case $W=\mathbb{R}$ is the preceding proposition.
+\end{proposition}
+
+\begin{proposition}[Order shift, and derivatives of a continuous bilinear pairing]
+Let $W_1,W_2,W_3$ be normed real vector spaces and write $\mathcal{L}(\mathrm{Plane},W)$ for the
+space of continuous linear maps $\mathrm{Plane}\to W$ with the operator norm.
+\begin{enumerate}
+\item \textbf{Order shift.}  Let $f\colon\mathrm{Plane}\to W_1$ and $n\in\mathbb{N}$.  There is a
+linear isometric isomorphism $\Psi_n$ from the space of continuous $n$-linear maps
+$\mathrm{Plane}^{n}\to\mathcal{L}(\mathrm{Plane},W_1)$ onto the space of continuous
+$(n+1)$-linear maps $\mathrm{Plane}^{n+1}\to W_1$, depending only on $n$, such that
+\[
+  D^{n+1}f(x)=\Psi_n\Bigl(D^{n}\bigl(Df\bigr)(x)\Bigr)\qquad\text{for every }x,
+\]
+where $Df\colon\mathrm{Plane}\to\mathcal{L}(\mathrm{Plane},W_1)$ is the Fr\'echet derivative of
+$f$.  In particular, $\Psi_n$ being a linear isometry,
+\[
+  \bigl\lVert D^{n+1}f(x)\bigr\rVert=\bigl\lVert D^{n}(Df)(x)\bigr\rVert
+  \quad\text{and}\quad
+  \bigl\lVert D^{n+1}f(x)-D^{n+1}f(y)\bigr\rVert
+    =\bigl\lVert D^{n}(Df)(x)-D^{n}(Df)(y)\bigr\rVert
+\]
+for all $x,y$.  So a bound, or a H\"older estimate, for the $n$-th derivative of $Df$ is the
+same thing as one for the $(n+1)$-st derivative of $f$.
+\item \textbf{Product rule for a bilinear pairing.}  Let
+$B\colon W_1\times W_2\to W_3$ be a continuous bilinear map, with norm
+$\lVert B\rVert:=\sup\{\lVert B(a,b)\rVert:\lVert a\rVert\le1,\lVert b\rVert\le1\}<\infty$, so
+that $\lVert B(a,b)\rVert\le\lVert B\rVert\lVert a\rVert\lVert b\rVert$ for all $a,b$.  If
+$F\colon\mathrm{Plane}\to W_1$ and $G\colon\mathrm{Plane}\to W_2$ are differentiable at $x$,
+then so is $y\mapsto B\bigl(F(y),G(y)\bigr)$, with
+\[
+  D\bigl(B(F,G)\bigr)(x)[h]=B\bigl(DF(x)[h],\,G(x)\bigr)+B\bigl(F(x),\,DG(x)[h]\bigr)
+  \qquad(h\in\mathrm{Plane}).
+\]
+If moreover $F$ and $G$ are of class $C^{n}$ on an open set, then so is $B(F,G)$ there.
+\item \textbf{Leibniz bound.}  In the situation of (2), with $F$ and $G$ of class $C^{n}$ on an
+open set containing $x$,
+\[
+  \bigl\lVert D^{n}\bigl(B(F,G)\bigr)(x)\bigr\rVert
+  \le\lVert B\rVert\sum_{i=0}^{n}\binom{n}{i}
+      \bigl\lVert D^{i}F(x)\bigr\rVert\,\bigl\lVert D^{\,n-i}G(x)\bigr\rVert .
+\]
+\item \textbf{The composition pairing.}  For normed real vector spaces $W$, the map
+\[
+  B_{\mathrm{comp}}\colon\mathcal{L}(\mathrm{Plane},W)\times\mathcal{L}(\mathrm{Plane},\mathrm{Plane})
+  \longrightarrow\mathcal{L}(\mathrm{Plane},W),\qquad
+  B_{\mathrm{comp}}(S,T):=S\circ T,
+\]
+is bilinear and continuous with $\lVert B_{\mathrm{comp}}\rVert\le1$.
+\end{enumerate}
+\end{proposition}
+

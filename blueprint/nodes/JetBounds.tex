@@ -1,0 +1,200 @@
+\begin{lemma}[Jet bounds and the Taylor error at every point of the half ball]
+Let $1<p<2$, let the Lewis rigidity datum of \noderef{LewisRigidityInput}, the Lewis--Tolksdorf
+datum $F$ of \noderef{FirstOrderEstimateInput}, the Iwaniec--Manfredi datum of
+\noderef{IMRegularityInput}, the smoothness-away-from-critical-points hypothesis of
+\noderef{SmoothAwayFromCriticalInput}, the interior divergence-form Schauder estimates of
+\noderef{DivFormSchauderInput} and the local boundedness datum of
+\noderef{LocalBoundednessInput} be given for $p$, let $k\in\mathbb{N}$ with $k\ge2$, and let
+$0<\beta<1$ with $k+\beta<s(p)$ as in \noderef{SOpt}.  Write $\sigma:=k+\beta$.
+
+Then there is $C>0$, depending only on $p,k,\beta$ and the data, with the following property.
+Let $u\colon\mathrm{Plane}\to\mathbb{R}$ be $p$-harmonic on $B_1$ with weak gradient $g$ in the
+sense of \noderef{IsPHarm} and suppose $u\in L^{p}(B_1)$, i.e.\ $u$ is $p$-integrable with
+respect to Lebesgue measure restricted to $B_1$; write
+$N:=\lVert u\rVert_{L^{p}(B_1)}=\bigl(\int_{B_1}\lvert u\rvert^{p}\,dx\bigr)^{1/p}$.  Then for every $x\in B_{1/2}$:
+\begin{enumerate}
+\item $\bigl\lvert D^{j}u(x)[w,\ldots,w]\bigr\rvert\le C\,N\,\lvert w\rvert^{j}$ for every $j$
+  with $1\le j\le k$ and every $w\in\mathrm{Plane}$;
+\item $\bigl\lvert u(z)-\mathrm{TaylorPoly}(k,u,x)(z)\bigr\rvert
+  \le C\,N\,\lvert z-x\rvert^{\sigma}$ for every $z\in B_{1/4}(x)$.
+\end{enumerate}
+
+These are the paper's eq:jet-bound and eq:jet-error (paper lines 300--303), rendered
+diagonally and pointwise.  The paper writes them with its normalizing constant
+$M_0=2C_b\lVert u\rVert_{L^{p}(B_1)}$ on the right; since $C_b$ depends only on $p$, the factor
+$2C_b$ is absorbed into $C$, which is the paper's own bookkeeping that all constants depend only
+on $p,k,\beta$.
+\end{lemma}
+\begin{proof}
+Write $C_b>0$ for the constant carried by the local boundedness datum of
+\noderef{LocalBoundednessInput}, and $\sigma=k+\beta$, so $\sigma>2>1$; in particular
+$\sigma>0$.
+\medskip\noindent\emph{A remark on real powers, recorded once and used throughout.}  Three
+facts about real powers are used below which are \emph{not} among the listed clauses of the
+background proposition on elementary properties of real powers, so we derive them here from
+those clauses.  Throughout, $t^{0}=1$ for $t>0$: that is the value of the real power at
+exponent $0$.
+\begin{itemize}
+\item[(P1)] \emph{Positivity.}  For $t>0$ and every $a\in\mathbb{R}$, $t^{a}>0$.  If $a=0$ this
+is $t^{0}=1>0$.  If $a>0$, clause (3) makes $s\mapsto s^{a}$ nondecreasing on $[0,\infty)$ and
+clause (1) gives $0^{a}=0$, so $t^{a}\ge0^{a}=0$; and clause (2), applicable because $t>0$,
+gives $t^{a}t^{-a}=t^{0}=1$, so $t^{a}\ne0$; hence $t^{a}>0$.  If $a<0$ then $-a>0$, so
+$t^{-a}>0$ by the case just done, and $t^{a}t^{-a}=1$ gives $t^{a}=1/t^{-a}>0$.
+\item[(P2)] \emph{The base $1$.}  For every $a\in\mathbb{R}$, $1^{a}=1$.  Clause (2) gives
+$1^{a}=(1\cdot1)^{a}=1^{a}\cdot1^{a}$, and $1^{a}>0$ by (P1), so dividing by $1^{a}$ gives
+$1^{a}=1$.
+\item[(P3)] \emph{Inverting the base.}  For $t>0$ and every $a\in\mathbb{R}$,
+$\bigl(t^{-1}\bigr)^{a}=t^{-a}$.  Clause (2) gives
+$t^{a}\bigl(t^{-1}\bigr)^{a}=\bigl(t\,t^{-1}\bigr)^{a}=1^{a}=1$ by (P2), and
+$t^{a}t^{-a}=t^{0}=1$; since $t^{a}>0$ by (P1), both $\bigl(t^{-1}\bigr)^{a}$ and $t^{-a}$
+equal $1/t^{a}$, hence they are equal.
+\end{itemize}
+
+
+\medskip\noindent\textbf{Step 0: the constants, fixed before $u$.}
+Apply \noderef{Approximation} with $p$, $1<p<2$, the five data it requires, $k$, $k\ge2$,
+$\beta$, $0<\beta<1$ and $k+\beta<s(p)$.  It produces $C_A>0$ such that every
+$p$-harmonic $v$ on $B_1$ with weak gradient $h$, with $\lvert v\rvert\le1$ on $B_1$ and
+$v(0)=0$, satisfies
+\begin{equation}\label{eq:jb-approx}
+  \bigl\lvert D^{j}v(0)[e,\ldots,e]\bigr\rvert\le C_A\lvert e\rvert^{j}\ \ (1\le j\le k),
+  \qquad
+  \bigl\lvert v(y)-\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert\le C_A\lvert y\rvert^{\sigma}
+    \ \ (\lvert y\rvert<1).
+\end{equation}
+Put
+\[
+  C:=\max\bigl\{\,2C_bC_A\,4^{k},\ \ 2C_bC_A\,4^{\sigma}\,\bigr\}.
+\]
+Both entries are positive: $C_b>0$, $C_A>0$, $4^{k}\ge1$, and $4^{\sigma}>0$ by (P1), since
+$4>0$.  So $C>0$, and $C$ depends only on $p,k,\beta$ and the data.
+
+Now fix $u$ and $g$ as in the statement and put $N:=\lVert u\rVert_{L^{p}(B_1)}\ge0$.
+
+\medskip\noindent\textbf{Step 1: local boundedness.}
+The clause \texttt{bound} of \noderef{LocalBoundednessInput}, applied to $u$, $g$, the
+$p$-harmonicity hypothesis and $u\in L^{p}(B_1)$, gives
+\begin{equation}\label{eq:jb-lb}
+  \lvert u(\zeta)\rvert\le C_b\,N\qquad\text{for every }\zeta\in B_{3/4}.
+\end{equation}
+(The clause is already two-sided, carrying an absolute value, so the paper's step of applying
+local boundedness to both $u$ and $-u$ is built into the datum.)
+
+Note that $B_{1/2}\subseteq B_{3/4}$, and that for $x\in B_{1/2}$ and $\lvert y\rvert<1$,
+\begin{equation}\label{eq:jb-incl}
+  \bigl\lvert x+\tfrac14y\bigr\rvert\le\lvert x\rvert+\tfrac14\lvert y\rvert
+  <\tfrac12+\tfrac14=\tfrac34,
+\end{equation}
+so $x+\tfrac14y\in B_{3/4}\subseteq B_1$.
+
+\medskip\noindent\textbf{Step 2: the case $N=0$.}
+Here \eqref{eq:jb-lb} gives $\lvert u(\zeta)\rvert\le0$, i.e.\ $u(\zeta)=0$, for every
+$\zeta\in B_{3/4}$.  This is the paper's $M_0=0$ case, and it is not vacuous.
+
+Fix $x\in B_{1/2}$.  Since $u$ vanishes on the open set $B_{3/4}$, which contains $x$, and
+iterated Fr\'echet derivatives at a point depend only on the values of the function near that
+point, $D^{j}u(x)$ coincides with the $j$-th iterated derivative of the zero function at $x$,
+which is the zero $j$-linear form for $j\ge1$.  Hence
+$\lvert D^{j}u(x)[w,\ldots,w]\rvert=0$ for $1\le j\le k$, while the right-hand side of
+conclusion (1) is $C\cdot0\cdot\lvert w\rvert^{j}=0$; so conclusion (1) holds.
+
+For conclusion (2), by the definition in \noderef{TaylorPoly},
+$\mathrm{TaylorPoly}(k,u,x)(z)=\sum_{j=0}^{k}\frac{1}{j!}D^{j}u(x)[z-x,\ldots,z-x]$; the
+summand with $j=0$ is $D^{0}u(x)$ on the empty family, which is $u(x)=0$ by clause (1) of the
+background proposition on the recursion for the iterated Fr\'echet derivative, and the summands
+with $j\ge1$ vanish by the previous paragraph.  So $\mathrm{TaylorPoly}(k,u,x)(z)=0$ for every
+$z$.  Moreover, if $z\in B_{1/4}(x)$ then
+$\lvert z\rvert\le\lvert z-x\rvert+\lvert x\rvert<\tfrac14+\tfrac12=\tfrac34$, so
+$z\in B_{3/4}$ and $u(z)=0$.  Both sides of conclusion (2) are therefore $0$.
+
+\medskip\noindent\textbf{Step 3: the case $N>0$.}
+Put $M_0:=2C_bN>0$ and fix $x\in B_{1/2}$.
+
+\emph{(3a) The rescaled function.}  Define
+\[
+  w_x(y):=\frac{u\bigl(x+\tfrac14y\bigr)-u(x)}{M_0}.
+\]
+Apply \noderef{PHarmNormalize} with $\Omega:=B_1$, the function $u$, the weak gradient $g$, the
+base point $x_0:=x$, the dilation $r:=\tfrac14>0$, the normalizing constant $M:=M_0>0$ and the
+additive constant $c:=u(x)$: it gives that $w_x$ is $p$-harmonic, with weak gradient
+$y\mapsto\tfrac{1/4}{M_0}g(x+\tfrac14y)$, on the set $\{y:x+\tfrac14y\in B_1\}$.  By
+\eqref{eq:jb-incl} that set contains $B_1$, which is open, so the first clause of
+\noderef{PHarmRestrict} gives that $w_x$ is $p$-harmonic on $B_1$ with that weak gradient.
+
+Also $w_x(0)=\bigl(u(x+0)-u(x)\bigr)/M_0=0$.  And for $\lvert y\rvert<1$, both
+$x+\tfrac14y$ and $x$ lie in $B_{3/4}$ --- the first by \eqref{eq:jb-incl}, the second because
+$B_{1/2}\subseteq B_{3/4}$ --- so \eqref{eq:jb-lb} gives
+\[
+  \lvert w_x(y)\rvert\le\frac{\lvert u(x+\tfrac14y)\rvert+\lvert u(x)\rvert}{M_0}
+  \le\frac{2C_bN}{M_0}=1 .
+\]
+This is where the factor $2$ in $M_0=2C_bN$ is used; without it the bound would be $1/2$ short
+of what \noderef{Approximation} requires.
+
+\emph{(3b) Approximation applies to $w_x$.}  By (3a) the function $w_x$, with the weak gradient
+just produced, satisfies the three hypotheses in \eqref{eq:jb-approx}, so both of its
+conclusions hold for $v:=w_x$.  The constant $C_A$ is the same for every $x$, because
+\noderef{Approximation} produces it before the function.
+
+\emph{(3c) Local $C^{k}$ regularity of $u$ at $x$.}  Apply clause \texttt{reg} of
+\noderef{IMRegularityInput} with $\Omega:=B_1$, the function $u$, the weak gradient $g$, the
+$p$-harmonicity hypothesis, the order $k$, the exponent $\beta$ with $0<\beta<1$ and
+$k+\beta<s(p)$, and the point $x_0:=x\in B_1$: it produces $\rho>0$ with $B_\rho(x)\subseteq
+B_1$ and $u$ of class $C^{k}$ on $B_\rho(x)$.  This $\rho$ depends on $u$ and on $x$, which is
+harmless: the conclusions of \noderef{TaylorPolyAffine} invoked next do not mention $\rho$.
+
+\emph{(3d) Transport.}  Apply \noderef{TaylorPolyAffine} with the order $k$, the function $u$,
+the centre $x_0:=x$, the radius $\rho$ and the $C^{k}$ regularity from (3c), the dilation
+$r:=\tfrac14>0$, the constant $M:=M_0>0$, and the function $w_x$, which satisfies
+$w_x(y)=\bigl(u(x+\tfrac14y)-u(x)\bigr)/M_0$ for every $y$ by definition.  Its conclusions are
+\begin{align}
+  D^{j}w_x(0)[e,\ldots,e]&=\frac{(1/4)^{j}}{M_0}\,D^{j}u(x)[e,\ldots,e]
+    &&(1\le j\le k,\ e\in\mathrm{Plane}),\label{eq:jb-aff1}\\
+  \mathrm{TaylorPoly}(k,u,x)(z)&=u(x)+M_0\,
+    \mathrm{TaylorPoly}(k,w_x,0)\bigl(4(z-x)\bigr)&&(z\in\mathrm{Plane}),\label{eq:jb-aff2}
+\end{align}
+where in \eqref{eq:jb-aff2} we have written $(1/4)^{-1}(z-x)=4(z-x)$.
+
+\emph{(3e) Conclusion (1).}  Let $1\le j\le k$ and $w\in\mathrm{Plane}$.  The scalar
+$(1/4)^{j}$ is nonzero and $M_0>0$, so \eqref{eq:jb-aff1} can be solved:
+\[
+  D^{j}u(x)[w,\ldots,w]=M_0\,4^{j}\,D^{j}w_x(0)[w,\ldots,w],
+\]
+using $\bigl((1/4)^{j}\bigr)^{-1}=4^{j}$.  Taking absolute values and applying the first bound
+of \eqref{eq:jb-approx} to $w_x$,
+\[
+  \bigl\lvert D^{j}u(x)[w,\ldots,w]\bigr\rvert
+  =M_0\,4^{j}\bigl\lvert D^{j}w_x(0)[w,\ldots,w]\bigr\rvert
+  \le M_0\,4^{j}\,C_A\lvert w\rvert^{j}
+  \le M_0\,4^{k}\,C_A\lvert w\rvert^{j},
+\]
+the last step because $4^{j}\le4^{k}$ for $j\le k$ (as $4\ge1$) and the remaining factors are
+nonnegative.  Since $M_0=2C_bN$, the right-hand side is
+$2C_bC_A4^{k}\,N\lvert w\rvert^{j}\le C\,N\lvert w\rvert^{j}$, which is conclusion (1).
+
+\emph{(3f) Conclusion (2).}  Let $z\in B_{1/4}(x)$ and put $y:=4(z-x)$, so that
+$\lvert y\rvert=4\lvert z-x\rvert<1$.  Then $x+\tfrac14y=x+(z-x)=z$, so by the definition of
+$w_x$,
+\[
+  w_x(y)=\frac{u(z)-u(x)}{M_0},\qquad\text{i.e.}\qquad u(z)=u(x)+M_0\,w_x(y).
+\]
+Subtracting \eqref{eq:jb-aff2} at this $z$, in which the argument of
+$\mathrm{TaylorPoly}(k,w_x,0)$ is exactly $y$,
+\[
+  u(z)-\mathrm{TaylorPoly}(k,u,x)(z)
+  =M_0\Bigl(w_x(y)-\mathrm{TaylorPoly}(k,w_x,0)(y)\Bigr).
+\]
+Because $\lvert y\rvert<1$, the second bound of \eqref{eq:jb-approx} applies to $w_x$ at $y$ and
+gives, with $M_0>0$,
+\[
+  \bigl\lvert u(z)-\mathrm{TaylorPoly}(k,u,x)(z)\bigr\rvert
+  \le M_0\,C_A\lvert y\rvert^{\sigma}
+  =M_0\,C_A\bigl(4\lvert z-x\rvert\bigr)^{\sigma}
+  =M_0\,C_A\,4^{\sigma}\lvert z-x\rvert^{\sigma},
+\]
+the last equality by clause (2) of the real-powers proposition, both factors being nonnegative.
+Since $M_0=2C_bN$, the right-hand side is
+$2C_bC_A4^{\sigma}\,N\lvert z-x\rvert^{\sigma}\le C\,N\lvert z-x\rvert^{\sigma}$, which is
+conclusion (2).  As $x\in B_{1/2}$ was arbitrary and $C$ was fixed in Step 0 before $u$, the
+proof is complete.
+\end{proof}

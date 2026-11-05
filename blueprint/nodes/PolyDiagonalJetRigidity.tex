@@ -1,0 +1,83 @@
+\begin{lemma}[Rigidity for polynomial functions on the plane]
+Let $k\in\mathbb{N}$ and let $S\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^{\infty}$ with
+$D^{k+1}S(w)=0$ for every $w\in\mathrm{Plane}$ (as a continuous $(k+1)$-linear form).  If
+\[
+  D^{j}S(0)[w,\ldots,w]=0\qquad\text{for every }j\text{ with }0\le j\le k
+  \text{ and every }w\in\mathrm{Plane},
+\]
+then $S\equiv0$.
+
+The hypothesis $D^{k+1}S\equiv0$ says exactly that $S$ is a polynomial function of degree at most
+$k$; only the stated form of the condition is used.  Vanishing is assumed only on the DIAGONAL
+$D^{j}S(0)[w,\ldots,w]$, which is the only form in which this development carries higher-order
+jets, and it is all that is needed: the Taylor expansion along a ray through the origin sees
+exactly the diagonal evaluations.
+\end{lemma}
+\begin{proof}
+Let $x\in\mathrm{Plane}$; we show $S(x)=0$.  No case distinction on whether $x$ vanishes is
+needed: the argument below runs for every $x$, degenerating harmlessly to a constant ray when
+$x=0$.
+
+\medskip\noindent\emph{Step 1: the ray through $x$, and the restriction of $S$ to it.}
+Put
+\[
+  \gamma(s):=0+s\,x,\qquad h(s):=S\bigl(\gamma(s)\bigr)\qquad(s\in\mathbb{R}).
+\]
+The map $\gamma$ is affine, hence of class $C^{\infty}$ on $\mathbb{R}$, by the background
+proposition on the chain rule and derivatives of affine paths.  Since $\mathbb{R}$ and
+$\mathrm{Plane}$ are open, $\gamma(\mathbb{R})\subseteq\mathrm{Plane}$ and $S$ is of class
+$C^{\infty}$ on $\mathrm{Plane}$, clause (3) of the background proposition on the chain rule for
+compositions, applied with $U:=\mathbb{R}$, $V:=\mathrm{Plane}$, $H:=\gamma$ and $\Phi:=S$,
+gives that $h$ is of class $C^{\infty}$ on all of $\mathbb{R}$; in particular it is of class
+$C^{k+1}$ on an open interval containing $[0,1]$.  (The affine-paths proposition on its own
+would give $C^{k+1}$ only on an open interval around a single parameter value, which is not
+enough for Taylor--Lagrange on $[0,1]$.)
+
+\medskip\noindent\emph{Step 2: every derivative of $h$ is a diagonal evaluation.}
+Apply \noderef{IteratedDerivAlongRay} with the open set $U:=\mathrm{Plane}$, the function $S$ ---
+of class $C^{j}$ on $\mathrm{Plane}$ for every $j$, being of class $C^{\infty}$ --- the base
+point $x_0:=0$, the direction $e:=x$, the order $j$ and the parameter $t$, legitimate since
+$0+t\,x\in\mathrm{Plane}$ for every $t$.  Its conclusion is
+\begin{equation}\label{eq:pdjr-ray}
+  h^{(j)}(t)=D^{j}S\bigl(0+t\,x\bigr)[x,\ldots,x]
+  \qquad(j\in\mathbb{N},\ t\in\mathbb{R}).
+\end{equation}
+
+\medskip\noindent\emph{Step 3: the Taylor polynomial of $h$ at $0$ vanishes.}
+Let $0\le j\le k$.  Taking $t:=0$ in \eqref{eq:pdjr-ray} and using $0+0\,x=0$,
+\[
+  h^{(j)}(0)=D^{j}S(0)[x,\ldots,x]=0
+\]
+by the hypothesis of the lemma taken with $w:=x$.  Hence every coefficient of the degree-$k$
+Taylor polynomial of $h$ at $0$ vanishes, and so
+\begin{equation}\label{eq:pdjr-poly}
+  \sum_{j=0}^{k}\frac{h^{(j)}(0)}{j!}\,(1-0)^{j}=0 .
+\end{equation}
+
+\medskip\noindent\emph{Step 4: the remainder vanishes.}
+Apply the background proposition on Taylor's theorem with Lagrange remainder in one variable,
+with $n:=k$, $a:=0$ and $b:=1$ --- distinct, and $h$ of class $C^{k+1}$ on an open interval
+containing $[0,1]$ by Step 1.  It produces $\xi$ strictly between $0$ and $1$ with
+\begin{equation}\label{eq:pdjr-taylor}
+  h(1)=\sum_{j=0}^{k}\frac{h^{(j)}(0)}{j!}\,(1-0)^{j}
+        +\frac{h^{(k+1)}(\xi)}{(k+1)!}\,(1-0)^{k+1}.
+\end{equation}
+Taking $j:=k+1$ and $t:=\xi$ in \eqref{eq:pdjr-ray},
+\[
+  h^{(k+1)}(\xi)=D^{k+1}S\bigl(0+\xi\,x\bigr)[x,\ldots,x]=0 ,
+\]
+because the hypothesis $D^{k+1}S(w)=0$ holds at $w:=0+\xi\,x$ and a form that is zero as a
+$(k+1)$-linear form in particular vanishes on the diagonal.  So the right-hand side of
+\eqref{eq:pdjr-taylor} vanishes.
+
+\medskip\noindent\emph{Conclusion.}
+Substituting \eqref{eq:pdjr-poly} and the vanishing of the remainder into
+\eqref{eq:pdjr-taylor},
+\[
+  S(x)=S(0+1\cdot x)=h(1)
+  =\sum_{j=0}^{k}\frac{h^{(j)}(0)}{j!}\,(1-0)^{j}
+    +\frac{h^{(k+1)}(\xi)}{(k+1)!}\,(1-0)^{k+1}
+  =0+0=0 .
+\]
+As $x$ was arbitrary, $S\equiv0$.
+\end{proof}

@@ -1,0 +1,162 @@
+\begin{lemma}[The differentiated equation]
+Let $1<p<2$, let $U\subseteq\mathrm{Plane}$ and let $v\colon\mathrm{Plane}\to\mathbb{R}$.
+Assume:
+\begin{enumerate}
+\item[(H1)] $v$ is $p$-harmonic on $U$ with weak gradient its own classical gradient $Dv$, in
+the sense of \noderef{IsPHarm}; in particular $U$ is open;
+\item[(H2)] $v$ is of class $C^{\infty}$ on $U$;
+\item[(H3)] $Dv(x)\ne0$ for every $x\in U$.
+\end{enumerate}
+Let $e\in\mathrm{Plane}$ and write $\partial_ev(x):=\langle Dv(x),e\rangle$ for the directional
+derivative of $v$ in the direction $e$.  Then, in the sense of \noderef{IsLinearDivSol},
+\[
+  \partial_ev\ \text{ is a weak solution of }\
+  \operatorname{div}\bigl(A\,D(\partial_ev)\bigr)=0\ \text{ in }U\
+  \text{ with weak gradient }D(\partial_ev),
+  \qquad A(x):=D_\xi A_p\bigl(Dv(x)\bigr),
+\]
+where $A_p$ is the $p$-flux of \noderef{PFlux} and $D_\xi A_p$ the flux Jacobian of
+\noderef{FluxJacobian}.  Explicitly, the five conditions of \noderef{IsLinearDivSol} hold for
+the quadruple $\bigl(U,\;x\mapsto D_\xi A_p(Dv(x)),\;\partial_ev,\;D(\partial_ev)\bigr)$.
+
+Taking $e$ to be the two vectors of the standard basis recovers the paper's two differentiated
+equations $\operatorname{div}\bigl(D_\xi A_p(Dv)\,D(v_{x_i})\bigr)=0$ in $B_{2\tau}$, $i=1,2$
+(paper line 177).  No pointwise divergence operator appears: the assertion is the weak
+formulation of that identity.
+\end{lemma}
+\begin{proof}
+Throughout, $U$ is open by (H1).  Write
+\[
+  \xi(x):=Dv(x),\qquad w:=\partial_ev,\qquad G:=Dw,\qquad A(x):=D_\xi A_p\bigl(\xi(x)\bigr).
+\]
+
+We will use \noderef{FluxJacobianElliptic} only through its clauses (1) and (6), which are
+statements about all $\xi\ne0$ and about the whole open set $\{\zeta\ne0\}$ and so do not
+involve its annulus parameters; we invoke it with $1<p<2$ and $a=b=1$, which satisfy
+$0<a$ and $a\le b$.  Those clauses give:
+\begin{itemize}
+\item[(E1)] for every $\zeta\ne0$, $A_p$ is differentiable at $\zeta$ with
+  $DA_p(\zeta)=D_\xi A_p(\zeta)$;
+\item[(E2)] $A_p$ is of class $C^{\infty}$ on the open set $\{\zeta\ne0\}$ (clause (6)).
+\end{itemize}
+
+\medskip\noindent\textbf{Step 1: regularity.}
+By (H2) $v$ is of class $C^{n+1}$ on $U$ for every $n$.  Hence, by clause (1) of the background
+proposition on regularity of the gradient field and of directional derivatives, the gradient field
+$\xi=Dv\colon\mathrm{Plane}\to\mathrm{Plane}$ is of class $C^{\infty}$ on $U$; in particular it
+is continuous on $U$ and, by the meaning of $C^{1}$ regularity, differentiable at every point
+of $U$.  By clause (2) of the same
+proposition, $w=\partial_ev$ is of class $C^{\infty}$ on $U$; in particular $w$ is continuous on
+$U$ and, by clause (1) applied to $w$, $G=Dw$ is of class $C^{\infty}$ on $U$, hence continuous
+on $U$.
+
+By (H3), $\xi(U)\subseteq\{\zeta\ne0\}$, which is open.  By (E2) and clause (3) of the
+background proposition on the chain rule for compositions (applied with $H=\xi$ on $U$ and
+$\Phi=A_p$ on $\{\zeta\ne0\}$), the composite
+\[
+  X:=A_p\circ\xi
+\]
+is of class $C^{\infty}$ on $U$; in particular $X$ is continuous on $U$, is differentiable at
+every point of $U$ (by the meaning of $C^{1}$ regularity), and $x\mapsto DX(x)$ is continuous
+on $U$ by clause (5) of the background proposition on the recursion for the iterated Fr\'echet
+derivative, applied with $n=1$ and $W=\mathrm{Plane}$.  Consequently
+$\partial_eX(x)=DX(x)[e]$ is continuous on $U$, evaluation at $e$ being a continuous linear map
+on the space of continuous linear forms.
+
+\medskip\noindent\textbf{Step 2: the chain rule in the direction $e$.}
+Fix $x\in U$.  By Step 1, $\xi$ is differentiable at $x$; by (E1) and (H3), $A_p$ is
+differentiable at $\xi(x)$ with derivative $D_\xi A_p(\xi(x))=A(x)$.  Clauses (1) and (2) of
+the chain-rule proposition therefore give
+\begin{equation}\label{eq:de-chain}
+  \partial_eX(x)=DX(x)[e]=A(x)\bigl[D\xi(x)[e]\bigr]=A(x)\bigl[\partial_e(Dv)(x)\bigr].
+\end{equation}
+Since $v$ is of class $C^{2}$ on $U$, clause (3) of the gradient-field proposition
+gives $\partial_e(Dv)(x)=D(\partial_ev)(x)=G(x)$.  Substituting into \eqref{eq:de-chain},
+\begin{equation}\label{eq:de-key}
+  \partial_eX(x)=A(x)\bigl[G(x)\bigr]\qquad\text{for every }x\in U.
+\end{equation}
+
+\medskip\noindent\textbf{Step 3: conditions (1), (2) and (3) of \noderef{IsLinearDivSol}.}
+
+\emph{(1) Continuity.}  $w$ is continuous on $U$ by Step 1.
+
+\emph{(2) Measurability.}  $U$ is Lebesgue measurable (clause (2) of the integrability
+proposition) and $G$ is continuous on $U$ by Step 1, so $G$ is almost everywhere strongly
+measurable with respect to Lebesgue measure restricted to $U$, by clause (3) of that
+proposition.
+
+\emph{(3) Local $L^{2}$ integrability.}  The function $x\mapsto\lvert G(x)\rvert^{2}$ is
+continuous on $U$, being the composition of the continuous $G$ with the continuous map
+$z\mapsto\lvert z\rvert^{2}$.  By clause (3) of the integrability proposition it is therefore
+bounded, hence integrable, on every compact subset of $U$.
+
+\medskip\noindent\textbf{Step 4: condition (4), $G$ is the distributional gradient of $w$.}
+This is \noderef{ClassicalGradIsWeakGrad}, applied with the open set $U$ and the function $w$.
+Its two hypotheses hold: $U$ is open by (H1), and $w$ is of class $C^{1}$ on $U$ by Step 1,
+which gives $w$ of class $C^{\infty}$ there.  Its conclusion is that for every
+$\varphi\colon\mathrm{Plane}\to\mathbb{R}$ of class $C^{\infty}$ with compact support and
+$\operatorname{tsupp}\varphi\subseteq U$,
+\[
+  \int_U w\,D\varphi\,dx=-\int_U\varphi\,Dw\,dx=-\int_U\varphi\,G\,dx ,
+\]
+the last equality because $G=Dw$ by definition.  That is condition (4).
+
+\medskip\noindent\textbf{Step 5: condition (5), the weak equation.}
+Let $\psi\colon\mathrm{Plane}\to\mathbb{R}$ be of class $C^{\infty}$ with compact support and
+$\operatorname{tsupp}\psi\subseteq U$.  We must show
+\begin{equation}\label{eq:de-goal}
+  \int_U\bigl\langle A(x)\,G(x),\,D\psi(x)\bigr\rangle\,dx=0 .
+\end{equation}
+
+\emph{(5a) $\partial_e\psi$ is again a test function.}  Put $\varphi:=\partial_e\psi$.  By
+clause (4) of the gradient-field proposition, $\varphi$ is of class $C^{\infty}$ on
+$\mathrm{Plane}$, has compact support, and
+$\operatorname{tsupp}\varphi\subseteq\operatorname{tsupp}\psi\subseteq U$.  Hypothesis (H1) and
+the weak equation of \noderef{IsPHarm}, applied to the test function $\varphi$, therefore give
+\begin{equation}\label{eq:de-weak}
+  \int_U\bigl\langle A_p\bigl(Dv(x)\bigr),\,D\varphi(x)\bigr\rangle\,dx=0,
+  \qquad\text{i.e.}\qquad
+  \int_U\bigl\langle X(x),\,D\varphi(x)\bigr\rangle\,dx=0 .
+\end{equation}
+Moreover, since $\psi$ is of class $C^{2}$ on the open set $\mathrm{Plane}$, clause (3) of the
+gradient-field proposition gives
+\begin{equation}\label{eq:de-sym}
+  D\varphi(x)=D(\partial_e\psi)(x)=\partial_e\bigl(D\psi\bigr)(x)
+  \qquad(x\in\mathrm{Plane}).
+\end{equation}
+
+\emph{(5b) $D\psi$ is admissible in the integration-by-parts lemma.}  Put $Y:=D\psi$.  By
+clause (1) of the gradient-field proposition, applied with $\Omega=\mathrm{Plane}$ and $f=\psi$
+of class $C^{\infty}$ there, $Y$ is of class $C^{\infty}$ --- hence of class $C^{1}$ --- on all
+of $\mathrm{Plane}$.  By clause (3) of the background proposition on the product rule and
+linearity for the classical gradient, $Y=D\psi$ vanishes on the open set
+$\mathrm{Plane}\setminus\operatorname{tsupp}\psi$, on which $\psi\equiv0$; hence the support of
+$Y$ is contained in $\operatorname{tsupp}\psi$, and that set being closed,
+$\operatorname{tsupp}Y\subseteq\operatorname{tsupp}\psi\subseteq U$.  In particular
+$\operatorname{tsupp}Y$ is a closed subset of the compact set $\operatorname{tsupp}\psi$, hence
+compact, so $Y$ has compact support.
+
+\emph{(5c) Integration by parts in the direction $e$.}  We may now apply
+\noderef{DirectionalIntegrationByParts} with the open set $U$, the field $X=A_p\circ\xi$, which
+is of class $C^{1}$ on $U$ by Step 1, the field $Y=D\psi$, which by (5b) is of class $C^{1}$ on
+all of $\mathrm{Plane}$ with compact support and $\operatorname{tsupp}Y\subseteq U$, and the
+direction $e$.  It gives
+\begin{equation}\label{eq:de-ibp}
+  \int_U\bigl\langle\partial_eX(x),\,D\psi(x)\bigr\rangle\,dx
+  =-\int_U\bigl\langle X(x),\,\partial_e\bigl(D\psi\bigr)(x)\bigr\rangle\,dx .
+\end{equation}
+By \eqref{eq:de-sym} the integrand on the right-hand side equals
+$\langle X(x),D\varphi(x)\rangle$ at every $x\in\mathrm{Plane}$, so the two integrals over $U$
+agree by clause (5) of the background proposition on restriction and congruence; and that
+integral vanishes by \eqref{eq:de-weak}.  The right-hand side of \eqref{eq:de-ibp} is therefore
+$0$, and so
+\begin{equation}\label{eq:de-half}
+  \int_U\bigl\langle\partial_eX(x),\,D\psi(x)\bigr\rangle\,dx=0 .
+\end{equation}
+
+\emph{(5d) Conclusion.}  By \eqref{eq:de-key} the integrands
+$\langle\partial_eX(x),D\psi(x)\rangle$ and $\langle A(x)G(x),D\psi(x)\rangle$ are equal at
+every $x\in U$, so their integrals over $U$ agree, again by clause (5) of the
+restriction-and-congruence proposition.  With \eqref{eq:de-half} this is \eqref{eq:de-goal},
+i.e.\ condition (5), and the proof is complete.
+\end{proof}

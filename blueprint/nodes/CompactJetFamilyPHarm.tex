@@ -1,0 +1,162 @@
+\begin{lemma}[Every member of the family is the jet of a $p$-harmonic function]
+Let $1<p<2$, let $(\kappa,C_0)$ be a first-order estimate datum for $p$, and let
+$z\in\mathcal{K}_p$.  Then
+\begin{enumerate}
+\item[(a)] $\bigl(z(x)\bigr)_1=0$ for every $x\in X_{1/2}$ with $x=0$ as a point of the plane;
+\item[(b)] $\bigl\lvert\bigl(z(x)\bigr)_1\bigr\rvert\le1$ for every $x\in X_{1/2}$;
+\item[(c)] there are $h\colon\mathrm{Plane}\to\mathbb{R}$ and
+$G\colon\mathrm{Plane}\to\mathrm{Plane}$ such that $h$ is $p$-harmonic in $B_{1/2}$ with weak
+gradient $G$, such that $h(x)=\bigl(z(x)\bigr)_1$ and $G(x)=\bigl(z(x)\bigr)_2$ for every
+$x\in X_{1/2}$, and such that
+\[
+  G(y)=Dh(y)\qquad\text{for every }y\in B_{1/2},
+\]
+where $Dh$ is the classical gradient of $h$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+By \noderef{CompactJetFamily}, $\mathcal{K}_p=\overline{\mathcal{G}_p}$, so
+$z\in\overline{\mathcal{G}_p}$.
+
+\medskip\noindent\emph{Step 0: inclusions of balls.}
+For $x\in X_{1/2}$ we have $\lvert x\rvert\le\tfrac12<\tfrac34<1$, so
+\begin{equation}\label{eq:cjp-incl}
+  X_{1/2}\subseteq B_{3/4}\subseteq B_1 ,
+\end{equation}
+and for $y\in B_{1/2}$ we have $\lvert y\rvert<\tfrac12<\tfrac34$, so
+\begin{equation}\label{eq:cjp-incl2}
+  B_{1/2}\subseteq B_{3/4},\qquad B_{1/2}\subseteq\overline{B_{1/2}}=X_{1/2}\subseteq B_1 .
+\end{equation}
+
+\medskip\noindent\emph{Step 1: a sequence of generators converging to $z$.}
+The space $X_{1/2}\to^{b}(\mathbb{R}\times\mathrm{Plane})$ is a metric space under the supremum
+distance, by clause (1) of the background proposition on bounded continuous functions.  Clause
+(3) of that proposition --- in a metric space every point of the closure of a set is the limit
+of a sequence of its elements --- therefore gives a sequence $(z_n)_{n\in\mathbb{N}}$ in
+$\mathcal{G}_p$ with $z_n\to z$ in the supremum metric.  By clause (1) again, $z_n\to z$
+uniformly on $X_{1/2}$, and in particular $z_n(x)\to z(x)$ for every $x\in X_{1/2}$; by clause
+(2), that pointwise convergence holds in each component separately.
+
+\medskip\noindent\emph{Step 2: unpacking the generators.}
+Fix $n$.  Since $z_n\in\mathcal{G}_p$, \noderef{CompactJetFamily} provides
+$v_n\colon\mathrm{Plane}\to\mathbb{R}$ and $g_n\colon\mathrm{Plane}\to\mathrm{Plane}$ with
+\begin{enumerate}
+\item[(i)] $v_n$ is $p$-harmonic in $B_1$ with weak gradient $g_n$;
+\item[(ii)] $\lvert v_n(y)\rvert\le1$ for every $y\in B_1$;
+\item[(iii)] $v_n(0)=0$;
+\item[(iv)] $z_n(x)=\bigl(v_n(x),Dv_n(x)\bigr)$ for every $x\in X_{1/2}$.
+\end{enumerate}
+
+\medskip\noindent\emph{Step 3: parts (a) and (b).}
+Let $x\in X_{1/2}$ with $x=0$ as a point of the plane.  By (iv) and (iii),
+$\bigl(z_n(x)\bigr)_1=v_n(0)=0$ for every $n$.  By Step 1 the first components converge,
+$\bigl(z_n(x)\bigr)_1\to\bigl(z(x)\bigr)_1$, so clause (6) of the
+bounded-continuous-functions proposition --- a pointwise limit of a constant sequence is that
+constant --- gives $\bigl(z(x)\bigr)_1=0$.  This is part (a).
+
+Let now $x\in X_{1/2}$ be arbitrary.  By \eqref{eq:cjp-incl} we have $x\in B_1$, so (ii) and
+(iv) give $\bigl\lvert\bigl(z_n(x)\bigr)_1\bigr\rvert=\lvert v_n(x)\rvert\le1$, that is
+$-1\le\bigl(z_n(x)\bigr)_1\le1$, for every $n$.  Applying clause (6) of the same proposition to
+the convergent sequence $\bigl(z_n(x)\bigr)_1\to\bigl(z(x)\bigr)_1$ --- once as stated, and once
+to the negated sequence for the lower bound --- gives $-1\le\bigl(z(x)\bigr)_1\le1$, that is
+part (b).
+
+\medskip\noindent\emph{Step 4: the extension off the closed half-ball.}
+Define $h\colon\mathrm{Plane}\to\mathbb{R}$ and $G\colon\mathrm{Plane}\to\mathrm{Plane}$ by
+\[
+  h(y):=\begin{cases}\bigl(z(y)\bigr)_1,&y\in\overline{B_{1/2}},\\ 0,&\text{otherwise,}\end{cases}
+  \qquad
+  G(y):=\begin{cases}\bigl(z(y)\bigr)_2,&y\in\overline{B_{1/2}},\\ 0,&\text{otherwise,}\end{cases}
+\]
+which is legitimate because $\overline{B_{1/2}}$ is exactly the set of points of $X_{1/2}$, so
+$z(y)$ is defined for $y\in\overline{B_{1/2}}$.  By construction
+\begin{equation}\label{eq:cjp-agree}
+  h(x)=\bigl(z(x)\bigr)_1\quad\text{and}\quad G(x)=\bigl(z(x)\bigr)_2
+  \qquad\text{for every }x\in X_{1/2},
+\end{equation}
+which is the second half of part (c).  It remains to prove that $h$ is $p$-harmonic in $B_{1/2}$
+with weak gradient $G$.
+
+\medskip\noindent\emph{Step 5: uniform convergence of the extensions.}
+Let $\varepsilon>0$.  By Step 1 there is $N$ such that
+$d\bigl(z_n(x),z(x)\bigr)\le\varepsilon$ for every $n\ge N$ and every $x\in X_{1/2}$.  Fix
+$n\ge N$ and $y\in\overline{B_{1/2}}$, so that $y$ is a point of $X_{1/2}$.  By (iv),
+\eqref{eq:cjp-agree} and clause (2) of the bounded-continuous-functions proposition --- the
+distance between either component is at most the distance between the pairs ---
+\[
+  \lvert v_n(y)-h(y)\rvert
+  =\bigl\lvert\bigl(z_n(y)\bigr)_1-\bigl(z(y)\bigr)_1\bigr\rvert
+  \le d\bigl(z_n(y),z(y)\bigr)\le\varepsilon ,
+\]
+\[
+  \lvert Dv_n(y)-G(y)\rvert
+  =\bigl\lvert\bigl(z_n(y)\bigr)_2-\bigl(z(y)\bigr)_2\bigr\rvert
+  \le d\bigl(z_n(y),z(y)\bigr)\le\varepsilon .
+\]
+Since $\varepsilon>0$ was arbitrary and $N$ does not depend on $y$, this says
+\begin{equation}\label{eq:cjp-unif}
+  v_n\to h\quad\text{and}\quad Dv_n\to G\qquad\text{uniformly on }\overline{B_{1/2}} .
+\end{equation}
+In particular, every compact $K\subseteq B_{1/2}$ satisfies
+$K\subseteq B_{1/2}\subseteq\overline{B_{1/2}}$, so $v_n\to h$ and $Dv_n\to G$ uniformly on
+every compact subset of $B_{1/2}$.
+
+\medskip\noindent\emph{Step 6: each $v_n$ is $p$-harmonic in $B_{1/2}$ with its classical
+gradient.}
+Fix $n$.
+
+\emph{(a) Restriction.}  The ball $B_{1/2}$ is open and $B_{1/2}\subseteq B_1$ by
+\eqref{eq:cjp-incl2}, so part (a) of \noderef{PHarmRestrict}, applied to the datum (i), gives
+that $v_n$ is $p$-harmonic in $B_{1/2}$ with weak gradient $g_n$.
+
+\emph{(b) $C^1$ regularity.}  Apply \noderef{PHarmJetEquicontinuity} with $x_0:=0$,
+$R:=\tfrac12$ and $M:=1$.  Its hypotheses hold: $1<p<2$; $R>0$ and $M>0$; $v_n$ is $p$-harmonic
+in $B_{2R}(0)=B_1$ with weak gradient $g_n$, which is (i), since $2\cdot\tfrac12=1$; and
+$\lvert v_n(y)\rvert\le1=M$ for $y\in B_1$, which is (ii).  Since $3R/2=\tfrac34$, its first
+conclusion is that $v_n$ is of class $C^1$ on $B_{3/4}$.  As $B_{1/2}\subseteq B_{3/4}$ by
+\eqref{eq:cjp-incl2}, clause (4) of the background proposition on locality of $C^1$ regularity
+gives that $v_n$ is of class $C^1$ on $B_{1/2}$.
+
+\emph{(c) The bridge.}  Now \noderef{PHarmWeakGradClassical} applies with $\Omega:=B_{1/2}$,
+$u:=v_n$ and $g:=g_n$: its hypotheses are $p>1$, which follows from $1<p$; that $v_n$ is
+$p$-harmonic in $B_{1/2}$ with weak gradient $g_n$, which is step (a); and that $v_n$ is of
+class $C^1$ on $B_{1/2}$, which is step (b).  Its part (a) gives
+\begin{equation}\label{eq:cjp-classical}
+  v_n\ \text{is}\ p\text{-harmonic in}\ B_{1/2}\ \text{with weak gradient}\ Dv_n .
+\end{equation}
+This is the step that the generating condition of \noderef{CompactJetFamily} leaves open: that
+condition supplies only the arbitrary weak gradient $g_n$, whereas what converges in Step 5 is
+the classical gradient $Dv_n$, and the two agree only almost everywhere.
+
+\medskip\noindent\emph{Step 7: limit passage.}
+Apply \noderef{PHarmLimit} with $\Omega:=B_{1/2}$, with the sequences $n\mapsto v_n$ and
+$n\mapsto Dv_n$, and with the limits $h$ and $G$.  Its hypotheses hold: $1<p<2$; for every $n$
+the function $v_n$ is $p$-harmonic in $B_{1/2}$ with weak gradient $Dv_n$, which is
+\eqref{eq:cjp-classical}; and for every compact $K\subseteq B_{1/2}$ one has $v_n\to h$ and
+$Dv_n\to G$ uniformly on $K$, which is the last sentence of Step 5.  Its conclusion is that $h$
+is $p$-harmonic in $B_{1/2}$ with weak gradient $G$.
+
+\medskip\noindent\emph{Step 8: the weak gradient is the classical gradient of $h$ on
+$B_{1/2}$.}
+Apply \noderef{PHarmClassicalGradient} with the open set $\Omega:=B_{1/2}$, the sequences
+$n\mapsto v_n$ and $n\mapsto Dv_n$, and the limits $h$ and $G$.  Its three hypotheses hold.
+First, for every $n$ and every $y\in B_{1/2}$ the function $v_n$ is differentiable at $y$ with
+classical gradient $Dv_n(y)$: indeed $v_n$ is of class $C^{1}$ on $B_{1/2}$ by Step 6(b), so
+clause (2) of the background proposition on locality of $C^{1}$ regularity makes it
+differentiable at every point of that open set, and its classical gradient there is by
+definition $Dv_n$.  Second, for every compact $K\subseteq B_{1/2}$ we have $Dv_n\to G$
+uniformly on $K$, which is the last sentence of Step 5.  Third, for every $y\in B_{1/2}$ we have
+$v_n(y)\to h(y)$, since by the same sentence the convergence $v_n\to h$ is uniform on the
+compact set $\{y\}\subseteq B_{1/2}$, hence pointwise there.  The conclusion of
+\noderef{PHarmClassicalGradient} is that for every $y\in B_{1/2}$ the function $h$ is
+differentiable at $y$ with classical gradient $G(y)$, and that $Dh(y)=G(y)$.  This is the last
+assertion of part (c).
+
+Note that this step genuinely needs the approximating sequence, which exists only inside this
+proof: a consumer holding only $z$, $h$ and $G$ knows that $G$ is \emph{a} weak gradient of $h$,
+and weak gradients are determined only up to a null set, so the pointwise identity could not be
+recovered downstream.  That is why it is recorded in the statement.
+
+\medskip\noindent Together with \eqref{eq:cjp-agree} and Step 8 this establishes part (c), and
+parts (a) and (b) were proved in Step 3.
+\end{proof}

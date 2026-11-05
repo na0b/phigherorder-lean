@@ -1,0 +1,222 @@
+\begin{lemma}[Gradient compactness for a locally bounded family of $p$-harmonic functions]
+Let $1<p<2$ and let $(\kappa,C_0)$ be a first-order estimate datum for $p$.  Let
+$(\Omega_n)_{n\in\mathbb{N}}$ be an increasing family of subsets of $\mathrm{Plane}$, that is
+$\Omega_n\subseteq\Omega_m$ whenever $n\le m$, and put
+$\Omega_\infty:=\bigcup_{n}\Omega_n$.  Let $v_n\colon\mathrm{Plane}\to\mathbb{R}$ and
+$g_n\colon\mathrm{Plane}\to\mathrm{Plane}$ for $n\in\mathbb{N}$, and assume
+\begin{enumerate}
+\item for every $n$, the function $v_n$ is $p$-harmonic in $\Omega_n$ with weak gradient $g_n$;
+\item \textbf{eventual local uniform boundedness:} for every compact $K\subseteq\Omega_\infty$
+there are $M>0$ and $N\in\mathbb{N}$ with $\lvert v_n(z)\rvert\le M$ for every $n\ge N$ and every
+$z\in K$.
+\end{enumerate}
+Then:
+\begin{enumerate}
+\item[(a)] for every $n$, the function $v_n$ is of class $C^{1}$ on $\Omega_n$;
+\item[(b)] there are a strictly increasing $\varphi\colon\mathbb{N}\to\mathbb{N}$, a function
+$V\colon\mathrm{Plane}\to\mathbb{R}$ and a function $G\colon\mathrm{Plane}\to\mathrm{Plane}$
+such that, for every compact $K\subseteq\Omega_\infty$,
+\[
+  v_{\varphi(i)}\longrightarrow V
+  \quad\text{and}\quad
+  Dv_{\varphi(i)}\longrightarrow G
+  \qquad\text{uniformly on }K\text{ as }i\to\infty,
+\]
+where $Dv_{\varphi(i)}$ is the classical gradient of $v_{\varphi(i)}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout, $\kappa$ and $C_0$ are the data of the first-order estimate datum, so $0<\kappa<1$
+and $C_0>0$, and we refer to the six conditions in \noderef{IsPHarm} by their numbers
+(1)--(6).  By condition (1) applied to the datum for index $n$, every $\Omega_n$ is open; hence
+$\Omega_\infty$ is open, being a union of open sets.
+
+\medskip\noindent\emph{Step 1: a compact subset of $\Omega_\infty$ lies in a single
+$\Omega_N$.}
+Let $K\subseteq\Omega_\infty$ be compact.  The sets $\Omega_n$ are open and cover $K$, so by
+compactness there are finitely many indices $n_1,\ldots,n_j$ with
+$K\subseteq\Omega_{n_1}\cup\cdots\cup\Omega_{n_j}$.  If $j=0$ then $K=\emptyset\subseteq\Omega_0$
+and we take $N:=0$; otherwise put $N:=\max\{n_1,\ldots,n_j\}$, so that
+$\Omega_{n_i}\subseteq\Omega_N$ for each $i$ by the increasing hypothesis, whence
+$K\subseteq\Omega_N$.  Since the family is increasing, $K\subseteq\Omega_n$ for every $n\ge N$.
+
+\medskip\noindent\emph{Step 2: the local estimate, in the form used twice below.}
+\emph{Claim.}  Let $n\in\mathbb{N}$, let $z_0\in\mathrm{Plane}$, and let $R>0$ and $M>0$ satisfy
+$B_{2R}(z_0)\subseteq\Omega_n$ and $\lvert v_n(z)\rvert\le M$ for every $z\in B_{2R}(z_0)$.
+Then $v_n$ is of class $C^{1}$ on $B_{3R/2}(z_0)$ and, writing $L:=C_0M/(2R)$,
+\begin{equation}\label{eq:pgc-bounds}
+  \lvert Dv_n(z)\rvert\le L\quad(z\in B_{3R/2}(z_0)),
+  \qquad
+  \lvert Dv_n(z)-Dv_n(z')\rvert\le L\left(\frac{\lvert z-z'\rvert}{2R}\right)^{\kappa}
+  \quad(z,z'\in B_{3R/2}(z_0)).
+\end{equation}
+
+\emph{Proof of the claim.}  The ball $B_{2R}(z_0)$ is open and contained in $\Omega_n$, and
+$v_n$ is $p$-harmonic in $\Omega_n$ with weak gradient $g_n$ by hypothesis (1); so part (a) of
+\noderef{PHarmRestrict} gives that $v_n$ is $p$-harmonic in $B_{2R}(z_0)$ with the same weak
+gradient $g_n$.  Together with the assumed bound $\lvert v_n\rvert\le M$ on $B_{2R}(z_0)$, the
+two hypotheses of \noderef{PHarmJetEquicontinuity} hold for $x_0:=z_0$, this $R$ and this $M$,
+and its conclusion is exactly that $v_n$ is of class $C^{1}$ on $B_{3R/2}(z_0)$ together with
+the two bounds \eqref{eq:pgc-bounds}.  This proves the claim.
+
+\medskip\noindent\emph{Step 3: part (a).}
+Fix $n$ and let $z_0\in\Omega_n$.  Since $\Omega_n$ is open there is $\varepsilon>0$ with
+$B_\varepsilon(z_0)\subseteq\Omega_n$.  Put $R:=\varepsilon/4>0$, so that
+$\overline{B_{2R}(z_0)}=\overline{B_{\varepsilon/2}(z_0)}\subseteq B_\varepsilon(z_0)\subseteq\Omega_n$.
+By condition (2), $v_n$ is continuous on $\Omega_n$, hence on the compact subset
+$\overline{B_{2R}(z_0)}$, so by clause (3) of the background proposition on integrability of
+continuous and compactly supported functions it is bounded there: there is $M_0$ with
+$\lvert v_n(z)\rvert\le M_0$ for $z\in\overline{B_{2R}(z_0)}$.  Put $M:=M_0+1>0$; then
+$\lvert v_n\rvert\le M$ on $B_{2R}(z_0)$.  Step 2 applies and gives that $v_n$ is of class
+$C^{1}$ on $B_{3R/2}(z_0)$, which is an open neighbourhood of $z_0$ contained in
+$B_{2R}(z_0)\subseteq\Omega_n$.  As $z_0\in\Omega_n$ was arbitrary and $\Omega_n$ is open,
+clause (1) of the background proposition on locality of $C^{1}$ regularity gives that $v_n$ is
+of class $C^{1}$ on $\Omega_n$.  This is part (a).
+
+\medskip\noindent\emph{Step 4: uniform bounds and equicontinuity on a compact set, along a
+tail.}
+\emph{Claim.}  Let $K\subseteq\Omega_\infty$ be compact.  Then there are $N_K\in\mathbb{N}$,
+$A_K>0$, $L_K>0$ and $R_K>0$ such that for every $n\ge N_K$:
+\begin{enumerate}
+\item[(i)] $\lvert v_n(z)\rvert\le A_K$ and $\lvert Dv_n(z)\rvert\le L_K$ for every $z\in K$;
+\item[(ii)] $\lvert Dv_n(z)-Dv_n(z')\rvert\le L_K\bigl(\lvert z-z'\rvert/(2R_K)\bigr)^{\kappa}$
+for all $z,z'\in K$ with $\lvert z-z'\rvert<3R_K/4$;
+\item[(iii)] $\lvert v_n(z)-v_n(z')\rvert\le L_K\lvert z-z'\rvert$ for all $z,z'\in K$ with
+$\lvert z-z'\rvert<3R_K/4$;
+\item[(iv)] $v_n$ and $Dv_n$ are continuous on $K$.
+\end{enumerate}
+
+\emph{Proof of the claim.}  By clause (1) of the background proposition on thickening and
+compact exhaustion, applied to the compact $K$ inside the open $\Omega_\infty$, there is
+$\rho>0$ with $K^{\rho}:=\{z:\operatorname{dist}(z,K)\le\rho\}\subseteq\Omega_\infty$, and
+$K^{\rho}$ is compact.  By Step 1 applied to $K^{\rho}$ there is $N_1$ with
+$K^{\rho}\subseteq\Omega_n$ for all $n\ge N_1$.  By hypothesis (2) applied to $K^{\rho}$ there
+are $A_K>0$ and $N_2$ with $\lvert v_n(z)\rvert\le A_K$ for all $n\ge N_2$ and
+$z\in K^{\rho}$.  Put $N_K:=\max(N_1,N_2)$, $R_K:=\rho/4>0$ and $L_K:=C_0A_K/(2R_K)>0$.
+
+Let $n\ge N_K$ and $z_0\in K$.  Then $2R_K=\rho/2\le\rho$, so
+$B_{2R_K}(z_0)\subseteq\overline{B_{\rho}(z_0)}\subseteq K^{\rho}\subseteq\Omega_n$, using
+clause (1) of the thickening proposition for the middle inclusion; and
+$\lvert v_n\rvert\le A_K$ on $B_{2R_K}(z_0)\subseteq K^{\rho}$.  So Step 2 applies with this
+$z_0$, $R_K$ and $A_K$, giving that $v_n$ is of class $C^{1}$ on $B_{3R_K/2}(z_0)$ and
+\begin{equation}\label{eq:pgc-local}
+  \lvert Dv_n(z)\rvert\le L_K,\qquad
+  \lvert Dv_n(z)-Dv_n(z')\rvert\le L_K\left(\frac{\lvert z-z'\rvert}{2R_K}\right)^{\kappa}
+  \qquad(z,z'\in B_{3R_K/2}(z_0)).
+\end{equation}
+
+(i): the bound $\lvert v_n(z)\rvert\le A_K$ for $z\in K\subseteq K^{\rho}$ is immediate.  For
+the gradient, given $z\in K$ take $z_0:=z$ above; then $z\in B_{3R_K/2}(z)$ because
+$3R_K/2>0$, so the first bound in \eqref{eq:pgc-local} gives $\lvert Dv_n(z)\rvert\le L_K$.
+
+(ii) and (iii): let $z,z'\in K$ with $\lvert z-z'\rvert<3R_K/4$ and take $z_0:=z$.  Then
+$z\in B_{3R_K/2}(z)$ and $\lvert z'-z\rvert<3R_K/4<3R_K/2$, so $z'\in B_{3R_K/2}(z)$ as well.
+The second bound in \eqref{eq:pgc-local} is (ii).  For (iii): $B_{3R_K/2}(z)$ is a ball, hence
+convex, $v_n$ is of class $C^{1}$ there and therefore differentiable at each of its points by
+clause (2) of the locality proposition, and $\lvert Dv_n\rvert\le L_K$ there by the first bound
+in \eqref{eq:pgc-local}; so the background mean value inequality on a convex set gives
+$\lvert v_n(z)-v_n(z')\rvert\le L_K\lvert z-z'\rvert$.
+
+(iv): every $z_0\in K$ has the open neighbourhood $B_{3R_K/2}(z_0)$ on which $v_n$ is of class
+$C^{1}$, so clause (3) of the locality proposition gives that $v_n$ and $Dv_n$ are continuous
+on $K$.  This proves the claim.
+
+\medskip\noindent\emph{Step 5: extraction on each piece of an exhaustion.}
+Let $(K_j)_{j\in\mathbb{N}}$ be the compact exhaustion of the open set $\Omega_\infty$ supplied
+by clause (2) of the thickening and exhaustion proposition: each $K_j$ is a compact subset of
+$\Omega_\infty$, $K_j\subseteq K_{j+1}$, and $\bigcup_jK_j=\Omega_\infty$.  Define the jet maps
+\[
+  J_n\colon\mathrm{Plane}\to\mathbb{R}\times\mathrm{Plane},\qquad
+  J_n(z):=\bigl(v_n(z),\,Dv_n(z)\bigr).
+\]
+
+\emph{Claim.}  For every $j\in\mathbb{N}$ and every strictly increasing
+$\sigma\colon\mathbb{N}\to\mathbb{N}$ there is a strictly increasing
+$\tau\colon\mathbb{N}\to\mathbb{N}$ such that $\bigl(J_{\sigma(\tau(i))}\bigr)_{i}$ converges
+uniformly on $K_j$.
+
+\emph{Proof of the claim.}  Apply Step 4 to $K:=K_j$, obtaining $N_{j}$, $A_{j}$, $L_{j}$ and
+$R_{j}$.  A strictly increasing map $\mathbb{N}\to\mathbb{N}$ satisfies $\sigma(i)\ge i$, so
+$\sigma(N_{j}+i)\ge N_{j}$ for every $i\in\mathbb{N}$, and therefore the conclusions (i)--(iv) of
+Step 4 apply to every member of the sequence
+\[
+  \bigl(J_{\sigma(N_{j}+i)}\bigr)_{i\in\mathbb{N}} .
+\]
+Each of its terms is continuous on $K_j$ by (iv), and bounded there by $A_{j}+L_{j}$ by (i),
+where we use the norm $\lVert(a,b)\rVert=\max(\lvert a\rvert,\lvert b\rvert)$ on
+$\mathbb{R}\times\mathrm{Plane}$, so that $\lVert J_n(z)\rVert\le A_{j}+L_{j}$.  For
+equicontinuity, let $\varepsilon>0$.  By clause (7) of the background proposition on elementary
+properties of real powers, $s\mapsto s^{\kappa}$ is continuous on $[0,\infty)$ with value $0$ at
+$s=0$ (here $\kappa>0$), so there is $s_0>0$ with $L_{j}\,s_0^{\kappa}\le\varepsilon$.  Put
+\[
+  \delta:=\min\Bigl\{\tfrac{3R_{j}}{4},\ 2R_{j}\,s_0,\ \tfrac{\varepsilon}{L_{j}}\Bigr\}>0 ,
+\]
+positive because $R_{j}>0$, $s_0>0$, $\varepsilon>0$ and $L_{j}>0$.  Let $z,z'\in K_j$ with
+$\lvert z-z'\rvert<\delta$.  Then $\lvert z-z'\rvert<3R_{j}/4$, so Step 4(ii) and (iii) apply.
+Since $\lvert z-z'\rvert/(2R_{j})<s_0$ and $t\mapsto t^{\kappa}$ is nondecreasing on
+$[0,\infty)$ (clause (3) of the elementary-powers proposition),
+\[
+  \lvert Dv_n(z)-Dv_n(z')\rvert
+  \le L_{j}\left(\frac{\lvert z-z'\rvert}{2R_{j}}\right)^{\kappa}
+  \le L_{j}\,s_0^{\kappa}\le\varepsilon ,
+\]
+while Step 4(iii) gives
+$\lvert v_n(z)-v_n(z')\rvert\le L_{j}\lvert z-z'\rvert\le L_{j}\delta\le\varepsilon$.  As a
+pair-valued map is bounded, respectively equicontinuous, exactly when both of its components
+are, the sequence $\bigl(J_{\sigma(N_{j}+i)}\bigr)_i$ of continuous maps
+$K_j\to\mathbb{R}\times\mathrm{Plane}$ is uniformly bounded and equicontinuous on the compact
+metric space $K_j$, with values in the finite-dimensional normed space
+$\mathbb{R}\times\mathrm{Plane}$.  The sequential Arzel\`a--Ascoli background proposition
+therefore supplies a strictly increasing $\iota\colon\mathbb{N}\to\mathbb{N}$ and a continuous
+limit such that $\bigl(J_{\sigma(N_{j}+\iota(i))}\bigr)_i$ converges uniformly on $K_j$.  Setting
+$\tau(i):=N_{j}+\iota(i)$, which is strictly increasing, proves the claim.
+
+\medskip\noindent\emph{Step 6: nested extraction and the diagonal subsequence.}
+Define strictly increasing maps $\Phi_j\colon\mathbb{N}\to\mathbb{N}$ recursively.  Apply the
+claim of Step 5 with $j:=0$ and $\sigma:=\mathrm{id}$ to get $\tau_0$, and put
+$\Phi_0:=\tau_0$.  Given $\Phi_j$, apply the claim with $j+1$ in place of $j$ and
+$\sigma:=\Phi_j$ to get $\tau_{j+1}$, and put $\Phi_{j+1}:=\Phi_j\circ\tau_{j+1}$.  Each
+$\Phi_j$ is strictly increasing, being a composition of strictly increasing maps, and by
+construction
+\begin{equation}\label{eq:pgc-stage}
+  \bigl(J_{\Phi_j(i)}\bigr)_i\ \text{converges uniformly on }K_j,\qquad\text{for every }j .
+\end{equation}
+
+Define $\varphi(i):=\Phi_i(i)$.  Then $\varphi$ is strictly increasing: using
+$\tau_{i+1}(i+1)\ge i+1$ and the strict monotonicity of $\Phi_i$,
+\[
+  \varphi(i+1)=\Phi_{i+1}(i+1)=\Phi_i\bigl(\tau_{i+1}(i+1)\bigr)\ge\Phi_i(i+1)>\Phi_i(i)=\varphi(i).
+\]
+Fix $j$.  For $i\ge j$ we have $\Phi_i=\Phi_j\circ\bigl(\tau_{j+1}\circ\cdots\circ\tau_i\bigr)$
+by construction, so $\varphi(i)=\Phi_j\bigl(\theta(i)\bigr)$ with
+$\theta(i):=\tau_{j+1}\circ\cdots\circ\tau_i(i)$ (read as $\theta(j)=j$ when $i=j$).  The map
+$\theta$ is strictly increasing on $\{i:i\ge j\}$: if $j\le i<i'$ then
+$\Phi_j(\theta(i))=\varphi(i)<\varphi(i')=\Phi_j(\theta(i'))$, and $\Phi_j$ is strictly
+increasing, hence order-reflecting, so $\theta(i)<\theta(i')$.  Therefore
+$\bigl(J_{\varphi(i)}\bigr)_{i\ge j}$ is a subsequence of $\bigl(J_{\Phi_j(i)}\bigr)_i$, and by
+\eqref{eq:pgc-stage} together with the remark that a tail of a subsequence of a uniformly
+convergent sequence converges uniformly to the same limit,
+\begin{equation}\label{eq:pgc-unif}
+  \bigl(J_{\varphi(i)}\bigr)_i\ \text{converges uniformly on }K_j,\qquad\text{for every }j .
+\end{equation}
+
+\medskip\noindent\emph{Step 7: the limit and the conclusion.}
+Let $z\in\Omega_\infty$.  By clause (2) of the exhaustion proposition there is $j$ with
+$z\in K_j$, and \eqref{eq:pgc-unif} gives in particular that $\bigl(J_{\varphi(i)}(z)\bigr)_i$
+converges in $\mathbb{R}\times\mathrm{Plane}$; its limit does not depend on the choice of $j$
+because limits in a metric space are unique.  Define $(V(z),G(z))$ to be that limit for
+$z\in\Omega_\infty$, and set $V(z):=0$, $G(z):=0$ for $z\notin\Omega_\infty$.  For each $j$, the
+uniform limit of $\bigl(J_{\varphi(i)}\bigr)_i$ on $K_j$ provided by \eqref{eq:pgc-unif} agrees
+pointwise on $K_j$ with $(V,G)$, again by uniqueness of limits, so
+$J_{\varphi(i)}\to(V,G)$ uniformly on $K_j$.
+
+Finally let $K\subseteq\Omega_\infty$ be compact.  By clause (3) of the exhaustion proposition
+there is $j$ with $K\subseteq K_j$, and uniform convergence on $K_j$ restricts to uniform
+convergence on $K$.  Reading off the two components of
+$J_{\varphi(i)}=\bigl(v_{\varphi(i)},Dv_{\varphi(i)}\bigr)$ --- legitimate because convergence
+in $\mathbb{R}\times\mathrm{Plane}$ is componentwise and the uniformity is the same --- gives
+\[
+  v_{\varphi(i)}\to V\quad\text{and}\quad Dv_{\varphi(i)}\to G\qquad\text{uniformly on }K .
+\]
+This is part (b), and part (a) was proved in Step 3.
+\end{proof}

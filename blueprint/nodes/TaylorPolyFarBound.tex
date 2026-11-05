@@ -1,0 +1,123 @@
+\begin{lemma}[Sup bound for the Taylor polynomial in the far regime]
+Let $k\in\mathbb{N}$, let $\sigma\in\mathbb{R}$ with $k\le\sigma$, let $A>0$, and let $\tau$
+satisfy $0<\tau\le1$.  Let $v\colon\mathrm{Plane}\to\mathbb{R}$ and let $S>0$, and assume
+\begin{enumerate}
+\item[(H1)] $v(0)=0$;
+\item[(H2)] $\bigl\lvert D^{j}v(0)[w,\ldots,w]\bigr\rvert\le A\,S^{\,\sigma-j}\,\lvert w\rvert^{j}$
+  for every $j$ with $1\le j\le k$ and every $w\in\mathrm{Plane}$.
+\end{enumerate}
+Then for every $y\in\mathrm{Plane}$ with $\tau S\le\lvert y\rvert$,
+\[
+  \bigl\lvert\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert
+  \le k\,A\,\tau^{-\sigma}\,\lvert y\rvert^{\sigma}.
+\]
+
+This is the paper's estimate
+$\lVert P\rVert_{L^{\infty}(B_r)}\le C\sum_{j=1}^{k}R_L^{\,\sigma-j}r^{j}\le
+C\max\{r,R_L\}^{\sigma}$, with the $\max$ already eliminated through
+$\max\{r,R_L\}\le r/\tau$ and the bound stated pointwise in $\lvert y\rvert$.  The hypothesis
+$\tau S\le\lvert y\rvert$ is the far regime and cannot be dropped: at $\lvert y\rvert=0$ the
+power comparison the proof rests on would read $S^{\sigma}\le0$, which is false.  No
+$p$-harmonicity appears, and $v$ enters only through its jets at the origin.
+\end{lemma}
+\begin{proof}
+\medskip\noindent\emph{A remark on real powers, recorded once and used throughout.}  Four facts
+about real powers are used below which are \emph{not} among the listed clauses of the background
+proposition on elementary properties of real powers, so we derive them here from those clauses
+rather than attaching a citation the proposition does not support.  Throughout, $t^{0}=1$ for
+$t>0$: that is the value of the real power at exponent $0$.
+\begin{itemize}
+\item[(P1)] \emph{Positivity.}  For $t>0$ and every $a\in\mathbb{R}$, $t^{a}>0$.  If $a=0$ this
+is $t^{0}=1>0$.  If $a>0$, clause (3) makes $s\mapsto s^{a}$ nondecreasing on $[0,\infty)$ and
+clause (1) gives $0^{a}=0$, so $t^{a}\ge0^{a}=0$; and clause (2), applicable because $t>0$,
+gives $t^{a}t^{-a}=t^{0}=1$, so $t^{a}\ne0$; hence $t^{a}>0$.  If $a<0$ then $-a>0$, so
+$t^{-a}>0$ by the case just done, and $t^{a}t^{-a}=1$ gives $t^{a}=1/t^{-a}>0$.
+\item[(P2)] \emph{The base $1$.}  For every $a\in\mathbb{R}$, $1^{a}=1$.  Clause (2) gives
+$1^{a}=(1\cdot1)^{a}=1^{a}\cdot1^{a}$, and $1^{a}>0$ by (P1), so dividing by $1^{a}$ gives
+$1^{a}=1$.
+\item[(P3)] \emph{Inverting the base.}  For $t>0$ and every $a\in\mathbb{R}$,
+$\bigl(t^{-1}\bigr)^{a}=t^{-a}$.  Clause (2) gives
+$t^{a}\bigl(t^{-1}\bigr)^{a}=\bigl(t\,t^{-1}\bigr)^{a}=1^{a}=1$ by (P2), and
+$t^{a}t^{-a}=t^{0}=1$; since $t^{a}>0$ by (P1), both $\bigl(t^{-1}\bigr)^{a}$ and $t^{-a}$
+equal $1/t^{a}$, hence they are equal.
+\item[(P4)] \emph{Natural exponents.}  For $t>0$ and $n\in\mathbb{N}$ the real power $t^{a}$ at
+$a:=n$ agrees with the $n$-fold product $t^{n}$; this is part of what it means for $t^{a}$ to be
+the real power, which extends the integer power, and we use the two notations interchangeably
+for positive $t$.
+\end{itemize}
+
+Fix $y$ with $\tau S\le\lvert y\rvert$ and put $t:=\lvert y\rvert$.  Since $\tau>0$ and $S>0$ we
+have $\tau S>0$, hence
+\begin{equation}\label{eq:tpfb-tpos}
+  t\ge\tau S>0 .
+\end{equation}
+
+\medskip\noindent\emph{Step 1: the far-regime power comparison.}
+We claim that for every real $a$ with $0\le a\le\sigma$,
+\begin{equation}\label{eq:tpfb-far}
+  S^{\,\sigma-a}\,t^{a}\le\tau^{-\sigma}\,t^{\sigma}.
+\end{equation}
+Dividing $\tau S\le t$ by $\tau>0$ gives $S\le\tau^{-1}t$.  Since $\sigma-a\ge0$, monotonicity
+in the base (clause (3) of the real-powers proposition) applied to $0<S\le\tau^{-1}t$ gives
+$S^{\,\sigma-a}\le\bigl(\tau^{-1}t\bigr)^{\sigma-a}$, and multiplying by $t^{a}\ge0$ --- which
+is positive by (P1) and \eqref{eq:tpfb-tpos} --- preserves the inequality.  Now
+\[
+  \bigl(\tau^{-1}t\bigr)^{\sigma-a}t^{a}
+  =\bigl(\tau^{-1}\bigr)^{\sigma-a}t^{\,\sigma-a}t^{a}
+  =\tau^{-(\sigma-a)}\,t^{\,\sigma-a}t^{a}
+  =\tau^{-(\sigma-a)}\,t^{\sigma}
+  =\tau^{-\sigma}\,\tau^{a}\,t^{\sigma},
+\]
+where the first equality is clause (2) applied to the product $\tau^{-1}\cdot t$ of two
+nonnegative numbers, the second is (P3) with base $\tau>0$, the third is clause (2) applied to
+$t^{\,\sigma-a}t^{a}=t^{\sigma}$ --- legitimate since $t>0$ --- and the fourth is clause (2)
+applied to $\tau^{-\sigma}\tau^{a}=\tau^{-\sigma+a}=\tau^{-(\sigma-a)}$.  Finally
+$\tau^{a}\le1^{a}=1$, by monotonicity in the base with $0<\tau\le1$ and $a\ge0$ together with
+(P2), while $\tau^{-\sigma}t^{\sigma}\ge0$ by (P1); multiplying gives
+$\tau^{-\sigma}\tau^{a}t^{\sigma}\le\tau^{-\sigma}t^{\sigma}$.  Chaining the three displays
+yields \eqref{eq:tpfb-far}.
+
+\medskip\noindent\emph{Step 2: the degree-zero summand vanishes.}
+By the definition in \noderef{TaylorPoly},
+\[
+  \mathrm{TaylorPoly}(k,v,0)(y)
+  =\sum_{j=0}^{k}\frac{1}{j!}\,D^{j}v(0)[y-0,\ldots,y-0]
+  =\sum_{j=0}^{k}\frac{1}{j!}\,D^{j}v(0)[y,\ldots,y],
+\]
+the shift being $y-0=y$.  The summand with $j=0$ is $\frac{1}{0!}D^{0}v(0)$ evaluated on the
+empty family, which equals $v(0)$ by clause (1) of the background proposition on the recursion
+for the iterated Fr\'echet derivative, and $v(0)=0$ by (H1); so that summand is $0$ and
+\begin{equation}\label{eq:tpfb-sum}
+  \mathrm{TaylorPoly}(k,v,0)(y)=\sum_{j=1}^{k}\frac{1}{j!}\,D^{j}v(0)[y,\ldots,y].
+\end{equation}
+
+\medskip\noindent\emph{Step 3: each surviving summand.}
+Let $1\le j\le k$.  Since $j!\ge1$ we have $0<\frac{1}{j!}\le1$, so
+\[
+  \Bigl\lvert\frac{1}{j!}\,D^{j}v(0)[y,\ldots,y]\Bigr\rvert
+  =\frac{1}{j!}\bigl\lvert D^{j}v(0)[y,\ldots,y]\bigr\rvert
+  \le\bigl\lvert D^{j}v(0)[y,\ldots,y]\bigr\rvert
+  \le A\,S^{\,\sigma-j}\,t^{j}
+\]
+by (H2) applied with $w:=y$, reading $\lvert y\rvert^{j}=t^{j}$.  The exponent $j$ is a natural
+number, which by (P4) and \eqref{eq:tpfb-tpos} we may read as the real exponent $j$; so
+\eqref{eq:tpfb-far} applies with $a:=j$ --- legitimate since $0\le j$ and $j\le k\le\sigma$ by
+hypothesis --- and gives $S^{\,\sigma-j}t^{j}\le\tau^{-\sigma}t^{\sigma}$.  Multiplying by
+$A>0$,
+\begin{equation}\label{eq:tpfb-term}
+  \Bigl\lvert\frac{1}{j!}\,D^{j}v(0)[y,\ldots,y]\Bigr\rvert
+  \le A\,\tau^{-\sigma}\,t^{\sigma}\qquad(1\le j\le k).
+\end{equation}
+
+\medskip\noindent\emph{Conclusion.}
+By \eqref{eq:tpfb-sum}, the triangle inequality and \eqref{eq:tpfb-term}, the sum has $k$
+summands each of absolute value at most $A\tau^{-\sigma}t^{\sigma}$, so
+\[
+  \bigl\lvert\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert
+  \le\sum_{j=1}^{k}\Bigl\lvert\frac{1}{j!}\,D^{j}v(0)[y,\ldots,y]\Bigr\rvert
+  \le k\,A\,\tau^{-\sigma}\,t^{\sigma}
+  =k\,A\,\tau^{-\sigma}\,\lvert y\rvert^{\sigma},
+\]
+which is the assertion.  When $k=0$ the sum in \eqref{eq:tpfb-sum} is empty, both sides are $0$,
+and the assertion holds as $0\le0$.
+\end{proof}

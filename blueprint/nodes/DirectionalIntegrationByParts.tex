@@ -1,0 +1,152 @@
+\begin{lemma}[Integration by parts in a fixed direction]
+Let $U\subseteq\mathrm{Plane}$ be open, let $X\colon\mathrm{Plane}\to\mathrm{Plane}$ be of class
+$C^{1}$ on $U$, and let $Y\colon\mathrm{Plane}\to\mathrm{Plane}$ be of class $C^{1}$ on all of
+$\mathrm{Plane}$, with compact support and $\operatorname{tsupp}Y\subseteq U$.  For
+$e\in\mathrm{Plane}$ write $\partial_eZ(x):=DZ(x)[e]$ for the derivative of a map $Z$ at $x$ in
+the direction $e$.  Then
+\[
+  \int_U\bigl\langle\partial_eX(x),\,Y(x)\bigr\rangle\,dx
+  =-\int_U\bigl\langle X(x),\,\partial_eY(x)\bigr\rangle\,dx ,
+\]
+both integrals being over $U$ with respect to Lebesgue measure.
+\end{lemma}
+\begin{proof}
+Write $K:=\operatorname{tsupp}Y$, a compact --- hence closed --- subset of $U$, so that
+$\mathrm{Plane}\setminus K$ is open and
+\begin{equation}\label{eq:dibp-cover}
+  \mathrm{Plane}=U\cup(\mathrm{Plane}\setminus K).
+\end{equation}
+Let
+\[
+  B\colon\mathrm{Plane}\times\mathrm{Plane}\to\mathbb{R},\qquad
+  B(a,b):=\langle a,b\rangle
+\]
+be the inner product of \noderef{Plane}.  It is bilinear, and by the Cauchy--Schwarz inequality
+$\lvert B(a,b)\rvert\le\lvert a\rvert\,\lvert b\rvert$, so $B$ is continuous with
+$\lVert B\rVert\le1$; thus $B$ is a continuous bilinear pairing in the sense of clause (2) of
+the background proposition on the order shift and derivatives of a continuous bilinear pairing,
+with $W_1=W_2=\mathrm{Plane}$ and $W_3=\mathbb{R}$.
+
+A word on the reading of ``of class $C^{1}$'' for the $\mathrm{Plane}$-valued maps $X$ and $Y$.
+For a map into any normed real vector space, being of class $C^{1}$ on an \emph{open} set $V$
+means being differentiable at every point of $V$ with derivative
+$D(\cdot)\colon V\to\mathcal{L}(\mathrm{Plane},\cdot)$ continuous on $V$, and $C^{1}$ regularity
+restricts to subsets directly from the definition.  For scalar-valued maps these are precisely
+clauses (2) and (4) of the background proposition on locality of $C^{1}$ regularity and
+continuity of the gradient; we use the same two facts for $X$ and $Y$, whose target is
+$\mathrm{Plane}$ rather than $\mathbb{R}$.  Thus $X$ and $DX$ are continuous on $U$, and $Y$ and
+$DY$ are continuous on all of $\mathrm{Plane}$.  Since $S\mapsto S[e]$ is a linear and
+continuous map on $\mathcal{L}(\mathrm{Plane},\mathrm{Plane})$, the maps
+$\partial_eX=DX(\cdot)[e]$ and $\partial_eY=DY(\cdot)[e]$ are continuous on $U$ and on
+$\mathrm{Plane}$ respectively.
+
+\medskip\noindent\emph{Step 0: $Y$ and $DY$ vanish off $K$.}
+A point $x\notin K$ has an open neighbourhood, namely $\mathrm{Plane}\setminus K$, on which $Y$
+vanishes identically; hence $Y(x)=0$, and $DY(x)=0$ because the derivative of a map agreeing
+with the constant $0$ on a neighbourhood of $x$ is $0$ there.  In particular
+$\partial_eY(x)=DY(x)[e]=0$ for $x\notin K$.
+
+\medskip\noindent\emph{Step 1: the pairing $F:=\langle X,Y\rangle$ is of class $C^{1}$ on
+$\mathrm{Plane}$, with compact support contained in $K$, and $DF$ vanishes off $K$.}
+Define $F\colon\mathrm{Plane}\to\mathbb{R}$ by $F(x):=\langle X(x),Y(x)\rangle$.  Every point of
+$\mathrm{Plane}$ has, by \eqref{eq:dibp-cover}, an open neighbourhood on which $F$ is of class
+$C^{1}$: for a point of $U$ the set $U$ itself, since $X$ is of class $C^{1}$ on $U$ and $Y$ is
+of class $C^{1}$ on $\mathrm{Plane}$, hence on $U$ by restriction, so that $F=B(X,Y)$ is of
+class $C^{1}$ on $U$ by the last sentence of clause (2) of the order-shift proposition; and for a point outside $K$ the set $\mathrm{Plane}\setminus K$, on
+which $Y\equiv0$ by Step 0 and therefore $F\equiv0$, a function of class $C^{1}$ by clause (4)
+of the background proposition on the product rule and linearity for the classical gradient.  By
+clause (1) of the locality proposition, applied with $\Omega=\mathrm{Plane}$, $F$ is of class
+$C^{1}$ on $\mathrm{Plane}$.  Its support is contained in the compact set $K$, since $F$
+vanishes off $K$, and is closed, hence compact.  Finally $DF\equiv0$ on the open set
+$\mathrm{Plane}\setminus K$, on which $F\equiv0$, by clause (3) of the product-rule
+proposition.
+
+\medskip\noindent\emph{Step 2: the directional derivative of $F$ has vanishing mean.}
+By Step 1 the function $F$ is of class $C^{1}$ on $\mathrm{Plane}$ with compact support, so
+\noderef{TestFunctionGradientIntegral} applied to $F$ gives
+$\int_{\mathrm{Plane}}DF\,dx=0$.  Here $DF$ is continuous on $\mathrm{Plane}$ (clause (2) of the
+locality proposition) with support contained in the compact $K$ by Step 1, hence integrable by
+clause (1) of the background proposition on integrability of continuous and of compactly
+supported functions.  Pairing with $e$ and using the background proposition on continuous linear
+maps and the Bochner integral,
+\begin{equation}\label{eq:dibp-zero}
+  \int_{\mathrm{Plane}}\bigl\langle DF(x),e\bigr\rangle\,dx
+  =\Bigl\langle\int_{\mathrm{Plane}}DF\,dx,\;e\Bigr\rangle=0 .
+\end{equation}
+By clauses (2) and (3) of the background proposition on the Riesz identification of the
+gradient with the Fr\'echet derivative, applied to the scalar function $F$ at each point $x$,
+the classical gradient $DF(x)$ and the Fr\'echet derivative of $F$ at $x$ determine one
+another by $J(DF(x))=DF(x)[\cdot]$, so that
+\begin{equation}\label{eq:dibp-riesz}
+  \bigl\langle DF(x),e\bigr\rangle=\partial_eF(x)\qquad(x\in\mathrm{Plane}).
+\end{equation}
+
+\medskip\noindent\emph{Step 3: the product rule, at every point of the plane.}
+We claim that
+\begin{equation}\label{eq:dibp-prod}
+  \bigl\langle DF(x),e\bigr\rangle
+  =\bigl\langle\partial_eX(x),Y(x)\bigr\rangle+\bigl\langle X(x),\partial_eY(x)\bigr\rangle
+  \qquad\text{for every }x\in\mathrm{Plane}.
+\end{equation}
+By \eqref{eq:dibp-cover} it suffices to treat two cases.  If $x\in U$, then $X$ and $Y$ are
+both differentiable at $x$, being of class $C^{1}$ on the open sets $U$ and $\mathrm{Plane}$
+respectively, so clause (2) of the order-shift proposition,
+applied to the pairing $B$ with $h=e$, gives
+\[
+  D\bigl(B(X,Y)\bigr)(x)[e]
+  =B\bigl(DX(x)[e],\,Y(x)\bigr)+B\bigl(X(x),\,DY(x)[e]\bigr)
+  =\bigl\langle\partial_eX(x),Y(x)\bigr\rangle+\bigl\langle X(x),\partial_eY(x)\bigr\rangle ,
+\]
+and the left-hand side is $\partial_eF(x)=\langle DF(x),e\rangle$ by
+\eqref{eq:dibp-riesz}.  If $x\notin K$, then $F\equiv0$ on the open set
+$\mathrm{Plane}\setminus K$, so $DF(x)=0$ by clause (3) of the product-rule proposition and the
+left-hand side of \eqref{eq:dibp-prod} is $0$; while on the right $Y(x)=0$ and
+$\partial_eY(x)=0$ by Step 0, so both summands vanish as well.  This proves
+\eqref{eq:dibp-prod}.  Note that the two cases do cover $\mathrm{Plane}$, and that no appeal to
+differentiability of $X$ outside $U$ is made: outside $K$ the identity holds because every term
+in it vanishes.
+
+\medskip\noindent\emph{Step 4: both summands are integrable on the plane.}
+Let $f$ be either of the two functions
+$x\mapsto\langle\partial_eX(x),Y(x)\rangle$ and $x\mapsto\langle X(x),\partial_eY(x)\rangle$.
+Each is continuous on $U$, the inner product being continuous and the four maps
+$X,\partial_eX,Y,\partial_eY$ being continuous on $U$; and each vanishes off $K$, by Step 0
+--- the first because $Y$ does, the second because $\partial_eY$ does.  Exactly as in Step 1,
+and using \eqref{eq:dibp-cover}, every point of $\mathrm{Plane}$ therefore has an open
+neighbourhood on which $f$ is continuous: the set $U$ for a point of $U$, and
+$\mathrm{Plane}\setminus K$ otherwise, on which $f\equiv0$.  Continuity at a point being a
+local property, $f$ is continuous at every point of $\mathrm{Plane}$, hence continuous on all
+of $\mathrm{Plane}$.  Its support is contained in the
+compact set $K$ and is closed, hence compact, so $f$ is integrable on $\mathrm{Plane}$ by
+clause (1) of the integrability proposition.
+
+\medskip\noindent\emph{Step 5: localization.}
+Each of the two functions $f$ of Step 4 is integrable on $\mathrm{Plane}$ and vanishes on
+$\mathrm{Plane}\setminus U$, since $K\subseteq U$.  By clause (4) of the integrability
+proposition, applied with the ambient set $\mathrm{Plane}$ and the subset $U$, its integral over
+$\mathrm{Plane}$ equals its integral over $U$:
+\begin{equation}\label{eq:dibp-loc}
+  \int_U\bigl\langle\partial_eX,Y\bigr\rangle\,dx
+   =\int_{\mathrm{Plane}}\bigl\langle\partial_eX,Y\bigr\rangle\,dx,
+  \qquad
+  \int_U\bigl\langle X,\partial_eY\bigr\rangle\,dx
+   =\int_{\mathrm{Plane}}\bigl\langle X,\partial_eY\bigr\rangle\,dx .
+\end{equation}
+
+\medskip\noindent\emph{Conclusion.}
+Integrating \eqref{eq:dibp-prod} over $\mathrm{Plane}$ and splitting the right-hand side by
+linearity of the integral --- legitimate because both summands are integrable on
+$\mathrm{Plane}$ by Step 4 --- and then using \eqref{eq:dibp-zero},
+\[
+  0=\int_{\mathrm{Plane}}\bigl\langle DF(x),e\bigr\rangle\,dx
+   =\int_{\mathrm{Plane}}\bigl\langle\partial_eX,Y\bigr\rangle\,dx
+   +\int_{\mathrm{Plane}}\bigl\langle X,\partial_eY\bigr\rangle\,dx .
+\]
+By \eqref{eq:dibp-loc} the same identity holds with both integrals taken over $U$, and moving
+the second summand to the other side gives
+\[
+  \int_U\bigl\langle\partial_eX(x),Y(x)\bigr\rangle\,dx
+  =-\int_U\bigl\langle X(x),\partial_eY(x)\bigr\rangle\,dx ,
+\]
+which is the assertion.
+\end{proof}

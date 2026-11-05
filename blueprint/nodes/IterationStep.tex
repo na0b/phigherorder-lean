@@ -1,0 +1,144 @@
+\begin{lemma}[One guarded step of the iteration]
+Let $1<p<2$, let the Lewis rigidity datum of \noderef{LewisRigidityInput}, the Lewis--Tolksdorf
+datum $F$ of \noderef{FirstOrderEstimateInput} and the Iwaniec--Manfredi datum of
+\noderef{IMRegularityInput} be given for $p$, let $k\in\mathbb{N}$ with $k\ge2$, let
+$0<\beta<1$, and suppose $k+\beta<s(p)$ with $s(p)$ as in \noderef{SOpt}.  Write
+$\sigma:=k+\beta$.  Then there are $\delta>0$ and $\theta$ with $0<\theta<1/4$, depending only
+on $p,k,\beta$ and the data, with the following property.
+
+Let $v\colon\mathrm{Plane}\to\mathbb{R}$ be $p$-harmonic on $B_1$ with weak gradient $g$ in the
+sense of \noderef{IsPHarm}, suppose $\lvert v\rvert\le1$ on $B_1$ and $v(0)=0$, and let
+$R\in\mathbb{R}$ satisfy $0<R\le1$ together with
+\[
+  \lvert v(y)\rvert\le R^{\sigma}\ \text{ for every }y\text{ with }\lvert y\rvert<R,
+  \qquad
+  R^{\,1-\sigma}\,\lvert Dv(0)\rvert\le\delta ,
+\]
+where $Dv$ is the classical gradient.  Then there is $R'\in\mathbb{R}$ with
+\[
+  0<R'\le1,\qquad
+  \lvert v(y)\rvert\le (R')^{\sigma}\ \text{ for every }y\text{ with }\lvert y\rvert<R',
+  \qquad
+  \theta R\le R'\le\frac{R}{4}.
+\]
+
+This is one step of the paper's construction at lines 228--240, with the paper's sequence of
+rescaled functions $v_\ell(x)=v(R_\ell x)/R_\ell^{\sigma}$ eliminated from the statement: the
+three normalizations the paper asks of $v_\ell$ --- $p$-harmonic in $B_1$, vanishing at zero,
+and $\lVert v_\ell\rVert_{L^{\infty}(B_1)}\le1$ --- and the continuation condition
+$\lvert Dv_\ell(0)\rvert\le\delta$ are properties of $v$ and the single radius $R=R_\ell$,
+displayed above.  The conclusion is the paper's (3.2) at the next scale.
+\end{lemma}
+\begin{proof}
+\medskip\noindent\emph{A remark on real powers, recorded once and used throughout.}  Two facts
+about real powers are used below which are \emph{not} among the listed clauses of the background
+proposition on elementary properties of real powers, so we derive them here from those clauses
+rather than attaching a citation the proposition does not support.  Throughout, $t^{0}=1$ for
+$t>0$: that is the value of the real power at exponent $0$.
+\begin{itemize}
+\item[(P1)] \emph{Positivity.}  For $t>0$ and every $a\in\mathbb{R}$, $t^{a}>0$.  If $a=0$ this
+is $t^{0}=1>0$.  If $a>0$, clause (3) makes $s\mapsto s^{a}$ nondecreasing on $[0,\infty)$ and
+clause (1) gives $0^{a}=0$, so $t^{a}\ge0^{a}=0$; and clause (2), applicable because $t>0$,
+gives $t^{a}t^{-a}=t^{0}=1$, so $t^{a}\ne0$; hence $t^{a}>0$.  If $a<0$ then $-a>0$, so
+$t^{-a}>0$ by the case just done, and $t^{a}t^{-a}=1$ gives $t^{a}=1/t^{-a}>0$.
+\item[(P2)] \emph{Integer exponents.}  For $t>0$ and $n\in\mathbb{N}$ the real power $t^{a}$ at
+$a:=n$ agrees with the $n$-fold product $t^{n}$; this is part of what it means for $t^{a}$ to be
+the real power, which extends the integer power.  Only the case $n=1$ is used below, namely
+$t^{1}=t$.
+\end{itemize}
+
+\emph{Step 0: the constants $\delta$ and $\theta$, fixed before $v$.}
+Apply \noderef{Scales} with the present $p$, $1<p<2$, the three data, $k$, $k\ge2$, $\beta$,
+$0<\beta<1$ and $k+\beta<s(p)$.  It produces $\delta>0$ and a finite nonempty set
+$\mathcal{R}\subseteq\mathbb{R}$ such that every $\rho\in\mathcal{R}$ satisfies
+$0<\rho<1/4$, and with the following scale property, which we refer to as $(\ast)$: for every
+$p$-harmonic $w$ on $B_1$ with weak gradient $h$ satisfying $\lvert w\rvert\le1$ on $B_1$,
+$w(0)=0$ and $\lvert Dw(0)\rvert\le\delta$, there is $\rho\in\mathcal{R}$ such that
+$\lvert w(y)\rvert<\rho^{\sigma}$ for every $y$ with $\lvert y\rvert<\rho$.
+Since $\mathcal{R}$ is finite and nonempty it has a least element; put $\theta:=\min\mathcal{R}$.
+Then $\theta\in\mathcal{R}$, so $0<\theta<1/4$.  Both $\delta$ and $\theta$ were determined by
+$p,k,\beta$ and the data alone.
+
+\emph{Step 1: the rescaled function.}  Let $v,g,R$ be as in the statement and put
+$\sigma=k+\beta$ and $M:=R^{\sigma}$, which is positive by (P1), since $R>0$.  Note also that
+$M^{-1}=R^{-\sigma}$: clause (2) of the real-powers proposition, applicable since $R>0$, gives
+$R^{\sigma}R^{-\sigma}=R^{0}=1$, so $R^{-\sigma}=1/R^{\sigma}=M^{-1}$.
+Define
+\[
+  v_R(x):=\frac{v(0+R\,x)-0}{M},\qquad g_R(x):=\frac{R}{M}\,g(0+R\,x).
+\]
+
+\emph{(1a) $v_R$ is $p$-harmonic on $B_1$ with weak gradient $g_R$.}  Apply
+\noderef{PHarmNormalize} with $\Omega:=B_1$, the function $v$, the weak gradient $g$, the base
+point $x_0:=0$, the dilation $r:=R>0$, the normalizing constant $M>0$ and the additive constant
+$c:=0$: it gives that $v_R$ is $p$-harmonic with weak gradient $g_R$ on the set
+$\Omega_R:=\{x:0+R\,x\in B_1\}$.  Now $B_1\subseteq\Omega_R$, because
+$\lvert 0+R\,x\rvert=R\lvert x\rvert<R\le1$ whenever $\lvert x\rvert<1$.  Since $B_1$ is open,
+the first clause of \noderef{PHarmRestrict}, applied with $\Omega:=\Omega_R$ and
+$\Omega':=B_1$, gives that $v_R$ is $p$-harmonic on $B_1$ with weak gradient $g_R$.
+
+\emph{(1b) $v_R(0)=0$.}  Indeed $v_R(0)=\bigl(v(0+R\cdot0)-0\bigr)/M=v(0)/M=0$ by the
+hypothesis $v(0)=0$.
+
+\emph{(1c) $\lvert v_R\rvert\le1$ on $B_1$.}  Let $\lvert y\rvert<1$.  Then
+$\lvert R\,y\rvert=R\lvert y\rvert<R$, so the hypothesis on $v$ at the radius $R$ gives
+$\lvert v(R\,y)\rvert\le R^{\sigma}=M$, whence
+$\lvert v_R(y)\rvert=\lvert v(R\,y)\rvert/M\le1$.
+
+\emph{(1d) $\lvert Dv_R(0)\rvert\le\delta$.}  First, $v$ is differentiable at $0$: applying the
+estimate carried by $F$ (clause \texttt{est} of \noderef{FirstOrderEstimateInput}) to $v$, $g$
+and the hypothesis $\lvert v\rvert\le1$ on $B_1$ shows that $v$ is of class $C^{1}$ on
+$B_{3/4}$, and clause (2) of the background proposition on locality of $C^{1}$ regularity then
+gives differentiability at every point of that open set, in particular at $0\in B_{3/4}$.
+
+Next, with $T(x):=0+R\,x$, clause (5) of the background proposition on the gradient under an
+affine substitution --- applied with $x_0:=0$, $\lambda:=R>0$, $w:=v$, the constant
+$\mu:=M^{-1}=R^{-\sigma}$ and the additive constant $c:=0$, legitimate since $v$ is
+differentiable at $T(0)=0$ --- gives
+\[
+  Dv_R(0)=D\bigl(\mu\,(v\circ T-c)\bigr)(0)=\mu\,R\,Dv\bigl(T(0)\bigr)
+  =R^{-\sigma}R\,Dv(0)=R^{\,1-\sigma}\,Dv(0),
+\]
+the last equality because $R=R^{1}$ by (P2), so that clause (2) of the real-powers
+proposition, applicable since $R>0$, gives $R^{-\sigma}R^{1}=R^{\,-\sigma+1}=R^{\,1-\sigma}$.
+Hence, $R^{\,1-\sigma}$ being positive by (P1),
+\[
+  \lvert Dv_R(0)\rvert=R^{\,1-\sigma}\lvert Dv(0)\rvert\le\delta
+\]
+by the second displayed hypothesis of the lemma.
+
+\emph{Step 2: applying the scale property.}  By (1a)--(1d) the function $v_R$, with weak
+gradient $g_R$, satisfies every hypothesis of $(\ast)$.  So there is
+$\rho\in\mathcal{R}$ with
+\begin{equation}\label{eq:isp-rho}
+  \lvert v_R(z)\rvert<\rho^{\sigma}\qquad\text{for every }z\text{ with }\lvert z\rvert<\rho .
+\end{equation}
+In particular $0<\rho<1/4$ and $\theta\le\rho$, the latter because $\theta$ is the least element
+of $\mathcal{R}$ and $\rho\in\mathcal{R}$.
+
+\emph{Step 3: the new radius.}  Put $R':=R\rho$.
+
+\emph{$0<R'$}: both factors are positive.
+
+\emph{$R'\le R/4$}: from $\rho<1/4$ and $R>0$ we get $R\rho<R/4$, hence $R'\le R/4$.
+
+\emph{$R'\le1$}: $R'\le R/4\le1/4\le1$, using $R\le1$.
+
+\emph{$\theta R\le R'$}: multiply $\theta\le\rho$ by $R>0$.
+
+\emph{The normalization at $R'$.}  Let $\lvert y\rvert<R'=R\rho$ and put $z:=R^{-1}y$.  Then
+$\lvert z\rvert=R^{-1}\lvert y\rvert<R^{-1}(R\rho)=\rho$, so \eqref{eq:isp-rho} applies to $z$.
+Moreover $R\,z=R\,(R^{-1}y)=y$, so
+$v_R(z)=\bigl(v(R\,z)-0\bigr)/M=v(y)/R^{\sigma}$, and \eqref{eq:isp-rho} reads
+\[
+  \frac{\lvert v(y)\rvert}{R^{\sigma}}<\rho^{\sigma}.
+\]
+Multiplying by $R^{\sigma}>0$, positive by (P1), and using
+$(R\rho)^{\sigma}=R^{\sigma}\rho^{\sigma}$ --- clause
+(2) of the real-powers proposition, valid since $R,\rho\ge0$ --- gives
+\[
+  \lvert v(y)\rvert<R^{\sigma}\rho^{\sigma}=(R\rho)^{\sigma}=(R')^{\sigma},
+\]
+so in particular $\lvert v(y)\rvert\le (R')^{\sigma}$.  As $y$ was arbitrary with
+$\lvert y\rvert<R'$, this is the asserted normalization at $R'$, and the proof is complete.
+\end{proof}

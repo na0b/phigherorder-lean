@@ -1,0 +1,297 @@
+\begin{lemma}[The finite branch of the approximation estimate]
+Let $1<p<2$, let the Lewis--Tolksdorf datum $F$ of \noderef{FirstOrderEstimateInput}, the
+smoothness-away-from-critical-points hypothesis of \noderef{SmoothAwayFromCriticalInput}, the
+interior divergence-form Schauder estimates of \noderef{DivFormSchauderInput} and the
+Iwaniec--Manfredi datum of \noderef{IMRegularityInput} be given for $p$, let $k\in\mathbb{N}$
+with $k\ge2$, let $0<\beta<1$ with $k+\beta<s(p)$ as in \noderef{SOpt}, and write
+$\sigma:=k+\beta$.  Let $\delta>0$ and let $\theta$ satisfy $0<\theta\le1$.
+
+Then there is $C>0$, depending only on $p,k,\beta,\delta,\theta$ and the data, with the
+following property.  Let $v\colon\mathrm{Plane}\to\mathbb{R}$ be $p$-harmonic on $B_1$ with weak
+gradient $g$ in the sense of \noderef{IsPHarm} and $v(0)=0$, let $R\colon\mathbb{N}\to\mathbb{R}$
+and $L\in\mathbb{N}$, and assume
+\begin{enumerate}
+\item[(H1)] $R_0=1$, and $0<R_\ell\le1$ for every $\ell$;
+\item[(H2)] $\lvert v(y)\rvert\le R_\ell^{\sigma}$ for every $\ell$ and every $y$ with
+  $\lvert y\rvert<R_\ell$;
+\item[(H3)] $\theta R_\ell\le R_{\ell+1}$ and $R_{\ell+1}\le R_\ell/4$ for every $\ell<L$;
+\item[(H4)] $\delta<R_L^{\,1-\sigma}\lvert Dv(0)\rvert$, where $Dv$ is the classical gradient.
+\end{enumerate}
+Then
+\begin{enumerate}
+\item $\bigl\lvert D^{j}v(0)[w,\ldots,w]\bigr\rvert\le C\,\lvert w\rvert^{j}$ for every $j$ with
+  $1\le j\le k$ and every $w\in\mathrm{Plane}$;
+\item $\bigl\lvert v(y)-\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert\le C\lvert y\rvert^{\sigma}$
+  for every $y$ with $\lvert y\rvert<1$.
+\end{enumerate}
+
+This is the branch of paper lines 260--281 in which the iteration stops at a first index $L$.
+Conclusion (1) is the paper's (3.3) and conclusion (2) combines (3.4) with the
+paper's far-regime comparison.  The two-sided bound (H3) is guarded by $\ell<L$ and not
+unconditional, because the continuation condition the paper uses to produce the next scale is
+exactly what fails at $L$.  The hypothesis $\theta\le1$ is needed: without an upper bound on
+$\theta$ the comparison of consecutive constructed scales in the far regime yields no bound.
+Conclusion (2) is stated pointwise in $\lvert y\rvert$ rather than indexed by a radius:
+$\lvert y\rvert<1$ is the paper's $0<r\le1$ read as a supremum over the open ball, and the
+pointwise form yields the paper's display at once from $\lvert y\rvert\le r$, whereas the
+radius-indexed form would need a limit $r\downarrow\lvert y\rvert$ to get back here.  The constant $C$ is produced before $v$.
+\end{lemma}
+\begin{proof}
+Since $k\ge2$ and $0<\beta<1$ we have $\sigma=k+\beta>2>1$; also
+$\sigma-j\ge\sigma-k=\beta>0$ for every $j\le k$, and $k+1-\sigma=1-\beta>0$.
+\medskip\noindent\emph{A remark on real powers, recorded once and used throughout.}  Three
+facts about real powers are used below which are \emph{not} among the listed clauses of the
+background proposition on elementary properties of real powers, so we derive them here from
+those clauses.  Throughout, $t^{0}=1$ for $t>0$: that is the value of the real power at
+exponent $0$.
+\begin{itemize}
+\item[(P1)] \emph{Positivity.}  For $t>0$ and every $a\in\mathbb{R}$, $t^{a}>0$.  If $a=0$ this
+is $t^{0}=1>0$.  If $a>0$, clause (3) makes $s\mapsto s^{a}$ nondecreasing on $[0,\infty)$ and
+clause (1) gives $0^{a}=0$, so $t^{a}\ge0^{a}=0$; and clause (2), applicable because $t>0$,
+gives $t^{a}t^{-a}=t^{0}=1$, so $t^{a}\ne0$; hence $t^{a}>0$.  If $a<0$ then $-a>0$, so
+$t^{-a}>0$ by the case just done, and $t^{a}t^{-a}=1$ gives $t^{a}=1/t^{-a}>0$.
+\item[(P2)] \emph{The base $1$.}  For every $a\in\mathbb{R}$, $1^{a}=1$.  Clause (2) gives
+$1^{a}=(1\cdot1)^{a}=1^{a}\cdot1^{a}$, and $1^{a}>0$ by (P1), so dividing by $1^{a}$ gives
+$1^{a}=1$.
+\item[(P3)] \emph{Inverting the base.}  For $t>0$ and every $a\in\mathbb{R}$,
+$\bigl(t^{-1}\bigr)^{a}=t^{-a}$.  Clause (2) gives
+$t^{a}\bigl(t^{-1}\bigr)^{a}=\bigl(t\,t^{-1}\bigr)^{a}=1^{a}=1$ by (P2), and
+$t^{a}t^{-a}=t^{0}=1$; since $t^{a}>0$ by (P1), both $\bigl(t^{-1}\bigr)^{a}$ and $t^{-a}$
+equal $1/t^{a}$, hence they are equal.
+\item[(P4)] \emph{Natural exponents.}  For $t>0$ and $n\in\mathbb{N}$ the real power $t^{a}$ at
+$a:=n$ agrees with the $n$-fold product $t^{n}$; this is part of what it means for $t^{a}$ to be
+the real power, which extends the integer power, and we use the two notations
+interchangeably for positive $t$.
+\end{itemize}
+
+
+\medskip\noindent\textbf{Step 0: the constants, fixed before $v$.}
+Apply \noderef{Noncritical} with $p$, $1<p<2$, the order $k$, the data $F$, the
+smoothness-away-from-critical-points hypothesis, the Schauder estimates, and $\delta>0$.  It
+produces $\tau$ with $0<\tau<1/4$ and $C_\delta>0$ such that, for every $p$-harmonic $w$ on
+$B_1$ with weak gradient $h$, with $\lvert w\rvert\le1$ on $B_1$ and
+$\delta<\lvert Dw(0)\rvert$, the function $w$ is of class $C^{k+1}$ on $B_\tau$ and
+\begin{equation}\label{eq:afc-nc}
+  \bigl\lVert D^{i}w(x)\bigr\rVert\le C_\delta\qquad(i\le k+1,\ x\in B_\tau).
+\end{equation}
+Note $0<\tau<1/4<1$.  Define
+\[
+  C:=\max\Bigl\{\;\max\bigl\{C_\delta,\ \tfrac{C_\delta}{(k+1)!}\bigr\},\quad
+    \tau^{-\sigma}+\theta^{-\sigma}+k\,C_\delta\,\tau^{-\sigma}\;\Bigr\}.
+\]
+Each entry is a positive real --- $C_\delta>0$, $(k+1)!\ge1$, and $\tau^{-\sigma}>0$,
+$\theta^{-\sigma}>0$ by (P1), since $\tau>0$ and $\theta>0$ --- so $C>0$, and $C$ depends only on
+$p,k,\beta,\delta,\theta$ and the data.
+
+Now fix $v,g,R,L$ as in the statement and write $S:=R_L$, so $0<S\le1$ by (H1).
+
+\medskip\noindent\textbf{Step 1: the rescaled solution and $\noderef{Noncritical}$.}
+Put
+\[
+  v_L(x):=\frac{v(S\,x)}{S^{\sigma}},\qquad g_L(x):=\frac{S}{S^{\sigma}}\,g(S\,x),
+\]
+noting $S^{\sigma}>0$ by (P1), since $S>0$.
+
+\emph{(1a) $v_L$ is $p$-harmonic on $B_1$ with weak gradient $g_L$.}  Apply
+\noderef{PHarmNormalize} with $\Omega:=B_1$, the function $v$, the weak gradient $g$, the base
+point $x_0:=0$, the dilation $r:=S>0$, the normalizing constant $M:=S^{\sigma}>0$ and the
+additive constant $c:=0$: it gives $p$-harmonicity of $v_L$ with weak gradient $g_L$ on
+$\{x:0+S\,x\in B_1\}$.  That set contains $B_1$, since $\lvert S\,x\rvert=S\lvert
+x\rvert<S\le1$ for $\lvert x\rvert<1$; as $B_1$ is open, the first clause of
+\noderef{PHarmRestrict} gives $p$-harmonicity of $v_L$ with weak gradient $g_L$ on $B_1$.
+
+\emph{(1b) $\lvert v_L\rvert\le1$ on $B_1$.}  For $\lvert x\rvert<1$ we have $\lvert S\,x\rvert
+=S\lvert x\rvert<S=R_L$, so (H2) at the index $L$ gives $\lvert v(S\,x)\rvert\le S^{\sigma}$ and
+hence $\lvert v_L(x)\rvert\le1$.
+
+\emph{(1c) $v$ is of class $C^{k}$ near the origin.}  Apply clause \texttt{reg} of
+\noderef{IMRegularityInput} with $\Omega:=B_1$, the function $v$, the weak gradient $g$, the
+order $k$, the exponent $\beta$ with $0<\beta<1$ and $k+\beta<s(p)$, and the point
+$x_0:=0\in B_1$: it produces $\rho>0$ with $B_\rho\subseteq B_1$ and $v$ of class $C^{k}$ on
+$B_\rho$.  (We use this solution-dependent $\rho$ rather than transporting regularity through
+the dilation; the conclusions of \noderef{TaylorPolyRescale} invoked next do not mention
+$\rho$.)
+
+\emph{(1d) The jet and polynomial identities.}  Apply \noderef{TaylorPolyRescale} with the order
+$k$, the exponent $\sigma$, the function $v$, the radius $\rho$ from (1c), the $C^{k}$
+regularity on $B_\rho$, the dilation $S>0$, and the function $v_L$, which satisfies
+$v_L(x)=v(S\,x)/S^{\sigma}$ for every $x$ by definition.  Its two conclusions are
+\begin{align}
+  D^{j}v(0)[w,\ldots,w]&=S^{\,\sigma-j}\,D^{j}v_L(0)[w,\ldots,w]
+    &&(j\le k,\ w\in\mathrm{Plane}),\label{eq:afc-jet}\\
+  \mathrm{TaylorPoly}(k,v,0)(z)&=S^{\sigma}\,\mathrm{TaylorPoly}(k,v_L,0)\bigl(S^{-1}z\bigr)
+    &&(z\in\mathrm{Plane}).\label{eq:afc-poly}
+\end{align}
+
+\emph{(1e) $\delta<\lvert Dv_L(0)\rvert$.}  This is the paper's identity
+$Dv_\ell(0)=R_\ell^{\,1-\sigma}Dv(0)$ at line 251, and we obtain it from the gradient of $v$,
+not from the jet identity: the classical gradient of $v_L$ is produced rather than assumed,
+which is the direction the argument needs, since (1c) deliberately does not transport
+regularity through the dilation.
+
+First, $v$ is differentiable at $0$.  By (1c), $v$ is of class $C^{k}$ on the open set
+$B_\rho$, hence of class $C^{1}$ there because $k\ge2\ge1$, and $0\in B_\rho$ since $\rho>0$;
+clause (2) of the background proposition on locality of $C^{1}$ regularity then gives
+differentiability at every point of $B_\rho$, in particular at $0$.
+
+Next, put $T(x):=0+S\,x$, so that $v_L=\mu\,(v\circ T-c)$ with the constants
+$\mu:=S^{-\sigma}$ and $c:=0$: indeed $v_L(x)=v(S\,x)/S^{\sigma}$ by definition, and
+$S^{-\sigma}=1/S^{\sigma}$ because clause (2) of the real-powers proposition gives
+$S^{\sigma}S^{-\sigma}=S^{0}=1$ while $S^{\sigma}>0$ by (P1).  Clause (5) of the background
+proposition on the gradient under an affine substitution, applied with $x_0:=0$,
+$\lambda:=S>0$, $w:=v$ and those constants $\mu,c$ --- legitimate because $v$ is differentiable
+at $T(0)=0$, as just established --- gives that $v_L$ is differentiable at $0$ with
+\[
+  Dv_L(0)=D\bigl(\mu\,(v\circ T-c)\bigr)(0)=\mu\,S\,Dv\bigl(T(0)\bigr)
+  =S^{-\sigma}S\,Dv(0)=S^{\,1-\sigma}\,Dv(0),
+\]
+the last equality by clause (2) of the real-powers proposition, $S$ being positive.  Taking
+norms, and using $S^{\,1-\sigma}>0$ from (P1),
+\[
+  \lvert Dv_L(0)\rvert=S^{\,1-\sigma}\lvert Dv(0)\rvert>\delta
+\]
+by (H4).  So by (1a), (1b) and (1e) the function $v_L$ satisfies every hypothesis of
+\noderef{Noncritical}'s conclusion, and therefore $v_L$ is of class $C^{k+1}$ on $B_\tau$ with
+\begin{equation}\label{eq:afc-vL}
+  \bigl\lVert D^{i}v_L(x)\bigr\rVert\le C_\delta\qquad(i\le k+1,\ x\in B_\tau).
+\end{equation}
+
+\medskip\noindent\textbf{Step 2: conclusion (1), the coefficient bound.}
+Let $1\le j\le k$ and $w\in\mathrm{Plane}$.  By \eqref{eq:afc-vL} with $i:=j\le k+1$ at the
+point $0\in B_\tau$ and the background proposition on the operator norm of a continuous
+multilinear map,
+\[
+  \bigl\lvert D^{j}v_L(0)[w,\ldots,w]\bigr\rvert\le\bigl\lVert D^{j}v_L(0)\bigr\rVert\,
+  \lvert w\rvert^{j}\le C_\delta\lvert w\rvert^{j}.
+\]
+Also $S^{\,\sigma-j}\le1$: indeed $0<S\le1$ and $\sigma-j\ge0$, so by the monotonicity of
+$t\mapsto t^{\sigma-j}$ on $[0,\infty)$ (clause (3) of the real-powers proposition)
+$S^{\,\sigma-j}\le1^{\,\sigma-j}=1$, the last equality by (P2).  Hence by \eqref{eq:afc-jet},
+\[
+  \bigl\lvert D^{j}v(0)[w,\ldots,w]\bigr\rvert
+  =S^{\,\sigma-j}\bigl\lvert D^{j}v_L(0)[w,\ldots,w]\bigr\rvert
+  \le C_\delta\lvert w\rvert^{j}\le C\lvert w\rvert^{j},
+\]
+using $C_\delta\le C$ and $\lvert w\rvert^{j}\ge0$.  This is conclusion (1).
+
+\medskip\noindent\textbf{Step 3: conclusion (2), the error bound.}
+Let $\lvert y\rvert<1$.
+
+\emph{The case $y=0$.}  By clause (5) of \noderef{TaylorPolyDeriv},
+$\mathrm{TaylorPoly}(k,v,0)(0)=v(0)$, so the left-hand side is $0$; and
+$C\lvert0\rvert^{\sigma}=C\cdot0^{\sigma}=0$ because $\sigma\ne0$ (clause (1) of the
+real-powers proposition).  So the claim reads $0\le0$.
+
+\emph{The case $y\ne0$.}  Put $t:=\lvert y\rvert$, so $0<t<1$.  We distinguish the two regimes
+of the paper.
+
+\emph{(3a) The near regime $t<\tau S$ (paper (3.4)).}  Apply \noderef{TaylorRemainder} with
+the function $v_L$, the centre $x_0:=0$, the radius $\rho:=\tau>0$, the order $k$ and the bound
+$M:=C_\delta\ge0$: its two hypotheses are the $C^{k+1}$ regularity of $v_L$ on $B_\tau$ and the
+bound $\lVert D^{k+1}v_L\rVert\le C_\delta$ there, both from \eqref{eq:afc-vL}.  It gives
+\begin{equation}\label{eq:afc-rem}
+  \bigl\lvert v_L(x)-\mathrm{TaylorPoly}(k,v_L,0)(x)\bigr\rvert
+  \le\frac{C_\delta}{(k+1)!}\,\lvert x\rvert^{k+1}\qquad(x\in B_\tau),
+\end{equation}
+since $\lvert x-0\rvert=\lvert x\rvert$.
+
+Put $x:=S^{-1}y$.  Then $\lvert x\rvert=t/S<\tau$ because $t<\tau S$ and $S>0$, so
+$x\in B_\tau$.  Moreover $S\,x=y$, so $v_L(x)=v(y)/S^{\sigma}$ by the definition of $v_L$, and
+\eqref{eq:afc-poly} at $z:=y$ gives
+$\mathrm{TaylorPoly}(k,v,0)(y)=S^{\sigma}\mathrm{TaylorPoly}(k,v_L,0)(x)$.  Hence
+\[
+  v(y)-\mathrm{TaylorPoly}(k,v,0)(y)
+  =S^{\sigma}\Bigl(v_L(x)-\mathrm{TaylorPoly}(k,v_L,0)(x)\Bigr),
+\]
+and by \eqref{eq:afc-rem}, $S^{\sigma}>0$ and $\lvert x\rvert=t/S$,
+\[
+  \bigl\lvert v(y)-\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert
+  \le\frac{C_\delta}{(k+1)!}\,S^{\sigma}\Bigl(\frac{t}{S}\Bigr)^{k+1}.
+\]
+We rewrite the right-hand factor.  All powers below are of positive numbers, so clause (2) of
+the real-powers proposition applies freely; reading the natural exponent $k+1$ as a real one,
+which is legitimate by (P4),
+\[
+  S^{\sigma}\Bigl(\frac{t}{S}\Bigr)^{k+1}
+  =S^{\sigma}\,t^{k+1}S^{-(k+1)}=t^{k+1}S^{\,\sigma-k-1}
+  =t^{\sigma}\,t^{\,k+1-\sigma}S^{\,\sigma-k-1}
+  =t^{\sigma}\Bigl(\frac{t}{S}\Bigr)^{k+1-\sigma}.
+\]
+Now $k+1-\sigma=1-\beta>0$ and $0<t/S<\tau<1$, so by monotonicity in the base (clause (3))
+$\bigl(t/S\bigr)^{1-\beta}\le\tau^{\,1-\beta}\le1^{\,1-\beta}=1$.  Therefore
+\[
+  \bigl\lvert v(y)-\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert
+  \le\frac{C_\delta}{(k+1)!}\,t^{\sigma}\le C\,t^{\sigma},
+\]
+using $C_\delta/(k+1)!\le C$ and $t^{\sigma}\ge0$.  This is conclusion (2) in the near regime,
+and it is exactly the paper's chain
+$C_\delta R_L^{\sigma-k-1}r^{k+1}=C_\delta r^{\sigma}(r/R_L)^{1-\beta}\le C_\delta r^{\sigma}$.
+
+\emph{(3b) The far regime $\tau S\le t$ (paper lines 272--281).}  We bound the two terms
+separately, and we record once the two inequalities both uses rest on.  Let $\varrho>0$,
+$0<\eta\le1$ and suppose $\eta\varrho\le t$.  Dividing by $\eta>0$ gives
+$\varrho\le\eta^{-1}t$, so by monotonicity in the base (clause (3)) and clause (2), for every
+real $a\ge0$ with $a\le\sigma$,
+\begin{equation}\label{eq:afc-far}
+  \varrho^{\,\sigma-a}\,t^{a}\le\bigl(\eta^{-1}t\bigr)^{\sigma-a}t^{a}
+  =\eta^{-(\sigma-a)}t^{\,\sigma-a}t^{a}=\eta^{-(\sigma-a)}t^{\sigma}
+  =\eta^{-\sigma}\,\eta^{a}\,t^{\sigma}\le\eta^{-\sigma}t^{\sigma}.
+\end{equation}
+Here the first inequality is monotonicity in the base (clause (3)) applied with the nonnegative
+exponent $\sigma-a$.  The first equality is clause (2) applied to the product
+$\eta^{-1}\cdot t$, which gives
+$\bigl(\eta^{-1}t\bigr)^{\sigma-a}=\bigl(\eta^{-1}\bigr)^{\sigma-a}t^{\,\sigma-a}$, followed by
+$\bigl(\eta^{-1}\bigr)^{\sigma-a}=\eta^{-(\sigma-a)}$, which is (P3) with $t:=\eta>0$.  The
+second equality is clause (2) applied to $t^{\,\sigma-a}t^{a}=t^{\sigma}$, legitimate since
+$t>0$, and the third is clause (2) applied to
+$\eta^{-\sigma}\eta^{a}=\eta^{-\sigma+a}=\eta^{-(\sigma-a)}$.  The final inequality holds
+because $\eta^{a}\le1^{a}=1$ --- monotonicity in the base with $0<\eta\le1$ and $a\ge0$,
+together with (P2) --- while $\eta^{-\sigma}t^{\sigma}\ge0$ by (P1).  Taking $a:=0$ in \eqref{eq:afc-far} gives
+$\varrho^{\sigma}\le\eta^{-\sigma}t^{\sigma}$, which is the instance used for the solution term
+below; it requires $t>0$, which holds here because $t\ge\tau S>0$.
+
+\emph{The solution term.}  If $t<S$, then (H2) at the index $L$ gives $\lvert v(y)\rvert\le
+S^{\sigma}$, and \eqref{eq:afc-far} with $\varrho:=S$, $\eta:=\tau$, $a:=0$ --- legitimate since
+$\tau S\le t$ and $0<\tau<1$ --- gives $S^{\sigma}\le\tau^{-\sigma}t^{\sigma}$.  If $S\le t$,
+consider $\{\ell\le L:t<R_\ell\}$.  It contains $0$, since $R_0=1>t$, and it is a finite set, so
+it has a greatest element $\ell$.  We have $\ell\ne L$, because $t<R_L=S$ fails; so $\ell<L$ and
+$\ell+1\le L$, and by maximality $t<R_{\ell+1}$ fails, i.e.\ $R_{\ell+1}\le t$.  Since
+$\ell<L$, (H3) applies at $\ell$ and gives $\theta R_\ell\le R_{\ell+1}\le t$.  Now (H2) at the
+index $\ell$ gives $\lvert v(y)\rvert\le R_\ell^{\sigma}$, and \eqref{eq:afc-far} with
+$\varrho:=R_\ell>0$, $\eta:=\theta$, $a:=0$ --- legitimate since $\theta R_\ell\le t$ and
+$0<\theta\le1$ --- gives $R_\ell^{\sigma}\le\theta^{-\sigma}t^{\sigma}$.  In either case
+\begin{equation}\label{eq:afc-sol}
+  \lvert v(y)\rvert\le\bigl(\tau^{-\sigma}+\theta^{-\sigma}\bigr)t^{\sigma},
+\end{equation}
+since both $\tau^{-\sigma}t^{\sigma}$ and $\theta^{-\sigma}t^{\sigma}$ are at most the
+right-hand side, the omitted summand being nonnegative.
+
+\emph{The polynomial term.}  Apply \noderef{TaylorPolyFarBound} with the degree $k$, the
+exponent $\sigma$, the coefficient constant $A:=C_\delta$, the contraction $\tau$, the function
+$v$, the scale $S$ and the point $y$.  Its hypotheses hold: $k\le\sigma$ because
+$\sigma-k=\beta>0$ as recorded in the preliminaries; $C_\delta>0$ and $0<\tau\le1$ by Step 0,
+which produces $\tau$ with $0<\tau<1/4<1$ and $C_\delta>0$; $S=R_L>0$ by (H1); hypothesis (H1)
+of \noderef{TaylorPolyFarBound} is the hypothesis $v(0)=0$ of the present lemma; and its
+hypothesis (H2) is Step 2's computation, which gives
+\[
+  \bigl\lvert D^{j}v(0)[w,\ldots,w]\bigr\rvert
+  =S^{\,\sigma-j}\bigl\lvert D^{j}v_L(0)[w,\ldots,w]\bigr\rvert
+  \le C_\delta\,S^{\,\sigma-j}\,\lvert w\rvert^{j}
+  \qquad(1\le j\le k,\ w\in\mathrm{Plane}),
+\]
+one step before that computation weakens $S^{\,\sigma-j}$ to $1$.  Finally $\tau S\le t$ is the
+hypothesis of the present regime (3b).  The conclusion is
+\begin{equation}\label{eq:afc-pol}
+  \bigl\lvert\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert\le k\,C_\delta\,\tau^{-\sigma}t^{\sigma}.
+\end{equation}
+
+\emph{Conclusion in the far regime.}  By the triangle inequality, \eqref{eq:afc-sol} and
+\eqref{eq:afc-pol},
+\[
+  \bigl\lvert v(y)-\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert
+  \le\bigl(\tau^{-\sigma}+\theta^{-\sigma}+k\,C_\delta\,\tau^{-\sigma}\bigr)t^{\sigma}
+  \le C\,t^{\sigma}
+\]
+by the definition of $C$.  Together with (3a) and the case $y=0$ this is conclusion (2), and the
+proof is complete.
+\end{proof}

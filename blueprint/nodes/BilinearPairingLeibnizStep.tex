@@ -1,0 +1,139 @@
+\begin{lemma}[The Leibniz induction step for the bilinear-pairing H\"older bound]
+Fix $\kappa,d\in\mathbb{R}$ with $0<\kappa$ and $\kappa\le1$, and let $n\in\mathbb{N}$.
+
+\emph{Terminology.}  For a normed real vector space $Z$, an integer $j\ge0$, a real $L\ge0$ and a
+set $U\subseteq\mathrm{Plane}$, say that $\Phi\colon\mathrm{Plane}\to Z$ is \emph{$(j,L)$-good on
+$U$} when $\Phi$ is of class $C^{\infty}$ on $U$ and
+\[
+  \bigl\lVert D^{i}\Phi(x)\bigr\rVert\le L\ \ (i\le j,\ x\in U),
+  \qquad
+  \bigl\lVert D^{j}\Phi(x)-D^{j}\Phi(y)\bigr\rVert\le L\,\lvert x-y\rvert^{\kappa}\ \ (x,y\in U).
+\]
+For $j\in\mathbb{N}$ write $\mathsf{C}(j)$ for the following statement:
+\begin{quote}
+for every $L>0$ there is $q>0$ such that, simultaneously for all normed real vector spaces
+$Z_1,Z_2,Z_3$, every continuous bilinear $B\colon Z_1\times Z_2\to Z_3$ satisfying the
+\emph{pointwise} bound $\lVert B(a,b)\rVert\le\lVert a\rVert\lVert b\rVert$ for all $a\in Z_1$,
+$b\in Z_2$, every open convex $U\subseteq\mathrm{Plane}$ with $\lvert x-y\rvert\le d$ for all
+$x,y\in U$, and all $F\colon\mathrm{Plane}\to Z_1$ and $G\colon\mathrm{Plane}\to Z_2$ that are
+each $(j,L)$-good on $U$, the map $y\mapsto B\bigl(F(y),G(y)\bigr)$ is $(j,q)$-good on $U$.
+\end{quote}
+
+Then $\mathsf{C}(n)$ implies $\mathsf{C}(n+1)$.
+
+Two features of this shape are the point of the statement.  The hypothesis is $\mathsf{C}(n)$
+IN FULL, quantified over EVERY positive constant $L$ and not merely at one fixed constant; and
+the conclusion $\mathsf{C}(n+1)$ produces a NEW constant, not the same one.  Both are needed
+because the step differentiates, which costs one order, and pays for that by invoking
+$\mathsf{C}(n)$ at a strictly larger constant $L\theta$ with $\theta\ge1$ depending only on
+$\kappa$ and $d$.  Since $\theta$ is produced inside the step, no witness has to be supplied by
+whoever runs the induction, and the only parameters are $\kappa$, $d$, the two hypotheses
+$0<\kappa\le1$, and $n$.
+
+In each $\mathsf{C}(j)$ the constant $q$ is produced BEFORE the spaces, the pairing and the data,
+and the quantification over all $Z_1,Z_2,Z_3$ is essential rather than cosmetic: the step applies
+$\mathsf{C}(n)$ to derivative fields, whose values lie in spaces of continuous linear maps.
+\end{lemma}
+\begin{proof}
+Apply \noderef{JetHolderDescent} with the exponent $\kappa$ and the diameter bound $d$ ---
+admissible since $0<\kappa$ and $\kappa\le1$ --- and let $\theta$ be the factor it furnishes, so
+that $\theta\ge1$ and $\theta$ depends only on $\kappa$ and $d$.  For any open convex
+$U\subseteq\mathrm{Plane}$ of diameter at most $d$, that node's two conclusions say: for every
+normed real vector space $Z$, every $j\in\mathbb{N}$, every $L\ge0$ and every
+$\Phi\colon\mathrm{Plane}\to Z$ of class $C^{\infty}$ on $U$ with
+$\lVert D^{i}\Phi(x)\rVert\le L$ for all $i\le j+1$ and $x\in U$,
+\begin{equation}\label{eq:bpls-descent}
+  \bigl\lVert D^{i}\Phi(x)\bigr\rVert\le L\theta\ \ (i\le j,\ x\in U),
+  \qquad
+  \bigl\lVert D^{j}\Phi(x)-D^{j}\Phi(y)\bigr\rVert\le L\theta\,\lvert x-y\rvert^{\kappa}
+  \ \ (x,y\in U),
+\end{equation}
+that is, such a $\Phi$ is $(j,L\theta)$-good on $U$.  We also use $\theta\ge1$ below in the form
+$L\le L\theta$, valid for $L\ge0$.  Note finally that $(j,L)$-goodness is monotone in $L$: if
+$\Phi$ is $(j,L)$-good and $L\le L'$ then $\Phi$ is $(j,L')$-good, since both displayed bounds
+only weaken.
+
+Assume $\mathsf{C}(n)$, write $q_n(L)$ for the constant it furnishes at the constant $L$, and fix
+$L>0$.  Let $Z_1,Z_2,Z_3$, let $B$ satisfy the pointwise bound
+\begin{equation}\label{eq:bpls-B}
+  \lVert B(a,b)\rVert\le\lVert a\rVert\lVert b\rVert\qquad(a\in Z_1,\ b\in Z_2),
+\end{equation}
+let $U$ be open and convex of diameter at most $d$, and let $F$, $G$ be $(n+1,L)$-good on $U$.
+Write $P:=B(F,G)$, which is of class $C^{\infty}$ on $U$ by clause (2) of the background
+proposition on the order shift and derivatives of a continuous bilinear pairing, because $F$ and
+$G$ are.
+
+\medskip\noindent\emph{The derivative of $P$ is a sum of two pairings.}
+By the product rule, clause (2) of the order-shift proposition, for $x\in U$ and
+$h\in\mathrm{Plane}$,
+\[
+  DP(x)[h]=B\bigl(DF(x)[h],\,G(x)\bigr)+B\bigl(F(x),\,DG(x)[h]\bigr),
+\]
+that is, $DP=B_1\bigl(G,DF\bigr)+B_2\bigl(F,DG\bigr)$ on $U$, where
+\[
+  B_1\colon Z_2\times\mathcal{L}(\mathrm{Plane},Z_1)\to\mathcal{L}(\mathrm{Plane},Z_3),
+  \qquad B_1(b,S):=\bigl(h\mapsto B(S[h],b)\bigr),
+\]
+\[
+  B_2\colon Z_1\times\mathcal{L}(\mathrm{Plane},Z_2)\to\mathcal{L}(\mathrm{Plane},Z_3),
+  \qquad B_2(a,T):=\bigl(h\mapsto B(a,T[h])\bigr).
+\]
+Both are bilinear, and both satisfy the pointwise bound in their own spaces: by
+\eqref{eq:bpls-B},
+$\lVert B_1(b,S)[h]\rVert=\lVert B(S[h],b)\rVert\le\lVert S[h]\rVert\lVert b\rVert
+ \le\lVert S\rVert\lvert h\rvert\lVert b\rVert$, so
+$\lVert B_1(b,S)\rVert\le\lVert b\rVert\lVert S\rVert$, and symmetrically
+$\lVert B_2(a,T)\rVert\le\lVert a\rVert\lVert T\rVert$.  This is the point at which a hypothesis
+on the operator norm of $B$ would not survive and the pointwise hypothesis does, which is why
+$\mathsf{C}(j)$ is stated with the pointwise bound.
+
+\medskip\noindent\emph{The four arguments are $(n,L\theta)$-good.}
+First, $DF$ is $(n,L)$-good on $U$: it is of class $C^{\infty}$ there because $F$ is, and by
+clause (1) of the order-shift proposition $\lVert D^{i}(DF)(x)\rVert=\lVert D^{i+1}F(x)\rVert\le
+L$ for $i\le n$ (using the sup bounds of $F$ at orders $\le n+1$), while
+$\lVert D^{n}(DF)(x)-D^{n}(DF)(y)\rVert=\lVert D^{n+1}F(x)-D^{n+1}F(y)\rVert
+ \le L\lvert x-y\rvert^{\kappa}$ is the H\"older bound of $F$ at order $n+1$; the two-point form
+of that order shift is \noderef{IteratedFDerivShiftTwoPoint}.  By monotonicity in the constant,
+$DF$ is also $(n,L\theta)$-good.  Symmetrically $DG$ is $(n,L\theta)$-good.  Second, $F$ and $G$
+are $(n,L\theta)$-good on $U$ by \eqref{eq:bpls-descent}, applied with the sup bounds of $F$ and
+of $G$ at orders $\le n+1$.
+
+\medskip\noindent\emph{Applying $\mathsf{C}(n)$ twice.}
+Let $q_n:=q_n(L\theta)>0$ be the constant $\mathsf{C}(n)$ furnishes for the constant $L\theta$ ---
+available precisely because $\mathsf{C}(n)$ is quantified over every positive constant, and
+$L\theta>0$.  Applying it once with the pairing $B_1$ and the $(n,L\theta)$-good pair $(G,DF)$,
+and once with $B_2$ and the $(n,L\theta)$-good pair $(F,DG)$, both summands of $DP$ are
+$(n,q_n)$-good on $U$.  A sum of an $(n,q_n)$-good and an $(n,q_n)$-good map is
+$(n,Q)$-good on $U$ for any $Q$ with $2q_n\le Q$: this is \noderef{JetSumBounds}, whose clause
+(1) gives $D^{n}(\Phi_1+\Phi_2)=D^{n}\Phi_1+D^{n}\Phi_2$ at each point of the OPEN set $U$ for
+maps smooth on $U$ --- the form needed here, since $DF$ and $DG$ are smooth on $U$ and nowhere
+claimed to be smooth off it --- and whose clauses (2) and (3) add the two summands' bounds, for
+a sup bound and for a two-point difference respectively.  Hence $DP$ is $(n,Q)$-good on $U$ for
+every such $Q$; below it is applied with $Q:=L^{2}+2q_n+1$, which satisfies $2q_n\le Q$ because
+$L^{2}\ge0$.
+
+\medskip\noindent\emph{Reading off the two bounds for $P$ at order $n+1$.}
+For the sup bounds, let $i\le n+1$ and $x\in U$.  If $i=0$ then \eqref{eq:bpls-B} and the
+order-zero sup bounds of $F$ and $G$ give
+$\lVert P(x)\rVert=\lVert B(F(x),G(x))\rVert\le\lVert F(x)\rVert\lVert G(x)\rVert\le L^{2}$.  If
+$1\le i\le n+1$ then $i-1\le n$, so clause (1) of the order-shift proposition and the sup bounds
+for $DP$ give
+\[
+  \bigl\lVert D^{i}P(x)\bigr\rVert=\bigl\lVert D^{\,i-1}(DP)(x)\bigr\rVert\le2q_n .
+\]
+For the H\"older bound at order $n+1$, the two-point order shift
+\noderef{IteratedFDerivShiftTwoPoint} and the two-point bound for $DP$ at order $n$ give, for
+$x,y\in U$,
+\[
+  \bigl\lVert D^{n+1}P(x)-D^{n+1}P(y)\bigr\rVert
+  =\bigl\lVert D^{n}(DP)(x)-D^{n}(DP)(y)\bigr\rVert\le2q_n\lvert x-y\rvert^{\kappa}.
+\]
+So $P$ is $(n+1,q_{n+1}(L))$-good on $U$ with
+\[
+  q_{n+1}(L):=L^{2}+2\,q_n(L\theta)+1,
+\]
+a positive quantity determined by $n,L,\kappa,d$ alone, since $\theta$ depends only on $\kappa$
+and $d$; the $+1$ only keeps it positive, and it dominates both $L^{2}$ and $2q_n$ as the two
+cases above require.  As $Z_1,Z_2,Z_3$, $B$, $U$, $F$ and $G$ were arbitrary subject to the
+stated hypotheses, and $q_{n+1}(L)$ was produced before all of them, this is $\mathsf{C}(n+1)$.
+\end{proof}

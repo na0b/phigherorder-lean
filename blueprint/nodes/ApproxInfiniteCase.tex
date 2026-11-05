@@ -1,0 +1,123 @@
+\begin{lemma}[The infinite branch of the approximation estimate]
+Let $1<p<2$, let the Lewis rigidity datum of \noderef{LewisRigidityInput}, the
+Lewis--Tolksdorf datum $F$ of \noderef{FirstOrderEstimateInput} and the Iwaniec--Manfredi datum
+of \noderef{IMRegularityInput} be given for $p$, let $k\in\mathbb{N}$ with $k\ge2$, let
+$0<\beta<1$ with $k+\beta<s(p)$ as in \noderef{SOpt}, and write $\sigma:=k+\beta$.  Let
+$\theta>0$.
+
+Let $v\colon\mathrm{Plane}\to\mathbb{R}$ be $p$-harmonic on $B_1$ with weak gradient $g$ in the
+sense of \noderef{IsPHarm}, with $v(0)=0$ and $Dv(0)=0$, where $Dv$ is the classical gradient.
+Let $R\colon\mathbb{N}\to\mathbb{R}$ satisfy
+\begin{enumerate}
+\item[(H1)] $R_0=1$ and $R_\ell>0$ for every $\ell$;
+\item[(H2)] $\lvert v(y)\rvert\le R_\ell^{\sigma}$ for every $\ell$ and every $y$ with
+  $\lvert y\rvert<R_\ell$;
+\item[(H3)] $\theta R_\ell\le R_{\ell+1}$ for every $\ell$;
+\item[(H4)] $R_\ell\to0$ as $\ell\to\infty$.
+\end{enumerate}
+Then
+\begin{enumerate}
+\item $D^{j}v(0)[w,\ldots,w]=0$ for every $j$ with $1\le j\le k$ and every
+  $w\in\mathrm{Plane}$;
+\item $\mathrm{TaylorPoly}(k,v,0)$ is the zero function;
+\item $\lvert v(y)\rvert\le\theta^{-\sigma}\lvert y\rvert^{\sigma}$ for every $y$ with
+  $\lvert y\rvert<1$.
+\end{enumerate}
+
+This is the branch of paper lines 252--258 in which the iteration never stops.  Conclusion (3)
+is stated \emph{pointwise} in $\lvert y\rvert$ rather than indexed by a radius: $\lvert
+y\rvert<1$ is the paper's $0<r\le1$ read as a supremum over the open ball, and the pointwise
+form yields the paper's display $\lVert v\rVert_{L^{\infty}(B_r)}\le\theta^{-\sigma}r^{\sigma}$
+at once from $\lvert y\rvert\le r$ and the monotonicity of $t\mapsto t^{\sigma}$.  No upper
+bound on $\theta$ is assumed, and none is used.  The chain $R$ is a hypothesis of this lemma,
+written out as (H1)--(H4); it is not constructed here.
+\end{lemma}
+\begin{proof}
+Since $k\ge2$ and $\beta>0$ we have $\sigma=k+\beta>2>1$, so in particular $\sigma>0$.
+
+\medskip\noindent\textbf{Step 1: conclusion (1), the vanishing jets.}
+Apply the hypothesis carried by \noderef{IMRegularityInput} (clause \texttt{reg}) with
+$\Omega:=B_1$, the function $v$, the weak gradient $g$, the $p$-harmonicity hypothesis, the
+order $k$, the exponent $\beta$ with $0<\beta<1$ and $k+\beta<s(p)$, and the point
+$x_0:=0\in B_1$.  It produces $r>0$ and $C'>0$ with
+\[
+  B_r\subseteq B_1,\qquad v\ \text{of class }C^{k}\text{ on }B_r,
+\]
+together with a H\"older clause for $D^{k}v$ that we do not use.
+
+Since $B_r$ is open and $B_r\subseteq B_1$, the first clause of \noderef{PHarmRestrict},
+applied with $\Omega:=B_1$ and $\Omega':=B_r$, gives that $v$ is $p$-harmonic on $B_r$ with
+weak gradient $g$.  As $k\ge2\ge1$, $v$ is of class $C^{1}$ on $B_r$ (a function of class
+$C^{k}$ on a set is of class $C^{1}$ there).  Therefore
+\noderef{PHarmWeakGradClassical}, applied with $\Omega:=B_r$, gives that $v$ is $p$-harmonic on
+$B_r$ with weak gradient its own classical gradient $Dv$.
+
+Now apply \noderef{Rigidity} with $\Omega:=B_r$, the function $v$, the point $x_0:=0$, which
+lies in $B_r$ because $r>0$, the order $m:=k$ with $2\le k$, the $C^{k}$ regularity on $B_r$
+just obtained, the $p$-harmonicity with weak gradient $Dv$ just obtained, and the hypothesis
+$Dv(0)=0$.  It gives
+\begin{equation}\label{eq:aic-rig}
+  D^{j}v(0)[w,\ldots,w]=0\qquad\text{for every }j\text{ with }2\le j\le k
+  \text{ and every }w .
+\end{equation}
+It remains to treat $j=1$.  By clause (6) of the background proposition on the recursion for
+the iterated Fr\'echet derivative, $D^{1}v(0)[w]=\langle Dv(0),w\rangle$ for every $w$; with
+$Dv(0)=0$ this is $\langle 0,w\rangle=0$.  Together with \eqref{eq:aic-rig} this is conclusion
+(1).
+
+\medskip\noindent\textbf{Step 2: conclusion (2).}
+Let $z\in\mathrm{Plane}$.  By the definition in \noderef{TaylorPoly},
+\[
+  \mathrm{TaylorPoly}(k,v,0)(z)=\sum_{j=0}^{k}\frac{1}{j!}\,D^{j}v(0)[z-0,\ldots,z-0]
+  =\sum_{j=0}^{k}\frac{1}{j!}\,D^{j}v(0)[z,\ldots,z].
+\]
+The summand with $j=0$ is $D^{0}v(0)$ evaluated on the empty family, which equals $v(0)=0$ by
+clause (1) of the recursion proposition and the hypothesis $v(0)=0$.  For $1\le j\le k$ the
+summand vanishes by conclusion (1), taken with $w:=z$.  So every summand is $0$ and
+$\mathrm{TaylorPoly}(k,v,0)(z)=0$.  As $z$ was arbitrary, $\mathrm{TaylorPoly}(k,v,0)$ is the
+zero function.
+
+\medskip\noindent\textbf{Step 3: conclusion (3), the pointwise decay.}
+Let $\lvert y\rvert<1$.
+
+\emph{The case $y=0$.}  Then $\lvert v(0)\rvert=0$ by hypothesis, while
+$\theta^{-\sigma}\lvert 0\rvert^{\sigma}=\theta^{-\sigma}\cdot0^{\sigma}=0$ because
+$\sigma\ne0$ and $0^{a}=0$ for $a\ne0$ (clause (1) of the background proposition on elementary
+properties of real powers).  So the claim reads $0\le0$.
+
+\emph{The case $y\ne0$.}  Put $t:=\lvert y\rvert$, so $0<t<1$.
+
+\emph{Bracketing $t$ between consecutive radii.}  Consider
+$S:=\{\ell\in\mathbb{N}:t<R_\ell\}$.  It is nonempty, since $R_0=1>t$ by (H1) puts $0\in S$.
+It is bounded above: by (H4) and $t>0$ there is $N$ with $R_\ell<t$ for every $\ell\ge N$, so
+$S\subseteq\{0,1,\ldots,N-1\}$.  A nonempty set of natural numbers bounded above has a greatest
+element; let $\ell$ be the greatest element of $S$.  Then
+\begin{equation}\label{eq:aic-bracket}
+  t<R_\ell\qquad\text{and}\qquad R_{\ell+1}\le t,
+\end{equation}
+the second because $\ell+1\notin S$ by maximality.  No monotonicity of $R$ was used, and none
+is available: the chain decreases only where its guard holds.
+
+\emph{The estimate.}  By \eqref{eq:aic-bracket} and (H2) at the index $\ell$, applied to $y$
+with $\lvert y\rvert=t<R_\ell$,
+\begin{equation}\label{eq:aic-good}
+  \lvert v(y)\rvert\le R_\ell^{\sigma}.
+\end{equation}
+By (H3) and \eqref{eq:aic-bracket}, $\theta R_\ell\le R_{\ell+1}\le t$, so dividing by
+$\theta>0$ gives $R_\ell\le\theta^{-1}t$.  Since $\sigma>0$ and $0<R_\ell$, the monotonicity of
+$s\mapsto s^{\sigma}$ on $[0,\infty)$ (clause (3) of the real-powers proposition) gives
+\[
+  R_\ell^{\sigma}\le\bigl(\theta^{-1}t\bigr)^{\sigma}
+  =\bigl(\theta^{-1}\bigr)^{\sigma}t^{\sigma}=\theta^{-\sigma}t^{\sigma},
+\]
+the two equalities by clause (2) of that proposition: the first is
+$(st)^{a}=s^{a}t^{a}$ with $s=\theta^{-1}\ge0$ and $t\ge0$, and the second follows from
+$\theta^{\sigma}\bigl(\theta^{-1}\bigr)^{\sigma}=\bigl(\theta\theta^{-1}\bigr)^{\sigma}
+=1^{\sigma}=1$ together with $1^{\sigma}=1$, which itself follows from
+$1^{\sigma}=1^{\sigma}\cdot1^{\sigma}$ and $1^{\sigma}>0$ (clause (1)).  Combining with
+\eqref{eq:aic-good},
+\[
+  \lvert v(y)\rvert\le\theta^{-\sigma}t^{\sigma}=\theta^{-\sigma}\lvert y\rvert^{\sigma},
+\]
+which is conclusion (3).
+\end{proof}

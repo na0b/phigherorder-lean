@@ -1,0 +1,161 @@
+\begin{lemma}[The approximation estimate]
+Let $1<p<2$, let the Lewis rigidity datum of \noderef{LewisRigidityInput}, the Lewis--Tolksdorf
+datum $F$ of \noderef{FirstOrderEstimateInput}, the Iwaniec--Manfredi datum of
+\noderef{IMRegularityInput}, the smoothness-away-from-critical-points hypothesis of
+\noderef{SmoothAwayFromCriticalInput} and the interior divergence-form Schauder estimates of
+\noderef{DivFormSchauderInput} be given for $p$, let $k\in\mathbb{N}$ with $k\ge2$, and let
+$0<\beta<1$ with $k+\beta<s(p)$ as in \noderef{SOpt}.  Write $\sigma:=k+\beta$.
+
+Then there is $C>0$, depending only on $p,k,\beta$ and the data, such that every
+$v\colon\mathrm{Plane}\to\mathbb{R}$ which is $p$-harmonic on $B_1$ with weak gradient $g$ in
+the sense of \noderef{IsPHarm}, satisfies $\lvert v\rvert\le1$ on $B_1$ and has $v(0)=0$,
+satisfies
+\begin{enumerate}
+\item $\bigl\lvert D^{j}v(0)[w,\ldots,w]\bigr\rvert\le C\,\lvert w\rvert^{j}$ for every $j$ with
+  $1\le j\le k$ and every $w\in\mathrm{Plane}$;
+\item $\bigl\lvert v(y)-\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert\le C\,\lvert y\rvert^{\sigma}$
+  for every $y$ with $\lvert y\rvert<1$.
+\end{enumerate}
+
+This is the paper's (3.1) (paper line 227), with both clauses rendered diagonally
+and the error clause pointwise in $\lvert y\rvert$.  That $C$ is produced before $v$ is the
+whole content of the statement: it is the uniformity the main theorem needs and that the
+qualitative higher regularity of Iwaniec--Manfredi does not supply.
+\end{lemma}
+\begin{proof}
+Since $k\ge2$ and $0<\beta<1$ we have $\sigma=k+\beta>2>1$.
+\medskip\noindent\emph{A remark on real powers, recorded once and used throughout.}  Three
+facts about real powers are used below which are \emph{not} among the listed clauses of the
+background proposition on elementary properties of real powers, so we derive them here from
+those clauses.  Throughout, $t^{0}=1$ for $t>0$: that is the value of the real power at
+exponent $0$.
+\begin{itemize}
+\item[(P1)] \emph{Positivity.}  For $t>0$ and every $a\in\mathbb{R}$, $t^{a}>0$.  If $a=0$ this
+is $t^{0}=1>0$.  If $a>0$, clause (3) makes $s\mapsto s^{a}$ nondecreasing on $[0,\infty)$ and
+clause (1) gives $0^{a}=0$, so $t^{a}\ge0^{a}=0$; and clause (2), applicable because $t>0$,
+gives $t^{a}t^{-a}=t^{0}=1$, so $t^{a}\ne0$; hence $t^{a}>0$.  If $a<0$ then $-a>0$, so
+$t^{-a}>0$ by the case just done, and $t^{a}t^{-a}=1$ gives $t^{a}=1/t^{-a}>0$.
+\item[(P2)] \emph{The base $1$.}  For every $a\in\mathbb{R}$, $1^{a}=1$.  Clause (2) gives
+$1^{a}=(1\cdot1)^{a}=1^{a}\cdot1^{a}$, and $1^{a}>0$ by (P1), so dividing by $1^{a}$ gives
+$1^{a}=1$.
+\item[(P3)] \emph{Inverting the base.}  For $t>0$ and every $a\in\mathbb{R}$,
+$\bigl(t^{-1}\bigr)^{a}=t^{-a}$.  Clause (2) gives
+$t^{a}\bigl(t^{-1}\bigr)^{a}=\bigl(t\,t^{-1}\bigr)^{a}=1^{a}=1$ by (P2), and
+$t^{a}t^{-a}=t^{0}=1$; since $t^{a}>0$ by (P1), both $\bigl(t^{-1}\bigr)^{a}$ and $t^{-a}$
+equal $1/t^{a}$, hence they are equal.
+\end{itemize}
+
+
+\medskip\noindent\textbf{Step 0: the constants, fixed before $v$.}
+Apply \noderef{IterationStep} with $p$, $1<p<2$, the three data it requires, $k$, $k\ge2$,
+$\beta$, $0<\beta<1$ and $k+\beta<s(p)$.  It produces $\delta>0$ and $\theta$ with
+$0<\theta<1/4$ such that, for every $v,g$ as in the present statement and every $R$ with
+$0<R\le1$,
+\begin{equation}\label{eq:ap-step}
+  \begin{aligned}
+  &\bigl(\forall y,\ \lvert y\rvert<R\Rightarrow\lvert v(y)\rvert\le R^{\sigma}\bigr)
+   \ \text{and}\ R^{\,1-\sigma}\lvert Dv(0)\rvert\le\delta\\
+  &\qquad\Longrightarrow\ \exists R',\ 0<R'\le1,\
+   \bigl(\forall y,\ \lvert y\rvert<R'\Rightarrow\lvert v(y)\rvert\le (R')^{\sigma}\bigr),\
+   \theta R\le R'\ \text{and}\ R'\le R/4 .
+  \end{aligned}
+\end{equation}
+In particular $0<\theta\le1$.  Apply \noderef{ApproxFiniteCase} with the same $p$, data, $k$,
+$\beta$, this $\delta>0$ and this $\theta$ with $0<\theta\le1$; it produces $C_{\mathrm{fin}}>0$.
+Put
+\[
+  C:=\max\bigl\{\theta^{-\sigma},\ C_{\mathrm{fin}}\bigr\}.
+\]
+Both entries are positive --- $\theta^{-\sigma}>0$ by (P1), since $\theta>0$ --- so $C>0$, and
+$C$ depends only on $p,k,\beta$ and
+the data, since $\delta$, $\theta$ and $C_{\mathrm{fin}}$ do.
+
+\medskip\noindent\textbf{Step 1: the chain of radii, built once.}
+Fix $v,g$ as in the statement.  Define predicates on $\mathbb{R}$ by
+\[
+  \mathrm{Good}(R):\iff 0<R\ \wedge\ R\le1\ \wedge\
+    \bigl(\forall y,\ \lvert y\rvert<R\Rightarrow\lvert v(y)\rvert\le R^{\sigma}\bigr),
+  \qquad
+  \mathrm{Cont}(R):\iff R^{\,1-\sigma}\lvert Dv(0)\rvert\le\delta .
+\]
+
+$\mathrm{Good}(1)$ holds: $0<1$ and $1\le1$, and for $\lvert y\rvert<1$ the hypothesis
+$\lvert v\rvert\le1$ on $B_1$ gives $\lvert v(y)\rvert\le1=1^{\sigma}$, the last equality
+by (P2).
+
+The step hypothesis of \noderef{IterationSequence} holds with this $\theta$: if
+$\mathrm{Good}(R)$ and $\mathrm{Cont}(R)$, then $0<R\le1$ and the normalization hold, so
+\eqref{eq:ap-step} produces $R'$ with $0<R'\le1$, the normalization at $R'$ --- that is,
+$\mathrm{Good}(R')$ --- and $\theta R\le R'\le R/4$.
+
+So \noderef{IterationSequence}, applied with these $\mathrm{Good}$, $\mathrm{Cont}$ and
+$\theta$, produces $R\colon\mathbb{N}\to\mathbb{R}$ with
+\begin{equation}\label{eq:ap-chain}
+  R_0=1,\qquad \mathrm{Good}(R_\ell)\ \text{for every }\ell,\qquad
+  \mathrm{Cont}(R_\ell)\Rightarrow\bigl(\theta R_\ell\le R_{\ell+1}
+    \ \text{and}\ R_{\ell+1}\le R_\ell/4\bigr)\ \text{for every }\ell .
+\end{equation}
+Unpacking $\mathrm{Good}(R_\ell)$ gives, for every $\ell$,
+\begin{equation}\label{eq:ap-good}
+  0<R_\ell,\qquad R_\ell\le1,\qquad
+  \bigl(\forall y,\ \lvert y\rvert<R_\ell\Rightarrow\lvert v(y)\rvert\le R_\ell^{\sigma}\bigr).
+\end{equation}
+
+Now apply \noderef{IterationDichotomy} with this $\sigma>1$, this $\delta>0$, this $\theta>0$,
+the function $v$ and the chain $R$: its hypotheses are exactly $R_0=1$ and positivity from
+\eqref{eq:ap-good} and \eqref{eq:ap-chain}, the normalization clause of \eqref{eq:ap-good}, and
+the guarded two-sided bound of \eqref{eq:ap-chain}.  Its conclusions are
+\begin{enumerate}
+\item[(D1)] $\mathrm{Cont}(R_\ell)$ for every $\ell$ if and only if $Dv(0)=0$;
+\item[(D2)] if $\mathrm{Cont}(R_\ell)$ for every $\ell$, then $R_\ell\to0$ and a decay estimate
+  we shall not use;
+\item[(D3)] if $Dv(0)\ne0$, there is $L$ with $\neg\,\mathrm{Cont}(R_L)$ and
+  $\mathrm{Cont}(R_\ell)$ for every $\ell<L$.
+\end{enumerate}
+
+\medskip\noindent\textbf{Step 2: the case $Dv(0)=0$.}
+By (D1), $\mathrm{Cont}(R_\ell)$ holds for every $\ell$.  Hence the guard in
+\eqref{eq:ap-chain} is discharged at every index, giving the unconditional
+$\theta R_\ell\le R_{\ell+1}$ for every $\ell$; and (D2) gives $R_\ell\to0$.
+
+Apply \noderef{ApproxInfiniteCase} with $p$, the data, $k$, $k\ge2$, $\beta$, the exponent
+constraint, this $\theta>0$, the function $v$ with weak gradient $g$, the hypotheses $v(0)=0$
+and $Dv(0)=0$, and the chain $R$ with $R_0=1$, positivity and the normalization from
+\eqref{eq:ap-good}, the unconditional left bound just obtained, and $R_\ell\to0$.  It gives
+$D^{j}v(0)[w,\ldots,w]=0$ for $1\le j\le k$, that $\mathrm{TaylorPoly}(k,v,0)$ is the zero
+function, and $\lvert v(y)\rvert\le\theta^{-\sigma}\lvert y\rvert^{\sigma}$ for
+$\lvert y\rvert<1$.
+
+Conclusion (1) follows: for $1\le j\le k$ and any $w$,
+$\lvert D^{j}v(0)[w,\ldots,w]\rvert=0\le C\lvert w\rvert^{j}$, since $C>0$ and
+$\lvert w\rvert^{j}\ge0$.  Conclusion (2) follows: for $\lvert y\rvert<1$,
+\[
+  \bigl\lvert v(y)-\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert=\lvert v(y)-0\rvert=\lvert v(y)\rvert
+  \le\theta^{-\sigma}\lvert y\rvert^{\sigma}\le C\lvert y\rvert^{\sigma},
+\]
+using $\theta^{-\sigma}\le C$ and $\lvert y\rvert^{\sigma}\ge0$.
+
+\medskip\noindent\textbf{Step 3: the case $Dv(0)\ne0$.}
+By (D3) there is $L$ with $\neg\,\mathrm{Cont}(R_L)$, that is
+$\delta<R_L^{\,1-\sigma}\lvert Dv(0)\rvert$, and $\mathrm{Cont}(R_\ell)$ for every $\ell<L$.
+For $\ell<L$ the guard in \eqref{eq:ap-chain} is therefore discharged, giving
+$\theta R_\ell\le R_{\ell+1}$ and $R_{\ell+1}\le R_\ell/4$.
+
+Apply the conclusion of \noderef{ApproxFiniteCase}, whose constant $C_{\mathrm{fin}}$ was
+already fixed in Step 0, to the function $v$ with weak gradient $g$, the hypothesis $v(0)=0$,
+the chain $R$ and the index $L$: its hypotheses are $R_0=1$ with $0<R_\ell\le1$ from
+\eqref{eq:ap-good}, the normalization clause of \eqref{eq:ap-good}, the two-sided bound for
+$\ell<L$ just obtained, and $\delta<R_L^{\,1-\sigma}\lvert Dv(0)\rvert$.  It gives
+\[
+  \bigl\lvert D^{j}v(0)[w,\ldots,w]\bigr\rvert\le C_{\mathrm{fin}}\lvert w\rvert^{j}
+  \quad(1\le j\le k),
+  \qquad
+  \bigl\lvert v(y)-\mathrm{TaylorPoly}(k,v,0)(y)\bigr\rvert\le
+    C_{\mathrm{fin}}\lvert y\rvert^{\sigma}\quad(\lvert y\rvert<1).
+\]
+Since $C_{\mathrm{fin}}\le C$ and both $\lvert w\rvert^{j}$ and $\lvert y\rvert^{\sigma}$ are
+nonnegative, conclusions (1) and (2) follow.
+
+\medskip\noindent As $Dv(0)$ either vanishes or does not, Steps 2 and 3 cover all cases, and
+$C$ was fixed in Step 0 before $v$ was introduced.
+\end{proof}

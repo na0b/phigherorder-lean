@@ -1,0 +1,147 @@
+\begin{lemma}[Domain restriction and data congruence for $p$-harmonicity]
+Let $1<p<2$, let $\Omega\subseteq\mathrm{Plane}$, let $u\colon\mathrm{Plane}\to\mathbb{R}$ and
+$g\colon\mathrm{Plane}\to\mathrm{Plane}$, and assume that $u$ is $p$-harmonic in $\Omega$ with
+weak gradient $g$.  Then:
+\begin{enumerate}
+\item[(a)] \textbf{Restriction.}  For every open $\Omega'\subseteq\Omega$, the function $u$ is
+$p$-harmonic in $\Omega'$ with the same weak gradient $g$.
+\item[(b)] \textbf{Congruence.}  For all $u'\colon\mathrm{Plane}\to\mathbb{R}$ and
+$g'\colon\mathrm{Plane}\to\mathrm{Plane}$ with $u'=u$ on $\Omega$ and $g'=g$ on $\Omega$, the
+function $u'$ is $p$-harmonic in $\Omega$ with weak gradient $g'$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+We refer to the six conditions in the definition of a $p$-harmonic function with weak gradient,
+\noderef{IsPHarm}, by their numbers (1)--(6), and we write $A_p$ for the $p$-flux
+\noderef{PFlux}.  By condition (1) for the datum $h$, the set $\Omega$ is open, hence Lebesgue
+measurable.
+
+\medskip\noindent\emph{Step 0: a localization estimate for test functions.}
+We first record a fact used in part (a).  Let $W\subseteq\mathrm{Plane}$ be open and suppose
+that $u$ is continuous on $W$, that $g$ is almost everywhere strongly measurable with respect to
+Lebesgue measure restricted to $W$, and that $x\mapsto\lvert g(x)\rvert^{p}$ is integrable on
+every compact subset of $W$.  Let $\varphi\colon\mathrm{Plane}\to\mathbb{R}$ be of class
+$C^\infty$ with compact support and $\operatorname{supp}\varphi\subseteq W$, and put
+$K_0:=\operatorname{supp}\varphi$, a compact subset of $W$, and
+\[
+  B:=\sup_{y}\lvert D\varphi(y)\rvert<\infty,\qquad B':=\sup_{y}\lvert\varphi(y)\rvert<\infty,
+\]
+finite because $\varphi$ and $D\varphi$ are continuous and vanish off $K_0$ (on the open set
+$\mathrm{Plane}\setminus K_0$ the function $\varphi$ is identically $0$, so all of its
+derivatives vanish there).  Then each of the three functions
+\[
+  u\,D\varphi,\qquad \varphi\,g,\qquad \bigl\langle A_p(g),D\varphi\bigr\rangle
+\]
+vanishes off $K_0$ and is integrable on $W$, and its integral over $W$ equals its integral over
+$K_0$.  Indeed:
+\begin{itemize}
+\item $W$ is open, hence measurable, by clause (2) of the background proposition on
+integrability of continuous and compactly supported functions.  Since $u$ is continuous on $W$
+and $D\varphi$ is continuous on $\mathrm{Plane}$, the function $u\,D\varphi$ is continuous on
+$W$, hence bounded and integrable on the compact subset $K_0\subseteq W$ by clause (3) of that
+proposition; it vanishes off $K_0$, so it is integrable on $W$ with
+$\int_Wu\,D\varphi=\int_{K_0}u\,D\varphi$ by clause (4).
+\item Taking $a=1$ in clause (4) of the background proposition on elementary properties of real
+powers (legitimate since $1\le p$), $\lvert\eta\rvert\le1+\lvert\eta\rvert^{p}$ for every
+vector $\eta$, so $\lvert\varphi\,g\rvert\le B'(1+\lvert g\rvert^{p})$ pointwise.  The
+right-hand side is integrable on $K_0$ because $\lvert g\rvert^{p}$ is and $\lvert K_0\rvert$ is
+finite.  As $\varphi\,g$ is almost everywhere strongly measurable on $W$, clause (3) of the
+integrability proposition makes it integrable on $K_0$; it vanishes off $K_0$, so clause (4)
+gives integrability on $W$ and $\int_W\varphi\,g=\int_{K_0}\varphi\,g$.
+\item By \noderef{PFluxContinuity}, $A_p$ is continuous on $\mathrm{Plane}$ and
+$\lvert A_p(\eta)\rvert=\lvert\eta\rvert^{\,p-1}$ for every $\eta$.  Hence $A_p\circ g$ is
+almost everywhere strongly measurable on $W$ (composition with a continuous map preserves that,
+by the background proposition on pointwise limits), and so is its inner product with the
+continuous $D\varphi$.  By Cauchy--Schwarz and clause (4) of the elementary-powers proposition
+with $a=p-1\in[0,p]$,
+\[
+  \bigl\lvert\bigl\langle A_p(g(y)),D\varphi(y)\bigr\rangle\bigr\rvert
+  \le B\,\lvert g(y)\rvert^{\,p-1}\le B\bigl(1+\lvert g(y)\rvert^{p}\bigr),
+\]
+which is integrable on $K_0$ as before; the same two clauses give integrability on $W$ and
+equality of the $W$- and $K_0$-integrals.
+\end{itemize}
+
+\medskip\noindent\emph{Part (a).}
+Let $\Omega'\subseteq\Omega$ be open.  We verify the six conditions for $u$, $g$ on $\Omega'$.
+
+(1) $\Omega'$ is open by hypothesis.
+
+(2) $u$ is continuous on $\Omega$ by condition (2) for $h$, hence on the subset $\Omega'$, by
+clause (1) of the background proposition on restriction and congruence.
+
+(3) $g$ is almost everywhere strongly measurable for Lebesgue measure restricted to $\Omega$ by
+condition (3) for $h$.  Since $\Omega'\subseteq\Omega$, clause (2) of the restriction and
+congruence proposition gives the same for Lebesgue measure restricted to $\Omega'$.
+
+(4) Let $K\subseteq\Omega'$ be compact.  Then $K\subseteq\Omega$, so condition (4) for $h$ gives
+that $x\mapsto\lvert g(x)\rvert^{p}$ is integrable on $K$.
+
+(5) Let $\varphi$ be of class $C^\infty$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega'$, and put $K_0:=\operatorname{supp}\varphi$.  Then
+$K_0\subseteq\Omega'\subseteq\Omega$, so $\varphi$ is also an admissible test function for
+$\Omega$, and condition (5) for $h$ gives
+\[
+  \int_\Omega u\,D\varphi\,dx=-\int_\Omega\varphi\,g\,dx .
+\]
+Step 0 applies with $W=\Omega$ (its three hypotheses are conditions (2), (3), (4) for $h$) and
+also with $W=\Omega'$ (its three hypotheses are the conditions (2), (3), (4) just proved).  So
+all four integrals reduce to integrals over $K_0$:
+\[
+  \int_{\Omega'}u\,D\varphi=\int_{K_0}u\,D\varphi=\int_\Omega u\,D\varphi,
+  \qquad
+  \int_{\Omega'}\varphi\,g=\int_{K_0}\varphi\,g=\int_\Omega\varphi\,g .
+\]
+Combining the last two displays, $\int_{\Omega'}u\,D\varphi=-\int_{\Omega'}\varphi\,g$, which
+is condition (5) for $u$, $g$ on $\Omega'$.
+
+(6) With the same $\varphi$ and $K_0$, condition (6) for $h$ gives
+$\int_\Omega\langle A_p(g),D\varphi\rangle\,dx=0$, and Step 0 with $W=\Omega$ and with
+$W=\Omega'$ gives
+\[
+  \int_{\Omega'}\bigl\langle A_p(g),D\varphi\bigr\rangle
+  =\int_{K_0}\bigl\langle A_p(g),D\varphi\bigr\rangle
+  =\int_\Omega\bigl\langle A_p(g),D\varphi\bigr\rangle=0 ,
+\]
+which is condition (6) for $u$, $g$ on $\Omega'$.  This proves (a).
+
+\medskip\noindent\emph{Part (b).}
+Let $u'=u$ on $\Omega$ and $g'=g$ on $\Omega$.  We verify the six conditions for $u'$, $g'$ on
+$\Omega$.  The point throughout is that every condition is either an assertion about points of
+$\Omega$ or an integral over $\Omega$, so it only sees the restrictions of the data to $\Omega$.
+
+(1) $\Omega$ is open, by condition (1) for $h$; this condition does not involve $u$ or $g$.
+
+(2) $u$ is continuous on $\Omega$ by condition (2) for $h$, and $u'=u$ on $\Omega$, so $u'$ is
+continuous on $\Omega$ by clause (1) of the restriction and congruence proposition.
+
+(3) $g$ is almost everywhere strongly measurable for Lebesgue measure restricted to $\Omega$ by
+condition (3) for $h$.  Since $g'=g$ on the measurable set $\Omega$, clause (3) of the
+restriction and congruence proposition gives first that $g'=g$ almost everywhere for that
+measure, and then that $g'$ is almost everywhere strongly measurable for it.
+
+(4) Let $K\subseteq\Omega$ be compact.  For $x\in K$ we have $g'(x)=g(x)$ and hence
+$\lvert g'(x)\rvert^{p}=\lvert g(x)\rvert^{p}$, so the two integrands agree on $K$.  By
+condition (4) for $h$ the second is integrable on $K$, so by clause (5) of the restriction and
+congruence proposition the first is as well.
+
+(5) Let $\varphi$ be of class $C^\infty$ with compact support and
+$\operatorname{supp}\varphi\subseteq\Omega$.  The integrands $u'\,D\varphi$ and $u\,D\varphi$
+agree at every point of $\Omega$, and so do $\varphi\,g'$ and $\varphi\,g$.  By clause (5) of
+the restriction and congruence proposition their integrals over $\Omega$ agree:
+\[
+  \int_\Omega u'\,D\varphi=\int_\Omega u\,D\varphi,\qquad
+  \int_\Omega\varphi\,g'=\int_\Omega\varphi\,g .
+\]
+Condition (5) for $h$ equates the right-hand sides up to sign, so
+$\int_\Omega u'\,D\varphi=-\int_\Omega\varphi\,g'$, which is condition (5) for $u'$, $g'$.
+
+(6) With the same $\varphi$: for $x\in\Omega$ we have $g'(x)=g(x)$ and therefore
+$A_p(g'(x))=A_p(g(x))$, so the integrands $\langle A_p(g'),D\varphi\rangle$ and
+$\langle A_p(g),D\varphi\rangle$ agree at every point of $\Omega$.  By clause (5) of the
+restriction and congruence proposition their integrals over $\Omega$ agree, and condition (6)
+for $h$ makes the second $0$.  Hence
+$\int_\Omega\langle A_p(g'),D\varphi\rangle\,dx=0$, which is condition (6) for $u'$, $g'$.
+
+\medskip\noindent Both parts are proved.
+\end{proof}

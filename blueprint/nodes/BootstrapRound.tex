@@ -1,0 +1,209 @@
+\begin{lemma}[One round of the Schauder bootstrap]
+Suppose interior divergence-form Schauder estimates hold, in the sense of
+\noderef{DivFormSchauderInput}.  Let $j\in\mathbb{N}$, let $\kappa,\lambda,\Lambda,M,b,r,r'$ be
+real numbers with
+\[
+  0<\kappa<1,\qquad 0<\lambda\le\Lambda,\qquad M>0,\qquad b>0,\qquad 0<r'<r .
+\]
+Then there is $N>0$, depending only on $j,\kappa,\lambda,\Lambda,M,b,r,r'$, with the following
+property.
+
+Let $v\colon\mathrm{Plane}\to\mathbb{R}$ and
+$A\colon\mathrm{Plane}\to\mathcal{L}(\mathrm{Plane},\mathrm{Plane})$, write
+$Dv\colon\mathrm{Plane}\to\mathrm{Plane}$ for the classical gradient field of $v$ and
+$\partial_ev(x):=\langle Dv(x),e\rangle$ for $e\in\mathrm{Plane}$, and assume
+\begin{enumerate}
+\item[(H1)] $v$ is of class $C^{\infty}$ on $B_r$;
+\item[(H2)] $\lvert Dv(x)\rvert\le b$ for every $x\in B_r$;
+\item[(H3)] for every $x\in B_r$ and every $\xi\in\mathrm{Plane}$,
+  $\lambda\lvert\xi\rvert^{2}\le\langle A(x)\xi,\xi\rangle$ and
+  $\lvert A(x)\xi\rvert\le\Lambda\lvert\xi\rvert$;
+\item[(H4)] $A$ is of class $C^{j}$ on $B_r$ and
+  $\lVert D^{i}A(x)\rVert\le M$ for every $i\le j$ and every $x\in B_r$;
+\item[(H5)] $\lVert D^{j}A(x)-D^{j}A(y)\rVert\le M\lvert x-y\rvert^{\kappa}$ for all
+  $x,y\in B_r$;
+\item[(H6)] for every $e\in\mathrm{Plane}$ the quadruple
+  $\bigl(B_r,\;A,\;\partial_ev,\;D(\partial_ev)\bigr)$ satisfies the five conditions of
+  \noderef{IsLinearDivSol}.
+\end{enumerate}
+Then
+\[
+  \bigl\lVert D^{m}v(x)\bigr\rVert\le N
+  \quad(1\le m\le j+2,\ x\in B_{r'}),
+  \qquad
+  \bigl\lVert D^{\,j+2}v(x)-D^{\,j+2}v(y)\bigr\rVert\le N\lvert x-y\rvert^{\kappa}
+  \quad(x,y\in B_{r'}).
+\]
+
+In words: one round of the bootstrap converts $C^{j,\kappa}$ bounds on the coefficient field
+$A$, together with the differentiated equations (H6), into $C^{\,j+2,\kappa}$ bounds on the
+scalar function $v$ on a smaller ball.  The gain of two orders over (H4) is the Schauder gain of
+one order applied to the first derivatives of $v$.  The conclusion begins at order $1$: a bound
+at order $0$ is a bound on $v$ itself, for which no Schauder estimate is needed, and none is
+asserted here.  The constant $N$ is produced before $v$ and $A$, so the round is uniform over
+all data satisfying the stated bounds.
+\end{lemma}
+\begin{proof}
+Let $(e_1,e_2)$ be the standard orthonormal basis of $\mathrm{Plane}$, so $\lvert e_l\rvert=1$
+and every $z\in\mathrm{Plane}$ satisfies
+\begin{equation}\label{eq:br-split}
+  z=\sum_{l=1}^{2}\langle z,e_l\rangle\,e_l .
+\end{equation}
+
+\medskip\noindent\emph{A remark on post-composition with a continuous linear map, used twice
+below.}
+\begin{itemize}
+\item[(L)] Let $Z,Z'$ be normed real vector spaces and let $L\colon Z\to Z'$ be linear and
+continuous.  Then $L$ is Fr\'echet differentiable at every $\zeta\in Z$ with $DL(\zeta)=L$:
+linearity gives $L(\zeta+\eta)-L(\zeta)-L(\eta)=0$ for every $\eta$, so the remainder in the
+definition of the Fr\'echet derivative vanishes identically.  Consequently, by clause (1) of the
+background proposition on the chain rule for compositions, if $G\colon\mathrm{Plane}\to Z$ is
+differentiable at $x$ then so is $L\circ G$, with $D(L\circ G)(x)=L\circ DG(x)$.  Moreover, if
+$U_0\subseteq\mathrm{Plane}$ is open and $G$ is of class $C^{\infty}$ on $U_0$, then for every
+$n\in\mathbb{N}$, every $x\in U_0$ and all $u_1,\ldots,u_n\in\mathrm{Plane}$,
+\begin{equation}\label{eq:br-L}
+  D^{n}(L\circ G)(x)[u_1,\ldots,u_n]=L\bigl(D^{n}G(x)[u_1,\ldots,u_n]\bigr),
+\end{equation}
+equivalently $D^{n}(L\circ G)(x)=\Lambda_n\bigl(D^{n}G(x)\bigr)$, where
+$\Lambda_n\colon Q\mapsto\bigl(u_1,\ldots,u_n\mapsto L(Q[u_1,\ldots,u_n])\bigr)$ carries
+continuous $n$-linear maps $\mathrm{Plane}^{n}\to Z$ to continuous $n$-linear maps
+$\mathrm{Plane}^{n}\to Z'$.  The map $\Lambda_n$ is linear, and continuous because
+$\lVert\Lambda_n(Q)\rVert\le\lVert L\rVert\lVert Q\rVert$.  The identity
+\eqref{eq:br-L} is proved by induction on $n$: for $n=0$ both sides are $L(G(x))$ by clause (1)
+of the background proposition on the recursion for the iterated Fr\'echet derivative; and for the
+step, $z\mapsto D^{n}G(z)$ is differentiable on $U_0$ by clause (3) of the recursion proposition,
+so the first part of (L) applied to the continuous linear map $\Lambda_n$ gives
+$D\bigl(D^{n}(L\circ G)\bigr)(x)[w]=\Lambda_n\bigl(D(D^{n}G)(x)[w]\bigr)$, and evaluating at
+$(u_1,\ldots,u_n)$ and using clause (2) of the recursion proposition on each side yields the
+identity at $n+1$.
+
+Finally, if $L$ is a linear \emph{isometry} then so is each $\Lambda_n$: it is linear, and
+\[
+  \lVert\Lambda_n(Q)\rVert
+  =\sup\{\lVert L(Q[u_1,\ldots,u_n])\rVert:\lvert u_1\rvert\le1,\ldots,\lvert u_n\rvert\le1\}
+  =\sup\{\lVert Q[u_1,\ldots,u_n]\rVert:\lvert u_1\rvert\le1,\ldots,\lvert u_n\rvert\le1\}
+  =\lVert Q\rVert ,
+\]
+the outer equalities by the background proposition on the operator norm of a continuous
+multilinear map.
+\end{itemize}
+
+\medskip\noindent\emph{Step 1: the constants.}
+Put $c:=b+1>0$, so $b\le c$.  Apply \noderef{DivFormSchauderInput} with the parameters
+$j,\kappa,\lambda,\Lambda,M,r,r'$ --- admissible since $0<\kappa<1$, $0<\lambda\le\Lambda$,
+$M>0$ and $0<r'<r$ --- and let $S>0$ be the constant it furnishes; it depends only on
+$j,\kappa,\lambda,\Lambda,M,r,r'$.  Put
+\[
+  N:=2cS>0 ,
+\]
+which depends only on $j,\kappa,\lambda,\Lambda,M,b,r,r'$, hence was fixed before $v$ and $A$.
+
+\medskip\noindent\emph{Step 2: the gradient field, and the bridge to $v$.}
+By (H1) and clause (1) of the background proposition on regularity of the gradient field and of
+directional derivatives, applied with $n=\infty$, the field $Dv$ is of class $C^{\infty}$ on
+$B_r$; hence so is each $\partial_{e_l}v=\langle Dv(\cdot),e_l\rangle$, by clause (2) of that
+proposition.  Write $D^{1}v\colon\mathrm{Plane}\to\mathrm{Plane}^{*}$ for the first Fr\'echet
+derivative of $v$.  Apply \noderef{GradientFieldOrderShift} with the open set $U:=B_r$ --- open
+as a metric ball --- and the function $v$, which is of class $C^{\infty}$ there by (H1).  Its
+clauses (3) and (4) are the \emph{bridge}
+\begin{equation}\label{eq:br-bridge}
+  \bigl\lVert D^{n}(Dv)(x)\bigr\rVert=\bigl\lVert D^{\,n+1}v(x)\bigr\rVert,
+  \qquad
+  \bigl\lVert D^{n}(Dv)(x)-D^{n}(Dv)(y)\bigr\rVert
+    =\bigl\lVert D^{\,n+1}v(x)-D^{\,n+1}v(y)\bigr\rVert
+\end{equation}
+for every $n\in\mathbb{N}$ and all $x,y\in B_r$.  Both are equalities: nothing is lost in passing
+between the scalar function and its gradient field.
+
+\medskip\noindent\emph{Step 3: the reassembly.}
+For $l\in\{1,2\}$ let $\iota_l\colon\mathbb{R}\to\mathrm{Plane}$, $\iota_l(t):=t\,e_l$.  It is
+linear, and isometric because $\lvert t\,e_l\rvert=\lvert t\rvert\lvert e_l\rvert=\lvert t\rvert$.
+Put $h_l:=\iota_l\circ\bigl(\partial_{e_l}v\bigr)$, so that $h_l(z)=\bigl(\partial_{e_l}v(z)\bigr)e_l$,
+and by \eqref{eq:br-split} applied to $z:=Dv(z)$,
+\begin{equation}\label{eq:br-comp}
+  Dv=h_1+h_2\qquad\text{on }\mathrm{Plane}.
+\end{equation}
+Each $\partial_{e_l}v$ is of class $C^{\infty}$ on $B_r$ by Step 2, hence so is $h_l$, by (L)
+and the continuity and linearity of $\iota_l$.  Since $D^{n}$ is additive in the map --- clause
+(2) of the recursion proposition together with the linearity of the Fr\'echet derivative give
+$D^{n}(f+g)=D^{n}f+D^{n}g$ for maps of class $C^{n}$ --- \eqref{eq:br-comp} gives
+$D^{n}(Dv)(x)=D^{n}h_1(x)+D^{n}h_2(x)$ for $x\in B_r$.  By (L) with $L:=\iota_l$, which is an
+isometry, $\lVert D^{n}h_l(x)\rVert=\lVert D^{n}(\partial_{e_l}v)(x)\rVert$, and likewise, the
+corresponding $\Lambda_n$ being linear,
+$\lVert D^{n}h_l(x)-D^{n}h_l(y)\rVert=\lVert D^{n}(\partial_{e_l}v)(x)-D^{n}(\partial_{e_l}v)(y)\rVert$.
+With the triangle inequality and \eqref{eq:br-bridge} we conclude, for every $n\in\mathbb{N}$ and
+all $x,y\in B_r$,
+\begin{equation}\label{eq:br-reassemble}
+  \bigl\lVert D^{\,n+1}v(x)\bigr\rVert\le\sum_{l=1}^{2}
+    \bigl\lVert D^{n}(\partial_{e_l}v)(x)\bigr\rVert,
+  \qquad
+  \bigl\lVert D^{\,n+1}v(x)-D^{\,n+1}v(y)\bigr\rVert\le\sum_{l=1}^{2}
+    \bigl\lVert D^{n}(\partial_{e_l}v)(x)-D^{n}(\partial_{e_l}v)(y)\bigr\rVert .
+\end{equation}
+
+\medskip\noindent\emph{Step 4: normalizing each directional derivative.}
+Fix $l\in\{1,2\}$ and put $w:=\partial_{e_l}v$, $G:=Dw$.  By (H6) with $e:=e_l$, the quadruple
+$(B_r,A,w,G)$ satisfies the five conditions of \noderef{IsLinearDivSol}.  So does
+$(B_r,A,c^{-1}w,c^{-1}G)$.  Indeed condition (1) holds because a scalar multiple of a function
+continuous on $B_r$ is continuous on $B_r$; condition (2) because a scalar multiple of an almost
+everywhere strongly measurable map is almost everywhere strongly measurable; condition (3)
+because $\lvert c^{-1}G\rvert^{2}=c^{-2}\lvert G\rvert^{2}$ is integrable on a compact subset of
+$B_r$ whenever $\lvert G\rvert^{2}$ is, a constant multiple of an integrable function being
+integrable; condition (4) because both of its integrals are homogeneous of degree one in the
+pair $(w,G)$, so multiplying the identity for $(w,G)$ by $c^{-1}$ gives the identity for
+$(c^{-1}w,c^{-1}G)$; and condition (5) because $A(x)$ is linear, so
+$A(x)\bigl(c^{-1}G(x)\bigr)=c^{-1}A(x)\bigl(G(x)\bigr)$, the inner product is linear in its first
+argument, and the integral is therefore again homogeneous of degree one, so that it vanishes for
+$c^{-1}G$ as it does for $G$.
+
+Moreover $c^{-1}w$ is normalized: for $x\in B_r$, by the Cauchy--Schwarz inequality for the inner
+product of \noderef{Plane}, $\lvert e_l\rvert=1$ and (H2),
+\[
+  \bigl\lvert c^{-1}w(x)\bigr\rvert
+  =c^{-1}\bigl\lvert\langle Dv(x),e_l\rangle\bigr\rvert
+  \le c^{-1}\lvert Dv(x)\rvert
+  \le c^{-1}b\le1 ,
+\]
+the last step because $b\le c$ and $c>0$.
+
+\medskip\noindent\emph{Step 5: one Schauder round, and undoing the scaling.}
+Apply \noderef{DivFormSchauderInput} with the parameters of Step 1 and with the coefficient field
+$A$, the solution $c^{-1}w$ and its weak gradient $c^{-1}G$.  Its three hypotheses hold: uniform
+ellipticity on $B_r$ is (H3); the $C^{j,\kappa}$ bounds on $A$ are (H4) and (H5); and the
+normalized-weak-solution hypothesis is Step 4.  Its conclusion gives
+\[
+  \bigl\lVert D^{m}\bigl(c^{-1}w\bigr)(x)\bigr\rVert\le S\ \ (m\le j+1,\ x\in B_{r'}),
+  \quad
+  \bigl\lVert D^{\,j+1}\bigl(c^{-1}w\bigr)(x)-D^{\,j+1}\bigl(c^{-1}w\bigr)(y)\bigr\rVert
+    \le S\lvert x-y\rvert^{\kappa}
+\]
+for $x,y\in B_{r'}$.  Now $D^{m}$ is linear in the map, by clause (2) of the recursion
+proposition together with the linearity of the Fr\'echet derivative, so
+$D^{m}\bigl(c^{-1}w\bigr)=c^{-1}D^{m}w$ for every $m$; multiplying through by $c>0$ gives, for
+each $l\in\{1,2\}$,
+\begin{equation}\label{eq:br-w}
+  \bigl\lVert D^{m}(\partial_{e_l}v)(x)\bigr\rVert\le cS\ \ (m\le j+1,\ x\in B_{r'}),
+  \quad
+  \bigl\lVert D^{\,j+1}(\partial_{e_l}v)(x)-D^{\,j+1}(\partial_{e_l}v)(y)\bigr\rVert
+    \le cS\lvert x-y\rvert^{\kappa}
+\end{equation}
+for $x,y\in B_{r'}$.
+
+\medskip\noindent\emph{Conclusion.}
+Note $B_{r'}\subseteq B_r$, since $r'<r$.  Let $1\le m\le j+2$ and $x\in B_{r'}$, and write
+$m=n+1$ with $n:=m-1\le j+1$.  The first half of \eqref{eq:br-reassemble}, applied at $x\in B_r$,
+together with the first half of \eqref{eq:br-w} at the order $n\le j+1$, gives
+\[
+  \bigl\lVert D^{m}v(x)\bigr\rVert\le\sum_{l=1}^{2}
+    \bigl\lVert D^{n}(\partial_{e_l}v)(x)\bigr\rVert\le2cS=N .
+\]
+For the H\"older bound, let $x,y\in B_{r'}$ and take $n:=j+1$ in the second half of
+\eqref{eq:br-reassemble}; with the second half of \eqref{eq:br-w},
+\[
+  \bigl\lVert D^{\,j+2}v(x)-D^{\,j+2}v(y)\bigr\rVert
+  \le\sum_{l=1}^{2}
+    \bigl\lVert D^{\,j+1}(\partial_{e_l}v)(x)-D^{\,j+1}(\partial_{e_l}v)(y)\bigr\rVert
+  \le2cS\lvert x-y\rvert^{\kappa}=N\lvert x-y\rvert^{\kappa} .
+\]
+These are the two assertions.
+\end{proof}

@@ -1,0 +1,212 @@
+\begin{lemma}[Uniform $C^{k+1}$ bounds at a noncritical point]
+Let $1<p<2$, let $k\in\mathbb{N}$, let $F$ be a datum of Lewis--Tolksdorf type for $p$ as in
+\noderef{FirstOrderEstimateInput}, with exponent $\kappa\in(0,1)$ and constant $C_0>0$; let the
+smoothness-away-from-critical-points hypothesis of \noderef{SmoothAwayFromCriticalInput} hold
+for $p$, let the interior divergence-form Schauder estimates of
+\noderef{DivFormSchauderInput} hold, and let $\delta>0$.  Then there are $\tau$ with
+$0<\tau<1/4$ and $C_\delta>0$, depending only on $p$, $k$, $\delta$ and the data
+$\kappa,C_0$, with the following property.
+
+Let $v\colon\mathrm{Plane}\to\mathbb{R}$ be $p$-harmonic on $B_1$ with weak gradient $g$ in the
+sense of \noderef{IsPHarm}, suppose $\lvert v\rvert\le1$ on $B_1$, and suppose
+$\lvert Dv(0)\rvert>\delta$, where $Dv$ is the classical gradient.  Then $v$ is of class
+$C^{k+1}$ on $B_\tau$ and
+\[
+  \bigl\lVert D^{i}v(x)\bigr\rVert\le C_\delta
+  \qquad\text{for every }i\le k+1\text{ and every }x\in B_\tau,
+\]
+that is, $\lVert v\rVert_{C^{k+1}(B_\tau)}\le C_\delta$.
+
+Both $\tau$ and $C_\delta$ are produced before $v$, which is the uniformity the paper's
+statement asserts and which the qualitative higher regularity of Iwaniec--Manfredi does not
+provide.
+\end{lemma}
+\begin{proof}
+Write $\kappa:=F.\kappa\in(0,1)$ and $C_0:=F.C_0>0$ for the data carried by $F$.
+
+\medskip\noindent\textbf{Step 0: all constants, fixed before any $v$.}
+
+\emph{(0a) The radius $\tau$.}  Apply \noderef{GradientAnnulus} with $p$, $F$ and $\delta$ to
+obtain $\tau$ with $0<\tau<1/4$ such that every $v,g$ as in the present statement satisfies: $v$
+is of class $C^{1}$ on $B_{2\tau}$ and, for every $x\in B_{2\tau}$,
+\begin{equation}\label{eq:nc-ann}
+  \frac{\delta}{2}\le\lvert Dv(x)\rvert\le C_0
+  \qquad\text{and}\qquad
+  \lvert Dv(x)-Dv(0)\rvert\le\frac{\delta}{2}.
+\end{equation}
+Note $2\tau<1/2<3/4<1$, so $B_{2\tau}\subseteq B_{3/4}\subseteq B_1$.
+
+\emph{(0b) The annulus and the flux-Jacobian constants.}  Put
+\[
+  a:=\frac{\delta}{4},\qquad b:=C_0+\frac{3\delta}{4},
+\]
+so $0<a\le b$.  Apply \noderef{FluxJacobianElliptic} with $p$, $1<p<2$, and these $a,b$; of its
+clauses we retain here only that $A_p$ and $\xi\mapsto D_\xi A_p(\xi)$ are of class
+$C^{\infty}$ on $\{\zeta\ne0\}$, which is what (1d) below uses.  Its ellipticity constants
+$\lambda,\Lambda$, its bound on the derivatives of $D_\xi A_p$ over the annulus, and the
+diameter bound for the balls $B_{r_i}$ are consumed only by the bootstrap round, which builds
+them for itself from $p,a,b$ and the radius; see \noderef{FluxFieldBootstrapRound}.  Both $a$
+and $b$ depend only on $\delta$ and $C_0$.
+
+\emph{(0c) The nested radii.}  For $0\le i\le k+1$ put
+$r_i:=2\tau-\dfrac{i\,\tau}{k+2}$.  Then $r_0=2\tau$, the sequence is strictly decreasing, and
+\[
+  r_{k+1}=\tau\Bigl(2-\frac{k+1}{k+2}\Bigr)=\tau\,\frac{k+3}{k+2}>\tau,
+\]
+so $\tau<r_i\le2\tau$ for every $i\le k+1$, and $B_\tau\subseteq B_{r_i}\subseteq B_{2\tau}$.
+Each $B_{r_i}$ is open and convex, and for $x,y\in B_{r_i}$ we have
+$\lvert x-y\rvert\le\lvert x\rvert+\lvert y\rvert<2r_i\le4\tau$.
+
+\emph{(0d) The constants of the bootstrap.}  Define $N_0,\ldots,N_k>0$ recursively, as follows.
+Put $N_0:=1+\max\{1,C_0\}$.  Given $N_i>0$ for some $i\le k-1$, let $D'_i\ge1$ be a constant
+furnished by \noderef{FluxFieldBootstrapRound} for the parameters $p$, $F$, the Schauder input,
+$\kappa$, the order $i$, the annulus bounds $a,b$ of (0b), the radii $r:=r_i$, $r':=r_{i+1}$,
+and $D:=N_i$ --- legitimate since $0<a\le b$ by (0b), $0<r_{i+1}<r_i$ by (0c), and $N_i>0$ ---
+and put $N_{i+1}:=D'_i$.  That node produces its constant before any solution is given, and it
+builds the ellipticity constants, the flux-Jacobian bound and the diameter bound it needs from
+$p,a,b,r_i$ internally, so nothing further has to be fixed here.
+Finally set $C_\delta:=N_k>0$.  Every quantity in this step was determined by $p,k,\delta$ and
+the data $\kappa,C_0$, before any function $v$ was given.
+
+\medskip\noindent\textbf{Step 1: fix $v$ and record its structural properties.}
+Let $v,g$ be as in the statement.
+
+\emph{(1a) Restriction and the classical gradient.}  Let $0<r\le2\tau$.  Then $B_r$ is open and
+$B_r\subseteq B_1$, so the first clause of \noderef{PHarmRestrict}, applied with
+$\Omega:=B_1$, gives that $v$ is $p$-harmonic on $B_r$ with weak gradient $g$.  By (0a), $v$ is
+of class $C^{1}$ on $B_{2\tau}$, hence on $B_r$ by restriction (clause (4) of the background
+proposition on locality of $C^{1}$ regularity).  Therefore
+\noderef{PHarmWeakGradClassical}, applied with $\Omega:=B_r$, gives
+\begin{equation}\label{eq:nc-classical}
+  v\ \text{is $p$-harmonic on }B_r\ \text{with weak gradient } Dv \qquad(0<r\le2\tau).
+\end{equation}
+
+\emph{(1b) Smoothness.}  By \eqref{eq:nc-ann}, $\lvert Dv(x)\rvert\ge\delta/2>0$, so
+$Dv(x)\ne0$ for every $x\in B_{2\tau}$.  Apply the hypothesis of
+\noderef{SmoothAwayFromCriticalInput} with $\Omega:=B_1$, the function $v$, the weak gradient
+$g$, and the open set $U:=B_{2\tau}\subseteq B_1$ on which $v$ is of class $C^{1}$ with
+nowhere-vanishing gradient: it gives that $v$ is of class $C^{\infty}$ on $B_{2\tau}$.  In
+particular $v$ is of class $C^{\infty}$ on each $B_{r_i}$, and by clause (1) of the background
+proposition on regularity of the gradient field and of directional derivatives, so is the
+gradient field $Dv$.  Note that this makes all the regularity in the induction below automatic;
+only the quantitative bounds have to be propagated.
+
+\emph{(1c) The convex trap for $Dv$.}  Put $\xi_0:=Dv(0)$ and
+$V:=\{\zeta\in\mathrm{Plane}:\lvert\zeta-\xi_0\rvert<3\delta/4\}$, an open convex set.  Since
+$0\in B_{2\tau}$, \eqref{eq:nc-ann} gives $\lvert\xi_0\rvert\le C_0$, and the hypothesis gives
+$\lvert\xi_0\rvert>\delta$.  For $\zeta\in V$,
+\[
+  \lvert\zeta\rvert\ge\lvert\xi_0\rvert-\frac{3\delta}{4}>\delta-\frac{3\delta}{4}
+  =\frac{\delta}{4}=a,
+  \qquad
+  \lvert\zeta\rvert\le\lvert\xi_0\rvert+\frac{3\delta}{4}\le C_0+\frac{3\delta}{4}=b,
+\]
+so $V$ is contained in the annulus $\{a\le\lvert\zeta\rvert\le b\}$ and avoids the origin.  By
+the second bound of \eqref{eq:nc-ann}, $Dv(x)\in V$ for every $x\in B_{2\tau}$, because
+$\lvert Dv(x)-\xi_0\rvert\le\delta/2<3\delta/4$.
+
+\emph{(1d) The coefficient field.}  Put $A(x):=D_\xi A_p\bigl(Dv(x)\bigr)$.  Since $Dv$ is of
+class $C^{\infty}$ on $B_{2\tau}$ by (1b), maps $B_{2\tau}$ into $V\subseteq\{\zeta\ne0\}$ by
+(1c), and $D_\xi A_p$ is of class $C^{\infty}$ on $\{\zeta\ne0\}$ by (0b), clause (3) of the
+background proposition on the chain rule for compositions gives that $A$ is of class
+$C^{\infty}$ on $B_{2\tau}$.
+
+\emph{(1e) The differentiated equation.}  Let $e\in\mathrm{Plane}$ and $0<r\le2\tau$, and write
+$\partial_ev(x):=\langle Dv(x),e\rangle$.  By \eqref{eq:nc-classical}, (1b) and (1c), the
+hypotheses of \noderef{DifferentiatedEqn} hold with $U:=B_r$ --- $1<p<2$; $v$ is $p$-harmonic on
+$B_r$ with weak gradient $Dv$; $v$ is of class $C^{\infty}$ on $B_r$; and $Dv$ does not vanish
+on $B_r$ --- so $\partial_ev$ is a weak solution of
+$\operatorname{div}\bigl(A\,D(\partial_ev)\bigr)=0$ in $B_r$ with weak gradient
+$D(\partial_ev)$, in the sense of \noderef{IsLinearDivSol}.
+
+\medskip\noindent\textbf{Step 2: the inductive claim.}
+Let $(e_1,e_2)$ be the standard orthonormal basis of $\mathrm{Plane}$.  We prove, by induction
+on $i$, that for every $i\le k$
+\begin{equation}\label{eq:nc-ind}
+  \bigl\lVert D^{m}v(x)\bigr\rVert\le N_i\ \ (m\le i+1,\ x\in B_{r_i}),
+  \quad
+  \bigl\lVert D^{i+1}v(x)-D^{i+1}v(y)\bigr\rVert\le N_i\lvert x-y\rvert^{\kappa}
+  \ \ (x,y\in B_{r_i}).
+\end{equation}
+
+\emph{Base case $i=0$.}  Here $r_0=2\tau$ and $B_{2\tau}\subseteq B_1\cap B_{3/4}$.  For $m=0$,
+$\lVert D^{0}v(x)\rVert=\lvert v(x)\rvert\le1\le N_0$ by the hypothesis $\lvert v\rvert\le1$ on
+$B_1$ and clause (1) of the background proposition on the recursion for the iterated Fr\'echet
+derivative.  For $m=1$, clause (6) of that proposition gives
+$D^{1}v(x)[w]=\langle Dv(x),w\rangle$ for every $w$, i.e.\ $D^{1}v(x)=J\bigl(Dv(x)\bigr)$ with
+$J$ the Riesz map; since $J$ is a linear isometry by clause (1) of the background proposition on
+the Riesz identification, we get both
+\[
+  \bigl\lVert D^{1}v(x)\bigr\rVert=\lvert Dv(x)\rvert
+  \qquad\text{and}\qquad
+  \bigl\lVert D^{1}v(x)-D^{1}v(y)\bigr\rVert=\lvert Dv(x)-Dv(y)\rvert ,
+\]
+the second because $J$ is linear, so $J(\xi)-J(\eta)=J(\xi-\eta)$.  The first gives
+$\lVert D^{1}v(x)\rVert\le C_0\le N_0$ by \eqref{eq:nc-ann}.  For the H\"older bound, the
+estimate carried by $F$ (clause \texttt{est} of \noderef{FirstOrderEstimateInput}), applied to
+$v$, $g$ and the hypothesis $\lvert v\rvert\le1$ on $B_1$, gives
+$\lvert Dv(x)-Dv(y)\rvert\le C_0\lvert x-y\rvert^{\kappa}$ for all $x,y\in B_{3/4}$, hence for
+all $x,y\in B_{2\tau}$; by the second display this is
+$\lVert D^{1}v(x)-D^{1}v(y)\rVert\le C_0\lvert x-y\rvert^{\kappa}\le N_0\lvert
+x-y\rvert^{\kappa}$.
+
+\emph{Inductive step.}  Let $i\le k-1$ and assume \eqref{eq:nc-ind} at $i$.
+
+\emph{(3a) One bootstrap round.}  Apply \noderef{FluxFieldBootstrapRound} with $p$, the range
+$1<p<2$, the first-order input $F$, the Schauder input, the exponent $\kappa$, the order $i$,
+the annulus bounds $a,b$ of (0b), the radii $r:=r_i$ and $r':=r_{i+1}$, and the constant
+$D:=N_i$ --- the same parameters used in (0d), so the constant it furnishes is that same
+$D'_i$ --- and with the function $v$ and the set $V$ of (1c).
+
+Its admissibility conditions hold: $0<a\le b$ by (0b), $0<r_{i+1}<r_i$ by (0c), and $N_i>0$ by
+(0d).  Its seven hypotheses on $v$ and $V$ hold as well.  $V$ is open and convex and contained
+in the annulus $\{a\le\lvert\zeta\rvert\le b\}$, by (1c).  (H1), that $Dv(x)\in V$ for
+$x\in B_{r_i}$, is (1c), which gives this on $B_{2\tau}$, together with
+$B_{r_i}\subseteq B_{2\tau}$ from (0c).  (H2), that $v$ is of class $C^{\infty}$ on $B_{r_i}$,
+is (1b) with the same inclusion.  (H3), that $\lvert v\rvert\le1$ on $B_{r_i}$, is the
+hypothesis of the statement, applicable since $B_{r_i}\subseteq B_{2\tau}\subseteq B_1$ by (0c)
+and (0a).  (H4), that $\lvert Dv(x)\rvert\le C_0$ on $B_{r_i}$, is the first bound of
+\eqref{eq:nc-ann}, again with $B_{r_i}\subseteq B_{2\tau}$.  (H5) and (H6), the sup bounds at
+orders $\le i+1$ and the order-$(i+1)$ H\"older bound with constant $N_i$ on $B_{r_i}$, are
+exactly the two halves of the inductive hypothesis \eqref{eq:nc-ind} at $i$.  (H7), that for
+every $e\in\mathrm{Plane}$ the quadruple $\bigl(B_{r_i},A,\partial_ev,D(\partial_ev)\bigr)$
+satisfies the five conditions of \noderef{IsLinearDivSol} with $A=D_\xi A_p\circ Dv$, is (1e)
+with $r:=r_i$, legitimate since $0<r_i\le2\tau$ by (0c).
+
+Observe which facts this node does NOT need from here: the ellipticity constants of the
+coefficient field, a bound on the flux Jacobian's derivatives, and a diameter bound for
+$B_{r_i}$ are all constructed inside it from $p$, $a$, $b$ and $r_i$, so the hypotheses above
+are about $v$ alone.  Its conclusion is
+\begin{equation}\label{eq:nc-round}
+  \bigl\lVert D^{m}v(x)\bigr\rVert\le D'_i\ \ (m\le i+2,\ x\in B_{r_{i+1}}),
+  \quad
+  \bigl\lVert D^{\,i+2}v(x)-D^{\,i+2}v(y)\bigr\rVert\le D'_i\lvert x-y\rvert^{\kappa}
+  \ \ (x,y\in B_{r_{i+1}}).
+\end{equation}
+
+\emph{(3c) The inductive hypothesis at $i+1$.}  For $1\le m\le i+2$ and $x\in B_{r_{i+1}}$, the
+first half of \eqref{eq:nc-round} gives
+$\lVert D^{m}v(x)\rVert\le P_i\le\max\{1,P_i\}\le N_{i+1}$ by (0d).  For $m=0$ we have
+$\lVert D^{0}v(x)\rVert=\lvert v(x)\rvert\le1\le N_{i+1}$, by clause (1) of the background
+proposition on the recursion for the iterated Fr\'echet derivative, the hypothesis
+$\lvert v\rvert\le1$ on $B_1$ --- applicable since $B_{r_{i+1}}\subseteq B_{2\tau}\subseteq B_1$
+by (0c) and (0a) --- and (0d).  Hence
+\[
+  \bigl\lVert D^{m}v(x)\bigr\rVert\le N_{i+1}\qquad(m\le i+2,\ x\in B_{r_{i+1}}).
+\]
+For the H\"older bound, the second half of \eqref{eq:nc-round} together with
+$P_i\le N_{i+1}$ gives
+\[
+  \bigl\lVert D^{\,i+2}v(x)-D^{\,i+2}v(y)\bigr\rVert\le N_{i+1}\lvert x-y\rvert^{\kappa}
+  \qquad(x,y\in B_{r_{i+1}}).
+\]
+Together these are \eqref{eq:nc-ind} at $i+1$, and the induction is complete.
+
+\medskip\noindent\textbf{Step 3: conclusion.}
+By (1b), $v$ is of class $C^{\infty}$ on $B_{2\tau}$, hence of class $C^{k+1}$ on
+$B_\tau\subseteq B_{2\tau}$, which is the first assertion.  By \eqref{eq:nc-ind} at $i=k$, for
+every $m\le k+1$ and every $x\in B_{r_k}$ we have $\lVert D^{m}v(x)\rVert\le N_k=C_\delta$; and
+$B_\tau\subseteq B_{r_k}$ by (0c), so the same bound holds for every $x\in B_\tau$.  This is the
+second assertion.  Both $\tau$ and $C_\delta$ were fixed in Step 0 from $p,k,\delta$ and the
+data $\kappa,C_0$ alone, before $v$ was introduced.
+\end{proof}

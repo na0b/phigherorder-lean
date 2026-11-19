@@ -3,7 +3,7 @@
 This repository contains a Lean 4 formalization of Theorem 1.1 of the paper below. It is built on [Mathlib](https://github.com/leanprover-community/mathlib4).
 
 > Juan J. Manfredi, Aelson Sobral, Eduardo V. Teixeira and José Miguel Urbano,
-> *Higher-order estimates for p-harmonic functions in the plane*, [(https://arxiv.org/abs/2611.24842)], 2026.
+> *Higher-order estimates for p-harmonic functions in the plane*, https://arxiv.org/abs/2611.24842, 2026.
 
 Theorem 1.1 is the uniform interior C<sup>k,β</sup> estimate for planar p-harmonic functions with 1 < p < 2. Its range is every integer k ≥ 2 and every 0 < β < 1 with k + β < s(p), where s(p) is the Iwaniec–Manfredi exponent:
 
